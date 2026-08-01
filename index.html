@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>arbiterForge — governed autonomy for serious repositories</title>
+<meta name="description" content="arbiterForge builds the governance layer for agentic coding: real stops, durable project context, and an audit trail that survives the host you use.">
+<link rel="canonical" href="https://arbiterforge.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="arbiterForge — governed autonomy for serious repositories">
+<meta property="og:description" content="The governance layer for agentic coding. You decide. The gates enforce.">
+<meta property="og:url" content="https://arbiterforge.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23090d12'/%3E%3Cpath d='M9 22V10h4.5a5.5 5.5 0 0 1 0 11H11' stroke='%23e3b341' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M17 22l6-12' stroke='%23e3b341' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#090d12; --panel:#121a24; --raised:#0e141c; --soft:#17212d;
+  --border:#22303f; --gold:#e3b341; --gold-dim:#d29922; --gold-low:#3b2e0a;
+  --ember:#d97757; --ink:#e9eef4; --muted:#8b95a2;
+  --sans:"Segoe UI Variable","Segoe UI",system-ui,-apple-system,"Helvetica Neue",sans-serif;
+  --mono:"Cascadia Code",Consolas,"SFMono-Regular",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(1100px 520px at 50% -220px, rgba(227,179,65,.10), transparent 70%),
+    radial-gradient(760px 420px at 88% 8%, rgba(217,119,87,.055), transparent 68%);
+  background-repeat:no-repeat;
+}
+.wrap{max-width:60rem;margin:0 auto;padding:clamp(2.5rem,7vw,5.5rem) clamp(1.15rem,4vw,2rem) 3.5rem}
+a{color:inherit}
+
+/* ---- masthead ---- */
+.mast{display:flex;align-items:center;gap:.6rem;margin-bottom:clamp(3rem,9vw,5rem)}
+.mark{width:30px;height:30px;flex:none}
+.mast b{font-weight:650;letter-spacing:-.01em;font-size:1.05rem}
+.mast b i{font-style:normal;color:var(--gold)}
+
+/* ---- hero ---- */
+.eyebrow{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--gold-dim); margin:0 0 1.1rem;
+}
+h1{
+  font-size:clamp(2.1rem,6.2vw,3.6rem); line-height:1.06; letter-spacing:-.033em;
+  font-weight:660; margin:0 0 1.15rem; text-wrap:balance;
+}
+.lede{
+  font-size:clamp(1.03rem,2.2vw,1.2rem); color:#c3ccd7; max-width:44ch;
+  margin:0 0 1.5rem; text-wrap:pretty;
+}
+.principle{
+  font-family:var(--mono); font-size:.9rem; color:var(--gold);
+  margin:0 0 2.75rem; padding-left:.85rem; border-left:2px solid var(--gold-low);
+}
+
+/* ---- product cards ---- */
+h2{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--muted); font-weight:500; margin:0 0 1.1rem;
+}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(17.5rem,1fr))}
+.card{
+  display:flex; flex-direction:column; background:var(--panel);
+  border:1px solid var(--border); border-radius:12px; padding:1.5rem 1.45rem 1.35rem;
+  text-decoration:none; transition:border-color .16s ease, background .16s ease, transform .16s ease;
+}
+a.card:hover,a.card:focus-visible{border-color:var(--gold-dim);background:var(--soft);transform:translateY(-2px)}
+a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.card__head{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;flex-wrap:wrap}
+.card__name{font-size:1.16rem;font-weight:640;letter-spacing:-.015em}
+.card__name i{font-style:normal;color:var(--gold)}
+.tag{
+  font-family:var(--mono); font-size:.63rem; letter-spacing:.1em; text-transform:uppercase;
+  padding:.2rem .5rem; border-radius:999px; white-space:nowrap;
+}
+.tag--live{color:#9fd6a8;background:rgba(91,180,110,.14);border:1px solid rgba(91,180,110,.3)}
+.tag--dev{color:var(--ember);background:rgba(217,119,87,.13);border:1px solid rgba(217,119,87,.32)}
+.card p{margin:0;color:var(--muted);font-size:.94rem;text-wrap:pretty}
+.card__go{
+  margin-top:auto; padding-top:1.15rem; font-family:var(--mono); font-size:.78rem;
+  color:var(--gold); display:flex; align-items:center; gap:.4rem;
+}
+.card__go span{transition:transform .16s ease}
+a.card:hover .card__go span{transform:translateX(3px)}
+.card--static .card__go{color:var(--muted)}
+
+/* ---- footer ---- */
+footer{
+  margin-top:clamp(3.5rem,9vw,5.5rem); padding-top:1.5rem; border-top:1px solid var(--border);
+  display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; align-items:center;
+  font-size:.83rem; color:var(--muted);
+}
+footer a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+footer a:hover,footer a:focus-visible{color:var(--ink);border-bottom-color:var(--gold-dim)}
+footer .sep{margin-left:auto}
+@media (max-width:34rem){footer .sep{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+      <rect width="32" height="32" rx="7" fill="#0e141c" stroke="#22303f"></rect>
+      <path d="M9 22V10h4.5a5.5 5.5 0 0 1 0 11H11" stroke="#e3b341" stroke-width="2.2" fill="none" stroke-linecap="round"></path>
+      <path d="M17 22l6-12" stroke="#e3b341" stroke-width="2.2" stroke-linecap="round"></path>
+    </svg>
+    <b>arbiter<i>Forge</i></b>
+  </header>
+
+  <main>
+    <p class="eyebrow">Governed autonomy for serious repositories</p>
+    <h1>Agents move fast. Something has to hold the line.</h1>
+    <p class="lede">
+      arbiterForge builds the governance layer for agentic coding — real stops, durable project
+      context, and an audit trail that survives whichever host you use.
+    </p>
+    <p class="principle">You decide. The gates enforce.</p>
+
+    <h2>Projects</h2>
+    <div class="grid">
+
+      <a class="card" href="https://codearbiter.dev/">
+        <div class="card__head">
+          <span class="card__name">code<i>Arbiter</i></span>
+          <span class="tag tag--live">Available</span>
+        </div>
+        <p>
+          One repository-owned governance layer for Claude Code, Codex, and Pi. Tests, reviews,
+          security checks, and decisions become gates an agent cannot talk its way past.
+        </p>
+        <span class="card__go">codearbiter.dev <span aria-hidden="true">→</span></span>
+      </a>
+
+      <a class="card" href="https://arbiteride.com/">
+        <div class="card__head">
+          <span class="card__name">arbiter<i>IDE</i></span>
+          <span class="tag tag--dev">In development</span>
+        </div>
+        <p>
+          The governed agentic IDE. Intent in, gate-verified pull request out. Built on Eclipse
+          Theia, governed by codeArbiter.
+        </p>
+        <span class="card__go">arbiteride.com <span aria-hidden="true">→</span></span>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    <a href="https://github.com/arbiterForge">GitHub</a>
+    <a href="https://codearbiter.dev/">Documentation</a>
+    <span class="sep">&copy; arbiterForge</span>
+  </footer>
+
+</div>
+</body>
+</html>
