@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">arbiterForge logomark</title>
+  <desc id="desc">An unproven commit crosses a governed gate and leaves as a proven decision.</desc>
+  <defs>
+    <linearGradient id="forge-gold" x1="38" y1="28" x2="91" y2="104" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f3c958"/>
+      <stop offset=".48" stop-color="#f0b92f"/>
+      <stop offset="1" stop-color="#d89920"/>
+    </linearGradient>
+  </defs>
+
+  <path data-brand-element="commit-line" d="M10 91H118" fill="none" stroke="#465565" stroke-width="3" stroke-linecap="round"/>
+  <circle data-brand-element="unproven-node" cx="19" cy="91" r="6" fill="#06080c" stroke="#91a0b2" stroke-width="3"/>
+
+  <g data-brand-element="gate-posts" fill="url(#forge-gold)">
+    <path d="M42 48h12v38l5 9H37l5-9V48Z"/>
+    <path d="M74 48h12v38l5 9H69l5-9V48Z"/>
+  </g>
+  <path data-brand-element="gate-beam" d="M32 36h64l-4 12H36l-4-12Z" fill="url(#forge-gold)"/>
+  <path data-brand-element="terminal-chevron" d="m55 22 9 10 9-10" fill="none" stroke="#ffd568" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <circle data-brand-element="proven-node" cx="108" cy="91" r="8" fill="#f0b92f" stroke="#ffd568" stroke-width="2"/>
+</svg>

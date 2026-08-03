@@ -1,162 +1,891 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>arbiterForge — governed autonomy for serious repositories</title>
-<meta name="description" content="arbiterForge builds the governance layer for agentic coding: real stops, durable project context, and an audit trail that survives the host you use.">
-<link rel="canonical" href="https://arbiterforge.com/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="arbiterForge — governed autonomy for serious repositories">
-<meta property="og:description" content="The governance layer for agentic coding. You decide. The gates enforce.">
-<meta property="og:url" content="https://arbiterforge.com/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23090d12'/%3E%3Cpath d='M9 22V10h4.5a5.5 5.5 0 0 1 0 11H11' stroke='%23e3b341' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M17 22l6-12' stroke='%23e3b341' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
-<style>
-:root{
-  --bg:#090d12; --panel:#121a24; --raised:#0e141c; --soft:#17212d;
-  --border:#22303f; --gold:#e3b341; --gold-dim:#d29922; --gold-low:#3b2e0a;
-  --ember:#d97757; --ink:#e9eef4; --muted:#8b95a2;
-  --sans:"Segoe UI Variable","Segoe UI",system-ui,-apple-system,"Helvetica Neue",sans-serif;
-  --mono:"Cascadia Code",Consolas,"SFMono-Regular",ui-monospace,monospace;
-}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{
-  margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
-  line-height:1.55; -webkit-font-smoothing:antialiased;
-  background-image:
-    radial-gradient(1100px 520px at 50% -220px, rgba(227,179,65,.10), transparent 70%),
-    radial-gradient(760px 420px at 88% 8%, rgba(217,119,87,.055), transparent 68%);
-  background-repeat:no-repeat;
-}
-.wrap{max-width:60rem;margin:0 auto;padding:clamp(2.5rem,7vw,5.5rem) clamp(1.15rem,4vw,2rem) 3.5rem}
-a{color:inherit}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js')</script>
+  <title>arbiterForge · governed autonomy for serious repositories</title>
+  <meta name="description" content="arbiterForge builds the governance layer for AI coding agents: hard gates instead of hopeful prompts, durable project context, and an audit trail that survives whichever host you use.">
+  <link rel="canonical" href="https://arbiterforge.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="arbiterForge">
+  <meta property="og:title" content="arbiterForge · governed autonomy for serious repositories">
+  <meta property="og:description" content="The governance layer for agentic coding. You decide. The gates enforce.">
+  <meta property="og:url" content="https://arbiterforge.com/">
+  <meta property="og:image" content="https://arbiterforge.com/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="A gold gate standing on a commit line. You decide. The gates enforce.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://arbiterforge.com/assets/og-image.jpg">
+  <meta name="theme-color" content="#06080c">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preload" href="assets/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "arbiterForge",
+    "url": "https://arbiterforge.com/",
+    "logo": "https://arbiterforge.com/assets/logomark.svg",
+    "description": "arbiterForge builds the governance layer for AI coding agents.",
+    "founder": {"@type": "Person", "name": "SUaDtL", "url": "https://github.com/SUaDtL"},
+    "sameAs": ["https://github.com/arbiterForge"]
+  }
+  </script>
+  <style>
+    /* ============ tokens ============ */
+    :root{
+      --bg-void:#06080c;
+      --bg-raised:#0e141c;
+      --bg-panel:#121a24;
+      --bg-soft:#17212d;
+      --glass:rgb(14 20 28 / .55);
+      --hairline:rgb(255 255 255 / .08);
+      --hairline-strong:rgb(255 255 255 / .14);
+      --line:#273647;
+      --line-strong:#3a4c60;
+      --ink:#f6f7f9;
+      --ink-soft:#c7d0da;
+      --ink-muted:#91a0b2;
+      --gold:#f0b92f;
+      --gold-bright:#ffd568;
+      --gold-deep:#9b6811;
+      --gold-wash:rgb(240 185 47 / .10);
+      --ember:#ed946d;
+      --positive:#58d68d;
+      --danger:#ff7b72;
+      --font-display:"Space Grotesk","Manrope","Segoe UI Variable",ui-sans-serif,sans-serif;
+      --font-body:"Manrope","Segoe UI Variable",ui-sans-serif,sans-serif;
+      --font-mono:"JetBrains Mono","Cascadia Code",ui-monospace,monospace;
+      --r-shell:2rem;
+      --bezel-pad:.375rem;
+      --r-core:calc(var(--r-shell) - var(--bezel-pad));
+      --r-pill:999px;
+      --ease-glide:cubic-bezier(.32,.72,0,1);
+      --ease-settle:cubic-bezier(.16,1,.3,1);
+      --dur-fast:300ms;
+      --dur-med:500ms;
+      --dur-slow:800ms;
+    }
+    @font-face{
+      font-family:"Space Grotesk";
+      src:url("assets/fonts/space-grotesk-latin-wght-normal.woff2") format("woff2");
+      font-weight:300 700;font-style:normal;font-display:swap;
+    }
+    @font-face{
+      font-family:"Manrope";
+      src:url("assets/fonts/manrope-latin-wght-normal.woff2") format("woff2");
+      font-weight:200 800;font-style:normal;font-display:swap;
+    }
+    @font-face{
+      font-family:"JetBrains Mono";
+      src:url("assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+      font-weight:100 800;font-style:normal;font-display:swap;
+    }
 
-/* ---- masthead ---- */
-.mast{display:flex;align-items:center;gap:.6rem;margin-bottom:clamp(3rem,9vw,5rem)}
-.mark{width:30px;height:30px;flex:none}
-.mast b{font-weight:650;letter-spacing:-.01em;font-size:1.05rem}
-.mast b i{font-style:normal;color:var(--gold)}
+    /* ============ base ============ */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    @media (prefers-reduced-motion:no-preference){
+      html{scroll-behavior:smooth}
+    }
+    body{
+      background:var(--bg-void);
+      color:var(--ink-soft);
+      font-family:var(--font-body);
+      font-size:1.0625rem;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    /* fixed mesh backdrop — painted once, never repaints on scroll */
+    body::before{
+      content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+      background:
+        radial-gradient(42rem 30rem at 50% -6rem, rgb(240 185 47 / .09), transparent 70%),
+        radial-gradient(34rem 26rem at 88% 12rem, rgb(237 148 109 / .05), transparent 70%),
+        radial-gradient(40rem 34rem at 4% 85%, rgb(18 26 36 / .8), transparent 70%);
+    }
+    /* fixed film grain */
+    body::after{
+      content:"";position:fixed;inset:0;z-index:70;pointer-events:none;opacity:.025;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    ::selection{background:var(--gold);color:#171005}
+    a{color:inherit;text-decoration:none}
+    code{font-family:var(--font-mono);font-size:.9em;color:var(--ink-soft)}
+    :focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px;border-radius:4px}
+    .skip{
+      position:fixed;top:.75rem;left:.75rem;z-index:80;
+      background:var(--gold);color:#171005;font-weight:700;
+      padding:.6rem 1.1rem;border-radius:var(--r-pill);
+      transform:translateY(-4rem);transition:transform var(--dur-fast) var(--ease-settle);
+    }
+    .skip:focus-visible{transform:none}
+    .container{max-width:72rem;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,2.5rem)}
+    section{scroll-margin-top:6rem}
+    h1,h2,h3{font-family:var(--font-display);color:var(--ink);text-wrap:balance;line-height:1.08}
 
-/* ---- hero ---- */
-.eyebrow{
-  font-family:var(--mono); font-size:.72rem; letter-spacing:.15em; text-transform:uppercase;
-  color:var(--gold-dim); margin:0 0 1.1rem;
-}
-h1{
-  font-size:clamp(2.1rem,6.2vw,3.6rem); line-height:1.06; letter-spacing:-.033em;
-  font-weight:660; margin:0 0 1.15rem; text-wrap:balance;
-}
-.lede{
-  font-size:clamp(1.03rem,2.2vw,1.2rem); color:#c3ccd7; max-width:44ch;
-  margin:0 0 1.5rem; text-wrap:pretty;
-}
-.principle{
-  font-family:var(--mono); font-size:.9rem; color:var(--gold);
-  margin:0 0 2.75rem; padding-left:.85rem; border-left:2px solid var(--gold-low);
-}
+    /* eyebrow pill */
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:.5rem;max-width:100%;
+      font-family:var(--font-mono);font-size:10px;font-weight:500;
+      letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+      background:var(--gold-wash);border:1px solid rgb(240 185 47 / .22);
+      border-radius:var(--r-pill);padding:.35rem .85rem;
+      white-space:nowrap;
+    }
+    .eyebrow-short{display:none}
 
-/* ---- product cards ---- */
-h2{
-  font-family:var(--mono); font-size:.72rem; letter-spacing:.15em; text-transform:uppercase;
-  color:var(--muted); font-weight:500; margin:0 0 1.1rem;
-}
-.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(17.5rem,1fr))}
-.card{
-  display:flex; flex-direction:column; background:var(--panel);
-  border:1px solid var(--border); border-radius:12px; padding:1.5rem 1.45rem 1.35rem;
-  text-decoration:none; transition:border-color .16s ease, background .16s ease, transform .16s ease;
-}
-a.card:hover,a.card:focus-visible{border-color:var(--gold-dim);background:var(--soft);transform:translateY(-2px)}
-a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.card__head{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;flex-wrap:wrap}
-.card__name{font-size:1.16rem;font-weight:640;letter-spacing:-.015em}
-.card__name i{font-style:normal;color:var(--gold)}
-.tag{
-  font-family:var(--mono); font-size:.63rem; letter-spacing:.1em; text-transform:uppercase;
-  padding:.2rem .5rem; border-radius:999px; white-space:nowrap;
-}
-.tag--live{color:#9fd6a8;background:rgba(91,180,110,.14);border:1px solid rgba(91,180,110,.3)}
-.tag--dev{color:var(--ember);background:rgba(217,119,87,.13);border:1px solid rgba(217,119,87,.32)}
-.card p{margin:0;color:var(--muted);font-size:.94rem;text-wrap:pretty}
-.card__go{
-  margin-top:auto; padding-top:1.15rem; font-family:var(--mono); font-size:.78rem;
-  color:var(--gold); display:flex; align-items:center; gap:.4rem;
-}
-.card__go span{transition:transform .16s ease}
-a.card:hover .card__go span{transform:translateX(3px)}
-.card--static .card__go{color:var(--muted)}
+    /* ============ buttons — button-in-button ============ */
+    .btn{
+      display:inline-flex;align-items:center;gap:.9rem;
+      padding:.55rem .55rem .55rem 1.4rem;border-radius:var(--r-pill);
+      font-family:var(--font-display);font-weight:600;font-size:.95rem;
+      transition:transform var(--dur-fast) var(--ease-settle),
+                 background-color var(--dur-fast) var(--ease-settle),
+                 border-color var(--dur-fast) var(--ease-settle);
+    }
+    .btn:active{transform:scale(.98)}
+    .btn__orb{
+      width:2.1rem;height:2.1rem;border-radius:50%;flex:none;
+      display:grid;place-items:center;
+      transition:transform var(--dur-fast) var(--ease-settle);
+    }
+    .btn:hover .btn__orb{transform:translate(2px,-2px)}
+    .btn--down:hover .btn__orb{transform:translate(0,2px)}
+    .btn--primary{
+      background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+      color:#171005;
+    }
+    .btn--primary .btn__orb{background:rgb(0 0 0 / .15)}
+    .btn--primary:hover{background:linear-gradient(135deg,#ffe08a,var(--gold-bright))}
+    .btn--ghost{
+      background:var(--glass);border:1px solid var(--hairline);color:var(--ink);
+    }
+    .btn--ghost .btn__orb{border:1px solid var(--hairline-strong)}
+    .btn--ghost:hover{border-color:var(--hairline-strong);background:rgb(23 33 45 / .7)}
+    .btn--sm{font-size:.85rem;padding:.35rem .35rem .35rem 1rem;gap:.65rem}
+    .btn--sm .btn__orb{width:1.7rem;height:1.7rem}
+    .btn svg{stroke:currentColor}
+    .cta-row{display:flex;flex-wrap:wrap;gap:.9rem}
 
-/* ---- footer ---- */
-footer{
-  margin-top:clamp(3.5rem,9vw,5.5rem); padding-top:1.5rem; border-top:1px solid var(--border);
-  display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; align-items:center;
-  font-size:.83rem; color:var(--muted);
-}
-footer a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
-footer a:hover,footer a:focus-visible{color:var(--ink);border-bottom-color:var(--gold-dim)}
-footer .sep{margin-left:auto}
-@media (max-width:34rem){footer .sep{margin-left:0;width:100%}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
+    /* ============ nav — floating glass pill ============ */
+    /* z-index 65: above the overlay (60) so the morphing X stays tappable while open */
+    .site-nav{
+      position:fixed;top:1.5rem;left:0;right:0;z-index:65;
+      display:flex;justify-content:center;pointer-events:none;
+      padding-inline:1rem;
+    }
+    .nav-pill{
+      pointer-events:auto;
+      display:flex;align-items:center;gap:1.6rem;
+      background:rgb(9 13 18 / .6);
+      -webkit-backdrop-filter:blur(18px) saturate(140%);
+      backdrop-filter:blur(18px) saturate(140%);
+      border:1px solid var(--hairline);border-radius:var(--r-pill);
+      padding:.5rem .5rem .5rem 1.1rem;
+      box-shadow:inset 0 1px 0 rgb(255 255 255 / .06),0 1rem 3rem -1.5rem rgb(0 0 0 / .9);
+    }
+    .nav-brand{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:600;color:var(--ink);font-size:1rem}
+    .nav-brand i,.wordmark i{font-style:normal;color:var(--gold);font-weight:700}
+    .nav-links{display:flex;gap:1.4rem}
+    .nav-links a{
+      font-size:.9rem;color:var(--ink-muted);
+      transition:color var(--dur-fast) var(--ease-settle);
+    }
+    .nav-links a:hover{color:var(--ink)}
+    .nav-toggle{
+      display:none;position:relative;width:2.6rem;height:2.6rem;flex:none;
+      background:none;border:0;border-radius:50%;cursor:pointer;
+    }
+    .nav-toggle span{
+      position:absolute;left:.65rem;right:.65rem;height:1.5px;background:var(--ink);
+      transition:transform var(--dur-med) var(--ease-glide),opacity var(--dur-med) var(--ease-glide);
+    }
+    .nav-toggle span:nth-child(1){top:1rem}
+    .nav-toggle span:nth-child(2){top:1.3rem}
+    .nav-toggle span:nth-child(3){top:1.6rem}
+    .nav-open .nav-toggle span:nth-child(1){transform:translateY(4.8px) rotate(45deg)}
+    .nav-open .nav-toggle span:nth-child(2){opacity:0}
+    .nav-open .nav-toggle span:nth-child(3){transform:translateY(-4.8px) rotate(-45deg)}
+
+    /* full-screen overlay (fixed: the second and last backdrop-blur surface) */
+    .nav-overlay{
+      position:fixed;inset:0;z-index:60;
+      display:grid;place-items:center;
+      background:rgb(6 8 12 / .85);
+      -webkit-backdrop-filter:blur(24px);
+      backdrop-filter:blur(24px);
+      visibility:hidden;opacity:0;
+      transition:opacity var(--dur-med) var(--ease-glide),visibility 0s var(--dur-med);
+    }
+    .nav-open .nav-overlay{visibility:visible;opacity:1;transition-delay:0s}
+    .nav-overlay nav{display:grid;gap:1.4rem;text-align:center}
+    .nav-overlay a{
+      font-family:var(--font-display);font-size:clamp(1.8rem,7vw,2.6rem);font-weight:600;color:var(--ink);
+      opacity:0;transform:translateY(3rem);
+      transition:opacity var(--dur-med) var(--ease-glide),transform var(--dur-med) var(--ease-glide);
+    }
+    .nav-open .nav-overlay a{opacity:1;transform:none}
+    .nav-open .nav-overlay a:nth-child(1){transition-delay:100ms}
+    .nav-open .nav-overlay a:nth-child(2){transition-delay:150ms}
+    .nav-open .nav-overlay a:nth-child(3){transition-delay:200ms}
+    .nav-open .nav-overlay a:nth-child(4){transition-delay:250ms}
+    .nav-overlay .overlay-note{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-muted);margin-top:1.5rem}
+
+    /* ============ hero ============ */
+    .hero{
+      position:relative;
+      min-height:min(92dvh,64rem);
+      display:flex;align-items:center;
+      padding-block:clamp(8rem,18vh,12rem) clamp(5rem,10vh,7rem);
+    }
+    .hero-art{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+    .hero-art img{
+      position:absolute;inset:0;width:100%;height:100%;
+      object-fit:cover;object-position:72% center;opacity:.5;
+    }
+    /* text-protection: darken the left column where the copy sits */
+    .hero-art::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(90deg, rgb(6 8 12 / .92) 0%, rgb(6 8 12 / .72) 38%, rgb(6 8 12 / .15) 70%, rgb(6 8 12 / .35) 100%),
+                 linear-gradient(180deg, rgb(6 8 12 / .8) 0%, transparent 22%, transparent 70%, rgb(6 8 12 / .95) 100%);
+    }
+    .hero-inner{position:relative;display:grid;gap:1.6rem;max-width:52rem;justify-items:start}
+    .hero-inner>*{min-width:0;max-width:100%}
+    .hero h1{font-size:clamp(2.6rem,7.5vw,5.25rem);font-weight:600;letter-spacing:-.03em}
+    .hero .lede{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:44ch;color:var(--ink-soft)}
+    .principle{
+      display:flex;align-items:center;gap:.9rem;
+      font-family:var(--font-mono);font-size:.95rem;color:var(--gold);
+    }
+    .principle::before{
+      content:"";width:2.4rem;height:1.5px;flex:none;
+      background:linear-gradient(90deg,var(--gold-bright),transparent);
+    }
+    .hero-ctas{margin-top:.6rem}
+    /* the commit begins its journey: hollow node approaching the gate */
+    .hero-motif{
+      position:absolute;left:0;right:0;bottom:clamp(1.5rem,4vh,3rem);
+      pointer-events:none;
+    }
+    .hero-motif svg{width:100%;display:block}
+
+    /* ============ sections ============ */
+    .section{padding-block:clamp(5rem,9vw,7.5rem)}
+    .section-head{display:grid;gap:1.1rem;margin-bottom:clamp(2.5rem,6vw,4rem);justify-items:start}
+    .section-head h2{font-size:clamp(1.9rem,4.5vw,3.1rem);font-weight:600;letter-spacing:-.02em}
+    .section-head p{color:var(--ink-muted);max-width:64ch}
+
+    /* ============ evidence — the terminal replay ============ */
+    .evidence-grid{display:grid;gap:2.5rem;grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:start}
+    .terminal-stack{display:grid;gap:1.25rem}
+    .terminal-shell{
+      background:var(--glass);border:1px solid var(--hairline);
+      border-radius:var(--r-shell);padding:var(--bezel-pad);
+    }
+    .terminal{
+      background:#0a0f16;border-radius:var(--r-core);
+      box-shadow:inset 0 1px 0 rgb(255 255 255 / .06);
+      overflow:hidden;
+    }
+    .term-bar{
+      display:flex;align-items:center;gap:.45rem;
+      padding:.8rem 1.2rem;border-bottom:1px solid var(--hairline);
+    }
+    .term-bar .dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--bg-soft);border:1px solid var(--hairline-strong)}
+    .term-title{margin-left:.6rem;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;color:var(--ink-muted)}
+    .terminal pre{
+      padding:1.4rem 1.5rem;overflow-x:auto;
+      font-family:var(--font-mono);font-size:.85rem;line-height:1.8;
+      color:var(--ink-soft);
+    }
+    .t-prompt{color:var(--gold)}
+    .t-block{color:var(--danger);font-weight:700}
+    .t-meta{color:var(--ink-muted)}
+    .t-log{color:var(--ink-muted);font-size:.75rem}
+    .t-logline{color:var(--gold);opacity:.85;font-size:.78rem}
+    .evidence-side{display:grid;gap:1.5rem;align-content:start}
+    .evidence-side h3{font-size:1.15rem}
+    .evidence-side p{font-size:.95rem;color:var(--ink-muted)}
+    .inspect{display:grid;gap:.6rem}
+    .inspect a,.inspect span{
+      display:inline-flex;align-items:center;gap:.55rem;
+      font-family:var(--font-mono);font-size:.8rem;color:var(--ink-soft);
+    }
+    .inspect a{transition:color var(--dur-fast) var(--ease-settle)}
+    .inspect a:hover{color:var(--gold-bright)}
+    .inspect .digest{color:var(--ink-muted);word-break:break-all}
+    .inspect svg{flex:none}
+
+    /* ============ system bento ============ */
+    .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+    .shell{
+      background:var(--glass);
+      border:1px solid var(--hairline);
+      border-radius:var(--r-shell);
+      padding:var(--bezel-pad);
+      display:block;
+      transition:transform var(--dur-med) var(--ease-glide),border-color var(--dur-med) var(--ease-glide);
+    }
+    .shell:hover{transform:translateY(-3px)}
+    a.shell:hover{border-color:var(--hairline-strong)}
+    .core{
+      background:linear-gradient(180deg,rgb(255 255 255 / .03),transparent 30%),var(--bg-raised);
+      border-radius:var(--r-core);
+      box-shadow:inset 0 1px 0 rgb(255 255 255 / .06);
+      padding:clamp(1.25rem,3vw,2rem);
+      height:100%;
+      display:flex;flex-direction:column;gap:1rem;
+    }
+    .core>*{min-width:0;max-width:100%}
+    .cell-flagship{grid-column:1 / 8}
+    .cell-gate{grid-column:8 / 13}
+    .cell-quiet-1{grid-column:1 / 5}
+    .cell-quiet-2{grid-column:5 / 9}
+    .cell-quiet-3{grid-column:9 / 13}
+    .cell-flagship .core{
+      background:
+        radial-gradient(circle at 85% 0%,var(--gold-wash),transparent 20rem),
+        linear-gradient(180deg,rgb(255 255 255 / .03),transparent 30%),
+        var(--bg-raised);
+      gap:1.25rem;
+    }
+    a.shell.cell-flagship:hover{border-color:color-mix(in srgb,var(--gold) 25%,rgb(255 255 255 / .08))}
+    .card-top{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+    .card-name{font-family:var(--font-display);font-size:1.35rem;font-weight:600;color:var(--ink);line-height:1.2}
+    .card-name i{font-style:normal;color:var(--gold);font-weight:700}
+    .tag{
+      font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+      border-radius:var(--r-pill);padding:.25rem .7rem;border:1px solid;
+    }
+    .tag--live{color:var(--positive);border-color:rgb(88 214 141 / .3);background:rgb(88 214 141 / .08)}
+    .tag--dev{color:var(--ember);border-color:rgb(237 148 109 / .3);background:rgb(237 148 109 / .08)}
+    .tag--plain{color:var(--ink-muted);border-color:var(--hairline)}
+    .card-eyebrow{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+    .card-title{font-family:var(--font-display);font-size:1.15rem;font-weight:600;color:var(--ink)}
+    .card-body{font-size:.95rem;color:var(--ink-soft)}
+    .card-body-muted{font-size:.95rem;color:var(--ink-muted)}
+    .refusals{list-style:none;display:grid}
+    .refusals li{
+      padding:.65rem 0;font-size:.92rem;color:var(--ink-soft);
+      border-top:1px solid var(--hairline);
+      display:flex;gap:.7rem;align-items:baseline;
+    }
+    .refusals li::before{content:"\00d7";color:var(--gold);flex:none;font-family:var(--font-mono)}
+    .refusals-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+    .card-cta{
+      margin-top:auto;align-self:start;
+      display:inline-flex;align-items:center;gap:.65rem;
+      font-family:var(--font-mono);font-size:.85rem;color:var(--ink);
+      background:rgb(255 255 255 / .04);border:1px solid var(--hairline);
+      border-radius:var(--r-pill);padding:.4rem .4rem .4rem 1rem;
+    }
+    .card-cta .btn__orb{width:1.7rem;height:1.7rem;border:1px solid var(--hairline-strong)}
+    .shell:hover .card-cta .btn__orb{transform:translate(2px,-2px)}
+    .gate-figure{margin-top:auto}
+    .gate-figure img{width:100%;height:auto;border-radius:.9rem;display:block}
+    /* quiet surfaces — deliberately NOT the machined bezel: hierarchy lives here */
+    .card-quiet{
+      border:1px solid var(--hairline);border-radius:1.25rem;
+      background:rgb(255 255 255 / .015);
+      padding:clamp(1.1rem,2.5vw,1.6rem);
+      display:flex;flex-direction:column;gap:.8rem;
+      transition:border-color var(--dur-med) var(--ease-glide);
+    }
+    .card-quiet:hover{border-color:var(--hairline-strong)}
+    .card-quiet h3{font-size:.98rem}
+    .card-quiet .card-name{font-size:1.05rem}
+    .mini-pills{display:flex;gap:.5rem;flex-wrap:wrap}
+    .mini-pills span{
+      font-family:var(--font-mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;
+      color:var(--ink-muted);border:1px solid var(--hairline);
+      border-radius:var(--r-pill);padding:.25rem .65rem;
+    }
+    .card-quiet .ide-link{font-family:var(--font-mono);font-size:.8rem;color:var(--ink-muted);margin-top:auto;transition:color var(--dur-fast) var(--ease-settle)}
+    a.card-quiet:hover .ide-link{color:var(--ink-soft)}
+
+    /* install & license strip */
+    .install-strip{
+      margin-top:2.5rem;
+      display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:2rem;
+      border:1px solid var(--hairline);border-radius:1.25rem;
+      background:rgb(255 255 255 / .015);
+      padding:clamp(1.25rem,3vw,2rem);
+      scroll-margin-top:6rem;
+    }
+    .install-strip pre{
+      margin-top:.8rem;padding:1rem 1.2rem;overflow-x:auto;
+      background:#0a0f16;border:1px solid var(--hairline);border-radius:.9rem;
+      font-family:var(--font-mono);font-size:.82rem;line-height:1.8;color:var(--ink-soft);
+    }
+    .install-facts{display:grid;gap:.6rem;align-content:start}
+    .host-row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.5rem}
+    .changelog-link{
+      font-family:var(--font-mono);font-size:.72rem;color:var(--ink-muted);
+      transition:color var(--dur-fast) var(--ease-settle);
+    }
+    .changelog-link:hover{color:var(--gold-bright)}
+
+    /* ============ manifesto ============ */
+    .manifesto{text-align:center}
+    .manifesto .inner{display:grid;gap:1.6rem;justify-items:center;max-width:46rem}
+    .manifesto blockquote{
+      font-family:var(--font-display);font-weight:600;color:var(--ink);
+      font-size:clamp(1.8rem,4.5vw,3rem);letter-spacing:-.02em;line-height:1.15;text-wrap:balance;
+    }
+    .manifesto blockquote em{font-style:normal;color:var(--gold);display:inline-block}
+    .manifesto .support{color:var(--ink-muted);max-width:52ch}
+    .essay-link{
+      font-family:var(--font-mono);font-size:.85rem;color:var(--ink-soft);
+      border-bottom:1px solid rgb(240 185 47 / .35);padding-bottom:.15rem;
+      transition:color var(--dur-fast) var(--ease-settle),border-color var(--dur-fast) var(--ease-settle);
+    }
+    .essay-link:hover{color:var(--gold-bright);border-color:var(--gold-bright)}
+    .commit-line{width:min(34rem,86vw);margin-block:1rem}
+    .manifesto .cta-row{justify-content:center;margin-top:.5rem}
+    .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+    /* ============ footer ============ */
+    footer{border-top:1px solid var(--hairline);padding-block:3.5rem}
+    .foot{display:flex;flex-wrap:wrap;gap:1.5rem 2.5rem;align-items:center}
+    .foot .wordmark{font-family:var(--font-display);font-weight:600;color:var(--ink);display:inline-flex;align-items:center;gap:.55rem}
+    .foot .tagline{font-size:.85rem;color:var(--ink-muted)}
+    .foot nav{display:flex;gap:1.5rem;flex-wrap:wrap;margin-left:auto}
+    .foot nav a,.foot .copyright{font-size:.85rem;color:var(--ink-muted)}
+    .foot nav a,.foot .copyright a{transition:color var(--dur-fast) var(--ease-settle)}
+    .foot .copyright a:hover{color:var(--gold-bright)}
+    .foot nav a:hover{color:var(--gold-bright)}
+    .foot .copyright{flex-basis:100%;padding-top:.5rem}
+
+    /* ============ motion — scroll reveals (progressive: hidden only when JS runs) ============ */
+    .js .reveal{
+      opacity:0;transform:translateY(4rem);
+      transition:opacity var(--dur-slow) var(--ease-glide),
+                 transform var(--dur-slow) var(--ease-glide);
+      transition-delay:var(--reveal-delay,0ms);
+    }
+    .js .reveal.is-in{opacity:1;transform:none}
+    /* once revealed, cards return to the fast hover-lift transition */
+    .js .shell.reveal.is-in{
+      transition:transform var(--dur-med) var(--ease-glide),border-color var(--dur-med) var(--ease-glide);
+      transition-delay:0ms;
+    }
+
+    /* ============ responsive — complementary ranges, no 767px hole ============ */
+    @media (width < 48rem){
+      .nav-links,.nav-cta{display:none}
+      .nav-toggle{display:block}
+      .nav-pill{gap:.8rem;padding:.4rem .4rem .4rem 1rem}
+      .eyebrow-full{display:none}
+      .eyebrow-short{display:inline}
+      .bento{grid-template-columns:1fr;gap:1.25rem}
+      .cell-flagship,.cell-gate,.cell-quiet-1,.cell-quiet-2,.cell-quiet-3{grid-column:auto;grid-row:auto}
+      .evidence-grid{grid-template-columns:1fr;gap:1.75rem}
+      .hero-art img{object-position:66% center;opacity:.4}
+      .cta-row{width:100%}
+      .cta-row .btn{width:100%;justify-content:space-between}
+      .foot nav{margin-left:0}
+    }
+    @media (width >= 48rem){
+      .nav-overlay{display:none}
+    }
+
+    /* ============ reduced motion ============ */
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{transition:none !important;animation:none !important}
+      .js .reveal{opacity:1;transform:none}
+      .nav-overlay a{opacity:1;transform:none}
+      .shell:hover{transform:none}
+    }
+  </style>
 </head>
-<body>
-<div class="wrap">
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
 
-  <header class="mast">
-    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
-      <rect width="32" height="32" rx="7" fill="#0e141c" stroke="#22303f"></rect>
-      <path d="M9 22V10h4.5a5.5 5.5 0 0 1 0 11H11" stroke="#e3b341" stroke-width="2.2" fill="none" stroke-linecap="round"></path>
-      <path d="M17 22l6-12" stroke="#e3b341" stroke-width="2.2" stroke-linecap="round"></path>
-    </svg>
-    <b>arbiter<i>Forge</i></b>
+  <header class="site-nav">
+    <nav class="nav-pill" aria-label="Primary">
+      <a class="nav-brand" href="#top" aria-label="arbiterForge home">
+        <svg width="26" height="26" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="nav-gold" x1="38" y1="28" x2="91" y2="104" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f3c958"/><stop offset=".48" stop-color="#f0b92f"/><stop offset="1" stop-color="#d89920"/>
+            </linearGradient>
+          </defs>
+          <path d="M10 91H118" fill="none" stroke="#465565" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="19" cy="91" r="6" fill="#06080c" stroke="#91a0b2" stroke-width="3"/>
+          <g fill="url(#nav-gold)">
+            <path d="M42 48h12v38l5 9H37l5-9V48Z"/>
+            <path d="M74 48h12v38l5 9H69l5-9V48Z"/>
+          </g>
+          <path d="M32 36h64l-4 12H36l-4-12Z" fill="url(#nav-gold)"/>
+          <path d="m55 22 9 10 9-10" fill="none" stroke="#ffd568" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="108" cy="91" r="8" fill="#f0b92f" stroke="#ffd568" stroke-width="2"/>
+        </svg>
+        <span class="wordmark">arbiter<i>Forge</i></span>
+      </a>
+      <div class="nav-links">
+        <a href="#evidence">Evidence</a>
+        <a href="#system">System</a>
+        <a href="#principles">Principles</a>
+      </div>
+      <a class="btn btn--ghost btn--sm nav-cta" href="https://github.com/arbiterForge" target="_blank" rel="noopener">
+        GitHub
+        <span class="btn__orb" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navOverlay" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
   </header>
 
-  <main>
-    <p class="eyebrow">Governed autonomy for serious repositories</p>
-    <h1>Agents move fast. Something has to hold the line.</h1>
-    <p class="lede">
-      arbiterForge builds the governance layer for agentic coding — real stops, durable project
-      context, and an audit trail that survives whichever host you use.
-    </p>
-    <p class="principle">You decide. The gates enforce.</p>
+  <div class="nav-overlay" id="navOverlay">
+    <nav aria-label="Mobile">
+      <a href="#evidence">Evidence</a>
+      <a href="#system">System</a>
+      <a href="#principles">Principles</a>
+      <a href="https://github.com/arbiterForge" target="_blank" rel="noopener">GitHub</a>
+      <p class="overlay-note">You decide. The gates enforce.</p>
+    </nav>
+  </div>
 
-    <h2>Projects</h2>
-    <div class="grid">
-
-      <a class="card" href="https://codearbiter.dev/">
-        <div class="card__head">
-          <span class="card__name">code<i>Arbiter</i></span>
-          <span class="tag tag--live">Available</span>
+  <main id="main">
+    <!-- ============ hero — the commit sets out (hollow node) ============ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-art" aria-hidden="true">
+        <img src="assets/hero-forge.webp" alt="" width="2400" height="1350" loading="eager" fetchpriority="high" decoding="async">
+      </div>
+      <!-- crisp motif overlay: the hollow commit approaches the gate; it resolves gold at #principles -->
+      <div class="hero-motif" aria-hidden="true">
+        <svg viewBox="0 0 1200 56" preserveAspectRatio="xMidYMax meet" focusable="false">
+          <path d="M40 40h1120" stroke="#273647" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="120" cy="40" r="6" fill="#06080c" stroke="#91a0b2" stroke-width="2"/>
+          <g fill="none" stroke="#f0b92f" stroke-width="3.5" stroke-linecap="round" opacity=".9">
+            <path d="M880 16v24"/><path d="M914 16v24"/>
+          </g>
+          <rect x="872" y="8" width="50" height="5" rx="1.2" fill="#f0b92f" opacity=".9"/>
+          <circle cx="1140" cy="40" r="6" fill="none" stroke="#9b6811" stroke-width="1.5" stroke-dasharray="3 4" opacity=".7"/>
+        </svg>
+      </div>
+      <div class="container hero-inner">
+        <p class="eyebrow reveal" data-hero-reveal><span class="eyebrow-full">Governed autonomy for serious repositories</span><span class="eyebrow-short">Governed autonomy</span></p>
+        <h1 class="reveal" data-hero-reveal style="--reveal-delay:100ms">Gates your agents can&rsquo;t talk their way past.</h1>
+        <p class="lede reveal" data-hero-reveal style="--reveal-delay:200ms">arbiterForge builds the governance layer for AI coding agents: hard gates instead of hopeful prompts, durable project context, and an audit trail that survives whichever host you use.</p>
+        <p class="principle reveal" data-hero-reveal style="--reveal-delay:300ms">You decide. The gates enforce.</p>
+        <div class="cta-row hero-ctas reveal" data-hero-reveal style="--reveal-delay:400ms">
+          <a class="btn btn--primary btn--down" href="#evidence">
+            See a gate hold
+            <span class="btn__orb" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2.5 6.5 6 10l3.5-3.5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <a class="btn btn--ghost" href="https://codearbiter.dev/" target="_blank" rel="noopener">
+            Explore codeArbiter
+            <span class="btn__orb" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
         </div>
-        <p>
-          One repository-owned governance layer for Claude Code, Codex, and Pi. Tests, reviews,
-          security checks, and decisions become gates an agent cannot talk its way past.
-        </p>
-        <span class="card__go">codearbiter.dev <span aria-hidden="true">→</span></span>
-      </a>
+      </div>
+    </section>
 
-      <a class="card" href="https://arbiteride.com/">
-        <div class="card__head">
-          <span class="card__name">arbiter<i>IDE</i></span>
-          <span class="tag tag--dev">In development</span>
+    <!-- ============ evidence — a real gate, replayed ============ -->
+    <section class="section" id="evidence" aria-labelledby="evidence-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal">Evidence</p>
+          <h2 id="evidence-title" class="reveal" style="--reveal-delay:80ms">Proof before promise.</h2>
+          <p class="reveal" style="--reveal-delay:160ms">This is not a description of enforcement. It is a replay of it. Both transcripts below come from direct invocations of the shipped <code>pre-bash.py</code> hook. Same file, same digest, real exit codes.</p>
         </div>
-        <p>
-          The governed agentic IDE. Intent in, gate-verified pull request out. Built on Eclipse
-          Theia, governed by codeArbiter.
-        </p>
-        <span class="card__go">arbiteride.com <span aria-hidden="true">→</span></span>
-      </a>
+        <div class="evidence-grid">
+          <div class="terminal-stack reveal">
+            <div class="terminal-shell">
+              <figure class="terminal">
+                <figcaption class="term-bar">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="term-title">pre-bash.py &middot; PreToolUse hook &middot; captured 2026&#8209;08&#8209;03</span>
+                </figcaption>
+                <pre><code><span class="t-prompt">$</span> git push origin main
+<span class="t-block">BLOCKED [H-01]:</span> Pushing to a protected branch ('main') is prohibited
+(ORCHESTRATOR &sect;3) &mdash; main moves only via a merged PR.
+<span class="t-meta">exit code 2 &middot; command not executed</span>
 
-    </div>
+<span class="t-log">.codearbiter/gate-events.log</span>
+<span class="t-logline">[2026-08-03T07:59:05Z] BLOCK [H-01] host=claude hook=pre-bash.py</span></code></pre>
+              </figure>
+            </div>
+            <div class="terminal-shell">
+              <figure class="terminal">
+                <figcaption class="term-bar">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="term-title">pre-bash.py &middot; PreToolUse hook &middot; captured 2026&#8209;07&#8209;30</span>
+                </figcaption>
+                <pre><code><span class="t-prompt">$</span> git add -A
+<span class="t-block">BLOCKED [H-03]:</span> 'git add -A' / 'git add .' / 'git add --all' / 'git add -u'
+are prohibited. Stage files explicitly (commit-gate skill).
+<span class="t-meta">exit code 2 &middot; command not executed</span>
+
+<span class="t-log">.codearbiter/gate-events.log</span>
+<span class="t-logline">[2026-07-30T13:34:06Z] BLOCK [H-03] host=claude hook=pre-bash.py</span></code></pre>
+              </figure>
+            </div>
+          </div>
+          <div class="evidence-side reveal" style="--reveal-delay:140ms">
+            <h3>Inspect the mechanism</h3>
+            <p>Every guarantee is backed by something you can read. The hook is local-only Python stdlib, and both captures are pinned to the exact source revision below. Hash the pinned file yourself and compare.</p>
+            <p>The threat model, plainly: hooks block at the tool-call boundary, so an agent cannot argue past them. A human with shell access can remove them, deliberately, and that removal lands in the append-only audit trail.</p>
+            <div class="inspect">
+              <a href="https://github.com/arbiterForge/codeArbiter/blob/a3a2df2386d1daac74bedd2d60f40a043bcf2aeb/plugins/ca/hooks/pre-bash.py" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Read the hook source (pinned revision)
+              </a>
+              <a href="assets/proof/push-block.json" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Capture manifest: push block
+              </a>
+              <a href="assets/proof/add-block.json" target="_blank" rel="noopener">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Capture manifest: staging block
+              </a>
+              <span class="digest">sha256 b2cf1a875a6ec0aa4c36e59bfdc2c9f64a81a70dcc901a5bbc46465b087e4873</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ the system — org thesis + portfolio ============ -->
+    <section class="section" id="system" aria-labelledby="system-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal">The system</p>
+          <h2 id="system-title" class="reveal" style="--reveal-delay:80ms">One policy core. Every host you use.</h2>
+          <p class="reveal" style="--reveal-delay:160ms">arbiterForge exists so autonomous coding can be trusted at the moment it matters: the commit. codeArbiter carries the gates to today&rsquo;s agents as a repository-owned plugin. arbiterIDE comes next and moves the same gates into the editor&rsquo;s tool-dispatch layer, designed so that not even a hostile client can talk past them. One policy core. One portable, auditable record.</p>
+        </div>
+
+        <div class="bento">
+          <!-- flagship: codeArbiter — the machined enclosure is reserved for this and the gate -->
+          <a class="shell cell-flagship reveal" href="https://codearbiter.dev/" target="_blank" rel="noopener" aria-labelledby="p-ca">
+            <article class="core">
+              <div class="card-top">
+                <h3 class="card-name" id="p-ca">code<i>Arbiter</i></h3>
+                <span class="tag tag--live">v2.11.0 &middot; Stable</span>
+                <span class="tag tag--plain">AGPLv3</span>
+              </div>
+              <p class="card-body">Multi-host governance plugin for Claude Code and Codex CLI, with Pi in preview. One policy core, expressed as 40 commands, 23 skills, and 28 agents.</p>
+              <div>
+                <p class="refusals-label">Five hard refusals</p>
+                <ul class="refusals">
+                  <li>No feature code before a failing test</li>
+                  <li>No commit on red, or outside the gate</li>
+                  <li>No resolving open questions by guessing</li>
+                  <li>No silent conflict reconciliation</li>
+                  <li>No push or merge to default without you</li>
+                </ul>
+              </div>
+              <span class="card-cta">codearbiter.dev
+                <span class="btn__orb" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </span>
+            </article>
+          </a>
+
+          <!-- the commit gate -->
+          <article class="shell cell-gate reveal" style="--reveal-delay:120ms">
+            <div class="core">
+              <h3 class="card-eyebrow">The gate</h3>
+              <p class="card-title">Nine phases. The only path to a commit.</p>
+              <p class="card-body-muted">Tests, lint, secrets, behavioral proof, diff review. Nothing reaches version control on &ldquo;looks good.&rdquo;</p>
+              <figure class="gate-figure">
+                <img src="assets/gate-phases.webp" alt="Nine gate stations on a track: eight hollow, unlit rings resolve into one final glowing gold node beneath a small gate." width="1600" height="320" loading="lazy" decoding="async">
+              </figure>
+            </div>
+          </article>
+
+          <!-- quiet tier: open surfaces, deliberately not machined -->
+          <article class="card-quiet cell-quiet-1 reveal" style="--reveal-delay:160ms">
+            <h3 class="card-eyebrow">Reviewed, then audited</h3>
+            <p class="card-body-muted">A reviewer fleet matched to the change, an 11-lens tribunal when it matters, and user-attributed architecture decision records. Overrides and auto-decisions all land in a durable audit trail.</p>
+          </article>
+
+          <article class="card-quiet cell-quiet-2 reveal" style="--reveal-delay:200ms">
+            <h3 class="card-eyebrow">Local and portable</h3>
+            <p class="card-body-muted">Enforcement is local-only Python stdlib: instant, free, no model calls. Reviews spend tokens only when you invoke them. Checked-in <code>.codearbiter/</code> state survives switching hosts.</p>
+            <div class="mini-pills"><span>No telemetry</span><span>Portable state</span></div>
+          </article>
+
+          <a class="card-quiet cell-quiet-3 reveal" style="--reveal-delay:240ms" href="https://arbiteride.com/" target="_blank" rel="noopener" aria-labelledby="p-ide">
+            <div class="card-top">
+              <h3 class="card-name" id="p-ide">arbiter<i>IDE</i></h3>
+              <span class="tag tag--dev">Pre-alpha</span>
+            </div>
+            <p class="card-body-muted">Intent in. Gate-verified PR out. The same gates, moved into the editor&rsquo;s tool-dispatch layer. Built on Eclipse Theia.</p>
+            <span class="ide-link">arbiteride.com &nearr;</span>
+          </a>
+        </div>
+
+        <div class="install-strip reveal" id="install">
+          <div class="install-cmds">
+            <p class="card-eyebrow">Install</p>
+            <pre><code><span class="t-meta"># Claude Code</span>
+<span class="t-prompt">/</span>plugin marketplace add arbiterForge/codeArbiter
+<span class="t-prompt">/</span>plugin install ca@codearbiter
+
+<span class="t-meta"># Codex CLI</span>
+<span class="t-prompt">$</span> codex plugin marketplace add arbiterForge/codeArbiter</code></pre>
+          </div>
+          <div class="install-facts">
+            <p class="card-eyebrow">What it writes</p>
+            <p class="card-body-muted">Hook scripts (Python stdlib, local-only) and a <code>.codearbiter/</code> directory in your repo. Dormant until a repo opts in. No network calls, no telemetry.</p>
+            <p class="card-eyebrow">License</p>
+            <p class="card-body-muted">AGPLv3 covers codeArbiter itself, never your code. Commercial licensing available.</p>
+            <div class="host-row">
+              <span class="tag tag--live">Claude Code &middot; Stable</span>
+              <span class="tag tag--live">Codex CLI &middot; Stable</span>
+              <span class="tag tag--dev">Pi &middot; Preview</span>
+              <a class="changelog-link" href="https://github.com/arbiterForge/codeArbiter/blob/main/CHANGELOG.md" target="_blank" rel="noopener">27 tagged releases &middot; changelog &nearr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ manifesto — the commit arrives proven (filled gold) ============ -->
+    <section class="section manifesto" id="principles" aria-labelledby="principles-title">
+      <div class="container inner">
+        <p class="eyebrow reveal">How we work</p>
+        <h2 id="principles-title" class="visually-hidden">Principles</h2>
+        <blockquote class="reveal" style="--reveal-delay:100ms">You decide. <em>The gates enforce.</em></blockquote>
+        <p class="support reveal" style="--reveal-delay:200ms">Ask for the outcome. Keep the proof. The record outlives the session, the branch, and the host that produced it.</p>
+        <a class="essay-link reveal" style="--reveal-delay:260ms" href="why-hard-gates.html">Read the essay: Why hard gates &rarr;</a>
+        <svg class="commit-line reveal" style="--reveal-delay:320ms" viewBox="0 0 560 64" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="cl-gold" x1="240" y1="8" x2="320" y2="52" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f3c958"/><stop offset="1" stop-color="#d89920"/>
+            </linearGradient>
+          </defs>
+          <path d="M20 48h520" stroke="#273647" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="28" cy="48" r="5" fill="#06080c" stroke="#7f8d9d" stroke-width="1.4"/>
+          <g fill="none" stroke="url(#cl-gold)" stroke-width="4" stroke-linecap="round">
+            <path d="M262 22v26"/><path d="M298 22v26"/>
+          </g>
+          <rect x="248" y="13" width="64" height="6" rx="1.4" fill="url(#cl-gold)"/>
+          <path d="m272 2 8 7 8-7" fill="none" stroke="#f3c958" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="532" cy="48" r="6.5" fill="#e5ad2c"/>
+        </svg>
+        <div class="cta-row reveal" style="--reveal-delay:400ms">
+          <a class="btn btn--primary" href="https://codearbiter.dev/" target="_blank" rel="noopener">
+            Install codeArbiter
+            <span class="btn__orb" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <a class="btn btn--ghost" href="https://github.com/arbiterForge/codeArbiter" target="_blank" rel="noopener">
+            View the source
+            <span class="btn__orb" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <a href="https://github.com/arbiterForge">GitHub</a>
-    <a href="https://codearbiter.dev/">Documentation</a>
-    <span class="sep">&copy; arbiterForge</span>
+    <div class="container foot">
+      <span class="wordmark">
+        <svg width="22" height="22" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
+          <path d="M10 91H118" fill="none" stroke="#465565" stroke-width="3" stroke-linecap="round"/>
+          <g fill="#e5ad2c">
+            <path d="M42 48h12v38l5 9H37l5-9V48Z"/>
+            <path d="M74 48h12v38l5 9H69l5-9V48Z"/>
+            <path d="M32 36h64l-4 12H36l-4-12Z"/>
+          </g>
+          <circle cx="108" cy="91" r="8" fill="#e5ad2c"/>
+        </svg>
+        <span>arbiter<i>Forge</i></span>
+      </span>
+      <span class="tagline">Maker of codeArbiter and arbiterIDE. The governance layer for agentic coding.</span>
+      <nav aria-label="Footer">
+        <a href="why-hard-gates.html">Why hard gates</a>
+        <a href="https://github.com/arbiterForge" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://codearbiter.dev/" target="_blank" rel="noopener">Documentation</a>
+        <a href="https://arbiteride.com/" target="_blank" rel="noopener">arbiterIDE</a>
+      </nav>
+      <!-- TODO: contact email pending domain mailbox setup — add here and as JSON-LD contactPoint once live -->
+      <span class="copyright">&copy; 2026 arbiterForge &middot; Built by <a href="https://github.com/SUaDtL" target="_blank" rel="noopener">SUaDtL</a></span>
+    </div>
   </footer>
 
-</div>
+  <script>
+    (() => {
+      const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const reveals = document.querySelectorAll('.reveal');
+
+      if (rm || !('IntersectionObserver' in window)) {
+        reveals.forEach(el => el.classList.add('is-in'));
+      } else {
+        const io = new IntersectionObserver(entries => {
+          for (const e of entries) {
+            if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+          }
+        }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+        reveals.forEach(el => { if (!el.hasAttribute('data-hero-reveal')) io.observe(el); });
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          document.querySelectorAll('[data-hero-reveal]').forEach(el => el.classList.add('is-in'));
+        }));
+      }
+
+      /* mobile menu: modal semantics — focus moves in, background inert, focus restored */
+      const toggle = document.getElementById('navToggle');
+      const overlay = document.getElementById('navOverlay');
+      const root = document.documentElement;
+      const background = [document.getElementById('main'), document.querySelector('footer')];
+      let lastFocus = null;
+
+      const isOpen = () => root.classList.contains('nav-open');
+      const setOpen = open => {
+        root.classList.toggle('nav-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+        background.forEach(el => { if (el) open ? el.setAttribute('inert', '') : el.removeAttribute('inert'); });
+        if (open) {
+          lastFocus = document.activeElement;
+          overlay.querySelector('a').focus({ preventScroll: true });
+        } else if (lastFocus) {
+          (lastFocus.isConnected ? lastFocus : toggle).focus({ preventScroll: true });
+          lastFocus = null;
+        }
+      };
+
+      toggle.addEventListener('click', () => setOpen(!isOpen()));
+      overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+
+      addEventListener('keydown', e => {
+        if (!isOpen()) return;
+        if (e.key === 'Escape') { setOpen(false); return; }
+        if (e.key === 'Tab') {
+          /* trap focus among the overlay links + the toggle (which stays above the overlay) */
+          const items = [...overlay.querySelectorAll('a'), toggle];
+          const i = items.indexOf(document.activeElement);
+          if (e.shiftKey && (i === 0 || i === -1)) { e.preventDefault(); items[items.length - 1].focus(); }
+          else if (!e.shiftKey && i === items.length - 1) { e.preventDefault(); items[0].focus(); }
+        }
+      });
+
+      /* crossing to desktop while open must not leave the page scroll-locked */
+      matchMedia('(min-width: 48rem)').addEventListener('change', e => {
+        if (e.matches && isOpen()) setOpen(false);
+      });
+    })();
+  </script>
 </body>
 </html>

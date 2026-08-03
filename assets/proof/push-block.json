@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "evidenceKind": "direct-hook-invocation",
+  "capturedAt": "2026-08-03T07:59:05Z",
+  "source": "plugins/ca/hooks/pre-bash.py",
+  "sourceRef": "a3a2df2386d1daac74bedd2d60f40a043bcf2aeb",
+  "sourceUrl": "https://github.com/arbiterForge/codeArbiter/blob/a3a2df2386d1daac74bedd2d60f40a043bcf2aeb/plugins/ca/hooks/pre-bash.py",
+  "sourceSha256": "b2cf1a875a6ec0aa4c36e59bfdc2c9f64a81a70dcc901a5bbc46465b087e4873",
+  "verification": "curl -sL <sourceUrl raw equivalent> | sha256sum  ==  sourceSha256",
+  "fixture": {
+    "branch": "feat/proof",
+    "activation": "arbiter: enabled (.codearbiter/CONTEXT.md frontmatter)"
+  },
+  "invocation": {
+    "attemptedCommand": "git push origin main",
+    "hookEvent": "PreToolUse",
+    "toolName": "Bash",
+    "exitCode": 2,
+    "stderr": "BLOCKED [H-01]: Pushing to a protected branch ('main') is prohibited (ORCHESTRATOR §3) — main moves only via a merged PR.",
+    "commandExecuted": false
+  },
+  "gateEvent": "[2026-08-03T07:59:05Z] BLOCK [H-01] host=claude hook=pre-bash.py | Pushing to a protected branch ('main') is prohibited (ORCHESTRATOR §3) — main moves only via a merged PR."
+}

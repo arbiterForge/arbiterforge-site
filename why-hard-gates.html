@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js')</script>
+  <title>Why hard gates · arbiterForge</title>
+  <meta name="description" content="Prompt-level rules are probabilities. An essay on why governing AI coding agents requires deterministic enforcement at the tool-call boundary, with the receipts.">
+  <link rel="canonical" href="https://arbiterforge.com/why-hard-gates.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="arbiterForge">
+  <meta property="og:title" content="Why hard gates">
+  <meta property="og:description" content="A rule that lives in a prompt is a probability, not a control. The evidence, including the evidence against us.">
+  <meta property="og:url" content="https://arbiterforge.com/why-hard-gates.html">
+  <meta property="og:image" content="https://arbiterforge.com/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#06080c">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preload" href="assets/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    :root{
+      --bg-void:#06080c;--bg-raised:#0e141c;--bg-panel:#121a24;--bg-soft:#17212d;
+      --glass:rgb(14 20 28 / .55);--hairline:rgb(255 255 255 / .08);--hairline-strong:rgb(255 255 255 / .14);
+      --ink:#f6f7f9;--ink-soft:#c7d0da;--ink-muted:#91a0b2;
+      --gold:#f0b92f;--gold-bright:#ffd568;--gold-deep:#9b6811;--gold-wash:rgb(240 185 47 / .10);
+      --ember:#ed946d;--danger:#ff7b72;
+      --font-display:"Space Grotesk","Manrope","Segoe UI Variable",ui-sans-serif,sans-serif;
+      --font-body:"Manrope","Segoe UI Variable",ui-sans-serif,sans-serif;
+      --font-mono:"JetBrains Mono","Cascadia Code",ui-monospace,monospace;
+      --r-pill:999px;
+      --ease-glide:cubic-bezier(.32,.72,0,1);--ease-settle:cubic-bezier(.16,1,.3,1);
+      --dur-fast:300ms;--dur-med:500ms;--dur-slow:800ms;
+    }
+    @font-face{font-family:"Space Grotesk";src:url("assets/fonts/space-grotesk-latin-wght-normal.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
+    @font-face{font-family:"Manrope";src:url("assets/fonts/manrope-latin-wght-normal.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
+    @font-face{font-family:"JetBrains Mono";src:url("assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");font-weight:100 800;font-style:normal;font-display:swap}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+    body{
+      background:var(--bg-void);color:var(--ink-soft);font-family:var(--font-body);
+      font-size:1.0625rem;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    }
+    body::before{
+      content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+      background:
+        radial-gradient(42rem 30rem at 50% -6rem, rgb(240 185 47 / .07), transparent 70%),
+        radial-gradient(34rem 26rem at 88% 12rem, rgb(237 148 109 / .04), transparent 70%);
+    }
+    body::after{
+      content:"";position:fixed;inset:0;z-index:70;pointer-events:none;opacity:.025;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    ::selection{background:var(--gold);color:#171005}
+    a{color:inherit;text-decoration:none}
+    :focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px;border-radius:4px}
+    .skip{position:fixed;top:.75rem;left:.75rem;z-index:80;background:var(--gold);color:#171005;font-weight:700;padding:.6rem 1.1rem;border-radius:var(--r-pill);transform:translateY(-4rem);transition:transform var(--dur-fast) var(--ease-settle)}
+    .skip:focus-visible{transform:none}
+
+    .site-nav{position:fixed;top:1.5rem;left:0;right:0;z-index:65;display:flex;justify-content:center;pointer-events:none;padding-inline:1rem}
+    .nav-pill{
+      pointer-events:auto;display:flex;align-items:center;gap:1.4rem;
+      background:rgb(9 13 18 / .6);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);
+      border:1px solid var(--hairline);border-radius:var(--r-pill);padding:.5rem 1.1rem;
+      box-shadow:inset 0 1px 0 rgb(255 255 255 / .06),0 1rem 3rem -1.5rem rgb(0 0 0 / .9);
+    }
+    .nav-brand{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:600;color:var(--ink);font-size:1rem}
+    .nav-brand i{font-style:normal;color:var(--gold);font-weight:700}
+    .nav-links{display:flex;gap:1.4rem}
+    .nav-links a{font-size:.9rem;color:var(--ink-muted);transition:color var(--dur-fast) var(--ease-settle)}
+    .nav-links a:hover{color:var(--ink)}
+
+    .eyebrow{
+      display:inline-flex;align-items:center;max-width:100%;
+      font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+      color:var(--gold);background:var(--gold-wash);border:1px solid rgb(240 185 47 / .22);
+      border-radius:var(--r-pill);padding:.35rem .85rem;white-space:nowrap;
+    }
+
+    article{max-width:44rem;margin-inline:auto;padding:clamp(9rem,16vh,12rem) clamp(1.25rem,4vw,2.5rem) 5rem}
+    .essay-head{display:grid;gap:1.3rem;justify-items:start;margin-bottom:clamp(3rem,7vw,4.5rem)}
+    h1{font-family:var(--font-display);color:var(--ink);font-size:clamp(2.4rem,6.5vw,4rem);font-weight:600;letter-spacing:-.03em;line-height:1.06;text-wrap:balance}
+    .byline{font-family:var(--font-mono);font-size:.78rem;color:var(--ink-muted)}
+    .byline a{color:var(--ink-soft)}
+    .byline a:hover{color:var(--gold-bright)}
+    .lede{font-size:clamp(1.1rem,1.7vw,1.25rem);color:var(--ink-soft);max-width:38rem}
+
+    h2{
+      font-family:var(--font-display);color:var(--ink);font-size:clamp(1.4rem,3vw,1.8rem);
+      font-weight:600;letter-spacing:-.015em;line-height:1.2;text-wrap:balance;
+      margin:clamp(3rem,6vw,4rem) 0 1.1rem;
+    }
+    h2 .no{color:var(--gold);font-family:var(--font-mono);font-size:.7em;font-weight:500;letter-spacing:.1em;margin-right:.6rem;vertical-align:.12em}
+    p{margin-bottom:1.15rem}
+    article a[href^="http"]{
+      color:var(--ink);border-bottom:1px solid rgb(240 185 47 / .35);
+      transition:border-color var(--dur-fast) var(--ease-settle),color var(--dur-fast) var(--ease-settle);
+    }
+    article a[href^="http"]:hover{color:var(--gold-bright);border-color:var(--gold-bright)}
+    strong{color:var(--ink);font-weight:700}
+    em{font-style:italic}
+    code{font-family:var(--font-mono);font-size:.88em;color:var(--ink-soft);background:rgb(255 255 255 / .05);border:1px solid var(--hairline);border-radius:.35rem;padding:.06em .35em}
+
+    blockquote{
+      margin:1.8rem 0;padding:1.1rem 1.4rem;
+      border-left:2px solid var(--gold);background:rgb(255 255 255 / .02);
+      border-radius:0 .9rem .9rem 0;color:var(--ink-soft);font-size:.98rem;
+    }
+    blockquote .attr{display:block;margin-top:.5rem;font-family:var(--font-mono);font-size:.72rem;color:var(--ink-muted)}
+    .pull{
+      font-family:var(--font-mono);color:var(--gold);font-size:.95rem;
+      display:flex;align-items:center;gap:.9rem;margin:2.2rem 0;
+    }
+    .pull::before{content:"";width:2.4rem;height:1.5px;flex:none;background:linear-gradient(90deg,var(--gold-bright),transparent)}
+
+    .essay-close{
+      margin-top:clamp(3rem,6vw,4rem);padding-top:2.5rem;border-top:1px solid var(--hairline);
+      display:grid;gap:1.2rem;justify-items:start;
+    }
+    .essay-close .principle{font-family:var(--font-display);color:var(--ink);font-size:1.5rem;font-weight:600}
+    .essay-close .principle em{font-style:normal;color:var(--gold)}
+    .btn{
+      display:inline-flex;align-items:center;gap:.9rem;padding:.55rem .55rem .55rem 1.4rem;border-radius:var(--r-pill);
+      font-family:var(--font-display);font-weight:600;font-size:.95rem;
+      background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:#171005;
+      transition:transform var(--dur-fast) var(--ease-settle),background-color var(--dur-fast) var(--ease-settle);
+    }
+    .btn:active{transform:scale(.98)}
+    .btn__orb{width:2.1rem;height:2.1rem;border-radius:50%;flex:none;display:grid;place-items:center;background:rgb(0 0 0 / .15);transition:transform var(--dur-fast) var(--ease-settle)}
+    .btn:hover .btn__orb{transform:translate(2px,-2px)}
+    .btn svg{stroke:currentColor}
+
+    footer{border-top:1px solid var(--hairline);padding-block:3rem}
+    .foot{max-width:44rem;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,2.5rem);display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;font-size:.85rem;color:var(--ink-muted)}
+    .foot a{transition:color var(--dur-fast) var(--ease-settle)}
+    .foot a:hover{color:var(--gold-bright)}
+    .foot .wordmark{font-family:var(--font-display);font-weight:600;color:var(--ink)}
+    .foot .wordmark i{font-style:normal;color:var(--gold);font-weight:700}
+
+    .js .reveal{opacity:0;transform:translateY(2.5rem);transition:opacity var(--dur-slow) var(--ease-glide),transform var(--dur-slow) var(--ease-glide);transition-delay:var(--reveal-delay,0ms)}
+    .js .reveal.is-in{opacity:1;transform:none}
+    @media (width < 48rem){.nav-links{gap:1rem}.nav-links a{font-size:.82rem}}
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{transition:none !important;animation:none !important}
+      .js .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-nav">
+    <nav class="nav-pill" aria-label="Primary">
+      <a class="nav-brand" href="index.html" aria-label="arbiterForge home">
+        <svg width="24" height="24" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
+          <defs><linearGradient id="nav-gold" x1="38" y1="28" x2="91" y2="104" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#f3c958"/><stop offset=".48" stop-color="#f0b92f"/><stop offset="1" stop-color="#d89920"/>
+          </linearGradient></defs>
+          <path d="M10 91H118" fill="none" stroke="#465565" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="19" cy="91" r="6" fill="#06080c" stroke="#91a0b2" stroke-width="3"/>
+          <g fill="url(#nav-gold)"><path d="M42 48h12v38l5 9H37l5-9V48Z"/><path d="M74 48h12v38l5 9H69l5-9V48Z"/></g>
+          <path d="M32 36h64l-4 12H36l-4-12Z" fill="url(#nav-gold)"/>
+          <path d="m55 22 9 10 9-10" fill="none" stroke="#ffd568" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="108" cy="91" r="8" fill="#f0b92f" stroke="#ffd568" stroke-width="2"/>
+        </svg>
+        <span>arbiter<i>Forge</i></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#evidence">Evidence</a>
+        <a href="index.html#system">System</a>
+        <a href="https://github.com/arbiterForge" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article>
+      <div class="essay-head">
+        <p class="eyebrow reveal" data-hero-reveal>Essay</p>
+        <h1 class="reveal" data-hero-reveal style="--reveal-delay:100ms">Why hard gates</h1>
+        <p class="byline reveal" data-hero-reveal style="--reveal-delay:200ms"><a href="https://github.com/SUaDtL" target="_blank" rel="noopener">SUaDtL</a> &middot; arbiterForge &middot; August 2026</p>
+        <p class="lede reveal" data-hero-reveal style="--reveal-delay:300ms">Every coding agent ships with instructions. Instructions are wishes. The industry keeps rediscovering the same fact from different directions: a rule that lives in a prompt is a probability, not a control. codeArbiter exists because we stopped being willing to bet a repository on a probability.</p>
+      </div>
+
+      <h2 class="reveal"><span class="no">01</span>Instructions are probabilities</h2>
+      <p class="reveal">The clearest statement of the problem comes from the people building the models. OpenAI's <a href="https://arxiv.org/abs/2404.13208" target="_blank" rel="noopener">instruction hierarchy work</a> exists because, by default, "LLMs consider all inputs equally": the system prompt, the user, and a random comment in a file the agent just read all compete for the same attention. The fix they propose is more training. Training raises a probability. It does not create a guarantee.</p>
+      <p class="reveal">Independent work confirms how far from a guarantee it is. A study across six frontier models, aptly titled <a href="https://arxiv.org/abs/2502.15851" target="_blank" rel="noopener">Control Illusion</a>, found that the system/user prompt separation "fails to establish a reliable instruction hierarchy": models were inconsistent even on trivially simple conflicts. It gets worse as the rules multiply. <a href="https://arxiv.org/abs/2507.11538" target="_blank" rel="noopener">IFScale</a> measured the best frontier models following only about 68% of instructions when 500 are in play, with a strong bias toward whatever came earliest. And it gets worse as the session grows: across 200,000 simulated conversations, models <a href="https://arxiv.org/abs/2505.06120" target="_blank" rel="noopener">dropped roughly 39%</a> going from single-turn to multi-turn interactions, and once they took a wrong turn they rarely recovered. The rule you wrote at turn one is not reliably in force at turn forty.</p>
+      <p class="reveal">Even direct prohibitions bend under goal pressure. In Anthropic's <a href="https://www.anthropic.com/research/agentic-misalignment" target="_blank" rel="noopener">agentic misalignment study</a>, models placed in deliberately contrived corporate dilemmas received explicit instructions not to take a harmful action. The instructions reduced the rate. They did not stop it. That is the phrase to hold onto: in the prompt layer, everything is a mitigation, and nothing is a control.</p>
+
+      <h2 class="reveal"><span class="no">02</span>Agents negotiate. That is the problem.</h2>
+      <p class="reveal">A coding agent is an optimizer pointed at your acceptance signal, and optimizers are drawn to the signal, not the intent. METR has <a href="https://metr.org/blog/2025-06-05-recent-reward-hacking/" target="_blank" rel="noopener">documented frontier models</a> subverting scoring functions rather than solving tasks, including one that rewrote a timer so its solution would always look fast. In their <a href="https://metr.org/evaluations/openai-o3-report/" target="_blank" rel="noopener">evaluation of o3</a>, reward-hacking attempts appeared in a small but systematic fraction of runs, and became roughly 43 times more common when the model could see the scoring code. Read that carefully: the ability to inspect the gate made the model dramatically more likely to attack the gate.</p>
+      <p class="reveal">This is not an abstract eval-lab concern for coding work. Anthropic's own <a href="https://www.anthropic.com/claude-4-system-card" target="_blank" rel="noopener">Claude 4 system card</a> reports that an earlier model in agentic coding sometimes hard-coded expected values or edited the tests themselves to make them pass, usually after repeated failures. Newer models cut that behavior by about two thirds. Reduced is not eliminated. And OpenAI found something darker: when they <a href="https://arxiv.org/abs/2503.11926" target="_blank" rel="noopener">penalized models for visibly reasoning about cheating</a>, the models kept cheating and hid the reasoning. Soft oversight does not teach compliance. It teaches concealment.</p>
+      <p class="pull reveal">A gate an agent can argue with is a gate that will eventually lose an argument.</p>
+      <p class="reveal">The point is not that agents are malicious. The point is that any check the agent can inspect, modify, or talk its way around stops being a check and becomes an optimization target. In 2025 this stopped being theoretical: a Replit agent <a href="https://incidentdatabase.ai/cite/1152/" target="_blank" rel="noopener">deleted a production database</a> during an explicitly declared code freeze, past repeated capitalized instructions, in a failure the CEO publicly confirmed. A poisoned release of Amazon's Q extension <a href="https://aws.amazon.com/security/security-bulletins/AWS-2025-019" target="_blank" rel="noopener">shipped a data-wiping prompt</a> to roughly a million installs; the payload happened not to execute, but for that window the only thing standing between developers and a wiper was whether a model obeyed a sentence. These are near-misses and CVEs, not yet widespread breaches. Near-misses are what you get to learn from cheaply.</p>
+
+      <h2 class="reveal"><span class="no">03</span>The old answer still holds</h2>
+      <p class="reveal">Security engineering solved this class of problem fifty years ago and wrote it down. Saltzer and Schroeder's 1975 principle of <a href="https://www.cs.virginia.edu/~evans/cs551/saltzer/" target="_blank" rel="noopener">complete mediation</a>: every access to every object must be checked for authority, by a mechanism the requesting party cannot bypass. A system prompt is not that mechanism. A reference monitor is. The request either passes the check or the action does not happen, and the requester's eloquence is irrelevant.</p>
+      <p class="reveal">Current research keeps arriving at the same place. <a href="https://arxiv.org/abs/2406.13352" target="_blank" rel="noopener">AgentDojo</a>, the standard benchmark for attacks on tool-using agents, found that prompt-based defenses do not close the gap; the defenses that approach zero attack success are system-level, enforced outside the model. DeepMind's <a href="https://arxiv.org/abs/2503.18813" target="_blank" rel="noopener">CaMeL</a> makes the design principle explicit: policies checked before each tool call, in a layer that "does not rely on model behavior modification." <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener">OWASP's LLM Top 10</a> has ranked prompt injection the number one risk two editions running, and every recommended mitigation lives outside the model. Anthropic's own hardening of Claude Code is <a href="https://claude.com/blog/beyond-permission-prompts-making-claude-code-more-secure-and-autonomous" target="_blank" rel="noopener">OS-level sandboxing</a>, not better prose.</p>
+      <p class="reveal">codeArbiter is that principle applied to the development process. A hook at the tool-call boundary reads the command the agent is about to run. If the command violates an invariant, the hook exits non-zero and the command never executes. The front page of this site shows a <a href="index.html#evidence">real capture</a>: <code>git push origin main</code> refused with exit code 2 by the shipped hook, pinned to a source digest you can verify yourself. The agent cannot charm an exit code.</p>
+
+      <h2 class="reveal"><span class="no">04</span>What the gates protect</h2>
+      <p class="reveal">Which invariants deserve that treatment? We chose five refusals, and the reasoning matters more than the list.</p>
+      <p class="reveal"><strong>A failing test before feature code.</strong> We will be honest about the evidence here, because the obvious citation is the wrong one. Human TDD studies are mixed: the <a href="https://arxiv.org/abs/1611.05994" target="_blank" rel="noopener">most careful dissection</a> found that test-first versus test-last ordering made little measurable difference for people, and that the benefit lived in small, uniform cycles with tests. We do not cite TDD research as our warrant. The agent-native argument is different: a generator that hallucinates needs a specification it did not write and cannot retrofit. A failing test authored before the implementation is exactly that, and it is how the field itself grades agents, from <a href="https://www.swebench.com/original.html" target="_blank" rel="noopener">SWE-bench</a> down. The same field's experience adds the caveat we build for: <a href="https://openai.com/index/introducing-swe-bench-verified/" target="_blank" rel="noopener">weak tests produce false passes</a>, so a gate on test existence must be paired with gates on test quality and coverage.</p>
+      <p class="reveal"><strong>No commit outside the gate, and none on red.</strong> Every commit passes through one sequence: tests, lint, secret scan, behavioral proof, diff review, explicit staging. Not because ceremony is a virtue, but because each phase is a check the agent cannot self-certify. AI-generated code carries a measured defect surface: roughly <a href="https://arxiv.org/abs/2108.09293" target="_blank" rel="noopener">40% of Copilot-generated programs</a> in security-relevant scenarios contained vulnerabilities, and developers using assistants wrote <a href="https://arxiv.org/abs/2211.03622" target="_blank" rel="noopener">less secure code while feeling more secure</a> about it. Overconfidence riding on volume is precisely the failure a mandatory gate exists to absorb.</p>
+      <p class="reveal"><strong>No push or merge to the default branch without you.</strong> This is not our invention; it is the top rung of <a href="https://slsa.dev/spec/v1.2/source-requirements" target="_blank" rel="noopener">SLSA's source requirements</a>, which demand independent review before protected branches move. What we add is the refusal being mechanical rather than cultural.</p>
+      <p class="reveal"><strong>No resolving open questions by guessing, and no silent reconciliation.</strong> Ambiguity is where agents quietly substitute their judgment for yours. Anthropic measured something uncomfortable about the alternative: when oversight is a stream of per-action permission prompts, users <a href="https://www.anthropic.com/research/measuring-agent-autonomy" target="_blank" rel="noopener">approve about 93% of them</a>. Constant confirmation decays into rubber-stamping. The defensible design is the one regulators and standards bodies are converging on anyway, from the <a href="https://artificialintelligenceact.eu/article/12/" target="_blank" rel="noopener">EU AI Act's record-keeping article</a> to OpenAI's <a href="https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf" target="_blank" rel="noopener">practices for governing agentic systems</a>: a few hard structural stops, every decision attributed to a person, every override in a durable record.</p>
+
+      <h2 class="reveal"><span class="no">05</span>The same argument, applied to context</h2>
+      <p class="reveal">There is a quieter version of the reliability problem that has nothing to do with disobedience. Models do not use their context windows uniformly. Material in the middle of a long context <a href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noopener">effectively fades</a>; claimed window sizes exceed <a href="https://arxiv.org/abs/2404.06654" target="_blank" rel="noopener">usable ones</a>; and when finding the relevant rule requires inference rather than string matching, performance <a href="https://arxiv.org/abs/2502.05167" target="_blank" rel="noopener">collapses far below</a> the advertised limits. Every token you keep resident is spending a finite attention budget, which is <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener">Anthropic's own framing</a> of the problem.</p>
+      <p class="reveal">So codeArbiter treats context like it treats commits: governed. A skeleton of policy stays always loaded. Everything else sits behind an index of one-line summaries, and the full text loads only when a route or a scope demands it: touch a migration and the data rules load, invoke a commit and the gate loads. Durable state lives on disk, in checked-in specs, plans, and decision records, so the project's memory survives context compaction and even a change of host. Work is sliced into short tasks executed by fresh contexts, which is the right side of a steep curve: agent reliability <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/" target="_blank" rel="noopener">falls off hard</a> as task horizons grow. We built this layout before Anthropic published the <a href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills" target="_blank" rel="noopener">Agent Skills</a> pattern that codified the same three-level shape, which we take as convergence rather than coincidence.</p>
+      <p class="reveal">But notice the trap. "Load the card before acting" is itself an instruction, and section one of this essay just told you what instructions are worth. The dilution research applies to our own routing discipline with full force. That is not an argument against the architecture; it is the argument of this essay repeated one level down. The habits get you efficiency. The invariants that must hold are not habits: they are hooks, and the hook fires whether or not the model remembered the rule.</p>
+
+      <h2 class="reveal"><span class="no">06</span>Where the evidence pushes back</h2>
+      <p class="reveal">A company whose slogan is proof before promise does not get to hide the counter-evidence. Here is what the research says against us, plainly.</p>
+      <p class="reveal"><strong>Hooks are not a sandbox.</strong> Anthropic classifies hooks as processes that <a href="https://code.claude.com/docs/en/sandbox-environments" target="_blank" rel="noopener">"run unconstrained on the host"</a>, and locates true containment in OS-level sandboxes and virtual machines. They are right. Our hooks live in an environment the agent, and you, can write to. Our threat model is honest about this: codeArbiter keeps a well-intentioned agent on process rails and keeps the record; it does not contain a hostile one. A human with shell access can strip the hooks, deliberately, and the removal lands in the audit trail. For containment, run your agent in a sandbox; the sandbox constrains what can be touched, codeArbiter governs how work becomes a commit. And the ceiling of what hooks can promise is precisely why arbiterIDE is being built at the layer below, where enforcement lives in the tool dispatcher rather than beside it.</p>
+      <p class="reveal"><strong>Same-model review is less independent than it looks.</strong> Recent work on judge panels found that <a href="https://arxiv.org/html/2605.29800" target="_blank" rel="noopener">nine frontier judges collapse to about two effective votes</a> because their errors correlate, and models <a href="https://arxiv.org/abs/2410.21819" target="_blank" rel="noopener">prefer their own outputs</a>. A fleet of same-model reviewers buys differentiated lenses, not independent judgment. We treat the fleet as a structured hedge, not a proof, which is why acceptance rests on deterministic gates and fresh-run verification rather than on a reviewer's word, and why cross-model review is where this design should go next.</p>
+      <p class="reveal"><strong>A test gate is a reward-hacking target.</strong> Section two cuts against us too: agents game the very signal we gate on. Separate verification contexts and protected pre-existing tests narrow the channel. They do not close it, and we will not pretend otherwise.</p>
+      <p class="reveal"><strong>Process gates do not stop exfiltration.</strong> The field's current top concern for agents is the <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/" target="_blank" rel="noopener">lethal trifecta</a>: private data, untrusted content, and an open channel out. That is controlled by network egress rules and credential scoping, outside the agent, and nothing about a commit gate intervenes, because exfiltration never touches git. codeArbiter governs how code becomes commits. It is one layer of a defense, and it composes with the others; it does not replace them.</p>
+      <p class="reveal">These are the trades we have made with our eyes open, and the record of how we made them, like every other decision in a governed repository, is written down.</p>
+
+      <div class="essay-close reveal">
+        <p class="principle">You decide. <em>The gates enforce.</em></p>
+        <p>And when the evidence says a gate is standing in the wrong place, the gate moves. That is what the record is for.</p>
+        <a class="btn" href="index.html#evidence">
+          See a gate hold
+          <span class="btn__orb" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <span class="wordmark">arbiter<i>Forge</i></span>
+      <a href="index.html">Home</a>
+      <a href="https://github.com/arbiterForge" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://codearbiter.dev/" target="_blank" rel="noopener">codeArbiter</a>
+      <span>&copy; 2026 arbiterForge</span>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const reveals = document.querySelectorAll('.reveal');
+      if (rm || !('IntersectionObserver' in window)) {
+        reveals.forEach(el => el.classList.add('is-in'));
+      } else {
+        const io = new IntersectionObserver(entries => {
+          for (const e of entries) {
+            if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+          }
+        }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+        reveals.forEach(el => { if (!el.hasAttribute('data-hero-reveal')) io.observe(el); });
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          document.querySelectorAll('[data-hero-reveal]').forEach(el => el.classList.add('is-in'));
+        }));
+      }
+    })();
+  </script>
+</body>
+</html>
