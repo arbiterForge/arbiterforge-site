@@ -638,8 +638,8 @@ are prohibited. Stage files explicitly (commit-gate skill).
           </div>
           <div class="evidence-side reveal" style="--reveal-delay:140ms">
             <h3>Inspect the mechanism</h3>
-            <p>Every guarantee is backed by something you can read. The hook is local-only Python stdlib, and both captures are pinned to the exact source revision below. Hash the pinned file yourself and compare.</p>
-            <p>The threat model, plainly: hooks block at the tool-call boundary, so an agent cannot argue past them. A human with shell access can remove them, deliberately, and that removal lands in the append-only audit trail.</p>
+            <p>These historical captures exercise the local Python hook at the pinned source revision below. Hash that file and compare. They do not qualify a newer package, host discovery, or an entire workflow.</p>
+            <p>Hooks mediate configured host tool calls. The evidence model is cooperative: unrestricted same-user filesystem access is outside its protection. See the <a href="https://github.com/arbiterForge/codeArbiter/blob/main/SECURITY.md">security policy</a> for the current product boundary.</p>
             <div class="inspect">
               <a href="https://github.com/arbiterForge/codeArbiter/blob/a3a2df2386d1daac74bedd2d60f40a043bcf2aeb/plugins/ca/hooks/pre-bash.py" target="_blank" rel="noopener">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -665,8 +665,8 @@ are prohibited. Stage files explicitly (commit-gate skill).
       <div class="container">
         <div class="section-head">
           <p class="eyebrow reveal">The system</p>
-          <h2 id="system-title" class="reveal" style="--reveal-delay:80ms">One policy core. Every host you use.</h2>
-          <p class="reveal" style="--reveal-delay:160ms">arbiterForge exists so autonomous coding can be trusted at the moment it matters: the commit. codeArbiter carries the gates to today&rsquo;s agents as a repository-owned plugin. arbiterIDE comes next and moves the same gates into the editor&rsquo;s tool-dispatch layer, designed so that not even a hostile client can talk past them. One policy core. One portable, auditable record.</p>
+          <h2 id="system-title" class="reveal" style="--reveal-delay:80ms">Shared policy. Host-specific qualification.</h2>
+          <p class="reveal" style="--reveal-delay:160ms">codeArbiter brings repository-owned context and governed development lanes to supported coding hosts. arbiterIDE is a separate editor project. Each product owns its implementation, threat boundary and qualification evidence; a shared design direction is not a shared release guarantee.</p>
         </div>
 
         <div class="bento">
@@ -675,12 +675,12 @@ are prohibited. Stage files explicitly (commit-gate skill).
             <article class="core">
               <div class="card-top">
                 <h3 class="card-name" id="p-ca">code<i>Arbiter</i></h3>
-                <span class="tag tag--live">v2.11.0 &middot; Stable</span>
+                <span class="tag tag--live">Host-specific releases</span>
                 <span class="tag tag--plain">AGPLv3</span>
               </div>
-              <p class="card-body">Multi-host governance plugin for Claude Code and Codex CLI, with Pi in preview. One policy core, expressed as 40 commands, 23 skills, and 28 agents.</p>
+              <p class="card-body">Repository-owned governance for Claude Code and Codex CLI, with Pi in preview. Commands route work to shared procedures and role-specific reviews; the product reference owns the current catalog and host exceptions.</p>
               <div>
-                <p class="refusals-label">Five hard refusals</p>
+                <p class="refusals-label">Governed workflow requirements</p>
                 <ul class="refusals">
                   <li>No feature code before a failing test</li>
                   <li>No commit on red, or outside the gate</li>
@@ -701,8 +701,8 @@ are prohibited. Stage files explicitly (commit-gate skill).
           <article class="shell cell-gate reveal" style="--reveal-delay:120ms">
             <div class="core">
               <h3 class="card-eyebrow">The gate</h3>
-              <p class="card-title">Nine phases. The only path to a commit.</p>
-              <p class="card-body-muted">Tests, lint, secrets, behavioral proof, diff review. Nothing reaches version control on &ldquo;looks good.&rdquo;</p>
+              <p class="card-title">Nine phases in the governed commit lane.</p>
+              <p class="card-body-muted">Tests, lint, secrets, behavioral proof and diff review are part of the configured commit procedure. Hook-backed blocks and model-guided requirements have different enforcement boundaries.</p>
               <figure class="gate-figure">
                 <img src="assets/gate-phases.webp" alt="Nine gate stations on a track: eight hollow, unlit rings resolve into one final glowing gold node beneath a small gate." width="1600" height="320" loading="lazy" decoding="async">
               </figure>
@@ -717,8 +717,8 @@ are prohibited. Stage files explicitly (commit-gate skill).
 
           <article class="card-quiet cell-quiet-2 reveal" style="--reveal-delay:200ms">
             <h3 class="card-eyebrow">Local and portable</h3>
-            <p class="card-body-muted">Enforcement is local-only Python stdlib: instant, free, no model calls. Reviews spend tokens only when you invoke them. Checked-in <code>.codearbiter/</code> state survives switching hosts.</p>
-            <div class="mini-pills"><span>No telemetry</span><span>Portable state</span></div>
+            <p class="card-body-muted">Hook entry scripts use Python stdlib; structured artifacts also use a pinned native helper. Model-assisted reviews use your configured provider. Checked-in <code>.codearbiter/</code> state survives switching hosts, while workflow capability remains host-specific.</p>
+            <div class="mini-pills"><span>Explicit feedback consent</span><span>Portable state</span></div>
           </article>
 
           <a class="card-quiet cell-quiet-3 reveal" style="--reveal-delay:240ms" href="https://arbiteride.com/" target="_blank" rel="noopener" aria-labelledby="p-ide">
@@ -726,7 +726,7 @@ are prohibited. Stage files explicitly (commit-gate skill).
               <h3 class="card-name" id="p-ide">arbiter<i>IDE</i></h3>
               <span class="tag tag--dev">Pre-alpha</span>
             </div>
-            <p class="card-body-muted">Intent in. Gate-verified PR out. The same gates, moved into the editor&rsquo;s tool-dispatch layer. Built on Eclipse Theia.</p>
+            <p class="card-body-muted">A separate editor project exploring tool-dispatch enforcement. Visit the product site for its current development and availability information.</p>
             <span class="ide-link">arbiteride.com &nearr;</span>
           </a>
         </div>
@@ -734,23 +734,20 @@ are prohibited. Stage files explicitly (commit-gate skill).
         <div class="install-strip reveal" id="install">
           <div class="install-cmds">
             <p class="card-eyebrow">Install</p>
-            <pre><code><span class="t-meta"># Claude Code</span>
-<span class="t-prompt">/</span>plugin marketplace add arbiterForge/codeArbiter
-<span class="t-prompt">/</span>plugin install ca@codearbiter
-
-<span class="t-meta"># Codex CLI</span>
-<span class="t-prompt">$</span> codex plugin marketplace add arbiterForge/codeArbiter</code></pre>
+            <p class="card-body-muted">Use the product-owned instructions for the current qualified installation channel. A source checkout is not automatically the released binary-bearing package.</p>
+            <p><a href="https://codearbiter.dev/getting-started/install/">Installation instructions &nearr;</a></p>
+            <p><a href="https://codearbiter.dev/getting-started/compatibility/">Host and workflow compatibility &nearr;</a></p>
           </div>
           <div class="install-facts">
             <p class="card-eyebrow">What it writes</p>
-            <p class="card-body-muted">Hook scripts (Python stdlib, local-only) and a <code>.codearbiter/</code> directory in your repo. Dormant until a repo opts in. No network calls, no telemetry.</p>
+            <p class="card-body-muted">Repository context lives in <code>.codearbiter/</code>; integration and accounting state also exist in Git and user-global locations. Startup can contact your Git remote and GitHub. Optional tribunal feedback requires per-run consent. Read the <a href="https://github.com/arbiterForge/codeArbiter/blob/main/PRIVACY.md">privacy policy</a> for destinations, storage and removal behavior.</p>
             <p class="card-eyebrow">License</p>
-            <p class="card-body-muted">AGPLv3 covers codeArbiter itself, never your code. Commercial licensing available.</p>
+            <p class="card-body-muted">codeArbiter is distributed under <a href="https://github.com/arbiterForge/codeArbiter/blob/main/LICENSE">AGPLv3</a>. Consult the <a href="https://github.com/arbiterForge/codeArbiter#license-and-contributions">product licensing and contribution policy</a> for current terms and commercial availability.</p>
             <div class="host-row">
-              <span class="tag tag--live">Claude Code &middot; Stable</span>
-              <span class="tag tag--live">Codex CLI &middot; Stable</span>
+              <span class="tag tag--plain">Claude Code</span>
+              <span class="tag tag--plain">Codex CLI</span>
               <span class="tag tag--dev">Pi &middot; Preview</span>
-              <a class="changelog-link" href="https://github.com/arbiterForge/codeArbiter/blob/main/CHANGELOG.md" target="_blank" rel="noopener">27 tagged releases &middot; changelog &nearr;</a>
+              <a class="changelog-link" href="https://github.com/arbiterForge/codeArbiter/releases" target="_blank" rel="noopener">Published adapter releases &nearr;</a>
             </div>
           </div>
         </div>

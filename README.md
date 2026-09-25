@@ -12,3 +12,13 @@ codeArbiter documentation site so the family reads as one system.
 
 Placeholder art slots awaiting generated premium assets are indexed in
 [`PREMIUM-ASSETS.md`](PREMIUM-ASSETS.md) and flagged in-code with `🎨 PREMIUM-ASSET-SLOT`.
+
+## Product claims
+
+Current codeArbiter installation, compatibility, release and policy facts are
+linked to their product-owned sources rather than copied into a second catalog.
+Historical proof captures retain their original identities and remain labeled.
+This site change does not qualify a package or change any product maturity label.
+
+Run `python -m unittest discover -s tests -v` for the source-contract regressions.
+The workflow checks wording and owner links, not live host behavior or legal scope.
