@@ -34,5 +34,10 @@ class PublicClaimsTest(unittest.TestCase):
         self.assertIn("qualified", source.lower())
         self.assertIn("preview", source.lower())
 
+    def test_tribunal_links_its_owned_roster_without_a_copied_count(self):
+        source = (ROOT / TARGET).read_text(encoding="utf-8")
+        self.assertNotRegex(source, r"\b\d+-lens tribunal\b")
+        self.assertIn("https://codearbiter.dev/reference/skills/tribunal/", source)
+
 if __name__ == "__main__":
     unittest.main()
