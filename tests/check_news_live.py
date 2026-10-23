@@ -56,11 +56,11 @@ def verify(revision):
 if __name__=='__main__':
     revision=sys.argv[1] if len(sys.argv)>1 else 'manual'
     if not revision.isalnum(): raise SystemExit('Revision must be alphanumeric')
-    for attempt in range(1,7):
+    for attempt in range(1,13):
         try:
             verify(revision)
             break
         except (HTTPError, URLError, OSError, ValueError, AssertionError, StopIteration, ET.ParseError) as error:
-            print(f'Public verification attempt {attempt}/6: {error}', flush=True)
-            if attempt==6: raise
+            print(f'Public verification attempt {attempt}/12: {error}', flush=True)
+            if attempt==12: raise
             time.sleep(10)
