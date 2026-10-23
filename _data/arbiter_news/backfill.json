@@ -15,16 +15,16 @@
   "note": "Full text was recovered for eight source files; September 29 only has its early edition. All other available historical dates retain coverage summaries, not fabricated full briefings. No historical claims were independently reverified. Daily RSS and latest-edition selection exclude this historical backfill.",
   "source_payload_sha256": "c6614d46c804db81fa929e62213aadaccfd1e6f0128bac50e39070dced87be4e",
   "history_part_sha256": {
-    "part-01.json": "42d89d86c2ccfc326a1aca79cd212572ec0a83ae3d7a23c467a188750ebd4cfb",
-    "part-02.json": "0b5c5cfa09a2f3a853a3367d2308709a4ee1ae513f3da1b732ebff9965e36623",
-    "part-03.json": "706d7bc8609fc821837680eb9698ba45e806d266d712422c766df935e1d90859",
-    "part-04.json": "cf304faa283590cb91341ac106ed7325d3de8aa525aa3bf367666632444fc5d6",
-    "part-05.json": "c22a231e7d76ce9803c3e18591ab50def2abc8e909d613a8179c0dee991268f3",
-    "part-06.json": "8308c223f77c646d33a465bfcb5b17f6da18dc55b50dad395a8a451512342dce",
-    "part-07.json": "3c1801e5c5d6d22e0d9245de6c8bf6507fc21dc281b96d5f83e332247773810a",
-    "part-08.json": "938440d7ba8db8e484b599d15fcfd2ec184941a385028c783b03f89450751e4e",
-    "part-09.json": "88e084193f1ee51207801208ef224b4a3eabe1db04445b1aa4763e23f7b77278",
-    "part-10.json": "7961060f1fc5eb94229ce65b213e927a0db68d09ddf3604f485fa94099d13417"
+    "part-01.json": "43c9bfe3b8de99cb438d3cb4308e056231667bdeea456543fe776590d79e6d66",
+    "part-02.json": "ce67a3fd7abe0b9e65f8bf43388374060b5d3d51b56ef084ba599b9bf40f485a",
+    "part-03.json": "2a130adb2337fbc35d56aefa8843058377b86b1d39f7c0249539949882ee4fb2",
+    "part-04.json": "05f4b85af6e24abbb73db1bf1c80a6c0746c1492816581d40a9a92755c82a43e",
+    "part-05.json": "3555c060805cc56b682686dc81b6deda52d1288673083f562dd8f18144d7f78f",
+    "part-06.json": "a8a65ad7002ca707f3ca34a11555ddbe1220512b992a181b7a610a01ce960486",
+    "part-07.json": "39e7002d3659e67c5c49c5f1c4e647de06cd76fcfa7198dd09e9c5de480c7f5f",
+    "part-08.json": "c6a909948190d5e0d9400d8aa6a0c540da71d2133d42fa457cdd08c9d5dc9253",
+    "part-09.json": "91155ffb283835af06c8cc9c9d4491cd4b49fb53b04482794471d832576e2e68",
+    "part-10.json": "2f50d48fb7aabe15a1b98229c92c0d2ae6f9e1b14d869deacccd96f880f99b54"
   },
   "dates": [
     {
@@ -255,5 +255,6 @@
         "edition_kind": "original dated briefing"
       }
     }
-  ]
+  ],
+  "history_part_hash_encoding": "UTF-8 with LF newlines (canonical Git representation)"
 }

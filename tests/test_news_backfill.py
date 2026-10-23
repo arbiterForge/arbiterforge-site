@@ -37,7 +37,7 @@ class BackfillContracts(unittest.TestCase):
         actual = [i['record'] for p in self.pages for i in p['entries']]
         self.assertEqual(Counter(map(canonical,actual)),Counter(map(canonical,self.legacy)))
         for name,digest in self.meta['history_part_sha256'].items():
-            self.assertEqual(hashlib.sha256((DATA/'history_parts'/name).read_bytes()).hexdigest(),digest)
+            self.assertEqual(hashlib.sha256((DATA/'history_parts'/name).read_bytes().replace(bytes([13,10]),bytes([10]))).hexdigest(),digest)
 
     def test_only_recovered_text_is_called_restored(self):
         for p in self.pages:
