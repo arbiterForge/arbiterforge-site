@@ -34,7 +34,14 @@ assert latest['edition_date'] in text, 'latest page is missing edition date'
 p=Page();p.feed(text)
 assert p.articles==len(latest['records']), 'latest page has missing stories'
 assert p.tabs==4 and len(p.ids)==len(set(p.ids)), 'latest navigation is invalid'
-assert (root/'news/archive/index.html').exists()
+archive=(root/'news/archive/index.html').read_text()
+assert '/news//' not in archive, 'archive has empty edition links'
+for e in data['editions']:
+    assert '/news/'+e['edition_date']+'/' in archive
 for name in ['news.css','news.js']:assert (root/'news/assets'/name).exists()
-ET.parse(root/'news/feed.xml')
+feed=ET.parse(root/'news/feed.xml')
+items=feed.findall('./channel/item')
+assert len(items)==len(data['editions']), 'feed has missing or spurious items'
+assert items[0].findtext('link')==latest['url'], 'feed is not newest first'
+assert all(i.findtext('link') in {e['url'] for e in data['editions']} for i in items)
 print(f"Rendered Pages output OK: {len(data['editions'])} editions; {len(data['prior_records'])} legacy records; latest {latest['edition_date']}")

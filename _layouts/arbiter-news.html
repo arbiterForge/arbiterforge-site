@@ -1,5 +1,5 @@
-{%- assign editions = site.data.arbiter_news.editions | sort | reverse -%}
-{%- for entry in editions limit:1 -%}{%- assign edition = entry[1] -%}{%- endfor -%}
+{%- assign editions = site.data.arbiter_news.editions | sort -%}
+{%- for entry in editions -%}{%- assign edition = entry[1] -%}{%- endfor -%}
 {%- if page.edition -%}{%- assign edition = site.data.arbiter_news.editions[page.edition] -%}{%- endif -%}
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#080c14"><meta name="referrer" content="no-referrer">
@@ -11,7 +11,7 @@
 <main id="main" class="shell">
 {% if page.archive %}
 <section class="mast"><div class="eyebrow">The edition archive</div><h1>Catch up.<br><span>On your terms.</span></h1><p>Every published edition keeps its own address. Dates below are edition dates, not a claim that every story happened that day.</p></section>
-<section class="archive-grid" aria-label="Published editions">{% for entry in editions %}{% assign e = entry[1] %}<a class="archive-card" href="/news/{{ e.edition_date }}/"><time datetime="{{ e.edition_date }}">{{ e.edition_date | date: '%B %-d, %Y' }}</time><strong>{{ e.stories | size }} developments <span aria-hidden="true">↗</span></strong><p>{{ e.overview | truncate: 230 | escape }}</p><small>{% if e.publication_kind == 'migrated' %}Imported briefing{% else %}Daily edition{% endif %}</small></a>{% endfor %}</section>
+<section class="archive-grid" aria-label="Published editions">{% for entry in editions reversed %}{% assign e = entry[1] %}<a class="archive-card" href="/news/{{ e.edition_date }}/"><time datetime="{{ e.edition_date }}">{{ e.edition_date | date: '%B %-d, %Y' }}</time><strong>{{ e.stories | size }} developments <span aria-hidden="true">↗</span></strong><p>{{ e.overview | truncate: 230 | escape }}</p><small>{% if e.publication_kind == 'migrated' %}Imported briefing{% else %}Daily edition{% endif %}</small></a>{% endfor %}</section>
 <p class="note">The public archive begins with the October 23, 2026 migration. Earlier coverage records are retained for duplicate detection; that does not mean the older full editions have been published here.</p>
 {% else %}
 <section class="mast"><div class="eyebrow"><time datetime="{{ edition.edition_date }}">{{ edition.edition_date | date: '%A · %B %-d, %Y' }}</time> / Daily intelligence</div><div class="mast-grid"><div><h1>What’s <span>new.</span></h1><p>{{ edition.intro | escape }}</p></div><div class="stats"><div><b>{{ edition.stories | size }}</b><small>Developments</small></div><div><b>04</b><small>Category desks</small></div></div></div><div class="edition-links"><a href="/news/{{ edition.edition_date }}/">Permanent link to this edition ↗</a><a href="/news/archive/">Browse the archive</a><a href="/news/feed.xml">RSS feed</a></div></section>

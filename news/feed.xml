@@ -2,5 +2,5 @@
 layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-{% assign editions = site.data.arbiter_news.editions | sort | reverse %}
-<rss version="2.0"><channel><title>Arbiter News</title><link>https://arbiterforge.com/news/</link><description>Daily intelligence across AI, cloud, cybersecurity, defense, markets and money.</description><language>en-us</language>{% for entry in editions limit:30 %}{% assign e = entry[1] %}<item><title>Arbiter News — {{ e.edition_date }}</title><link>https://arbiterforge.com/news/{{ e.edition_date }}/</link><guid isPermaLink="true">https://arbiterforge.com/news/{{ e.edition_date }}/</guid><description>{{ e.overview | xml_escape }}</description></item>{% endfor %}</channel></rss>
+{% assign editions = site.data.arbiter_news.editions | sort %}
+<rss version="2.0"><channel><title>Arbiter News</title><link>https://arbiterforge.com/news/</link><description>Daily intelligence across AI, cloud, cybersecurity, defense, markets and money.</description><language>en-us</language>{% for entry in editions reversed %}{% assign e = entry[1] %}<item><title>Arbiter News — {{ e.edition_date }}</title><link>https://arbiterforge.com/news/{{ e.edition_date }}/</link><guid isPermaLink="true">https://arbiterforge.com/news/{{ e.edition_date }}/</guid><description>{{ e.overview | xml_escape }}</description></item>{% endfor %}</channel></rss>
