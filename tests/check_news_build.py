@@ -30,7 +30,10 @@ for edition in data['editions']:
     assert all(not x.startswith(('javascript:','data:')) for x in p.hrefs)
     assert all('/news/assets/'+name in text for name in ('news.css','news.js'))
 text=(root/'news/index.html').read_text()
-assert latest['edition_date'] in text
+assert latest['edition_date'] in text, 'latest page is missing edition date'
+p=Page();p.feed(text)
+assert p.articles==len(latest['records']), 'latest page has missing stories'
+assert p.tabs==4 and len(p.ids)==len(set(p.ids)), 'latest navigation is invalid'
 assert (root/'news/archive/index.html').exists()
 for name in ['news.css','news.js']:assert (root/'news/assets'/name).exists()
 ET.parse(root/'news/feed.xml')

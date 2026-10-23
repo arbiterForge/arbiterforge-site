@@ -29,6 +29,7 @@ jobs:
       - name: Validate rendered pages, coverage index and RSS
         run: python tests/check_news_build.py _site
       - name: Retain rendered preview for inspection
+        if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: arbiter-news-preview

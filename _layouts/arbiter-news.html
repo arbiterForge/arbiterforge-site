@@ -1,6 +1,5 @@
 {%- assign editions = site.data.arbiter_news.editions | sort | reverse -%}
-{%- assign newest = editions | first -%}
-{%- assign edition = newest[1] -%}
+{%- for entry in editions limit:1 -%}{%- assign edition = entry[1] -%}{%- endfor -%}
 {%- if page.edition -%}{%- assign edition = site.data.arbiter_news.editions[page.edition] -%}{%- endif -%}
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#080c14"><meta name="referrer" content="no-referrer">
