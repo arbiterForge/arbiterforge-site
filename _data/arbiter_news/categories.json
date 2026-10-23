@@ -1,0 +1,6 @@
+[
+ {"id":"ai","name":"AI, Agents & Developer Tools","short":"AI & agents","accent":"#a99cff","label":"Build / intelligence"},
+ {"id":"cloud","name":"Cloud, AIOps, DevOps & Infrastructure","short":"Cloud & operations","accent":"#67e2db","label":"Operate / infrastructure"},
+ {"id":"security","name":"Cybersecurity & Defense Technology","short":"Security & defense","accent":"#91dbc3","label":"Defend / mission"},
+ {"id":"money","name":"Markets, Economy & Personal Finance","short":"Markets & money","accent":"#e8c57e","label":"Economy / households"}
+]

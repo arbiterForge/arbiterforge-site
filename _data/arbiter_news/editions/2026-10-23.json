@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-23",
+  "title": "Arbiter News",
+  "intro": "Twelve developments across AI, operations, security, defense and the economy. The useful substance comes before the click.",
+  "overview": "Agent interoperability gains new neutral-governance projects; operators get a private-network preview and an actionable GitHub Actions firewall change. New vulnerability remediation and public secret monitoring sit beside a modest Air Force cargo-plane experiment. For households, the picture is mixed US momentum, unresolved child-account benefits rules and weakening UK retail demand. Twelve separate events, not twelve headlines about one vendor.",
+  "publication_kind": "migrated",
+  "migration_note": "Imported from the October 23 briefing. This is a publishing migration, not a new round of reporting or source verification.",
+  "history_note": "319 earlier coverage records were retained from the briefing ledger for September 24–October 22. No records are available for September 23 or October 6. Older full editions have not all been migrated to this site.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "aaif:agent-skills-open-responses-openenv-opensandbox:neutral-governance-contribution:2026-10-22",
+      "status": "new",
+      "topic": "Open agent standards",
+      "title": "Four agent building blocks move under Linux Foundation governance",
+      "publisher": "Linux Foundation / AAIF",
+      "publication_date": "2026-10-22",
+      "event_date": "2026-10-22",
+      "freshness": "New • last 48 hours",
+      "highlights": "The Agentic AI Foundation accepted four contributed projects on October 22: Anthropic’s Agent Skills, OpenAI’s Open Responses, Hugging Face’s OpenEnv and Alibaba’s OpenSandbox. They address reusable agent instructions, interoperable model response formats, reinforcement-learning environments and isolated code execution, respectively. The Linux Foundation says its portfolio now totals ten hosted projects, alongside MCP, A2A and AGENTS.md. This is a governance and stewardship announcement—not evidence that the implementations are already interchangeable.",
+      "implications": "Teams designing their own harnesses and control planes can track four specifications across the skill, API, evaluation and sandbox boundaries. Assess license terms, conformance tests, version governance and implementation maturity separately; neutral ownership does not eliminate provider-specific behavior.",
+      "takeaway": "Watch for actual cross-provider compatibility tests and independently maintained implementations. The long-term opportunity is to standardize seams without outsourcing your execution and security policy.",
+      "development_summary": "AAIF added Agent Skills, Open Responses, OpenEnv and OpenSandbox under vendor-neutral governance.",
+      "sources": [
+        {
+          "label": "Read original source",
+          "url": "https://www.linuxfoundation.org/press/agentic-ai-foundation-announces-four-new-projects-agent-skills-open-responses-openenv-and-opensandbox"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "openai:decisions-api:ga-predicate-choice-score:2026-10-22",
+      "status": "new",
+      "topic": "Inference / orchestration",
+      "title": "OpenAI makes bounded-answer Decisions API generally available",
+      "publisher": "OpenAI / product announcement",
+      "publication_date": "2026-10-22",
+      "event_date": "2026-10-22",
+      "freshness": "New • last 48 hours",
+      "highlights": "OpenAI released the Decisions API for production use with GPT-6 Luna, targeting classification, routing and next-action questions rather than prose generation. Applications ask for a predicate probability, a choice among options or a ranking; a request can bundle up to 400 questions. Native JSON and image inputs, GPT-Live integration, caching, US/EU inference residency and eligible Zero Data Retention are listed. The launch price is $0.10 per million uncached input tokens, $0.01 for cached input and no output-token charge.",
+      "implications": "OpenAI claims responses up to ten times faster than GPT-6 Luna through its Responses API; that is a vendor comparison, not an independent service-level measurement. For orchestration, test calibration and false approvals against representative actions before placing a decision endpoint in any authorization-sensitive path.",
+      "takeaway": "A low-latency classifier could be useful before expensive generative calls. Keep deterministic policy and human escalation separate from probabilistic judgment.",
+      "development_summary": "OpenAI made Decisions API GA for fast predicate, choice and ranking tasks.",
+      "sources": [
+        {
+          "label": "Read original source",
+          "url": "https://openai.com/index/decisions-api/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot-usage-metrics:named-custom-skills-custom-agents-mcp-25:2026-10-22",
+      "status": "new",
+      "topic": "Developer telemetry",
+      "title": "Copilot usage reports now name custom skills, agents and MCP servers",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-10-22",
+      "event_date": "2026-10-22",
+      "freshness": "New • last 48 hours",
+      "highlights": "GitHub changed Copilot usage-metrics reporting so enterprise and organization records display the configured names of internal skills, custom agents, MCP servers, slash commands and plugins instead of folding all custom work into “other” or “custom.” New names appear in the existing totals_by_* arrays, including per-user reports and aggregated daily totals. Each array now includes up to 25 entries, compared with five before. GitHub says interaction counts and distinct-use calculations are unchanged; historical data is not reprocessed.",
+      "implications": "That makes adoption analyses for internal development workflows significantly more specific: which agent is actually invoked, rather than whether developers used a generic customization bucket. Coverage still depends on the supported client and SDK versions, and metrics reflect instrumented interactions rather than quality, value or complete spend.",
+      "takeaway": "Useful for rollout measurement and training priorities. Pair the new named usage counts with task outcomes and feedback before declaring an agent effective.",
+      "development_summary": "GitHub Copilot usage metrics now expose named custom agents, skills and MCP servers, up to 25 entries.",
+      "sources": [
+        {
+          "label": "Read original source",
+          "url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:interconnect-last-mile-megaport-preview:2026-10-22",
+      "status": "new",
+      "topic": "Private cloud connectivity",
+      "title": "AWS and Megaport preview managed last-mile private connectivity",
+      "publisher": "AWS / What’s New",
+      "publication_date": "2026-10-22",
+      "event_date": "2026-10-22",
+      "freshness": "New • last 48 hours",
+      "highlights": "AWS opened a preview of AWS Interconnect – last mile with Megaport, aiming to shorten provisioning of private links between customer sites and AWS. Operators select an AWS Region, connection bandwidth, Direct Connect gateway and partner subscriber ID through the console, then receive an activation key for the partner workflow. The announcement names initial metro availability in Northern Virginia and San Jose. Megaport supplies the software-defined network reach; AWS orchestrates its side of the connection. This is preview access, not a globally available replacement for every Direct Connect design.",
+      "implications": "The service could reduce manual cross-provider coordination for branch and data-center sites. Architects still own route propagation, BGP and VLAN configuration, segmentation, failover testing and end-to-end traffic accounting. Do not assume future advertised scaling and availability commitments are active preview guarantees.",
+      "takeaway": "Watch general availability, supported metros, SLAs and the actual operational boundary between AWS and the carrier. Pilot the failure path, not just the happy-path provisioning.",
+      "development_summary": "AWS previewed AWS Interconnect last mile using Megaport for private site-to-cloud links.",
+      "sources": [
+        {
+          "label": "Read original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-announces-AWS-interconnect-last-mile-megaport-preview/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "nvidia:dgx-spark:eight-node-1tb-local-inference-support:2026-10-22",
+      "status": "new",
+      "topic": "Local AI infrastructure",
+      "title": "NVIDIA details eight-node DGX Spark clusters with 1 TB of combined memory",
+      "publisher": "NVIDIA Technical Blog",
+      "publication_date": "2026-10-22",
+      "event_date": "2026-10-22",
+      "freshness": "New • last 48 hours",
+      "highlights": "NVIDIA published an eight-node DGX Spark reference configuration that aggregates eight 128 GB unified-memory systems into 1 TB. Its engineering team demonstrated local inference on the full 753-billion-parameter GLM 5.3 checkpoint and reported approximately 80 generated tokens per second for a GLM 5.3 Flash configuration. Its Qwen3.8-27B demonstration climbed from roughly 12 to 52 decode tokens per second across one to eight nodes. All performance numbers are NVIDIA measurements, sensitive to topology, quantization and workload.",
+      "implications": "The new scale challenges the assumption that large development checkpoints must reside in cloud GPUs, but the cluster needs suitable networking, orchestration, power and memory-placement strategy. Official eight-node cluster support was announced; NVIDIA says the Sync Cluster Assistant’s eight-node automation arrives later in 2026.",
+      "takeaway": "Watch independent throughput, total installed cost and network resilience. Memory capacity is a real architectural change; benchmark charts are not procurement-grade evidence by themselves.",
+      "development_summary": "NVIDIA described eight DGX Spark nodes forming a 1 TB local memory configuration and vendor benchmarks.",
+      "sources": [
+        {
+          "label": "Read original source",
+          "url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "github:actions:blob-storage-new-result-host-ranges-allowlist:2026-10-22",
+      "status": "new",
+      "topic": "CI/CD network operations",
+      "title": "GitHub Actions adds new blob-host ranges that firewalls may block",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-10-22",
+      "event_date": "2026-10-22",
+      "freshness": "New • last 48 hours",
+      "highlights": "GitHub expanded its Actions blob storage endpoint inventory and updated the public meta API. Operators maintaining granular network allowlists should add the inclusive host ranges productionresultssa30–49.blob.core.windows.net and productionresultssa100–199.blob.core.windows.net. GitHub warns the new names can otherwise interrupt Actions job summaries and logs. Sites already permitting the wildcard productionresultssa*.blob.core.windows.net do not need a change for these ranges. The change concerns traffic destinations—not a new runner release or a modification to workflow files.",
+      "implications": "Self-hosted runners and tightly controlled egress proxies often fail in surprising ways when backend storage endpoints expand. Match the announced names against DNS filtering, TLS inspection, proxy egress and firewall policy; also review the maintained meta API rather than hard-coding one-time ranges forever.",
+      "takeaway": "A small infrastructure notice with an immediate action: check the current allowlist before unexplained CI telemetry failures appear.",
+      "development_summary": "GitHub expanded Azure Blob result-host ranges used by Actions logs and job summaries.",
+      "sources": [
+        {
+          "label": "Read original source",
+          "url": "https://github.blog/changelog/2026-10-22-meta-api-endpoints-updated-for-actions-blob-storage/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "aws:continuum-code-vulnerabilities:general-availability:2026-10-22",
+      "status": "new",
+      "topic": "Application security automation",
+      "title": "AWS Continuum launches code-vulnerability validation and patch workflows",
+      "publisher": "AWS / What’s New",
+      "publication_date": "2026-10-22",
+      "event_date": "2026-10-22",
+      "freshness": "New • last 48 hours",
+      "highlights": "AWS announced general availability of Continuum for code vulnerabilities. The service builds a context graph of application resources, identities and network reachability, combines existing findings with code scanning, and attempts to validate exploitability inside an isolated sandbox. Its stated workflow prioritizes findings by business impact and creates remediation pull requests with exploitability evidence and blast-radius analysis. AWS positions it alongside GuardDuty and Security Hub. These are AWS-described product capabilities, not independently verified detection or remediation accuracy.",
+      "implications": "The notable shift is connecting a code flaw to reachable production infrastructure before ranking remediation work. AWS describes a human-approved Learn mode and a separately enabled Enforce mode for guarded autonomy. Security teams should establish evidence-retention rules, false-negative tests, ownership and staged rollout before allowing mutation.",
+      "takeaway": "Watch independent validation on real repositories and whether proposed fixes survive regression tests. An exploitability verdict should inform—not replace—security engineering judgment.",
+      "development_summary": "AWS made Continuum for code vulnerabilities GA with sandbox validation, contextual prioritization and PR patches.",
+      "sources": [
+        {
+          "label": "Read original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-continuum-for-code-vulnerabilities-is-now-generally-available/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "github:secret-scanning:public-monitoring-ghec-data-residency-preview:2026-10-22",
+      "status": "new",
+      "topic": "Credentials / data residency",
+      "title": "GitHub adds public secret monitoring to data-resident enterprises",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-10-22",
+      "event_date": "2026-10-22",
+      "freshness": "New • last 48 hours",
+      "highlights": "GitHub opened public monitoring to GitHub Enterprise Cloud organizations using data residency, in a public preview. The feature watches commits on public github.com repositories for potential credential exposure attributed to a customer. Because data-resident enterprise membership rosters remain separated from github.com, matching relies on verified company email domains in public commit-author addresses. Alerts are encrypted and delivered into the enterprise’s chosen data-resident environment. Eligibility requires GitHub Secret Protection or GitHub Advanced Security licensing; the feature has no separate preview charge.",
+      "implications": "This widens visibility beyond company-controlled repositories without exporting an enterprise directory. The trade-off is coverage: personal addresses, unverified domains or unattributable commits can evade this matching method. Security teams should verify domains, define ownership for alerts and rehearse revocation and credential-rotation workflows.",
+      "takeaway": "Treat external commit scanning as one additional leak sensor—not a guarantee that every exposed secret belonging to your organization will be discovered.",
+      "development_summary": "GitHub previewed domain-matched public credential-leak monitoring for data-resident enterprises.",
+      "sources": [
+        {
+          "label": "Read original source",
+          "url": "https://github.blog/changelog/2026-10-22-public-monitoring-now-available-with-data-residency/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "usaf-natilus:kona-blended-wing-body:3.5m-development-contract-announced-2026-10-21",
+      "status": "new",
+      "topic": "Defense logistics / aerospace",
+      "title": "Air Force backs Natilus KONA blended-wing-body cargo development",
+      "publisher": "Breaking Defense / original reporting",
+      "publication_date": "2026-10-23",
+      "event_date": "2026-10-21",
+      "freshness": "New • reported today",
+      "highlights": "Breaking Defense reports that the US Air Force awarded startup Natilus a $3.5 million contract to develop its KONA blended-wing-body cargo aircraft. The company announced the funding Wednesday, October 21; the independent report appeared Friday morning. KONA is aimed at smaller cargo missions rather than the separate, larger JetZero demonstrator funded in 2023. Natilus describes an approximately 85-foot wingspan and 19,000-pound maximum takeoff weight. Its projected first flight in late 2027 or early 2028 is a company target, not a committed operational date.",
+      "implications": "A blended-wing-body airframe could offer different payload-volume and fuel-use tradeoffs for distributed logistics. The first planned KONA version is piloted; prospective autonomous operation is a future possibility, not demonstrated deployed capability. The $3.5 million represents development funding rather than an aircraft procurement award.",
+      "takeaway": "Watch prototype construction, flight-test data and the Air Force’s actual logistics requirement. This is a concept moving toward hardware—not a new fielded transport capability.",
+      "development_summary": "USAF awarded Natilus $3.5M to develop KONA blended-wing-body experimental cargo aircraft; announced October 21.",
+      "sources": [
+        {
+          "label": "Read original source",
+          "url": "https://breakingdefense.com/2026/10/natilus-secures-air-force-contract-to-develop-blended-wing-body-aircraft/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "conference-board:us-leading-economic-index:september-2026:released-2026-10-22",
+      "status": "new",
+      "topic": "US economic indicators",
+      "title": "US leading economic index holds at 99.6 as signals diverge",
+      "publisher": "The Conference Board / original release",
+      "publication_date": "2026-10-22",
+      "event_date": "2026-09-30",
+      "freshness": "New data • last 48 hours",
+      "highlights": "The Conference Board reported that its US Leading Economic Index was unchanged at 99.6 in September, following a 0.1% August decline. The index improved 0.6% across March–September, compared with contraction in the preceding six months. Its Coincident Economic Index, designed to reflect current conditions rather than forecast them, increased 0.3% during September. Underlying inputs remain mixed, with differing signals from labor, interest rates, confidence and forward-looking orders. This is a release about September conditions, issued October 22—not same-day market data.",
+      "implications": "The organization’s growth outlook of 2.2% for 2026 and 2.0% for 2027 is a forecast, not an observed outcome. Household decisions should not hinge on one diffusion index: employment stability, borrowing rates and actual cash flows remain more direct indicators for a family budget.",
+      "takeaway": "Watch whether improvement persists across future releases and shows up in hiring and orders. Flat is neither a fresh recession call nor a clean all-clear.",
+      "development_summary": "Conference Board September 2026 US LEI held flat at 99.6 while coincident index rose 0.3%.",
+      "sources": [
+        {
+          "label": "Read original source",
+          "url": "https://www.prnewswire.com/news-releases/the-conference-board-leading-economic-index-lei-for-the-us-was-flat-in-september-302917003.html"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "aicpa:trump-accounts:employer-contribution-proposed-regulation-comment:2026-10-16",
+      "status": "new",
+      "topic": "Family financial policy",
+      "title": "Accountants warn employer child-account benefit rules need more runway",
+      "publisher": "AICPA & CIMA / policy comments",
+      "publication_date": "2026-10-22",
+      "event_date": "2026-10-16",
+      "freshness": "Recent • not previously covered",
+      "highlights": "In an October 22 announcement about its October 16 letter to Treasury and the IRS, the American Institute of CPAs urged simpler proposed rules for employer contributions to children’s Trump Accounts. The proposal contemplates tax-free employer contributions up to $2,500 per employee for 2026 and 2027, subject to statutory requirements. Employer programs would need written plans, notifications, reporting and nondiscrimination procedures. The association argues that trust, coordination and payroll setup may make the 2026 implementation timeline impractical and requests extra time.",
+      "implications": "For employees, a tax-favored dependent benefit is not equivalent to an automatic employer deposit; adoption depends on company policy and final compliance rules. For benefits and payroll teams, the open questions are contribution deadlines, verification between custodians and employer plans, and what records must be maintained.",
+      "takeaway": "No extension has been approved by this comment letter. Watch Treasury/IRS final guidance and your employer’s actual benefits announcement before building a family contribution plan around it.",
+      "development_summary": "AICPA requested changes to proposed employer contribution regulations for child Trump Accounts, warning 2026 rollout could be difficult.",
+      "sources": [
+        {
+          "label": "Read original source",
+          "url": "https://www.aicpa-cima.com/news/article/aicpa-makes-recommendations-on-proposed-regulations-detailing-employer-contributions-to-trump-accounts"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "uk-ons:retail-sales-september-2026:release-2026-10-23",
+      "status": "new",
+      "topic": "Household demand / UK",
+      "title": "UK retail volume slips 0.4% as household confidence weakens",
+      "publisher": "Reuters / UK Office for National Statistics",
+      "publication_date": "2026-10-23",
+      "event_date": "2026-09-30",
+      "freshness": "New data • today",
+      "highlights": "New UK Office for National Statistics figures show retail sales volume fell 0.4% month over month in September, exceeding economists’ expected 0.1% drop in a Reuters poll. Yet revised data put overall volumes 0.7% higher across the three months through September, so the monthly setback does not erase all preceding gains. Reuters separately reports an October GfK survey showing the sharpest monthly consumer-confidence fall since early in the COVID-19 pandemic. Energy and fuel costs are squeezing disposable income, while warm early-autumn weather affected clothing demand.",
+      "implications": "The distinction matters: sales volume measures quantities adjusted for prices, not simply the cash passing through registers. The UK pattern offers a timely read on how energy-price pressure can coexist with recently resilient headline spending. Analysts’ fourth-quarter growth estimates remain forecasts.",
+      "takeaway": "Watch the next monthly retail release and actual price inflation before generalizing this one-month contraction into a sustained consumer downturn.",
+      "development_summary": "UK September retail volume declined 0.4% month-on-month; separate October confidence survey weakened sharply.",
+      "sources": [
+        {
+          "label": "Read original source",
+          "url": "https://www.reuters.com/world/uk/british-retail-sales-fall-by-04-september-2026-10-23/"
+        },
+        {
+          "label": "UK official release",
+          "url": "https://www.gov.uk/government/statistics/retail-sales-great-britain-september-2026"
+        }
+      ]
+    }
+  ]
+}
