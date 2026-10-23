@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-15",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-15",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available",
+          "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability"
+        ],
+        "source_publication_date": "2026-10-15",
+        "underlying_event_date": "2026-10-15",
+        "normalized_event_key": "github:ai-scan-and-agentic-autofix:ga:2026-10-15",
+        "development_summary": "GitHub made AI Scan for pull requests and agentic autofix of code-scanning alerts generally available on October 15.",
+        "status": "new"
+      },
+      "record_sha256": "b12740e2cd602414e711405b018fc04529de734aeca855b4dd3975b7df5348b1"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-15",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/bring-sagemaker-ai-expertise-to-your-coding-agent"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "aws:agent-toolkit:aws-aiml-sagemaker-skill:2026-10-13",
+        "development_summary": "AWS added its AI/ML SageMaker skill to the supported Agent Toolkit for AWS, replacing previous independent Labs skills and plugins.",
+        "status": "new"
+      },
+      "record_sha256": "e083442233f585dc4aca9ab62cbab29a39888f9e40142d3accd4174b9c722ffa"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-15",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+          "https://www.reuters.com/business/anthropic-grants-ai-evaluator-metr-employee-level-access-its-models-2026-10-15"
+        ],
+        "source_publication_date": "2026-10-15",
+        "underlying_event_date": "2026-10-15",
+        "normalized_event_key": "anthropic:metr-embedded-independent-risk-evaluation:2026-10-15",
+        "development_summary": "Anthropic announced six METR evaluators have begun employee-like embedded access to its internal model-risk operations and can publish independent findings.",
+        "status": "new"
+      },
+      "record_sha256": "ea25e000e68affaba7bbceb81681dc3a132499d64e02baf5137fec945a72e027"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-15",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview",
+          "https://github.com/github/gh-actions-lock"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "github:actions-workflow-dependency-lockfiles:preview:2026-10-14",
+        "development_summary": "GitHub introduced preview Actions workflow lockfiles that bind action and reusable-workflow references to fixed commits and support Dependabot updates.",
+        "status": "new"
+      },
+      "record_sha256": "7b702957fb0b31d16ae065f574b5178b8043e3b2167420b3260d08f6c81ae631"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-15",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/region-switch-target-health-ssm-lambda"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "aws:arc-region-switch-ssm-lambda-quota-target-health:2026-10-14",
+        "development_summary": "AWS ARC Region switch added SSM execution, Lambda payloads, quota-parity checks and target-group health readiness checks.",
+        "status": "new"
+      },
+      "record_sha256": "82d2299195edd6ea43bcda79d3448c1a91a233099d54250b7d25124fc6cc3da5"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-15",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/cloudwatch-pipelines-log-routing"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "aws:cloudwatch-pipelines:conditional-routing-chained-parsers:2026-10-14",
+        "development_summary": "CloudWatch managed log pipelines gained conditional routing to log groups and multistage chained parsers.",
+        "status": "new"
+      },
+      "record_sha256": "5a3011dc187fbe1488dce30f8541fbb5bf14dbef746132ea43d11028bd106862"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-15",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://security.paloaltonetworks.com/CVE-2026-0322"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "palo-alto:pan-os:cve-2026-0322:active-exploitation:2026-10-14",
+        "development_summary": "Palo Alto published and updated an actively exploited authenticated root RCE advisory for PAN-OS and Panorama, CVE-2026-0322.",
+        "status": "new"
+      },
+      "record_sha256": "8a2df213226ec21eda166860aa0872cf8d3737193bd06974f626754ea0e3a279"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-15",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.army.mil/article/296083/future_focused_vice_chief_of_staff_of_the_army_details_army_autonomy_advancements"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "us-army:fascom-corps-autonomy-experiment-assignments:2026-10-13",
+        "development_summary": "The Army specified FASCOM redesignation and assigned distinct autonomous fires, watercraft, reconnaissance, breaching, aerial and aviation experiments across five corps.",
+        "status": "new"
+      },
+      "record_sha256": "88ffef6fc052b68f5ef20a80fdf219727d8ca0bbe46f9e0d636c566e6fa2f341"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-15",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://nasa.einnews.com/pr_news/948037232/powerlight-receives-expanded-investment-from-department-of-war-for-laser-based-wireless-power-beaming",
+          "https://powerlighttech.com/ptrol-uas-demo"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "powerlight:aerial-recharge-defense-follow-on-award:2026-10-08",
+        "development_summary": "PowerLight reported a new Operational Energy–Innovation follow-on award to mature in-flight laser recharging for unmanned aircraft.",
+        "status": "new"
+      },
+      "record_sha256": "bc0eb472dec3556b419402765dca8ef482189861c9bbbd6f29f528d5beb8df08"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-15",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.bls.gov/news.release/archives/ppi_10152026.htm"
+        ],
+        "source_publication_date": "2026-10-15",
+        "underlying_event_date": "2026-10-15",
+        "normalized_event_key": "bls:ppi-final-demand:2026-09:release-2026-10-15",
+        "development_summary": "BLS released September PPI showing final-demand prices +1.3% month on month and +6.3% year on year, driven heavily by energy.",
+        "status": "new"
+      },
+      "record_sha256": "1473c47ed2978fac39e35c148c35cc7636438b10c6d1f5353ff3de71b5d39a72"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-15",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://nrf.com/media-center/press-releases/nrf-forecasts-2026-holiday-sales-growth-as-consumers-remain-resilient"
+        ],
+        "source_publication_date": "2026-10-15",
+        "underlying_event_date": "2026-10-15",
+        "normalized_event_key": "nrf:holiday-retail-sales-forecast:2026:issued-2026-10-15",
+        "development_summary": "NRF projected $1.013 trillion in November–December 2026 sales, +4.2% nominal growth, and 325,000–375,000 seasonal hires.",
+        "status": "new"
+      },
+      "record_sha256": "bf03c6d08543c435510c29b58e5a9d23467e6df21785e12e46becd223a4c4288"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-15",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/us-retail-sales-beat-expectations-september-higher-gasoline-prices-2026-10-15",
+          "https://www.census.gov/retail/sales.html"
+        ],
+        "source_publication_date": "2026-10-15",
+        "underlying_event_date": "2026-10-15",
+        "normalized_event_key": "us-census:advance-retail-sales:2026-09:release-2026-10-15",
+        "development_summary": "September advance US retail sales rose 0.8% nominally, while an excluding-auto-gas-building-materials-food-services control measure rose only 0.1%.",
+        "status": "new"
+      },
+      "record_sha256": "ca674f6710172bc6275d7d86acb81ca96a32a2029a14c2e220a507251a239048"
+    }
+  ]
+}

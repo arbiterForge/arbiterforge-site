@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-01",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-01",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon"
+        ],
+        "source_publication_date": "2026-09-30",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "google:gemini-4-argon:announcement:2026-09-30",
+        "development_summary": "Google announced Gemini 4 Argon with a staged Fairwind cyber-defender rollout, introductory pricing, and future broader access.",
+        "status": "new"
+      },
+      "record_sha256": "1122a17e6af01aa18ad53e84d169c5aff2b09ede6168387e3372fa66ed2815e5"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-01",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://blog.cloudflare.com/clef-decision-models"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "cloudflare:clef-decision-models-and-rl-platform:2026-10-01",
+        "development_summary": "Cloudflare released Clef and Clef-flash decision models on Workers AI and introduced a hands-on RL fine-tuning service with a future self-service platform.",
+        "status": "new"
+      },
+      "record_sha256": "5d9aacbd6e7a2c4d2c91191eb15cc1e05226236472fece5a29e2276f74563203"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-01",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-01-code-coverage-uploads-no-longer-fail-ci-for-new-branches"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "github:code-quality:coverage-upload-skip-new-branches:2026-10-01",
+        "development_summary": "GitHub changed Code Quality coverage uploads to skip rather than fail when a branch has no open pull request.",
+        "status": "new"
+      },
+      "record_sha256": "658424910b4c5e74648f8cc20ce130a2906f96161d18880ae252f116850cecc6"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-01",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://blog.cloudflare.com/cloudflare-basin"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "cloudflare:basin:general-availability:2026-10-01",
+        "development_summary": "Cloudflare made Basin Pipelines, Basin Catalog, and Basin SQL generally available as an Apache Iceberg and R2-based serverless analytics platform.",
+        "status": "new"
+      },
+      "record_sha256": "2e21873914c482ce3d19c4068bebf0986e21873584f567533b8e7518b141a295"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-01",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://cloud.google.com/blog/topics/developers-practitioners/introducing-the-server-side-cloud-swift-sdk"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "google-cloud:server-side-swift-sdk:launch:2026-10-01",
+        "development_summary": "Google Cloud launched official server-side Swift API client libraries built for Swift 6.2+, Swift NIO, HTTP/2, and gRPC.",
+        "status": "new"
+      },
+      "record_sha256": "b4ed8a6e4beea7359cc41bfb542e14a704497c4daa37e14090823290865d66f7"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-01",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://rssfeed.azure.status.microsoft/en-us/status/history",
+          "https://azure.microsoft.com/en-us/get-started/azure-portal/service-health"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "microsoft-azure:gateway-connectivity-incident:7Q30-010:2026-09-30",
+        "development_summary": "A Microsoft Azure gateway-management and servicing interaction caused multi-region connectivity impact across ExpressRoute, VPN, Firewall, Application Gateway/WAF, and Azure VMware Solution.",
+        "status": "new"
+      },
+      "record_sha256": "2ab50c98ba1c2c0fa305f81c546a64ccc94774bbcac82c31b53a5bc7a8d89711"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-01",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.anthropic.com/threat-intelligence-report-september-2026"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "anthropic:threat-intelligence-report:september-2026:published-2026-10-01",
+        "development_summary": "Anthropic published its September 2026 misuse report covering disrupted AI-assisted malicious activity across seven harm areas and describing cyber use shifting toward orchestration.",
+        "status": "new"
+      },
+      "record_sha256": "51b37781719834219f796032133f03688901f614bd69f96a57176411f7577b00"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-01",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.proofpoint.com/us/blog/threat-insight/hallucinating-credibility-china-aligned-ta419-impersonates-its-way-us-ai-policy"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-07-01",
+        "normalized_event_key": "proofpoint:ta419:ai-policy-expert-credential-phishing:2026-10-01",
+        "development_summary": "Proofpoint disclosed TA419 campaigns using impersonation, AitM phishing, and a customized Frameless BitB kit against U.S. AI-policy experts.",
+        "status": "new"
+      },
+      "record_sha256": "f2bb40994cb6aaaaabcd55c64e6e0d22ed8b279643a7a0357940ca1a6530880e"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-01",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.war.gov/News/Releases/Release/Article/4614331/department-of-war-and-us-navy-award-contract-for-fa-xx-program",
+          "https://www.reuters.com/business/autos-transportation/boeing-wins-us-navys-next-generation-fighter-contract-sources-say-2026-09-29"
+        ],
+        "source_publication_date": "2026-09-29",
+        "underlying_event_date": "2026-09-29",
+        "normalized_event_key": "us-navy:boeing:fa-xx-full-scale-development-award:2026-09-29",
+        "development_summary": "The U.S. Navy selected Boeing for the F/A-XX sixth-generation strike fighter full-scale development phase valued at more than $20B.",
+        "status": "new"
+      },
+      "record_sha256": "2e9c4444733a0839b05c8ba6dd4d6ce865bc3a5bfb821ca7b5d03f35943ba3e8"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-01",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/us-mortgage-rates-jump-by-most-4-years-latest-week-2026-10-01",
+          "https://www.freddiemac.com/pmms"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "freddie-mac:pmms:30-year-7.28:2026-10-01",
+        "development_summary": "Freddie Mac's weekly survey showed the U.S. 30-year fixed mortgage rate at 7.28%, up 25 basis points week over week.",
+        "status": "new"
+      },
+      "record_sha256": "ce5c5fc58c4d78974062f9e3a7451dc3ab86c432756aa6ea654b3e65769b9219"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-01",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/pmi/september"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "ism:manufacturing-pmi:2026-09:release-2026-10-01",
+        "development_summary": "ISM reported a September 2026 Manufacturing PMI of 54.5 with stronger new orders and employment but a sharply higher Prices Index of 77.9.",
+        "status": "new"
+      },
+      "record_sha256": "bc039a985a48cf6db1de718e285665474f5eb6538dd6aef887c5ef2951728e5f"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-01",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/finance/us-construction-spending-surges-august-2026-10-01",
+          "https://www.census.gov/constructionspending"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "us-census:construction-spending:2026-08:release-2026-10-01",
+        "development_summary": "U.S. construction spending rose 0.9% in August 2026, led by private nonresidential outlays including offices and power plants.",
+        "status": "new"
+      },
+      "record_sha256": "8d94786d1ca927e247ce3798c4ddff111060f84421dc392e1c55df77b5b95368"
+    }
+  ]
+}

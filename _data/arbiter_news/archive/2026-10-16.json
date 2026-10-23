@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-16",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-16",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-advances-its-operational-harness-for-enterprise-AI-with-AI-Passport-and-expanded-governance-capabilities/default.aspx"
+        ],
+        "source_publication_date": "2026-10-15",
+        "underlying_event_date": "2026-10-15",
+        "normalized_event_key": "servicenow:ai-passport-runtime-agent-scoped-credentials:announcement:2026-10-15",
+        "development_summary": "ServiceNow announced AI Passport, a proposed cryptographically signed credential that records which tools and actions individual first- or third-party agents and MCP servers may use.",
+        "status": "new"
+      },
+      "record_sha256": "a80064ea195502990421a0fa5c05db0e302844366cff9f41ab50cbd1fc1866ca"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-16",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://typesafe.ai/blog/jev-1-14"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "typesafe:jev-1.14.0-and-experimental-multimodal-box-long-context:2026-10-14",
+        "development_summary": "TypeSafe released Jev 1.",
+        "status": "new"
+      },
+      "record_sha256": "4ef481412c6748d81b09153d3107f663f522677f7da318a0d156eac5f7436ee0"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-16",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates"
+        ],
+        "source_publication_date": "2026-10-15",
+        "underlying_event_date": "2026-10-15",
+        "normalized_event_key": "github:copilot-slack-teams-multi-repository-conversations:2026-10-15",
+        "development_summary": "GitHub updated its @GitHub experience in Slack and Microsoft Teams to answer questions across several repositories within one conversation.",
+        "status": "new"
+      },
+      "record_sha256": "e32a5519bac8a2694c9249e34a485227c7f76672075c58d43681a11f9c00ad68"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-16",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://developers.cloudflare.com/changelog/post/2026-10-16-tunnels-for-platforms-and-50k-routes"
+        ],
+        "source_publication_date": "2026-10-16",
+        "underlying_event_date": "2026-10-16",
+        "normalized_event_key": "cloudflare:tunnel-route-limit-50000-tunnels-for-platforms:2026-10-16",
+        "development_summary": "Cloudflare increased the default allowance for Tunnel and Mesh CIDR/hostname routes from 1,000 to 50,000 per account, effective automatically.",
+        "status": "new"
+      },
+      "record_sha256": "bca17ff2bf8b9024d6dc2a13ee81b593043b8c0fba5b9ab5e8e3eac4706eed95"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-16",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-agentcore"
+        ],
+        "source_publication_date": "2026-10-15",
+        "underlying_event_date": "2026-10-15",
+        "normalized_event_key": "aws:bedrock-agentcore-web-search-expands-to-govcloud-us-west-and-3-regions:2026-10-15",
+        "development_summary": "AWS expanded its managed AgentCore Web Search tool into AWS GovCloud (US-West), US East (Ohio), US West (Oregon) and Asia Pacific (Sydney).",
+        "status": "new"
+      },
+      "record_sha256": "5ec074c70ef30bf1d822ac8ab7826cbda283a1e0dbe1d2f98baeaebcdce26526"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-16",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://www.microsoft.com/en-us/microsoft-cloud/blog/us-government/2026/10/13/azure-enclave-is-now-generally-available-managed-workload-isolation-for-government-and-regulated-industries"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "microsoft:azure-enclave-general-availability-government-regulated:2026-10-13",
+        "development_summary": "Microsoft announced general availability of Azure Enclave in commercial Azure and Azure for US Government.",
+        "status": "new"
+      },
+      "record_sha256": "2b06cbb0425c6301923aeb5778988eeab59a3123e473b06af670b7eca7824874"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-16",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://github.com/CollaboraOnline/online/security/advisories/GHSA-g3vx-3m76-fghh"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "collabora:richdocumentscode-ghsa-g3vx-3m76-fghh-os-command-injection-patch-26.4.303:2026-10-14",
+        "development_summary": "Collabora disclosed GHSA-g3vx-3m76-fghh, a critical unauthenticated OS command-injection path in the optional richdocumentscode built-in CODE Server application for Nextcloud.",
+        "status": "new"
+      },
+      "record_sha256": "66ebe77d36b6b4c0df563a8f2935a5a5fd09f7f9221b7785e4902701c89620c0"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-16",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://defensescoop.com/2026/10/16/us-navy-deploys-unmanned-maritime-drone-to-support-carrier-strike-group-in-historic-first"
+        ],
+        "source_publication_date": "2026-10-16",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "us-navy:theodore-roosevelt-strike-group-medium-usv-first-operational-deployment:2026-10-08",
+        "development_summary": "Acting Navy Secretary Hung Cao said that the USS Theodore Roosevelt Carrier Strike Group deployed on October 8 with a medium-sized uncrewed surface vessel, describing it as the first carrier strike group deployment of its kind.",
+        "status": "new"
+      },
+      "record_sha256": "773e662d9d2521ee3e0edc7591a87fdba429e32608c6dff267ddb665a8a72c5c"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-16",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.pravda.com.ua/eng/news/2026/10/14/8057996"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "ukraine-spacex:starshield-mobile-terminals-160-kmh-speed-limitation:2026-10-14",
+        "development_summary": "Ukrainska Pravda reported, citing Ukraine’s Defence Ministry, that Starshield satellite terminals began disconnecting above 160 km/h after a restriction imposed overnight October 13–14.",
+        "status": "new"
+      },
+      "record_sha256": "042d210ddcb7bede78a13334833a427bf38c39e882cdf9164a5c1e0ed13b6092"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-16",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.bls.gov/news.release/ximpim.nr0.htm"
+        ],
+        "source_publication_date": "2026-10-16",
+        "underlying_event_date": "2026-10-16",
+        "normalized_event_key": "bls:us-september-2026-import-export-price-indexes-release:2026-10-16",
+        "development_summary": "The BLS reported that U.",
+        "status": "new"
+      },
+      "record_sha256": "3f01ac60fdeea943b8085ab7805b369df96600fef6a7a9eb4516919ee89b0f2d"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-16",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.federalreserve.gov/releases/g17/current/default.htm"
+        ],
+        "source_publication_date": "2026-10-16",
+        "underlying_event_date": "2026-10-16",
+        "normalized_event_key": "fed:g17-september-2026-industrial-production-and-capacity:2026-10-16",
+        "development_summary": "The Federal Reserve’s October 16 G.",
+        "status": "new"
+      },
+      "record_sha256": "4dd5682c4a477310d1c3574017540ad32417df1f6a47db1c09f7aff6638aa17d"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-16",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/energy/us-solicits-exchange-up-17-million-barrels-oil-strategic-reserve-2026-10-16"
+        ],
+        "source_publication_date": "2026-10-16",
+        "underlying_event_date": "2026-10-16",
+        "normalized_event_key": "us-doe:spr-up-to-17-million-barrels-crude-exchange-solicitation:2026-10-16",
+        "development_summary": "The U.",
+        "status": "new"
+      },
+      "record_sha256": "eb49b68d3f644ad14d22303acf06047e6d4739bceba6e20265f55fa27cd80702"
+    }
+  ]
+}

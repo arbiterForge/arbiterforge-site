@@ -1,0 +1,427 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-08",
+  "archive_kind": "coverage-only",
+  "record_count": 24,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 24 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://about.gitlab.com/press/releases/2026-10-06-gitlab-announces-the-foundation-for-the-governed-software-factory"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "gitlab:governed-software-factory:announcement:2026-10-06",
+        "development_summary": "GitLab unveils a “governed software factory” for agent-built code",
+        "status": "new"
+      },
+      "record_sha256": "d7ad9373452086cc0df906eccf6b4e481365d577eea650a58a38cb5b7e1ce3ed"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "google:playground:prompt-built-games-launch:2026-10-07",
+        "development_summary": "Google Playground lets users build and share games through prompts",
+        "status": "new"
+      },
+      "record_sha256": "8a204d1a93cc70495b2c015ba15135ff0120d5f4a40068b6c327662898b7c1bf"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://reflection.ai/blog/introducing-beam"
+        ],
+        "source_publication_date": "2026-10-05",
+        "underlying_event_date": "2026-10-05",
+        "normalized_event_key": "reflection-ai:beam-501b:announcement:2026-10-05",
+        "development_summary": "Reflection introduces Beam, a sparse 501B coding model—but weights are not out yet",
+        "status": "new"
+      },
+      "record_sha256": "5be7bad32f0dade574d16cb0888d51e1be109d92e6a84f2edba2f998012788c5"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://developer.nvidia.com/blog/aicr-v1-0-open-stable-and-verifiable-gpu-cluster-configuration"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "nvidia:ai-cluster-runtime:v1.0:2026-10-06",
+        "development_summary": "NVIDIA makes GPU Kubernetes configurations verifiable with AI Cluster Runtime 1.0",
+        "status": "new"
+      },
+      "record_sha256": "61bc3f48f34e31e9f319c3713ec0ae0e34040bc0e6860c60f758a3ed8bee3ad4"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://www.f5.com/company/news/press-releases/service-providers-modernize-infrastructure-efficiency-control"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "f5:big-ip-cloud-native-edition-ebpf:2026-10-07",
+        "development_summary": "F5 brings carrier network functions and eBPF visibility into Kubernetes",
+        "status": "new"
+      },
+      "record_sha256": "2c040769733806b037b911516c4a30ccec4613864963b8b7f6b6ceece190ea31"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://www.axios.com/2026/10/07/national-compute-grid-ai-capacity"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "national-compute-grid:consortium-launch:2026-10-07",
+        "development_summary": "A National Compute Grid proposes pooling idle AI accelerators through one scheduler",
+        "status": "new"
+      },
+      "record_sha256": "c6c17eb52553660579036d1853cb6fb77ff12fcb1175e8e04390f74253a7c2b9"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://confluence.atlassian.com/security/cve-2026-21589-arbitrary-file-access-vulnerability-impacts-multiple-products-1870495748.html",
+          "https://www.rapid7.com/blog/post/etr-cve-2026-21589-critical-unauthenticated-arbitrary-file-access-in-atlassian-products",
+          "https://thehackernews.com/2026/10/atlassian-data-center-flaw-draws.html"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-05",
+        "normalized_event_key": "atlassian:cve-2026-21589:disclosure-and-exploitation-attempts:2026-10-07",
+        "development_summary": "Atlassian’s critical file-read flaw draws exploitation attempts after technical details emerge",
+        "status": "new"
+      },
+      "record_sha256": "3b5c99a2e473f64e52159966a4e4cd664d2073b58ac662dd7d82ffa15d83a627"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://research.jfrog.com/vulnerabilities/lmcache-is-vulnerable-to-unauthenticated-remote-code-execution-via-pickle-deserialization-on-the-multiprocess-zmq-transport-cve-2026-105192-jfsa-2026-001694382"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "lmcache:cve-2026-105192:unauthenticated-rce-disclosure:2026-10-07",
+        "development_summary": "JFrog finds unauthenticated code execution in network-exposed LMCache deployments",
+        "status": "new"
+      },
+      "record_sha256": "4fbe527883e2e86230f6ef1447d62291a10db2d525f19183bed820cbb47534d6"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.incatcrowther.com/news/news-feed/posts/2026/oct/incat-crowther-partners-with-hii-to-support-build-of-romulus-usvs-for-us-navy-medium-unmanned-surface-vessel-program",
+          "https://www.marinelog.com/news/incat-crowther-partners-with-hii-to-support-build-of-romulus-usvs"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "us-navy:hii-romulus-medium-usv-contract:2026-10-06",
+        "development_summary": "Navy MUSV award advances HII’s ROMULUS autonomous vessels toward fleet production",
+        "status": "new"
+      },
+      "record_sha256": "b5b3305bf06c1d212dd891f5e43f3ce0bd7da540a6872b8f223bdcd02ed0cb5e"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.newyorkfed.org/newsevents/news/research/2026/20261007"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "nyfed:survey-consumer-expectations:2026-09:published-2026-10-07",
+        "development_summary": "New York Fed survey shows household inflation expectations rising again",
+        "status": "new"
+      },
+      "record_sha256": "dff611fb00b9433f83caba5591f49822eeeff4fc13f5d0bcd6db22c996651552"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/world/india/india-raises-policy-rate-by-25-bps-first-hike-nearly-four-years-2026-10-07"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "rbi:monetary-policy:25bps-5.50:2026-10-07",
+        "development_summary": "India raises rates while lifting its growth forecast—a different inflation dilemma",
+        "status": "new"
+      },
+      "record_sha256": "721724857cbed3c0806e00d1f58e6c5e53d994a96b9b7a8fcd2c560f7ab9b99a"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/finance/hawkish-fed-triggers-emerging-market-outflows-september-2026-10-07"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "iif:em-portfolio-flows:2026-09:reported-2026-10-07",
+        "development_summary": "Emerging markets see $26.3 billion leave as rates and the dollar firm",
+        "status": "new"
+      },
+      "record_sha256": "62ded90633205cc025161451355b86136e288c57239a68c13084bd5fb7614ca9"
+    },
+    {
+      "ordinal": 13,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+          "https://reuters.com/business/google-cloud-introduces-gemini-agent-work-ai-race-heats-up-2026-10-08"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "google-cloud:gemini-universal-enterprise-agent:announcement:2026-10-08",
+        "development_summary": "Google announced a unified cloud-persistent Gemini agent with coworker identities, cross-app actions, model routing, centralized policy, audit and spending controls.",
+        "status": "new"
+      },
+      "record_sha256": "ddb58dfbeb2bbd86aaee4d72aeb77e4ac1b8367ba1897c628b31313be733e677"
+    },
+    {
+      "ordinal": 14,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "microsoft:execution-containers-mxc:general-availability:2026-10-07",
+        "development_summary": "Microsoft announced GA for policy-defined execution containers with Windows, macOS and Linux process sandbox backends for AI agent workloads.",
+        "status": "new"
+      },
+      "record_sha256": "3b4d2a70b65103f6960aa4cbc0f8bc3b83ffcb0b5a358fe109ca3ff586eff301"
+    },
+    {
+      "ordinal": 15,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "github:purpose-built-ai-secret-detection-model:2026-10-07",
+        "development_summary": "GitHub deployed a new code-context secret detector for existing alerts and described private-preview push protection and planned Copilot review checks.",
+        "status": "new"
+      },
+      "record_sha256": "5a5d0e3aa93edc895de53ba019835374aa452cea7bac8ec615771495f9af8a6f"
+    },
+    {
+      "ordinal": 16,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-config-new-resource-types"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "aws:config:77-additional-resource-types:2026-10-07",
+        "development_summary": "AWS Config added recording, rule and aggregator support for 77 resource types including EC2, S3 Files and Amazon Q Business.",
+        "status": "new"
+      },
+      "record_sha256": "e6c038e9553d6ede84ef6928ee59bc1260833350a28570288edf28f62a714e3e"
+    },
+    {
+      "ordinal": 17,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://hpcwire.com/aiwire/2026/10/08/tensor-machines-launches-open-source-benchmark-to-measure-true-cost-of-ai-compute",
+          "https://github.com/tensormachines/TensorBench"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "tensor-machines:tensorbench-open-source-launch:2026-10-08",
+        "development_summary": "Tensor Machines launched the open-source TensorBench benchmark for AI output and cost under measured performance and power conditions.",
+        "status": "new"
+      },
+      "record_sha256": "a5ebd876cb07031f4848d33e68f06f58c871a180fb0642543a5b52152de1a6f5"
+    },
+    {
+      "ordinal": 18,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://ir.blackhillscorp.com/news-releases/news-release-details/black-hills-corp-executes-definitive-agreements-serve-googles"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "black-hills-google:cheyenne-power-microgrid-contract:2026-09-30",
+        "development_summary": "Black Hills announced contracted service for Google’s planned Cheyenne data center with $1.8B proposed generation investment and 2.1 GW managed third-party resources.",
+        "status": "new"
+      },
+      "record_sha256": "af17c2e289d8710f95b18d084cdd4117c0228403bfd70cdf82839f50753f10d0"
+    },
+    {
+      "ordinal": 19,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://badge.socket.dev/blog/tensorlake-compromise"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "npm:tensorlake:0.5.144:malicious-preinstall-chaindrop:2026-10-08",
+        "development_summary": "Socket found a malicious preinstall loader in tensorlake 0.5.144 that steals credentials, persists, spreads, and can react destructively to token revocation.",
+        "status": "new"
+      },
+      "record_sha256": "cc30c7942293ef6b09c5bcbedb311eeb2d8bdd022dbfffebee49fe0be1f741d2"
+    },
+    {
+      "ordinal": 20,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://support.microsoft.com/en-us/servicing/exchange/server/update/2026/5129955",
+          "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96940"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-02",
+        "normalized_event_key": "microsoft-exchange:cve-2026-96940:v2-security-fix:2026-10-02",
+        "development_summary": "Microsoft published an Exchange Server V2 security update fixing an authenticated cross-mailbox disclosure flaw absent from the original September update.",
+        "status": "new"
+      },
+      "record_sha256": "465837c117fef1cbfd2e63c728121219f22f1dcd35f0a0ac32dd63e62759795e"
+    },
+    {
+      "ordinal": 21,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://reuters.com/business/autos-transportation/dutch-firm-uses-ai-help-drone-systems-talk-ukraines-battlefield-2026-10-08"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "intelic:nexus-ukraine-multivendor-counter-uas-c2:reported-2026-10-08",
+        "development_summary": "Reuters reported Intelic Nexus multi-sensor/multi-vendor air-defense coordination in Ukraine and a late-September human-authorized interceptor demonstration.",
+        "status": "new"
+      },
+      "record_sha256": "f61f954662fb37e8fe4ef6a35bc634baa647fd10847179bb78579be2c3f3817e"
+    },
+    {
+      "ordinal": 22,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://federalreserve.gov/monetarypolicy/fomcminutes20260916.htm",
+          "https://federalreserve.gov/newsevents/pressreleases/monetary20261007a.htm"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-09-15",
+        "normalized_event_key": "fed:fomc-september-2026-minutes:published-2026-10-07",
+        "development_summary": "October 7 FOMC minutes revealed September participants’ conditional outlook for further rate increases and discussion of AI-infrastructure financing.",
+        "status": "new"
+      },
+      "record_sha256": "9f914bbfe0656b99c4ce107c5f40cd9fe2a86352b85c6182bb9617fbc6974a68"
+    },
+    {
+      "ordinal": 23,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://reuters.com/business/finance/us-farm-debt-is-record-official-data-might-be-undercounting-it-2026-10-08"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "usda:nontraditional-farm-credit-undercount:investigation-2026-10-08",
+        "development_summary": "Reuters and USDA researchers identified gaps in federal measurement of nontraditional farm debt and growing credit exposure in agricultural supply chains.",
+        "status": "new"
+      },
+      "record_sha256": "f575e3a4f88f73a8cf86e22239225b2d4753d7bb986a01badec197289dd3f01a"
+    },
+    {
+      "ordinal": 24,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-08",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://oui.doleta.gov/unemploy/DataDashboard.asp",
+          "https://reuters.com/business/us-weekly-jobless-claims-fall-layoffs-remain-low-2026-10-08"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-03",
+        "normalized_event_key": "us-dol:initial-jobless-claims:week-ended-2026-10-03:published-2026-10-08",
+        "development_summary": "U.S. initial unemployment claims were 197,000 for the week ending October 3, 2026, remaining below 200,000 as hiring slowed.",
+        "status": "new"
+      },
+      "record_sha256": "f4fd6940a2ef67e9bdc9316c3654efafd7f6999ecbd4aa6f22784ca0941eaa8c"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-09-28",
+  "archive_kind": "coverage-only",
+  "record_count": 4,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 4 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-09-28",
+        "category": "ai",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "github:copilot:local-sandbox-preview",
+        "development_summary": "GitHub Copilot local sandboxing.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "e1ceb1cfbb3e9dbaf96b19661c12aa4909ab3a855a3ab2bbf95403d9890ea21f"
+    },
+    {
+      "ordinal": 2,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-28",
+        "category": "security",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "microsoft:storm-3168:azure-destructive-activity-report",
+        "development_summary": "Storm-3168 Azure destructive campaign.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "1faba76f6f1405e0539c8db2154c21b39330819317e90c456ef518ce2485f07e"
+    },
+    {
+      "ordinal": 3,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-28",
+        "category": "security",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "dassault:rafale:two-ai-algorithms-flight-test:2026-09-22",
+        "development_summary": "Rafale AI flight tests.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "b343c8b74ab1d5b54a2b4f510906446642a7a84568ed415a09c895d7fccc8d03"
+    },
+    {
+      "ordinal": 4,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-09-28",
+        "category": "money",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "global-markets:oil-treasury-higher-for-longer:2026-09-28",
+        "development_summary": "Oil/yield higher-for-longer repricing.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "f352d9b57e936e3e476ec63ed330d20283e153bd9d4339172bc353e310440d13"
+    }
+  ]
+}

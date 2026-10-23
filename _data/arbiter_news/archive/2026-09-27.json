@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-09-27",
+  "archive_kind": "coverage-only",
+  "record_count": 1,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 1 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-27",
+        "category": "security",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "us-army:drone-swarm-stress-test:2026-09",
+        "development_summary": "Army drone-swarm testing.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "1683e084cce0eac85060d612477e6e101875636236f9ffe035654448dde13435"
+    }
+  ]
+}

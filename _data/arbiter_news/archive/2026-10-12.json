@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-12",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-12",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://about.fb.com/news/2026/10/introducing-muse-wonder-models"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-10-12",
+        "normalized_event_key": "meta:muse-wonder-muse-wonder-full:release:2026-10-12",
+        "development_summary": "Meta introduced Muse Wonder and Muse Wonder Full on October 12. The company says the models can sustain complex personal and professional tasks, including coding, document interpretation and multi-step workflows. Its two name",
+        "status": "new"
+      },
+      "record_sha256": "615295a844d311fbe384b27d4e707fc20862ec8b5a02ee965a168a6d89a1563b"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-12",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://hcltech.com/en-us/press-releases/hcltech-and-anthropic-sign-global-premier-partnership-scale-governed-agentic-ai"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-10-12",
+        "normalized_event_key": "hcltech-anthropic:premier-partnership-bigfix-appscan-ai-force:2026-10-12",
+        "development_summary": "HCLTech and Anthropic signed a Global Premier Partnership to bring Claude, Claude Code and Cowork into enterprise engineering and operations. HCLTech is establishing a dedicated Anthropic business unit and center of excellenc",
+        "status": "new"
+      },
+      "record_sha256": "5d766bfd1661719617d5f2ac2582b6c955ba757c899a19aeef3a5833d6bc8352"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-12",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://globenewswire.com/news-release/2026/10/08/3377508/0/en/exp-realty-unveils-mcp-first-ai-of-choice-connecting-agents-own-ai-directly-to-the-exp-platform.html"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "exp-realty:mcp-first-ai-of-choice-agent-platform:2026-10-08",
+        "development_summary": "eXp Realty announced an “MCP First, AI of Choice” approach that connects agents’ preferred assistants to the company’s production systems through the Model Context Protocol. Rather than requiring one mandated AI interface, th",
+        "status": "new"
+      },
+      "record_sha256": "4fec4fe04a58840c5ab38e8554d80b13ed701bbbb90df7cf842d1d1c98c9517e"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-12",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://blogs.microsoft.com/blog/2026/10/12/microsoft-to-expand-azure-maia-system-to-multi-gigawatt-deployments"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-10-12",
+        "normalized_event_key": "microsoft:azure-maia-300-2027-multigigawatt-inference:announcement-2026-10-12",
+        "development_summary": "Microsoft says Maia 200 is already serving production workloads and introduced architectural details for Maia 300, a next-generation inference-first system intended for deployment in 2027. It describes 96-accelerator racks us",
+        "status": "new"
+      },
+      "record_sha256": "79fd4dbed49436d66ad7ee2a67c82f975e6242a445fa88beee74db2c4892f4d1"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-12",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://wvpe.org/indiana-news/2026-10-12/indiana-approves-aes-plan-to-power-google-data-center-in-monrovia"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "indiana-iurc:aes-google-monrovia-390mw-energy-plan:approved-2026-10-07",
+        "development_summary": "Indiana utility regulators approved AES Indiana’s plan for solar, batteries and power lines supporting a proposed 390-megawatt Google data center in Monrovia. The vote took place October 7; WFYI reported the details October 1",
+        "status": "new"
+      },
+      "record_sha256": "3f36c2d955d45a45399e9f21c6f039c8bb3d12a3bff180c43a9cbfee03fc0033"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-12",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://reuters.com/business/nvidia-backed-upscale-ai-launches-platform-connect-chips-rival-suppliers-2026-10-08"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "upscale-ai:token-fabric:heterogeneous-accelerator-network-launch:2026-10-08",
+        "development_summary": "Nvidia-backed Upscale AI introduced Token Fabric, a planned hardware-and-software networking platform meant to join AI chips from different suppliers within large data centers. Reuters reports that the stack combines propriet",
+        "status": "new"
+      },
+      "record_sha256": "fee6812d05a80d12cee8747a9e6935dc454f1ad1b6500d9ad43757101c38197c"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-12",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://globenewswire.com/news-release/2026/10/12/3378708/0/en/airbus-u740-valkyrie-uncrewed-combat-aircraft-takes-off-for-first-european-test-flight.html",
+          "https://theaviationist.com/2026/10/12/airbus-kratos-fly-valkyrie-drone-europe-first-time"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-09-29",
+        "normalized_event_key": "airbus-kratos:u740-valkyrie:first-european-flight:2026-09-29",
+        "development_summary": "Airbus and Kratos announced October 12 that their U740 Valkyrie completed its first European test flight on September 29 in Northern Europe. The uncrewed aircraft performed a rocket-assisted, runway-independent takeoff, flew ",
+        "status": "new"
+      },
+      "record_sha256": "e72c06af5ec3487d50bfbc0b5418c4ebf26882cb64334bdffb45510ceb7e7484"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-12",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://lumen.com/blog/en-us/canto-incognito-tracking-the-poellm-malware",
+          "https://tomshardware.com/tech-industry/cyber-security/cryptomining-malware-used-poetry-to-infect-more-than-3-400-servers-researchers-say-four-words-in-the-poellm-verse-changed-11-times-point-the-botnet-to-new-servers"
+        ],
+        "source_publication_date": "2026-10-11",
+        "underlying_event_date": "2026-04-13",
+        "normalized_event_key": "lumen-black-lotus-labs:poellm-canto-incognito:threat-report:2026-10",
+        "development_summary": "Lumen’s Black Lotus Labs documented Canto Incognito, a financially motivated cryptomining and scanning campaign affecting more than 3,400 servers. Many exposed systems used LiteLLM, Ollama, Gotenberg or Gitea. Its PoeLLM malw",
+        "status": "new"
+      },
+      "record_sha256": "149645844c09570257db5d4248c9d73422911329a72cdf4dc39b5f5e1a7d5277"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-12",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://apnews.com/article/russia-nato-moscow-warsaw-grynkewich-speech-security-35f686aaeeee60e5bb315c5ecf7309c5",
+          "https://wsj.com/world/europe/natos-top-commander-lays-out-plan-to-thwart-a-russian-attack-on-the-alliance-96d57680"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-10-12",
+        "normalized_event_key": "nato-saceur:theory-of-victory-eastern-flank-sensors-autonomy:speech-2026-10-12",
+        "development_summary": "At the Warsaw Security Forum on October 12, NATO Supreme Allied Commander Europe Gen. Alexus Grynkewich described an eastern-flank defense concept: block an initial assault, blunt any continuing advance and, if necessary, bre",
+        "status": "new"
+      },
+      "record_sha256": "6bb5844eed404ba26db1ce6791d75acdd9b35564ca47f082836a3d59ab4ad28d"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-12",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://federalreserve.gov/newsevents/pressreleases/other20261009a.htm"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-09",
+        "normalized_event_key": "federal-reserve:2025-survey-consumer-finances:released-2026-10-09",
+        "development_summary": "The Federal Reserve released the 2025 Survey of Consumer Finances on October 9. Between the 2022 and 2025 surveys, real median family income rose 7% to $82,200, while median net worth rose only 2% to $215,900; mean net worth ",
+        "status": "new"
+      },
+      "record_sha256": "a5d67e2d41e2792f269a39606735c0302f65af98653d5a358260c8ea93198059"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-12",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://reuters.com/business/us-yield-surge-triggers-mortgage-hedging-adds-bond-market-pressure-2026-10-12"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-10-12",
+        "normalized_event_key": "us-mortgage-backed-securities:convexity-hedging-bond-selloff:2026-10-12",
+        "development_summary": "Reuters reports fresh evidence of mortgage investors using rate derivatives to manage rising bond yields. As rates rise, refinancing slows and mortgage-backed bonds may last longer, forcing duration-sensitive holders to hedge",
+        "status": "new"
+      },
+      "record_sha256": "b8d94fefdde9397f5c41c512ec440088e80d0017707a90de2aee909d7bb4bc9b"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-12",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://eia.gov/outlooks/steo",
+          "https://reuters.com/business/energy/eia-expects-mixed-picture-us-households-winter-fuel-costs-this-year-2026-10-06"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "eia:winter-fuels-outlook-2026-2027:release-2026-10-06",
+        "development_summary": "The EIA’s October 6 Winter Fuels Outlook projects lower average space-heating costs for U.S. households that primarily use natural gas or propane—together about half of homes. Electrically heated households are expected to sp",
+        "status": "new"
+      },
+      "record_sha256": "0cbb6af33e2fea1ed6e969e41831a445ecefc36901a67d69520c33b06a556ef4"
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-11",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-11",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://sierra.ai/blog/poppy",
+          "https://personalagentprotocol.org/"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-09",
+        "normalized_event_key": "sierra:poppy-personal-agent-protocol:first-draft-35-partners:2026-10-09",
+        "development_summary": "Sierra published a Poppy protocol draft and announced 35 new design partners, defining agent discovery, identity, OAuth permission and cross-channel sessions.",
+        "status": "new"
+      },
+      "record_sha256": "04936866a82887180bba96668310363b4ddf0b9111431ef869a6ca80ec3bbfe1"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-11",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://blog.jetbrains.com/ai/2026/10/mellum2-1-gets-to-work-a-fast-open-model-for-coding-agents"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "jetbrains:mellum2.1:rl-open-weights-release:2026-10-08",
+        "development_summary": "JetBrains released Mellum2.1, an Apache-2.0 12B MoE coding-agent model trained for repository exploration, edits and verification.",
+        "status": "new"
+      },
+      "record_sha256": "9abfdacfb20aeaed5cca41d773330cc91805b192e67c22245197daeb77eed14c"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-11",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-09-codeql-2-27-2-improves-c-go-rust-and-javascript-analysis"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-09",
+        "normalized_event_key": "github:codeql:2.27.2-coverage-macos27:2026-10-09",
+        "development_summary": "GitHub shipped CodeQL 2.27.2 dataflow improvements and documented unsupported traced compiled-language builds under macOS 27/Xcode 27.",
+        "status": "new"
+      },
+      "record_sha256": "c5a0bea0adf6773e1e5c00c06a9c9e6da1cbed05e87b2f67a3cb66dfc2854980"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-11",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://newrelic.com/press-release/20261006-2"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "new-relic:ground-truth-cli-limited-preview:2026-10-08",
+        "development_summary": "New Relic introduced a Ground Truth command-line observability interface for agent and developer incident investigation, with limited preview planned October 8.",
+        "status": "new"
+      },
+      "record_sha256": "ffa4481209b9c1f2ebcddb34c1442d4a0a0762e5c7a96d78cc94cc5c6d8ac5d3"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-11",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://docs.aws.amazon.com/securityagent/latest/userguide/doc-history.html",
+          "https://docs.aws.amazon.com/securityagent/latest/userguide/perform-penetration-test.html"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-09",
+        "normalized_event_key": "aws:security-agent:generative-ai-app-pentest-scope:2026-10-09",
+        "development_summary": "AWS Security Agent added a generative-AI-application pen-test scope oriented toward LLM risks including prompt injection.",
+        "status": "new"
+      },
+      "record_sha256": "ea16fdd9c693c7dbca47f47471c537628bcd40eb8f09ca27a0aa48cb22df27da"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-11",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "nvidia-microsoft:rtx-spark-windows-laptop-desktop-launch:2026-10-07",
+        "development_summary": "NVIDIA and Microsoft announced RTX Spark Windows AI laptops and desktops with local-inference hardware, preorder availability and future delivery dates.",
+        "status": "new"
+      },
+      "record_sha256": "6da741ce32139714d1b25d0f816b93f8b7c3a1315bee1e6ff1fc341de2fca173"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-11",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.space.com/space-exploration/launches-spacecraft/spacex-falcon-9-rocket-launch-data-transport-satellites-military-proliferated-architecture"
+        ],
+        "source_publication_date": "2026-10-10",
+        "underlying_event_date": "2026-10-10",
+        "normalized_event_key": "sda-spacex-northrop:tranche1-21-transport-satellite-launch:2026-10-10",
+        "development_summary": "SpaceX launched and Northrop Grumman confirmed deployment of 21 SDA Tranche 1 military data-transport satellites on October 10.",
+        "status": "new"
+      },
+      "record_sha256": "0ce1b80fa554793af83578edee8a2a78a61d962775aaebc9b6629b8e2b564303"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-11",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.sonicwall.com/support/notices/kA1VN000002QP3G0AW",
+          "https://www.bleepingcomputer.com/news/security/max-severity-sonicwall-sma1000-flaw-now-exploited-in-attacks"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-09",
+        "normalized_event_key": "sonicwall:sma1000:cve-2026-102255-probes-and-patch:2026-10-09",
+        "development_summary": "SonicWall patched CVE-2026-102255 in SMA1000, and October 9 honeypot evidence showed exploit attempts without confirmed compromise.",
+        "status": "new"
+      },
+      "record_sha256": "003d48a0c02c47754874f16215ce5b279ed13d26774f771a6d58853e60af0667"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-11",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.dkkaraoke.co.jp/news/newsletter/261008_2.html",
+          "https://www.bleepingcomputer.com/news/security/nippon-columbia-malware-incident-exposes-86-million-karaoke-fan-records"
+        ],
+        "source_publication_date": "2026-10-11",
+        "underlying_event_date": "2026-10-05",
+        "normalized_event_key": "daiichi-kosho-nippon-columbia:contractor-malware-customer-exposure:2026-10-05",
+        "development_summary": "Daiichi Kosho reported an October 5 contractor malware incident potentially affecting 8.631M customer and 93K employee records, without confirmed theft.",
+        "status": "new"
+      },
+      "record_sha256": "1ad81fe2dabaf0f4502eedaa8d2e7a5c3256dbcddba10547f50c1dfb8117c262"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-11",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.undp.org/publications/no-time-recover-compounding-crises-depleted-fiscal-buffers-and-what-it-means-developing-economies"
+        ],
+        "source_publication_date": "2026-10-11",
+        "underlying_event_date": "2026-10-11",
+        "normalized_event_key": "undp:no-time-to-recover:developing-economy-fiscal-shocks-report:2026-10-11",
+        "development_summary": "UNDP published an October 11 report estimating fiscal and household exposure to fuel, food and borrowing shocks in developing economies.",
+        "status": "new"
+      },
+      "record_sha256": "4f83be1d7726f36000677d302fc76b618b2e0cffe1dc17d6c5ba86c6b05296f8"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-11",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/legal/litigation/new-trump-rules-will-make-it-harder-farmers-access-us-funds-energy-projects-2026-10-09"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-16",
+        "normalized_event_key": "usda:reap-completion-before-application-rule:effective-2026-10-16",
+        "development_summary": "USDA REAP rules reported October 9 require completed energy projects and a year of verified savings before applying; effective October 16.",
+        "status": "new"
+      },
+      "record_sha256": "d916f46852801fccad14990644c561d70f271d2003e1f444cd401941bce1f020"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-11",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/energy/trump-big-announcement-coming-up-diesel-2026-10-09"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-09",
+        "normalized_event_key": "us:temporary-russian-diesel-import-sanctions-waiver:2026-10-09",
+        "development_summary": "The U.S. announced a temporary sanctions easing for Russian diesel amid high fuel prices, with initial volume commitments not yet established as delivered.",
+        "status": "new"
+      },
+      "record_sha256": "1101a91be7b083bac668425013b6d1cd46244827e3bf845bc35b8f05b6e9f8ce"
+    }
+  ]
+}

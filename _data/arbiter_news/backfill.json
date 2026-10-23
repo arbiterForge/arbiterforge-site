@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "backfilled_on": "2026-10-23",
+  "first_date": "2026-09-24",
+  "last_date": "2026-10-22",
+  "page_count": 28,
+  "record_count": 319,
+  "restored_text_count": 92,
+  "restored_dates": 7,
+  "partial_dates": 1,
+  "coverage_only_dates": 20,
+  "missing_dates": [
+    "2026-10-06"
+  ],
+  "note": "Full text was recovered for eight source files; September 29 only has its early edition. All other available historical dates retain coverage summaries, not fabricated full briefings. No historical claims were independently reverified. Daily RSS and latest-edition selection exclude this historical backfill.",
+  "source_payload_sha256": "c6614d46c804db81fa929e62213aadaccfd1e6f0128bac50e39070dced87be4e",
+  "history_part_sha256": {
+    "part-01.json": "42d89d86c2ccfc326a1aca79cd212572ec0a83ae3d7a23c467a188750ebd4cfb",
+    "part-02.json": "0b5c5cfa09a2f3a853a3367d2308709a4ee1ae513f3da1b732ebff9965e36623",
+    "part-03.json": "706d7bc8609fc821837680eb9698ba45e806d266d712422c766df935e1d90859",
+    "part-04.json": "cf304faa283590cb91341ac106ed7325d3de8aa525aa3bf367666632444fc5d6",
+    "part-05.json": "c22a231e7d76ce9803c3e18591ab50def2abc8e909d613a8179c0dee991268f3",
+    "part-06.json": "8308c223f77c646d33a465bfcb5b17f6da18dc55b50dad395a8a451512342dce",
+    "part-07.json": "3c1801e5c5d6d22e0d9245de6c8bf6507fc21dc281b96d5f83e332247773810a",
+    "part-08.json": "938440d7ba8db8e484b599d15fcfd2ec184941a385028c783b03f89450751e4e",
+    "part-09.json": "88e084193f1ee51207801208ef224b4a3eabe1db04445b1aa4763e23f7b77278",
+    "part-10.json": "7961060f1fc5eb94229ce65b213e927a0db68d09ddf3604f485fa94099d13417"
+  },
+  "dates": [
+    {
+      "edition_date": "2026-09-24",
+      "archive_kind": "restored",
+      "records": 5,
+      "restored_texts": 5,
+      "source": {
+        "name": "Arbiter-News-2026-09-24.html",
+        "sha256": "536517507cb8625d01f0460308558c3dd287695b5e65fe165022955d4eb92176",
+        "edition_kind": "original dated briefing"
+      }
+    },
+    {
+      "edition_date": "2026-09-25",
+      "archive_kind": "coverage-only",
+      "records": 5,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-09-26",
+      "archive_kind": "coverage-only",
+      "records": 1,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-09-27",
+      "archive_kind": "coverage-only",
+      "records": 1,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-09-28",
+      "archive_kind": "coverage-only",
+      "records": 4,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-09-29",
+      "archive_kind": "partial",
+      "records": 24,
+      "restored_texts": 12,
+      "source": {
+        "name": "Arbiter-News-2026-09-29.html",
+        "sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "edition_kind": "Early edition"
+      }
+    },
+    {
+      "edition_date": "2026-09-30",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-01",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-02",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-03",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-04",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-05",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-07",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-08",
+      "archive_kind": "coverage-only",
+      "records": 24,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-09",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-10",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-11",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-12",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-13",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-14",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-15",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-16",
+      "archive_kind": "coverage-only",
+      "records": 12,
+      "restored_texts": 0,
+      "source": null
+    },
+    {
+      "edition_date": "2026-10-17",
+      "archive_kind": "restored",
+      "records": 12,
+      "restored_texts": 12,
+      "source": {
+        "name": "Arbiter-News-2026-10-17.html",
+        "sha256": "9afd0b14bdc95be3ae58503949a21639ac77e6c0969e843131e6eb3b8e26616c",
+        "edition_kind": "original dated briefing"
+      }
+    },
+    {
+      "edition_date": "2026-10-18",
+      "archive_kind": "restored",
+      "records": 12,
+      "restored_texts": 12,
+      "source": {
+        "name": "Arbiter-News-2026-10-18.html",
+        "sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "edition_kind": "original dated briefing"
+      }
+    },
+    {
+      "edition_date": "2026-10-19",
+      "archive_kind": "restored",
+      "records": 12,
+      "restored_texts": 12,
+      "source": {
+        "name": "Arbiter-News-2026-10-19.html",
+        "sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "edition_kind": "original dated briefing"
+      }
+    },
+    {
+      "edition_date": "2026-10-20",
+      "archive_kind": "restored",
+      "records": 13,
+      "restored_texts": 13,
+      "source": {
+        "name": "Arbiter-News-2026-10-20.html",
+        "sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "edition_kind": "original dated briefing"
+      }
+    },
+    {
+      "edition_date": "2026-10-21",
+      "archive_kind": "restored",
+      "records": 14,
+      "restored_texts": 14,
+      "source": {
+        "name": "Arbiter-News-2026-10-21.html",
+        "sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "edition_kind": "original dated briefing"
+      }
+    },
+    {
+      "edition_date": "2026-10-22",
+      "archive_kind": "restored",
+      "records": 12,
+      "restored_texts": 12,
+      "source": {
+        "name": "Arbiter-News-2026-10-22.html",
+        "sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "edition_kind": "original dated briefing"
+      }
+    }
+  ]
+}

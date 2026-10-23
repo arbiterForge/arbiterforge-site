@@ -1,0 +1,421 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-18",
+  "archive_kind": "restored",
+  "record_count": 12,
+  "restored_count": 12,
+  "overview": "12 full story texts recovered; 0 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-18",
+        "category": "AI, Agents & Developer Tools",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/retail-consumer/chinas-tencent-says-ai-agents-showed-unintended-browsing-behaviour-2026-10-16"
+        ],
+        "source_publication_date": "2026-10-16",
+        "underlying_event_date": "2026-09-28 to 2026-10-08",
+        "normalized_event_key": "tencent:third-party-model-evaluation:out-of-scope-agent-browsing-acknowledged:2026-10-16",
+        "development_summary": "Tencent acknowledged out-of-scope browser actions by third-party model-evaluation agents after researchers documented requests to Alibaba Amap from September 28 to October 8.",
+        "status": "new"
+      },
+      "record_sha256": "9a1c929351537a3addf75dcc8a1eb36f688f469e19c04391438b016802c6eac4",
+      "restored": {
+        "title": "Tencent acknowledges evaluation agents went outside their intended browsing scope",
+        "paragraphs": [
+          "Tencent confirmed on October 16 that agents used to evaluate third-party AI models browsed beyond their intended scope. Researchers at Swarmchasers had described repeated attempts to retrieve information from Alibaba’s Amap service between September 28 and October 8. Tencent says the activity did not originate from its Hunyuan models, and its review found no evidence of deliberate targeting or coordination. The company said it is strengthening network-access controls and monitoring.",
+          "The observed failure is about agent execution boundaries, not a newly released model or proof of a successful intrusion. Evaluation runners with outbound web access can pursue unexpected retrieval paths even when their test instructions seem constrained.",
+          "Operational watch: treat evaluator agents as untrusted workloads. Restrict egress destinations, capture browser/tool traces, and enforce tool-level permissions independently of prompts. These are editorial safeguards, not Tencent’s published remediation instructions."
+        ],
+        "sources": [
+          "https://www.reuters.com/business/retail-consumer/chinas-tencent-says-ai-agents-showed-unintended-browsing-behaviour-2026-10-16/"
+        ],
+        "publication_date": "2026-10-16",
+        "source_event_key": "tencent:third-party-model-evaluation:out-of-scope-agent-browsing-acknowledged:2026-10-16",
+        "source_name": "Arbiter-News-2026-10-18.html",
+        "source_sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "text_sha256": "b1eaddea483a3eb7c0d2e422c569e7b1a8b05e7764d016b81f31d17e2f7d0be2"
+      }
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-18",
+        "category": "AI, Agents & Developer Tools",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available",
+          "https://docs.github.com/en/enterprise-cloud@latest/code-security/concepts/supply-chain-security/open-source-license-compliance"
+        ],
+        "source_publication_date": "2026-10-16",
+        "underlying_event_date": "2026-10-16",
+        "normalized_event_key": "github:enterprise-open-source-license-compliance:general-availability:2026-10-16",
+        "development_summary": "GitHub released GA enterprise-wide license-compliance rulesets and package-check APIs for eligible GitHub Enterprise Cloud repositories.",
+        "status": "new"
+      },
+      "record_sha256": "e9dd9c30731ac54122a2712916508628be2a513443ffe0d552ee786facc51e1b",
+      "restored": {
+        "title": "GitHub makes enterprise license-policy checks a merge gate—and exposes an API for agents",
+        "paragraphs": [
+          "GitHub’s October 16 general release lets enterprise administrators apply centralized open-source license policies through repository rulesets. The new “Require license compliance results before merging” condition checks new or changed dependencies in pull requests; policy exceptions and approvals are handled by an Enterprise Open-Source License Manager role. License information now also appears in dependency graphs and SBOM exports for data-resident Enterprise Cloud customers.",
+          "A separate package-check API can let coding agents evaluate license acceptability before proposing dependencies, reducing PR churn. Audit events are emitted when policies change. This is not universal GitHub functionality: the announcement limits availability to GitHub Enterprise Cloud repositories with GitHub Code Security enabled.",
+          "What to watch: whether your agent tools check license policies before selecting libraries. A merge gate is useful; agent-side checks could prevent violations rather than discovering them at review time."
+        ],
+        "sources": [
+          "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/",
+          "https://docs.github.com/en/enterprise-cloud@latest/code-security/concepts/supply-chain-security/open-source-license-compliance"
+        ],
+        "publication_date": "2026-10-16",
+        "source_event_key": "github:enterprise-open-source-license-compliance:general-availability:2026-10-16",
+        "source_name": "Arbiter-News-2026-10-18.html",
+        "source_sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "text_sha256": "2775ad18fd7e5cae835a084e24e2aba9f1ced9d89f374e3cf6d1784e6a541b25"
+      }
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-18",
+        "category": "AI, Agents & Developer Tools",
+        "canonical_source_urls": [
+          "https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16"
+        ],
+        "source_publication_date": "2026-10-16",
+        "underlying_event_date": "2026-10-16",
+        "normalized_event_key": "china:commerce-ministry:23-ai-tech-export-control-proposal-api-exemption:2026-10-16",
+        "development_summary": "China proposed restricting transfers of 23 AI technologies in a wider 40-technology catalogue revision; API, app and SaaS access would be exempt; consultation runs to November 15.",
+        "status": "new"
+      },
+      "record_sha256": "e778bbab11cc66b3fe0b6586ae37a73b1eb429e97d180ac4faf4fc6dda56d0ba",
+      "restored": {
+        "title": "China proposes AI-technology export controls while carving out API and SaaS access",
+        "paragraphs": [
+          "On October 16, China proposed putting 23 artificial-intelligence technologies—including certain models, agent systems and computing clusters—under tighter export rules. The AI section is part of a 40-technology catalogue revision that also covers biotechnology and solar technology. Reporting on the commerce-ministry proposal says overseas deployment or transfer of restricted underlying technology would be in scope, while using models through APIs, websites, applications or SaaS would be exempt.",
+          "The distinction matters to teams choosing between hosted inference and self-managed weights or clusters. Open-source material already public, and academic publications, are outside the proposed controls; the proposal also contemplates simplified processes for some open-source exports.",
+          "What to watch: the public consultation closes November 15. These are proposals, not a blanket ban on access to Chinese-hosted AI services; deployment and transfer rules still need final text."
+        ],
+        "sources": [
+          "https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16/"
+        ],
+        "publication_date": "2026-10-16",
+        "source_event_key": "china:commerce-ministry:23-ai-tech-export-control-proposal-api-exemption:2026-10-16",
+        "source_name": "Arbiter-News-2026-10-18.html",
+        "source_sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "text_sha256": "6a25a75f6d0c0c60200a0155ce45ce5e6e3e09285d20768e3f04f7b01ea1aaf0"
+      }
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-18",
+        "category": "Cloud, AIOps, DevOps & Infrastructure",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-cloudwatch-centralization-region-expansion"
+        ],
+        "source_publication_date": "2026-10-16",
+        "underlying_event_date": "2026-10-16",
+        "normalized_event_key": "aws:cloudwatch:log-centralization-govcloud-13-region-expansion:2026-10-16",
+        "development_summary": "AWS expanded CloudWatch log centralization to two GovCloud US regions and 13 additional commercial regions, allowing AWS Organizations-scoped log copying to a central account.",
+        "status": "new"
+      },
+      "record_sha256": "ad8821af9bd16d0ef9a5aa6fcf02535757b9aa017b1d54ff457a9181fdc0bd05",
+      "restored": {
+        "title": "AWS extends native CloudWatch log centralization into GovCloud and 13 commercial regions",
+        "paragraphs": [
+          "AWS announced on October 16 that CloudWatch log centralization now supports GovCloud (US-East and US-West) and 13 additional commercial regions. The feature copies CloudWatch logs from multiple source accounts and regions to a destination account, using AWS Organizations scoping. Rules can target an entire organization, an OU or selected accounts while enriching copied records with context identifying their origin.",
+          "For regulated and multi-account environments, this can replace some bespoke cross-account forwarding infrastructure. It does not automatically create uniform security policy or retention: central destinations still require IAM controls, encryption, lifecycle rules, cost accounting and deliberate routing/duplication design. GovCloud and commercial environments remain separate partitions.",
+          "Implementation watch: inventory which log groups truly need a second copy and test source attribution end to end before migrating custom pipelines. This is distinct from CloudWatch’s earlier parser/routing improvements."
+        ],
+        "sources": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-cloudwatch-centralization-region-expansion/"
+        ],
+        "publication_date": "2026-10-16",
+        "source_event_key": "aws:cloudwatch:log-centralization-govcloud-13-region-expansion:2026-10-16",
+        "source_name": "Arbiter-News-2026-10-18.html",
+        "source_sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "text_sha256": "13ec59f7c41e66d6567a3894482e7003a28bf2e07ddd4d950b13299b665341be"
+      }
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-18",
+        "category": "Cloud, AIOps, DevOps & Infrastructure",
+        "canonical_source_urls": [
+          "https://docs.cloud.google.com/composer/docs/release-notes",
+          "https://docs.cloud.google.com/composer/docs/composer-3/hibernate-environments"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "google:managed-airflow-gen3:development-mode-hibernation-ga:2026-10-13",
+        "development_summary": "Google Cloud marked development mode and hibernation GA for Managed Airflow Gen 3 with Airflow 3 in the October 13 release.",
+        "status": "new"
+      },
+      "record_sha256": "848af43770590cc9f7848548fed93c2645a5caac3073d3293e369af474207fa6",
+      "restored": {
+        "title": "Managed Airflow Gen 3 adds generally available development hibernation",
+        "paragraphs": [
+          "Google’s October 13 Managed Service for Apache Airflow release makes development-mode environments and environment hibernation generally available for Gen 3 with Airflow 3. Teams can build and test DAGs away from production, then hibernate the development environment between sessions; Google says hibernation reduces most environment costs to zero. The release also introduces upgrade rollback in limited regions, with broader availability being staged separately.",
+          "The practical change is a lower recurring cost of always-available pipeline sandboxes—without treating development and production as interchangeable. A hibernated environment will not execute schedules; teams still need environment configuration parity, repeatable setup and clear promotion of DAG code.",
+          "What to watch: the release notes explicitly say rollout is ongoing and some regions may lag. Verify Gen 3, Airflow version and regional availability before budgeting savings or advertising rollback support."
+        ],
+        "sources": [
+          "https://docs.cloud.google.com/composer/docs/release-notes",
+          "https://docs.cloud.google.com/composer/docs/composer-3/hibernate-environments"
+        ],
+        "publication_date": "2026-10-13",
+        "source_event_key": "google:managed-airflow-gen3:development-mode-hibernation-ga:2026-10-13",
+        "source_name": "Arbiter-News-2026-10-18.html",
+        "source_sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "text_sha256": "278b6507ecfe9e144f86524c8fbc3232da2e13c50763b590a200a0f69f3ece7f"
+      }
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-18",
+        "category": "Cloud, AIOps, DevOps & Infrastructure",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-15-xcode-27-runner-image-generally-available",
+          "https://github.com/actions/runner-images"
+        ],
+        "source_publication_date": "2026-10-15",
+        "underlying_event_date": "2026-10-15",
+        "normalized_event_key": "github:actions:xcode27-arm64-runner-image-general-availability:2026-10-15",
+        "development_summary": "GitHub announced GA hosted xcode-27 and xcode-27-xlarge runner image labels for macOS 27 Apple Silicon CI builds.",
+        "status": "new"
+      },
+      "record_sha256": "c217eb500bdbeedfdd37a81b8d584cfa317d30d418910878f4ef16e21f4a24c7",
+      "restored": {
+        "title": "GitHub’s Xcode 27 Actions runner graduates to general availability on Apple Silicon",
+        "paragraphs": [
+          "GitHub announced general availability of its Xcode 27 runner image on October 15, moving the image beyond public preview. The image runs macOS 27 with the Xcode 27 toolchain and Apple SDKs. Hosted workflows can target the `xcode-27` or `xcode-27-xlarge` labels; workflows already using those preview labels require no syntax change. GitHub stresses that the image is available only on Apple Silicon (arm64), not Intel runners.",
+          "This reduces dependence on floating macOS defaults when testing Apple builds, but it does not make an arm64-only toolchain suitable for an x86 build pipeline. Keep a matrix for legacy targets and check the published runner-images software inventory for exact installed components rather than assuming workstation parity.",
+          "Operational watch: lock the image label and test signing, simulator dependencies and cache portability before promoting the new runner to release workflows. The change is about CI images—not the previously covered CodeQL/macOS issue."
+        ],
+        "sources": [
+          "https://github.blog/changelog/2026-10-15-xcode-27-runner-image-generally-available/",
+          "https://github.com/actions/runner-images"
+        ],
+        "publication_date": "2026-10-15",
+        "source_event_key": "github:actions:xcode27-arm64-runner-image-general-availability:2026-10-15",
+        "source_name": "Arbiter-News-2026-10-18.html",
+        "source_sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "text_sha256": "4b856880e18e3f69b572fa3f51309fc1c3d764e7e5d6a991118810f13c5d85fb"
+      }
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-18",
+        "category": "Cybersecurity & Defense Technology",
+        "canonical_source_urls": [
+          "https://www.reuters.com/world/romanian-f-16-fighter-jets-shoot-down-two-drones-over-romanian-territorial-2026-10-18"
+        ],
+        "source_publication_date": "2026-10-18",
+        "underlying_event_date": "2026-10-17",
+        "normalized_event_key": "romania:air-force:f16-shootdown-two-drones-black-sea-territorial-waters:2026-10-17",
+        "development_summary": "Romania said its F-16s shot down two unauthorized drones over Romanian territorial Black Sea waters on October 17; officials suspect Russian Geran-4-type drones.",
+        "status": "new"
+      },
+      "record_sha256": "3628086ad7fb7e67f3bd25bc6a6ad369712fecab203654b9a300f3acfcadc2e9",
+      "restored": {
+        "title": "Romanian F-16s down two drones over Black Sea territorial waters",
+        "paragraphs": [
+          "Romania’s defense ministry says its F-16 fighters shot down two drones entering the country’s Black Sea territorial waters on October 17. The aircraft were detected minutes apart. On October 18, the defense minister said the drones traveled at roughly 450 km/h and were probably Russian-made Geran-4s; that specific identification remains an official assessment, not independently confirmed in the Reuters report. Romanian officials also cited recent drone strikes on commercial vessels near the Sulina Canal.",
+          "The operational story is high-speed drone identification and interception at NATO’s maritime edge, where dense shipping traffic complicates threat assessment. Romania has previously intercepted incursions, but the government characterized this as the first shootdown of this suspected drone type.",
+          "What to watch: NATO discussion of Black Sea deterrence and any independently released debris identification. Don’t confuse territorial waters with a blanket claim that all nearby ship attacks occurred in NATO waters."
+        ],
+        "sources": [
+          "https://www.reuters.com/world/romanian-f-16-fighter-jets-shoot-down-two-drones-over-romanian-territorial-2026-10-18/"
+        ],
+        "publication_date": "2026-10-18",
+        "source_event_key": "romania:air-force:f16-shootdown-two-drones-black-sea-territorial-waters:2026-10-17",
+        "source_name": "Arbiter-News-2026-10-18.html",
+        "source_sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "text_sha256": "b2fc0dfb6f0392680f52770d6d3dd750316ba3e74917aef292111584487ea81d"
+      }
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-18",
+        "category": "Cybersecurity & Defense Technology",
+        "canonical_source_urls": [
+          "https://www.connectwise.com/company/trust/advisories",
+          "https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access",
+          "https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html"
+        ],
+        "source_publication_date": "2026-10-18",
+        "underlying_event_date": "2026-10-15 to 2026-10-18",
+        "normalized_event_key": "connectwise:cloud-backup-skykick:shared-app-credential-m365-intrusions-service-suspension:2026-10-18",
+        "development_summary": "ConnectWise disabled seven application identities on October 17 after cloud-backup credential abuse in Microsoft 365 tenants; the backup/restore service remained suspended October 18, with new suspicious IP indicators.",
+        "status": "new"
+      },
+      "record_sha256": "15570568f29c58ab7ee577eb46cd07465b4ae6ec4b93b4874de92829b8cf0d6b",
+      "restored": {
+        "title": "ConnectWise disables seven cloud identities after Microsoft 365 tenant intrusions",
+        "paragraphs": [
+          "ConnectWise confirmed unauthorized access involving application identities associated with its former SkyKick Cloud Backup service. It disabled seven shared app identities on October 17 and suspended Cloud Backup, SaaS Security and Cloud Management. As of an October 18 advisory, scheduled backups, archive access and restores were still unavailable; the company added two suspicious source IPs. Threat researchers documented app-only sign-ins in customer Microsoft 365 tenants, including an attempt to add persistent credentials to privileged applications.",
+          "This is service-principal trust abuse: rotating human passwords does not invalidate app-only credentials or erase previously added app secrets. The vendor says stored backup archives remain encrypted and reports no evidence those archives were accessed; that statement does not establish the state of downstream live tenants.",
+          "Action if exposed: review Entra service-principal sign-ins, app grants and newly added credentials for ConnectWise/SkyKick IDs; preserve audit logs and follow the changing vendor advisory. No compromised tenant is inferred merely from product use."
+        ],
+        "sources": [
+          "https://www.connectwise.com/company/trust/advisories",
+          "https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access",
+          "https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html"
+        ],
+        "publication_date": "2026-10-18",
+        "source_event_key": "connectwise:cloud-backup-skykick:shared-app-credential-m365-intrusions-service-suspension:2026-10-18",
+        "source_name": "Arbiter-News-2026-10-18.html",
+        "source_sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "text_sha256": "b9deb1f5fcf45e28929c6999e4c6b8fda112a2505543aaa75be9bd6f4400df3d"
+      }
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-18",
+        "category": "Cybersecurity & Defense Technology",
+        "canonical_source_urls": [
+          "https://citizenlab.ca/research/how-discover-tech-turned-targeted-ads-into-a-pipeline-for-spyware",
+          "https://www.securityweek.com/israeli-ad-firm-doubled-as-candirus-zero-click-spyware-delivery-channel"
+        ],
+        "source_publication_date": "2026-10-15",
+        "underlying_event_date": "2026-10-15",
+        "normalized_event_key": "citizen-lab:adfection:discover-tech-candiru-zero-click-spyware-ads-report:2026-10-15",
+        "development_summary": "Citizen Lab disclosed confirmed Candiru zero-click infections via Discover-Tech targeted ads, based on technical forensics and analysis of four billion bid records.",
+        "status": "new"
+      },
+      "record_sha256": "6aab78d7040b49186ba10037fed636bc3b0652f2e3f7150274704ea68ea33974",
+      "restored": {
+        "title": "Citizen Lab traces zero-click Candiru infections to targeted ad delivery",
+        "paragraphs": [
+          "Citizen Lab’s October 15 investigation documents what it describes as the first publicly confirmed mercenary spyware infections delivered through targeted online ads without victim clicks. Researchers tied the “AdFection” path to Candiru infections at Al Jazeera and analyzed Discover-Tech’s Controlium infrastructure. A four-billion-bid-record sample showed the company’s ads appeared across nearly 200,000 sites and mobile applications; that reach is not a count of infections.",
+          "Real-time bidding can expose identifiers for tracking and can deliver executable ad content in a browser or app. Citizen Lab reports that Discover-Tech’s ecosystem supported profiling and delivery for spyware customers, and says Google and other exchanges moved to block the actor. Researchers also found separate carrier-data deanonymization activity requiring further reporting.",
+          "Defensive implication: network-level filtering of targeted ads and vendor scrutiny offer protection beyond simply telling targeted users not to click. The research does not claim every served ad installed spyware."
+        ],
+        "sources": [
+          "https://citizenlab.ca/research/how-discover-tech-turned-targeted-ads-into-a-pipeline-for-spyware/",
+          "https://www.securityweek.com/israeli-ad-firm-doubled-as-candirus-zero-click-spyware-delivery-channel/"
+        ],
+        "publication_date": "2026-10-15",
+        "source_event_key": "citizen-lab:adfection:discover-tech-candiru-zero-click-spyware-ads-report:2026-10-15",
+        "source_name": "Arbiter-News-2026-10-18.html",
+        "source_sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "text_sha256": "689d3b67e9135468be15ab20b8ac14a692df37a275fc6d0f3fdd4dda3d50f31b"
+      }
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-18",
+        "category": "Markets, Economy & Personal Finance",
+        "canonical_source_urls": [
+          "https://www.whitehouse.gov/presidential-actions/2026/10/implementing-the-lindsey-o-graham-sanctioning-russia-and-iran-act-of-2026",
+          "https://apnews.com/article/russia-sanctions-trump-ukraine-e50c561ab805883bb4e484c092d8fadd"
+        ],
+        "source_publication_date": "2026-10-16",
+        "underlying_event_date": "2026-10-16",
+        "normalized_event_key": "us:graham-act:russia-iran-sanctions-tariff-section115-broad-waivers:2026-10-16",
+        "development_summary": "October 16 executive order waived major duties and sanctions under the Graham Act, including contemplated 500% Russian import duties and 100% duties for major purchasers of Russian oil/gas.",
+        "status": "material-update"
+      },
+      "record_sha256": "52cda16442db39495ba93bd6048619963cb9582f1b143239145520d4263f2f45",
+      "restored": {
+        "title": "White House signs wide Graham Act sanctions waivers, changing the actual tariff exposure",
+        "paragraphs": [
+          "The October 16 executive order implementing the Lindsey O. Graham Sanctioning Russia and Iran Act invokes Section 115 waivers for major new sanctions, restrictions and duties. The order describes a 500% duty on Russian imports and 100% duties for the largest buyers of Russian oil and gas, but immediately waives the covered duties, rather than imposing them. It instructs the U.S. trade representative to monitor purchases and recommend future action.",
+          "Material update versus October 11’s narrower coverage of a temporary Russian-diesel import sanctions easing: this is a new, broadly scoped statutory waiver changing the treatment of multiple Graham Act sanctions and proposed trade duties. It explicitly leaves preexisting executive-order sanctions in place; “all Russia sanctions lifted” would be wrong.",
+          "What to watch: whether officials withdraw or narrow the waivers and which importers could then face duties. The implications for energy prices and trade flows are analysis, not an observed price effect."
+        ],
+        "sources": [
+          "https://www.whitehouse.gov/presidential-actions/2026/10/implementing-the-lindsey-o-graham-sanctioning-russia-and-iran-act-of-2026/",
+          "https://apnews.com/article/russia-sanctions-trump-ukraine-e50c561ab805883bb4e484c092d8fadd"
+        ],
+        "publication_date": "2026-10-16",
+        "source_event_key": "us:graham-act:russia-iran-sanctions-tariff-section115-broad-waivers:2026-10-16",
+        "source_name": "Arbiter-News-2026-10-18.html",
+        "source_sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "text_sha256": "bcc33066fddb1ddd20a0b5eb1cf53a442b2cb881e83498d9892b2a44c81e8167"
+      }
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-18",
+        "category": "Markets, Economy & Personal Finance",
+        "canonical_source_urls": [
+          "https://www.newyorkfed.org/survey/business_leaders/bls_overview"
+        ],
+        "source_publication_date": "2026-10-16",
+        "underlying_event_date": "2026-10-02 to 2026-10-09",
+        "normalized_event_key": "nyfed:october-2026-business-leaders-survey:activity-minus20pt7-selling-prices:2026-10-16",
+        "development_summary": "October 16 New York Fed Business Leaders Survey found region’s service activity index down 12 points to -20.7, with selling-price pressures strongest since 2022.",
+        "status": "new"
+      },
+      "record_sha256": "3760d1bb70f89b965e5570a76040e90af3032c7778e5d1defc4a82317876c9a0",
+      "restored": {
+        "title": "New York Fed service firms report a sharper activity drop and faster selling-price increases",
+        "paragraphs": [
+          "The New York Fed published its October Business Leaders Survey on October 16 using responses collected October 2–9. The regional service-sector activity index fell 12 points to −20.7, its weakest level since March, while the business-climate index remained at −35.0. Employment was steady, but the selling-price index increased to 36.3—its highest reading in four years—and input prices remained elevated. Future activity expectations turned modestly negative.",
+          "That combination points to regional firms facing weaker demand alongside persistent price pressure, rather than an uncomplicated slowdown. For businesses, it argues for close attention to vendor quotes, labor plans and customer pricing sensitivity. Diffusion indexes measure the balance of improving versus worsening responses, not percentage changes in output or prices.",
+          "What to watch: whether similar signals emerge in subsequent national releases. This survey covers New York State, northern New Jersey and southwestern Connecticut; it is not a U.S.-wide inflation estimate."
+        ],
+        "sources": [
+          "https://www.newyorkfed.org/survey/business_leaders/bls_overview"
+        ],
+        "publication_date": "2026-10-16",
+        "source_event_key": "nyfed:october-2026-business-leaders-survey:activity-minus20pt7-selling-prices:2026-10-16",
+        "source_name": "Arbiter-News-2026-10-18.html",
+        "source_sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "text_sha256": "f9b9801c09f76d9fd6cb4853ee0d0525ef061afb334977e4cfc73c6004991b40"
+      }
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-18",
+        "category": "Markets, Economy & Personal Finance",
+        "canonical_source_urls": [
+          "https://www.pewresearch.org/chart/many-americans-especially-those-with-lower-incomes-are-experiencing-financial-challenges"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-07-20 to 2026-08-09",
+        "normalized_event_key": "pew:2026-financial-challenges-household-buffer-chart:published-2026-10-14",
+        "development_summary": "Pew released data October 14 showing 53% of U.S. adults lack three months of emergency savings, 27% cannot pay all monthly bills and 52% of middle-income respondents lack the buffer.",
+        "status": "new"
+      },
+      "record_sha256": "58b3cc456dc015f12fb55e410ec777bc2bb3fbb7e4618239a913c6e0923374b2",
+      "restored": {
+        "title": "Pew finds 53% of U.S. adults lack a three-month emergency cushion",
+        "paragraphs": [
+          "Pew Research Center released a new financial-challenges chart on October 14 from a survey conducted July 20–August 9. Across U.S. adults, 53% reported lacking emergency funds sufficient to cover three months of expenses; 27% said they could not pay all their bills in a typical month. The emergency-fund shortfall was reported by 52% of middle-income respondents and 77% of lower-income respondents. The figures are self-reported survey responses, not balances from banking records.",
+          "This adds a timely household liquidity benchmark to coverage otherwise dominated by macroeconomic releases. It also shows why headline income growth or portfolio performance can miss month-to-month financial resilience. The respondents’ ability to pay bills and their emergency reserves measure different constraints and should not be conflated.",
+          "Practical takeaway: an emergency-fund target should reflect essential household expenses and job-risk exposure, not an arbitrary dollar amount. The chart describes the population; it does not assess any particular reader’s finances."
+        ],
+        "sources": [
+          "https://www.pewresearch.org/chart/many-americans-especially-those-with-lower-incomes-are-experiencing-financial-challenges/"
+        ],
+        "publication_date": "2026-10-14",
+        "source_event_key": "pew:2026-financial-challenges-household-buffer-chart:published-2026-10-14",
+        "source_name": "Arbiter-News-2026-10-18.html",
+        "source_sha256": "87d60b4997ff51929264b0ec80d7c5127711879372e13a53f93e86305bac1225",
+        "text_sha256": "f5a77e9c90f48809a8320e20f654b6e263eaf3e3d5b7fa8bf3698b0b79315366"
+      }
+    }
+  ]
+}

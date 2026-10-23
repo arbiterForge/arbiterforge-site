@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-13",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-13",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://investor.workday.com/news-and-events/press-releases/news-details/2026/Sana-Is-the-New-Workday-Home-A-Dynamic-Agentic-Experience-Built-to-Finish-the-Work-Not-Just-Answer-Questions/default.aspx"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "workday:sana-new-workday-home-concierge-early-adopter:2026-10-13",
+        "development_summary": "At Workday Rising, the company made Sana the new Workday Home: a context-sensitive interface intended to surface tasks, meetings, decisions and agent activity together. Employees can ask for work to be completed in.",
+        "status": "new"
+      },
+      "record_sha256": "4a4d4d80b48469a8804e079726d60b41e271a5c0ec30bbc3c8926d185b0c23a5"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-13",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-10-12",
+        "normalized_event_key": "github:copilot-client-telemetry-identity-content-otlp-controls:2026-10-12",
+        "development_summary": "GitHub added managed OpenTelemetry capture controls for Copilot CLI, the Copilot app and Agent Host sessions in VS Code. Enterprise administrators can attach authenticated GitHub usernames, local OS accounts and device.",
+        "status": "new"
+      },
+      "record_sha256": "52dfb1bdefc6975d6dbdd63953e320ffcb472559b6368a04b1685038d9721a1a"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-13",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://www.anthropic.com/research/self-replicating-ai"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-10-12",
+        "normalized_event_key": "anthropic:iot-self-replicating-models-experimental-evaluations:2026-10-12",
+        "development_summary": "Anthropic published physical and simulated evaluations of autonomous model replication outside datacenters. Researchers succeeded in getting inference to run on eight of nine classes of low-cost hardware using a.",
+        "status": "new"
+      },
+      "record_sha256": "d44095df1321b2903de05092422238f7d318c83cf7cb4c347e5d3a73f2b92a31"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-13",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-lambda-web-functions"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-10-12",
+        "normalized_event_key": "aws:lambda-web-functions-nodejs-http-primitive-launch:2026-10-12",
+        "development_summary": "AWS introduced Lambda Web Functions, a distinct Lambda compute primitive where code listens on a normal HTTP port and serves requests using frameworks such as Express and Hono. The initial supported runtime is Node.js..",
+        "status": "new"
+      },
+      "record_sha256": "92962267ad84176869528fcbbf6c4ae640e9699505e881fa377fda9496dcf52f"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-13",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://ir.amd.com/news-events/press-releases/detail/1301/introducing-amd-helion-agentic-ai-compute-at-rack-scale"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-10-12",
+        "normalized_event_key": "amd:helion-agentic-open-rack-design-introduction:2026-10-12",
+        "development_summary": "AMD introduced Helion as an Open Compute Project-style rack blueprint targeted at agentic AI rather than a single large inference job. Designs include a CPU-only rack using sixth-generation EPYC processors with up to.",
+        "status": "new"
+      },
+      "record_sha256": "289e5687e56cf1db45de3345ab4c67fc6d28c1de79dba3de8745f43a99b89e28"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-13",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://www.scaleway.com/en/news/scaleway-expands-ai-infrastructure-in-europe-with-new-amd-instinct-gpu-based-supercomputer-in-sweden"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "scaleway:sweden-mi355x-ai-supercomputer-deployment-announcement:2026-10-13",
+        "development_summary": "At ai-PULSE, French cloud provider Scaleway announced a new AI supercomputer deployment in Sweden based on AMD Instinct MI355X accelerators and ROCm software. It is Scaleway’s first such system outside France. The.",
+        "status": "new"
+      },
+      "record_sha256": "4c1373f0b02a55a7434bf25b7e5ef2384fd2ab94b36c9a6bbc1b5c0af0246ed9"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-13",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://support.microsoft.com/en-gb/servicing/os/windows-11/2026/10/kb5127648-windows-11-24h2-25h2-26h2-security-update",
+          "https://support.microsoft.com/en-us/servicing/dotnetframework/windows-11/3-5/october-13-2026-5127696"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "microsoft:windows11-patch-tuesday-kb5127648-24h2-home-pro-end:2026-10-13",
+        "development_summary": "Microsoft published its October 13 Windows 11 monthly security release, KB5127648, for supported 24H2/25H2/26H2 builds. The operational cliff is explicit: October 2026 is the last monthly update for Windows 11 24H2 Home.",
+        "status": "new"
+      },
+      "record_sha256": "01cfa35c31c3245fc50e425f5ccb99c66a24f7bab54d21a613fb8d5d23e5b1e9"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-13",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.huntress.com/blog/screenconnect-power-bi"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-09-10",
+        "normalized_event_key": "huntress:powerbi-public-dashboard-rogue-screenconnect-campaign-disclosure:2026-10-07",
+        "development_summary": "Huntress documented phishing that began appearing September 10 and used authentic app.powerbi.com pages as credible first-stage lures. A blurred supposed document urged visitors to click “Download Reference”; the next.",
+        "status": "new"
+      },
+      "record_sha256": "c933ec9a6a709a7c1b0f35a5476ef5cf21a965cf21ca760e02dcdabb173813ab"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-13",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://news.gm.com/home.detail.html/Pages/news/us/en/2026/oct/1012-gm-defense-global-mission-AUSA.html"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-10-12",
+        "normalized_event_key": "gm-defense:silverado3500hd-unmanned-ground-vehicle-concept-ausa:2026-10-12",
+        "development_summary": "GM Defense unveiled an unmanned ground-vehicle concept using a Chevrolet Silverado 3500HD dual-rear-wheel skateboard architecture at the Association of the U.S. Army conference. Proposed missions include lower-signature.",
+        "status": "new"
+      },
+      "record_sha256": "014cab1f622beec430591675f1510b6e1204417bcccaf7c727c86555fa7e271d"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-13",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/world/china/imf-says-ai-investment-propping-up-global-growth-war-debt-threaten-outlook-2026-10-13",
+          "https://data.imf.org/Datasets/WEO"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "imf:world-economic-outlook-october-2026-global-gdp-forecast-release:2026-10-13",
+        "development_summary": "The International Monetary Fund’s new World Economic Outlook forecasts global real growth of 3.1% in 2026, up from its July projection of 3.0%, and 3.4% in 2027. The IMF says strong spending on AI infrastructure partly.",
+        "status": "new"
+      },
+      "record_sha256": "631ef944588b65844c9644ef494420bb95de8ccd949d50fa427688dc4d138513"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-13",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.nfib.com/news/press-release/new-nfib-survey-uncertainty-grows-and-optimism-fades-slightly-on-main-street-in-september"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-09",
+        "normalized_event_key": "nfib:small-business-optimism-september-2026:released-2026-10-13",
+        "development_summary": "NFIB’s September Small Business Optimism Index fell 0.8 point to 97.9, just below its long-run average of 98.0. Its Uncertainty Index climbed to 90 versus a historical average of 68. Owners most often named labor.",
+        "status": "new"
+      },
+      "record_sha256": "12ffc90cd7384c2644b74e9b7cdfa782d5a9c316e2fca00dc5c1b8a5be143d04"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-13",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.nar.realtor/newsroom/existing-home-sales-increased-1-5-in-september-according-to-nar-report"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-09",
+        "normalized_event_key": "nar:existing-home-sales-september-2026:released-2026-10-13",
+        "development_summary": "The National Association of REALTORS® reported September existing-home sales of 3.99 million at a seasonally adjusted annual rate, up 1.5% from August but down 2.2% from September 2025. Listings increased to 1.60.",
+        "status": "new"
+      },
+      "record_sha256": "d7b96cfe297a5f0462d841a700463ed8034275e34a82444dfb9ffc9ae6e1dcb9"
+    }
+  ]
+}

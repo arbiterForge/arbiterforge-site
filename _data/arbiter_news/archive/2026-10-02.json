@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-02",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-02",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://blog.cloudflare.com/introducing-web-search-api"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-02",
+        "normalized_event_key": "cloudflare:ai-gateway:web-search-api:launch:2026-10-02",
+        "development_summary": "Cloudflare launched Web Search API through AI Gateway with Ceramic.ai, Exa, and Linkup, plus REST and Workers integrations.",
+        "status": "new"
+      },
+      "record_sha256": "6b16169e43b239b93665990aaf411aa9592dd4ab7d120458a9430ce1d7422b42"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-02",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://android-developers.googleblog.com/2026/10/android-cli-device-streaming-and-skills.html",
+          "https://developer.android.com/tools/android-cli"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-02",
+        "normalized_event_key": "google-android:cli-device-streaming-and-skills:2026-10-02",
+        "development_summary": "Google added Android Device Streaming to Android CLI and expanded official Android Skills for AI-assisted development.",
+        "status": "new"
+      },
+      "record_sha256": "6d45e5816f6fe179d74e279dfdeee642b035ad1cdb78cbc8f3f4c7502f6eccdc"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-02",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories",
+          "https://github.blog/changelog/2026-10-02-repository-security-advisory-comments-api-in-public-preview",
+          "https://github.blog/changelog/2026-10-02-new-fields-for-securityadvisory-graphql-api"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-02",
+        "normalized_event_key": "github:repository-security-advisory-workflow-comments-api-graphql:2026-10-02",
+        "development_summary": "GitHub added confidential repository-advisory comments, advisory comment REST APIs, and expanded SecurityAdvisory GraphQL fields.",
+        "status": "new"
+      },
+      "record_sha256": "fa852120a97e9158a4008740bc81281d1995e70e4bd83ee83a21cf5d9f201869"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-02",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://blog.cloudflare.com/one-observability-platform"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-02",
+        "normalized_event_key": "cloudflare:unified-observability-platform-eight-updates:2026-10-02",
+        "development_summary": "Cloudflare launched eight observability updates including Traces open beta, a unified SQL API, custom alerts, dashboards, and new unified pricing.",
+        "status": "new"
+      },
+      "record_sha256": "f71e531a775f51fbf2a7e18c5d14b9111f7844e4ac2298bb497010bd4621b27c"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-02",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://www.dynatrace.com/news/press-release/dynatrace-completes-acquisition-of-arize"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "dynatrace:arize:acquisition-completed:2026-10-01",
+        "development_summary": "Dynatrace completed its acquisition of Arize and plans to integrate AI evaluation and agent observability with full-stack production observability.",
+        "status": "new"
+      },
+      "record_sha256": "64011b76ab61cf781dc02b9a3b74e81abeb31cebec0eaeec57bb01543c2d8d74"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-02",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://www.armada.ai/blog/palantir-armada-sovereign-ai-data-center"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "palantir-armada:sovereign-ai-modular-data-center-partnership:2026-10-01",
+        "development_summary": "Palantir and Armada announced a sovereign-AI stack combining Palantir software with customer-owned modular Galleon data centers and Armada's distributed infrastructure platform.",
+        "status": "new"
+      },
+      "record_sha256": "8f879c5fc35a9b787b5ad12cc24934335eda9d06a32c2ef028627eb1891ede94"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-02",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://gitlab.com/gitlab-org/gitlab/-/work_items/628842",
+          "https://www.bleepingcomputer.com/news/security/gitlab-warns-of-critical-rce-vulnerability-in-ai-gateway-service"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-02",
+        "normalized_event_key": "gitlab:ai-gateway:cve-2026-90970:rce:2026-10-02",
+        "development_summary": "GitLab disclosed and patched CVE-2026-90970, a CVSS 9.9 sandbox-escape command-execution flaw in self-hosted AI Gateway.",
+        "status": "new"
+      },
+      "record_sha256": "a0a599b405a3b1a040da2e771ce7b565b8b0ed23ff791f5a2c006d32033fa849"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-02",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks",
+          "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "fortinet:fortimail:cve-2026-104286:active-exploitation:2026-10-01",
+        "development_summary": "Fortinet reported active exploitation of CVE-2026-104286, an unauthenticated FortiMail arbitrary-file-write flaw added to CISA KEV.",
+        "status": "new"
+      },
+      "record_sha256": "5fd654cac8d6958ae1770ddbb8d5d4e77a8ac64a10ca5144e1da52c4ff05294e"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-02",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.regentcraft.com/news/regent-extends-u-s-marine-corps-contract-totaling-20-million-in-collaboration-zs2t4",
+          "https://thedefensepost.com/2026/10/02/regent-marine-corps-seaglider-testing"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "regent-usmc:viceroy-seaglider-phase-iv-extension:2026-09-30",
+        "development_summary": "REGENT received a $5M Phase IV extension from the Marine Corps Warfighting Lab for operational Viceroy Seaglider demonstrations and C2 integration.",
+        "status": "new"
+      },
+      "record_sha256": "49c16e8fcc5fb2a05f231c5fca828de747bdd474f7c9efbf27fd934f0c955285"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-02",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.bls.gov/news.release/empsit.nr0.htm"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-02",
+        "normalized_event_key": "bls:employment-situation:2026-09:release-2026-10-02",
+        "development_summary": "BLS reported September payroll growth of 29,000, unemployment at 4.2%, 3.0% year-over-year wage growth, and downward revisions to July and August.",
+        "status": "new"
+      },
+      "record_sha256": "97553416bb098dc36af422a5f3c651dd0188f5a688b37b519193bb7312bf7fb3"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-02",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/retail-consumer/amazon-seeks-offload-8-billion-nvidia-chips-investors-ft-reports-2026-10-02"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-02",
+        "normalized_event_key": "amazon:nvidia-grace-blackwell-spv-leaseback:reported-2026-10-02",
+        "development_summary": "Reuters reported that Amazon is discussing a special-purpose vehicle that could hold roughly $8B of Nvidia Grace Blackwell GPUs and lease them back to Amazon.",
+        "status": "new"
+      },
+      "record_sha256": "07742a32fef8195165c08d1938f777bb339462837c7593c6f84411d12505331a"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-02",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.banking.senate.gov/imo/media/doc/FHFA-OIG%20Funding%20Notification%20Letter%20to%20Congress%2009.30.26.pdf",
+          "https://federalnewsnetwork.com/agency-oversight/2026/10/pultes-fhfa-slashes-mortgage-fraud-watchdogs-budget"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "fhfa-oig:fy2027-20m-funding-oversight-reduction:2026-09-30",
+        "development_summary": "FHFA-OIG told Congress a $20M FY2027 allocation would force a 70–80% staffing reduction and the end of essentially all criminal mortgage-fraud investigations.",
+        "status": "new"
+      },
+      "record_sha256": "21758f8fca3f28b2937c890bffa789cc3270f655c90d3900002ad19c1cf4a07b"
+    }
+  ]
+}

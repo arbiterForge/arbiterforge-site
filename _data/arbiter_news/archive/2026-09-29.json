@@ -1,0 +1,570 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-09-29",
+  "archive_kind": "partial",
+  "record_count": 24,
+  "restored_count": 12,
+  "overview": "12 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "ai",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "nvidia:open-agent-safety-platform:launch:2026-09-28",
+        "development_summary": "NVIDIA Open Agent Safety Platform.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "b6e34c1f46129298d2aa387b2604cadfd9a0557e08ba099fe594c6a7e202656a",
+      "restored": {
+        "title": "NVIDIA puts an independent watchdog beneath the agent",
+        "paragraphs": [
+          "NVIDIA announced an Open Agent Safety Platform pairing OpenShell runtime controls with Sentry, a reference design for monitoring agents on BlueField-4 data-processing units. The company says OpenShell traces actions and enforces policy, while Sentry can quarantine agents that cross their boundaries. OpenShell is described as broadly available; the hardware watchdog is a reference-system design, not a universal feature of every agent host. [1]",
+          "The architecture separates an agent’s ability to act from the infrastructure’s authority to stop it. That is a useful distinction when evaluating enterprise harnesses: a model instruction is not the same thing as an independently enforced boundary.",
+          "Ask which protections survive a compromised agent process, how intervention is audited, and which capabilities require NVIDIA hardware. The announcement’s performance and safety claims have not been independently tested here."
+        ],
+        "sources": [
+          "https://www.globenewswire.com/news-release/2026/09/28/3369606/0/en/nvidia-launches-open-agent-safety-platform-to-secure-agents-from-testing-to-deployment.html"
+        ],
+        "publication_date": "2026-09-28",
+        "source_event_key": "nvidia:open-agent-safety-platform:launch:2026-09-28",
+        "source_name": "Arbiter-News-2026-09-29.html",
+        "source_sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "text_sha256": "5a7fd0912c93df265ce50e451f386d5496686883f680f92d93f8e04d386e6b25"
+      }
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "ai",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "cloudflare:cf-cli:open-beta:2026-09-28",
+        "development_summary": "Cloudflare cf CLI / Forge.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "25320b2c7d843d17eb8a4b32e90cb8f524fa70cfefe31a86b2cb481b2208ac26",
+      "restored": {
+        "title": "Cloudflare’s new CLI gives agents a much wider API surface",
+        "paragraphs": [
+          "Cloudflare released the open beta of cf, a command-line interface generated from its API definitions. It covers more than 3,000 operations, compared with roughly 280 in Wrangler. JSON is the default output, with a compact form for agents; the release also introduces TypeScript configuration and command-discovery features. The same announcement explains how its Forge generation pipeline keeps the CLI aligned with the API. [2]",
+          "Consistent, discoverable commands can reduce brittle, hand-written agent integrations. The corresponding operational issue is scope: access to a larger command catalog must not be confused with authorization to use every operation.",
+          "Evaluate read-only discovery and narrowly scoped credentials in a test project first. Treat this as an open-beta toolchain change—not a reason to replace working production deployment paths immediately."
+        ],
+        "sources": [
+          "https://blog.cloudflare.com/cloudflare-cf-cli-launch/"
+        ],
+        "publication_date": "2026-09-28",
+        "source_event_key": "cloudflare:cf-cli:open-beta:2026-09-28",
+        "source_name": "Arbiter-News-2026-09-29.html",
+        "source_sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "text_sha256": "531ce19edd33df7dd05c56a58ecf51f19b316e848e87b3c7eafb731262c436e9"
+      }
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "ai",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "google:interactions-api:gemini3-support-preview:2026-09-28",
+        "development_summary": "Gemini Interactions API support.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "62b1b7e9f2ae81b840ca8bfe8b62fc5ddd88e53563c219b71b92e0446543f284",
+      "restored": {
+        "title": "Gemini 3 gains a stateful API path—with important compliance limits",
+        "paragraphs": [
+          "Google’s September 28 release notes add Gemini 3 support to the Interactions API in Preview. The API combines models and agents behind one interface, with execution steps and server-side conversation state. Requests are stored by default; store=false opts into stateless behavior. The existing generateContent API remains supported. [3] [4]",
+          "This changes integration choices more than model quality. A provider adapter must account for session storage, retry behavior, cancellation, and the audit record—not merely swap an endpoint or model identifier.",
+          "Google documents global-only endpoints and no data-residency commitment for the preview. It also lists no FedRAMP or customer-managed encryption-key support, and no IL5 or ITAR compliance. VPC Service Controls support does not erase those limits. [4]"
+        ],
+        "sources": [
+          "https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes?hl=en",
+          "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions"
+        ],
+        "publication_date": "2026-09-28",
+        "source_event_key": "google:interactions-api:gemini3-support-preview:2026-09-28",
+        "source_name": "Arbiter-News-2026-09-29.html",
+        "source_sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "text_sha256": "1c2aec1088d107910e71f44c650378f8d4ad668e161522bf4bfae6078b81910c"
+      }
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "cloud",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "cloudflare:beacon:public-dataset:2026-09-28",
+        "development_summary": "Cloudflare BEACON dataset.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "8ef17425010963ef6b79b37915f9033487336b285dfccdc64bb038193af2494b",
+      "restored": {
+        "title": "BEACON opens a wider window into real-world web performance",
+        "paragraphs": [
+          "Cloudflare published BEACON, an anonymized dataset built from billions of real-user performance measurements across 10,000 large sites on its network. It is updated daily in BigQuery and includes the Core Web Vitals for loading, visual stability, and interaction responsiveness. Histograms expose distributions rather than only averages, with breakdowns across devices, browsers, and geography. [5]",
+          "This is a new external reference for performance work, not another uptime dashboard. It can help teams distinguish a fast development machine from the conditions their users actually face—and identify problems hidden in the slowest experiences.",
+          "Compare equivalent device and geographic groups before drawing conclusions. The dataset is normalized and drawn from Cloudflare’s network; it is not a census of every website or a substitute for your own application telemetry. [5]"
+        ],
+        "sources": [
+          "https://blog.cloudflare.com/how-fast-is-the-web/"
+        ],
+        "publication_date": "2026-09-28",
+        "source_event_key": "cloudflare:beacon:public-dataset:2026-09-28",
+        "source_name": "Arbiter-News-2026-09-29.html",
+        "source_sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "text_sha256": "6aaf0e741d83096bf149f97870d7480e5ec969af1a32255a4c20de8dbece4ef6"
+      }
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "cloud",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "aws:transcribe:customer-managed-kms-custom-assets:2026-09-25",
+        "development_summary": "Amazon Transcribe customer-managed KMS.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "920a9e7e3b5bf83bfbecf9b54ed63207c8cb47175949ea97da02898574b85586",
+      "restored": {
+        "title": "Transcribe adds customer-owned encryption keys for custom assets",
+        "paragraphs": [
+          "Amazon Transcribe now accepts customer-managed symmetric KMS keys for custom vocabularies, vocabulary filters, and custom language models. Previously, those resources used AWS-owned keys. A key can be supplied when creating or updating the resources; without one, AWS-owned encryption continues. AWS says key use is recorded in CloudTrail and customers control the key’s permissions. [6]",
+          "Specialized vocabulary and language assets can be sensitive in their own right. The change gives cloud operators a more direct ownership and audit boundary around those stored assets, separately from the rest of a transcription workflow.",
+          "Inventory the custom resources and required decrypt permissions before opting in. Validate recovery and key-change behavior in a test environment; disabling a key is not a harmless toggle. This announcement is not a blanket encryption change for every transcript and downstream system."
+        ],
+        "sources": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-transcribe/"
+        ],
+        "publication_date": "2026-09-25",
+        "source_event_key": "aws:transcribe:custom-resource-customer-kms-keys:2026-09-25",
+        "source_name": "Arbiter-News-2026-09-29.html",
+        "source_sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "text_sha256": "cf96e7643e0aa771815622051da2844b5c55254e85346a902f248ddc79179a93"
+      }
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "cloud",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "google:semantic-governance:vpc-service-controls-preview:2026-09-25",
+        "development_summary": "Google semantic governance/VPC SC.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "f2be610fcc1a6793eb610800930b7f3a3b6e1d37be8ab48458e49ebe6d8ea4ef",
+      "restored": {
+        "title": "Google brings the agent-policy engine inside the service perimeter",
+        "paragraphs": [
+          "Google added Preview support for placing semantic governance policies and their evaluation engine inside a VPC Service Controls perimeter. These components govern proposed agent tool calls; the new support extends the service-perimeter boundary around the policy service itself to help reduce data-exfiltration risk. This is a distinct infrastructure update, not the Interactions API release. [3] [8]",
+          "A policy service can itself receive sensitive tool arguments and context. Protecting the evaluator’s data path matters alongside deciding whether a proposed action is allowed. The two controls solve different parts of the governance problem.",
+          "Review Google’s documented limitations before treating perimeter membership as proof of protection. In particular, Agent Runtime must be deployed after its project is inside the perimeter; an agent deployed beforehand is not automatically secured when the project is later added. [7]"
+        ],
+        "sources": [
+          "https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes?hl=en",
+          "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview",
+          "https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls"
+        ],
+        "publication_date": "2026-09-25",
+        "source_event_key": "google:semantic-governance:vpc-service-controls-preview:2026-09-25",
+        "source_name": "Arbiter-News-2026-09-29.html",
+        "source_sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "text_sha256": "72a12f2b7fe7dec8419208dc89749fe85257429eac591b744bd17489b4c3bd7f"
+      }
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "security",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "citrix:netscaler:cve-2026-88771+cve-2026-88772:disclosure",
+        "development_summary": "NetScaler exploited vulnerabilities.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "274718f8a03824898fe44dafe8ad33e2e366350dc77f234b70174bddb9ac2d26",
+      "restored": {
+        "title": "NetScaler’s two exploited zero-days need an exposure check",
+        "paragraphs": [
+          "Citrix confirms exploitation of CVE-2026-88771 and CVE-2026-88772 in unmitigated NetScaler deployments. The first permits unauthenticated command execution without an additional feature prerequisite; the second concerns memory overflow where DTLS is enabled. Both carry CVSS 4.0 scores of 9.5. Fixed standard builds include 14.1-73.37 and 13.1-64.23, with separate guidance for FIPS and NDcPP editions. [9]",
+          "This is a discovery-and-response priority for teams operating affected gateways, not evidence that every appliance is compromised. The different prerequisites also mean checking only the DTLS setting would miss the first vulnerability.",
+          "Confirm appliance versions and exposure, preserve relevant evidence, and coordinate the vendor’s update path through the incident/change process. Unit 42 cautions that patching does not remove persistence already established by an attacker. The start and full scope of exploitation are not established here. [10]"
+        ],
+        "sources": [
+          "https://support.citrix.com/external/article/CTX697096/citrix-netscaler-adc-and-citrix-netscale.html",
+          "https://unit42.paloaltonetworks.com/netscaler-zero-days-exploited/"
+        ],
+        "publication_date": "2026-09-27",
+        "source_event_key": "citrix:netscaler:cve-2026-88771+cve-2026-88772:disclosure",
+        "source_name": "Arbiter-News-2026-09-29.html",
+        "source_sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "text_sha256": "d543a68064441a72466d83e0e3a5a54e38c9bd94e6b1de1ae4943dccb8f18831"
+      }
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "security",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "rtx:amraam:20-7b-multiyear-contract:2026-09-28",
+        "development_summary": "AMRAAM multiyear contract.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "93203c50ef0be2ebb053e76e5553cd31b2f743d4af231ffe27cefcdf7ddd7183",
+      "restored": {
+        "title": "Raytheon’s AMRAAM award shifts attention to production capacity",
+        "paragraphs": [
+          "RTX announced an AMRAAM contract valued at up to $20.7 billion: five years with two option years. It connects the award to a previously announced goal of at least 1,900 missiles annually. Reuters describes the multiyear award as provisional and reports that the funding needed for the full commitment has not yet been appropriated. [11] [12]",
+          "The important development is the production commitment, not a newly demonstrated weapon capability. The useful questions concern supplier capacity, facilities, workforce, and whether funding arrives on a timetable that enables the planned manufacturing ramp.",
+          "Keep the contract ceiling, appropriated funds, production targets, and delivered inventory separate. A large award can signal demand without establishing that the full sum is funded or that the targeted annual output has already been reached."
+        ],
+        "sources": [
+          "https://www.rtx.com/news/news-center/2026/09/28/rtxs-raytheon-awarded-20-7-billion-multi-year-contract-for-amraam-under-landmar",
+          "https://www.reuters.com/business/aerospace-defense/pentagon-awards-rtxs-raytheon-207-billion-contract-amraam-missiles-amid-2026-09-28/"
+        ],
+        "publication_date": "2026-09-28",
+        "source_event_key": "rtx:amraam:20-7b-multiyear-contract:2026-09-28",
+        "source_name": "Arbiter-News-2026-09-29.html",
+        "source_sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "text_sha256": "5768797103107892396baea100a2b766827c7b7ba5e377438e60d40b2f0d81cb"
+      }
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "security",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "cisco-talos:closedquorum:first-public-analysis:2026-09-22",
+        "development_summary": "CLOSEDQUORUM AI C2 analysis.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "8a99450b59285d7cd5e80e891ad5ebe32f4e853fddd82900845bdfb642fc76f1",
+      "restored": {
+        "title": "Talos finds malware delegating its next move to AI models",
+        "paragraphs": [
+          "Cisco Talos published an analysis of CLOSEDQUORUM, a Windows implant that delegates the selection of post-compromise actions to commercial AI models. The observed design selects from a constrained set of capabilities rather than relying on continuous human tasking. Talos describes intended credential and cryptocurrency-wallet theft, but explicitly says it has not confirmed deployment in real-world attacks. [13]",
+          "For defenders, the distinction is between AI helping someone write malware and AI participating in the running malware’s decision process. That is worth tracking without treating one analyzed sample as proof of widespread autonomous attacks.",
+          "Use the research to review endpoint detections and visibility into unexpected model-service connections. Ordinary traffic to an AI provider is not, by itself, proof of compromise. This is first coverage of a September 22 finding, not a new incident disclosed today."
+        ],
+        "sources": [
+          "https://blog.talosintelligence.com/the-closed-quorum-inside-the-first-reported-autonomous-ai-c2-implant/"
+        ],
+        "publication_date": "2026-09-22",
+        "source_event_key": "cisco-talos:closedquorum:first-public-analysis:2026-09-22",
+        "source_name": "Arbiter-News-2026-09-29.html",
+        "source_sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "text_sha256": "045961510924af959736b638447777cddca53ff0eba68272c4de43a023480de3"
+      }
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "money",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "first-american:hpi:2026-08:release-2026-09-28",
+        "development_summary": "August home-price index.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "79ce6317f0af4ac01176a27360191c926cdc0d8cc547bd0b48b42d054cdff1b7",
+      "restored": {
+        "title": "Home prices rise nationally while several regional markets fall",
+        "paragraphs": [
+          "First American’s August home-price report shows national prices up 1.4% year over year and 0.2% from July. Annual growth has remained below its pre-pandemic historical average for 17 months. The regional picture differs: Tampa is down 1.9% year over year, while Chicago is up 5.5%. The release also expands coverage of the 50 largest metro areas and includes methodological updates. [14]",
+          "A national appreciation figure can obscure the local market that matters to a housing decision. Slower price growth also does not, by itself, mean a lower purchase price or a more affordable monthly payment.",
+          "Treat Tampa as a regional comparator, not an estimate for a specific property or a different metro. Read local sales and financing conditions separately. The provider says recent index results are subject to revision as more transactions become available. [14]"
+        ],
+        "sources": [
+          "https://www.firstam.com/news/2026/price-growth-long-term-average-17-month-20260928.html"
+        ],
+        "publication_date": "2026-09-28",
+        "source_event_key": "first-american:hpi:2026-08:release-2026-09-28",
+        "source_name": "Arbiter-News-2026-09-29.html",
+        "source_sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "text_sha256": "579497389517e8d48230e94470b3f9f282eaee33a12cd731bb5b0604ef9abe92"
+      }
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "money",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "umich:consumer-sentiment:2026-09:final",
+        "development_summary": "September consumer sentiment.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "d1609e889d65a9c55e6564c8483f5cbf237a208a90dfd7e42a09cee5047b08df",
+      "restored": {
+        "title": "Consumers’ financial outlook weakens in September’s final survey",
+        "paragraphs": [
+          "The University of Michigan’s final September survey puts consumer sentiment at 48.1, down from 51.7 in August and the lowest reading in four months. Year-ahead inflation expectations rose from 4.0% to 4.6%; longer-run expectations edged from 3.3% to 3.4%. The survey also reports weaker views of current and expected personal finances. [15]",
+          "These are household perceptions and expectations, not measured inflation or a direct tally of spending. The distinction matters when comparing weaker confidence with strong demand in parts of the business economy: those signals need not move together.",
+          "The survey notes some improvement in durable-goods buying conditions because people think buying sooner could avoid future price increases. That is a reported motivation—not evidence that accelerating a household purchase is financially advantageous, and not a signal to time an investment trade. [15]"
+        ],
+        "sources": [
+          "https://www.sca.isr.umich.edu/",
+          "https://www.reuters.com/world/us/us-consumer-sentiment-eases-four-month-low-september-2026-09-25/"
+        ],
+        "publication_date": "2026-09-25",
+        "source_event_key": "umich:consumer-sentiment:2026-09:final",
+        "source_name": "Arbiter-News-2026-09-29.html",
+        "source_sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "text_sha256": "1d594ea11dfdbb39f87d60efc4b50591296a9707b666cb5e0986f5cbd017fb0f"
+      }
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "money",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "census:durable-goods:2026-08:advance",
+        "development_summary": "August durable/core capital goods.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "217351231ad8472698fd64adf7f5c8e847c3bc36d588e17dba068921897f540f",
+      "restored": {
+        "title": "Business-equipment orders strengthen beneath a flat headline",
+        "paragraphs": [
+          "August durable-goods orders were virtually unchanged at $338.6 billion, according to the Census Bureau. But the underlying equipment signal was firmer: Reuters reports nondefense capital-goods orders excluding aircraft rose 1.6%, with shipments of those goods up 0.6%. July’s core-orders gain was revised to 0.6%. Transportation weakness held back the broader headline. [18] [17]",
+          "The composition of the release matters more than calling the entire report flat. For an infrastructure reader, equipment demand is a different economic signal from consumer confidence or day-to-day movements in technology shares.",
+          "Separate new orders from shipments and nominal dollar growth from real output. Reuters links the investment backdrop to the AI buildout, but this release does not isolate an exact AI share. It supports monitoring investment demand—not a forecast for a particular vendor or stock."
+        ],
+        "sources": [
+          "https://www.reuters.com/business/us-core-capital-goods-orders-surge-august-2026-09-25/",
+          "https://www.census.gov/manufacturing/m3/adv/current/index.html"
+        ],
+        "publication_date": "2026-09-25",
+        "source_event_key": "census:durable-goods:2026-08:advance",
+        "source_name": "Arbiter-News-2026-09-29.html",
+        "source_sha256": "410eaeeb5c38b53eaa9cc0acfff6ceabaf50ce458e2feae557429ad1891fe2ca",
+        "text_sha256": "11266623cbaadc4ddaba045303e63048fb69e1b9da6fb72a35bfd7e06fb3205c"
+      }
+    },
+    {
+      "ordinal": 13,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "ai",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "meta:enterprise-platform:launch:2026-09-28",
+        "development_summary": "Meta Enterprise Platform.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "48a518fa5023caaae1eb707a463f75593430c5c34181a366a5c627a02b7dfac2"
+    },
+    {
+      "ordinal": 14,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "ai",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "microsoft:copilot-home-code-autopilot:announcement:2026-09-25",
+        "development_summary": "Microsoft Copilot Home/Code/Autopilot.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "cdae49a9e7c626227aecf8e8776eee0aa3d4b1dc8c2883027468940c7f0e97fa"
+    },
+    {
+      "ordinal": 15,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "ai",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "anthropic:art-enzyme-system:research-disclosure:2026-09-23",
+        "development_summary": "Anthropic ART enzyme agent research.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "a8fd8951d28b172238f4801fe184d7736954798b90fd168a3e14db813ac0eadc"
+    },
+    {
+      "ordinal": 16,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "cloud",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "github:actions-self-hosted-runner-version-enforcement:2026-09-29",
+        "development_summary": "GitHub runner-version enforcement.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "ee7daeed50eaa4c59260268a68b8a6ed59901a0758514519d5bbeabe9e2efb12"
+    },
+    {
+      "ordinal": 17,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "cloud",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "microsoft:fabric-observability-operations-agents-database-hub:2026-09-28",
+        "development_summary": "Fabric observability/operations agents.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "c5c858b986ee4f20f79d4411d6d9f270b7a54903157e3e275ddd761ab1084df0"
+    },
+    {
+      "ordinal": 18,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "cloud",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "cerebras:gimlet-labs:100mw-cs4-cloud-deployment:2026-09-28",
+        "development_summary": "Cerebras/Gimlet 100-MW plan.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "05a68ffdff8d4a2eee58cb429eeb5ba901341ab16c727ba338f30a0d9dceabc3"
+    },
+    {
+      "ordinal": 19,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "security",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "microsoft:needymantis:public-analysis:2026-09-28",
+        "development_summary": "NeedyMantis malware analysis.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "c3e49120ad6f00c33c54aedbe4228e9c3ec5afd9c52d9f706614bfdc02f12496"
+    },
+    {
+      "ordinal": 20,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "security",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "checkpoint:cve-2026-85102+cve-2026-93616:active-exploitation-advisory",
+        "development_summary": "Check Point active exploitation advisory.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "d10ad0f6d8c9ce74c13d649d8a591e3dff57e267e11d3231df693e8cf546759e"
+    },
+    {
+      "ordinal": 21,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "security",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "hertha-metals:series-a-dod-equity-magnet-grade-iron:2026-09-29",
+        "development_summary": "Hertha Metals defense supply-chain financing.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "6b010576693847e0e28458fec0e90d040e2b8444e21f3c9767af75a0ddcbe7c8"
+    },
+    {
+      "ordinal": 22,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "money",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "rocket-mortgage:vantagescore-4-preferred-eligible-loans:q4-2026",
+        "development_summary": "Rocket VantageScore 4.0 mortgage scoring.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "b887bec7275fdfc24560d5725c7ddd114162477b59193fb1befe7462d33b7e83"
+    },
+    {
+      "ordinal": 23,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "money",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "rba:cash-rate-4.60:2026-09-29",
+        "development_summary": "RBA cash rate 4.60%.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "dc58a9d0812cb7eb055be6b7806624c99db45f26fb2f9a6bf4ed6a811daa48b1"
+    },
+    {
+      "ordinal": 24,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-09-29",
+        "category": "money",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "bank-of-england:money-credit:2026-08:release-2026-09-29",
+        "development_summary": "UK August money and credit.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "2e3ad9edde206aa8dfe67191e5ca8092aac528dbd3de698340084a0ae7b65f11"
+    }
+  ]
+}
