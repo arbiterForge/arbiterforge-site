@@ -1,0 +1,14 @@
+---
+layout: null
+---
+{% assign editions = site.data.arbiter_news.editions | sort %}
+{
+ "schema_version": 1,
+ "purpose": "Coverage history for cross-edition deduplication; not independent factual verification",
+ "timezone": "America/New_York",
+ "legacy_import": {{ site.data.arbiter_news.history | jsonify }},
+ "prior_records": [{% for part in site.data.arbiter_news.history_parts %}{% for record in part[1] %}{{ record | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}{% unless forloop.last %},{% endunless %}{% endfor %}],
+ "editions": [{% for entry in editions %}{% assign e = entry[1] %}{% unless forloop.first %},{% endunless %}
+ {"edition_date":{{ e.edition_date | jsonify }},"url":"https://arbiterforge.com/news/{{ e.edition_date }}/","history_note":{{ e.history_note | jsonify }},"records":[{% for s in e.stories %}{% unless forloop.first %},{% endunless %}{"edition_date":{{ e.edition_date | jsonify }},"category":{{ s.category | jsonify }},"canonical_source_urls":{{ s.sources | map: 'url' | jsonify }},"source_publication_date":{{ s.publication_date | jsonify }},"underlying_event_date":{{ s.event_date | jsonify }},"normalized_event_key":{{ s.event_key | jsonify }},"development_summary":{{ s.development_summary | jsonify }},"status":{{ s.status | jsonify }}}{% endfor %}]}
+ {% endfor %}]
+}

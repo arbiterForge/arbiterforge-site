@@ -1,0 +1,38 @@
+name: Arbiter News contracts
+on:
+  pull_request:
+    paths: ['_data/arbiter_news/**', '_layouts/arbiter-news.html', '_includes/arbiter-news-card.html', 'news/**', 'tests/test_arbiter_news.py', 'tests/check_news_build.py', '.github/workflows/arbiter-news.yml']
+  push:
+    branches: [main]
+    paths: ['_data/arbiter_news/**', '_layouts/arbiter-news.html', '_includes/arbiter-news-card.html', 'news/**', 'tests/test_arbiter_news.py', 'tests/check_news_build.py', '.github/workflows/arbiter-news.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: news-check-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Validate edition data and historical coverage
+        run: python -m unittest discover -s tests -v
+      - name: Build with the GitHub Pages Jekyll toolchain
+        uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697
+        with:
+          source: ./
+          destination: ./_site
+      - name: Validate rendered pages, coverage index and RSS
+        run: python tests/check_news_build.py _site
+      - name: Retain rendered preview for inspection
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: arbiter-news-preview
+          path: _site/
+          retention-days: 7
+          if-no-files-found: error
