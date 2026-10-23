@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-03",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-03",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://www.reuters.com/legal/litigation/public-fears-ai-grow-trump-digs-voluntary-safeguards-2026-10-03"
+        ],
+        "source_publication_date": "2026-10-03",
+        "underlying_event_date": "2026-09-29",
+        "normalized_event_key": "us-white-house:frontier-ai-voluntary-safety-accord:reporting-2026-10-03",
+        "development_summary": "Reuters detailed the White House voluntary frontier-AI safety accord, including internal controls and external audits but no stated penalties or enforcement mechanism.",
+        "status": "new"
+      },
+      "record_sha256": "55bc406dd3e05e173231ad9288c1dfabc456980ef33d0455ede8ab81fb4e0e87"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-03",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/blogs/aws/announcing-aws-well-architected-agent-an-ai-powered-intelligence-to-optimize-your-cloud-environment-preview"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "aws:well-architected-agent:public-preview:2026-10-01",
+        "development_summary": "AWS launched Well-Architected Agent in public preview for contextual architecture analysis, IaC review, and remediation recommendations across more than 65 AWS services.",
+        "status": "new"
+      },
+      "record_sha256": "721b5dbe297ebd759a311e28152eccaae8d3ffeed28caa34548f4c48f5edb9ec"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-03",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "github:copilot:desktop-computer-use-public-preview:2026-10-01",
+        "development_summary": "GitHub released desktop computer use for Copilot CLI and the Copilot app on macOS and Windows in public preview.",
+        "status": "new"
+      },
+      "record_sha256": "2f41a5ce816a09fa268ef09661329837b80f515a5560672c4b638d55b05318d7"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-03",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-01-actions-runner-controller-release-0-15-0"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "github:actions-runner-controller:0.15.0:2026-10-01",
+        "development_summary": "GitHub released Actions Runner Controller 0.15.0 with reliability, scalability, Kubernetes API, metrics, and reconciliation improvements for runner scale sets.",
+        "status": "new"
+      },
+      "record_sha256": "a9bf90695a5ebf9cbc8b25c349708f907ed58ff2fa017f0fdb54d15662311811"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-03",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-s3-tables-iceberg-v3-data-types"
+        ],
+        "source_publication_date": "2026-09-30",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "aws:s3-tables:all-iceberg-v3-data-types:2026-09-30",
+        "development_summary": "Amazon S3 Tables added geometry, geography, unknown, nanosecond timestamps, column defaults, and full support for all Apache Iceberg V3 data types.",
+        "status": "new"
+      },
+      "record_sha256": "9792c25df23373518ad49d33fbc3dc30adfe11c21017c10aab0e077861e9d080"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-03",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://www.ferc.gov/news-events/news/commissioner-rosners-concurrence-pjms-reliability-backstop-procurement-er26-3380",
+          "https://www.reuters.com/business/energy/ferc-asks-grid-operator-pjm-revise-plan-shield-homes-data-center-costs-2026-09-30"
+        ],
+        "source_publication_date": "2026-09-30",
+        "underlying_event_date": "2026-09-29",
+        "normalized_event_key": "ferc-pjm:reliability-backstop-data-center-cost-allocation:2026-09-29",
+        "development_summary": "FERC delayed and directed revisions to PJM's reliability-backstop proposal, including stronger cost-causation treatment and updated forecasting for data-center load.",
+        "status": "new"
+      },
+      "record_sha256": "1b92870a1ff091cfa32417f11c4e46f1d6ff2d802af600952ee92c2491e802fa"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-03",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.stripes.com/theaters/us/2026-09-29/data-breach-pentagon-personnel-records-23001764.html"
+        ],
+        "source_publication_date": "2026-09-29",
+        "underlying_event_date": "2026-07-16",
+        "normalized_event_key": "dod:dmdc-file-sharing-breach:public-disclosure-2026-09-29",
+        "development_summary": "Public reporting disclosed a DMDC file-sharing breach affecting roughly 3.05 million living and deceased records containing unencrypted personnel PII.",
+        "status": "new"
+      },
+      "record_sha256": "4717567c368b50e9984fe160d1bfc13b8028b2c2cc492c58d4b8afcca403f6ca"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-03",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://blog.talosintelligence.com/china-nexus-uat-11587-targets-government-and-policy-organizations-across-asia-with-antino-backdoor"
+        ],
+        "source_publication_date": "2026-09-30",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "cisco-talos:uat-11587-antino-backdoor:public-analysis-2026-09-30",
+        "development_summary": "Cisco Talos disclosed UAT-11587 and the Antino Rust backdoor, including Microsoft 365 C2 and targeting across government and policy organizations in Asia.",
+        "status": "new"
+      },
+      "record_sha256": "6cc8025352d3535be5dab3f923569c2bb1025250ea12696aa19149bfab2e44b1"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-03",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://drpmras.navy.mil/press-release/diu-and-us-navy-accelerate-mine-countermeasure-modernization-through-prize-challenge"
+        ],
+        "source_publication_date": "2026-10-01",
+        "underlying_event_date": "2026-10-01",
+        "normalized_event_key": "us-navy-diu:mine-countermeasure-modernization-prize-contracts:2026-10-01",
+        "development_summary": "The U.S. Navy and DIU moved three commercial mine-countermeasure teams from prize challenge to contracting after an 80-submission, 92-day process.",
+        "status": "new"
+      },
+      "record_sha256": "aab3db4bc7fd4fec655c279957ea683837b63d0619924f0c05832d608a18f39c"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-03",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://ec.europa.eu/eurostat/en/web/products-euro-indicators/w/2-02102026-ap"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-02",
+        "normalized_event_key": "eurostat:euro-area-hicp-flash:2026-09:release-2026-10-02",
+        "development_summary": "Eurostat estimated euro-area annual inflation at 3.8% in September 2026, up from 3.2% in August, with energy inflation at 18.8%.",
+        "status": "new"
+      },
+      "record_sha256": "e63ffa2e9fdc2ef05ab0ebc8c8996d0b8102d8b718b6d38bf43b837467ba3f5d"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-03",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.fao.org/newsroom/detail/fao-food-price-index-rises-in-september-amid-weather-concerns-and-transport-disruptions/en",
+          "https://www.fao.org/worldfoodsituation/foodpricesindex/en"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-02",
+        "normalized_event_key": "fao:food-price-index:2026-09:release-2026-10-02",
+        "development_summary": "FAO reported its September 2026 global Food Price Index at 136.0, up 1.5% month over month and 5.8% year over year, led by crop-price increases.",
+        "status": "new"
+      },
+      "record_sha256": "858838cf68ff89c05b517031065ff44e838bcd294a725e46f6f530bf541b6969"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-03",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://ec.europa.eu/eurostat/en/web/products-euro-indicators/w/2-02102026-bp"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-02",
+        "normalized_event_key": "eurostat:euro-area-household-saving-rate:q2-2026:release-2026-10-02",
+        "development_summary": "Eurostat reported the euro-area household saving rate at 14.2% in Q2 2026, down from 14.4% as consumption grew faster than disposable income.",
+        "status": "new"
+      },
+      "record_sha256": "ad8b36af9531e91a519c3daf534572b7a8cc7fea94baaa3513ee5e6da21f5a61"
+    }
+  ]
+}

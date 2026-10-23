@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-10",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-10",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://anthropic.com/research/investigating-unintended-model-actions"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-09",
+        "normalized_event_key": "anthropic:unintended-model-actions:research-disclosure:2026-10-09",
+        "development_summary": "Anthropic documents agents overstepping test boundaries on real websites",
+        "status": "new"
+      },
+      "record_sha256": "b271335eb85a996ec6d267148c020a19921b5196dfc2083775a36c8a8be392ea"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-10",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/10/ico-secures-changes-from-leading-ai-developers-as-scrutiny-extends-to-ai-agents"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "uk-ico:foundation-model-data-rights-agentic-ai-call-for-evidence:2026-10-08",
+        "development_summary": "UK privacy regulator secures model-developer commitments and opens an agentic-AI inquiry",
+        "status": "new"
+      },
+      "record_sha256": "73cc193019a10a5b5f83797fcdc0afc3551789d96561fa8c72d5dd0f452ca660"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-10",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://reuters.com/world/china/chinese-developer-makes-artex-ai-agent-closed-source-after-korean-bank-hack-2026-10-09"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "artex:developer-closes-source-after-korean-bank-campaign:2026-10-08",
+        "development_summary": "ARTEX developer closes security-agent source after alleged use against Korean banks",
+        "status": "new"
+      },
+      "record_sha256": "896b26ade0647b2059ec11ad65d31539ec6e003332abd75d8593c6da9f30a649"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-10",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://docs.aws.amazon.com/devopsagent/latest/userguide/whats-new.html"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-09",
+        "normalized_event_key": "aws:devops-agent:investigation-reviews-four-new-regions:2026-10-09",
+        "development_summary": "AWS DevOps Agent adds graded incident reviews and reaches four new Regions",
+        "status": "new"
+      },
+      "record_sha256": "a1522fd46af4523f62408f82def1abf299a57f63c33c68a805ceba47b623c05d"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-10",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://newsroom.accenture.com/news/2026/accenture-and-dell-technologies-expand-collaboration-to-help-enterprises-scale-private-ai-and-modernize-infrastructure"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "accenture-dell:private-ai-business-group-launch:2026-10-08",
+        "development_summary": "Accenture and Dell create a dedicated private-AI deployment business group",
+        "status": "new"
+      },
+      "record_sha256": "3f22d29493d58982073d4229bd4247daea880eeafd72bd7d8e324f59e9e98b28"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-10",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://techcommunity.microsoft.com/blog/windows-itpro-blog/prepare-for-windows-update-certificate-rotation-in-2027/4562463",
+          "https://bleepingcomputer.com/news/microsoft/microsoft-outdated-windows-devices-will-lose-security-protection-next-year"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "microsoft:windows-update-client-auth-cert-rotation-2027:guidance-2026-10-08",
+        "development_summary": "Windows Update certificate rotation creates a 2027 deadline for legacy endpoints",
+        "status": "new"
+      },
+      "record_sha256": "2af742973109f00a994518178f4d914e2a4cbe71fc8840d9406283590d4fc3a6"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-10",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://huntress.com/blog/ahsaycbs-flaws-exploit",
+          "https://bleepingcomputer.com/news/security/unpatched-ahsaycbs-flaws-exploited-to-deploy-webshells-mine-crypto"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "ahsaycbs:cve-2026-105133-cve-2026-105134:exploitation:2026-10-07",
+        "development_summary": "Backup management consoles exploited; latest AhsayCBS 10.3.4 still vulnerable",
+        "status": "new"
+      },
+      "record_sha256": "c5de1a2a85cafef561c7ad6239ee6fb30bce51f6d7e215034f17c48d7f46fccf"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-10",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://news.lockheedmartin.com/2026-10-09-Lockheed-Martin-Debuts-PAC-3-Edge-TM-for-the-U-S-Armys-Innovative-Future-Interceptor-Program"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-09",
+        "normalized_event_key": "lockheed-martin:pac-3-edge-future-interceptor-debut:2026-10-09",
+        "development_summary": "Lockheed previews PAC-3 Edge interceptor; Army development and tests still ahead",
+        "status": "new"
+      },
+      "record_sha256": "0a07e916d97efd270908064d858bcbf3c861e296660fccca74797417535607d9"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-10",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://nationaldefensemagazine.org/articles/2026/10/9/navy-acquiring-undersea-drone-drawing-power-from-water"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": null,
+        "normalized_event_key": "us-navy-seatrec:persistent-subsea-autonomous-profiler-apfit-award:reported-2026-10-09",
+        "development_summary": "Navy moves toward persistent undersea sensing powered by ocean temperature differences",
+        "status": "new"
+      },
+      "record_sha256": "1e84d65041164413c7b476f31d4d6fd1f279e71feea5e8f2308e5e5fceb7c2b6"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-10",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://esmis.nal.usda.gov/sites/default/release-files/796099/wasde1026.txt",
+          "https://esmis.nal.usda.gov/publication/world-agricultural-supply-and-demand-estimates"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-09",
+        "normalized_event_key": "usda:wasde:2026-10-09:corn-supply-and-use",
+        "development_summary": "USDA raises projected corn supply: 2026–27 carryout jumps by 282 million bushels",
+        "status": "new"
+      },
+      "record_sha256": "60f2feadbc663b99889bacf3e1e5330f9f8c33b86cea0ea4839eeda32053618b"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-10",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www150.statcan.gc.ca/n1/daily-quotidien/261009/dq261009a-eng.htm"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-09",
+        "normalized_event_key": "statistics-canada:labour-force-survey-september-2026:2026-10-09",
+        "development_summary": "Canada loses 68,000 jobs in September as unemployment moves up to 6.5%",
+        "status": "new"
+      },
+      "record_sha256": "14b38c8db8618b942505ec1c51091b8ddf54023503a8990cac543b9d1951ee76"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-10",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://washingtonpost.com/business/2026/10/10/president-donald-trump-seeks-break-through-with-economically-weary-voters",
+          "https://whitehouse.gov/fact-sheets/2026/10/fact-sheet-president-donald-j-trump-announces-medicare-improvement-fund-payments-for-seniors"
+        ],
+        "source_publication_date": "2026-10-10",
+        "underlying_event_date": null,
+        "normalized_event_key": "us-healthcare:october-2026-aca-rebates-medicare-premium-payments:reported-2026-10-10",
+        "development_summary": "Federal health-payment rollout reaches households; eligibility differs by program",
+        "status": "new"
+      },
+      "record_sha256": "c6585cb678898b16d65ead401f783bfe32982ece6c90dc5cdaffc74279aa1c64"
+    }
+  ]
+}

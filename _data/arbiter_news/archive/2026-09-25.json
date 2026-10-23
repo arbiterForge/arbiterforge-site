@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-09-25",
+  "archive_kind": "coverage-only",
+  "record_count": 5,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 5 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-09-25",
+        "category": "cloud",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "anthropic-akamai:cloud-capacity-agreement",
+        "development_summary": "Anthropic/Akamai cloud-capacity agreement.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "4c6758e05be5b6668475fd4db3806a4adf3e7f61da521874e3379808d3c3d954"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-09-25",
+        "category": "ai",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "github:copilot:gpt6-sol-luna-model-availability",
+        "development_summary": "GPT-6 Sol/Luna availability in Copilot.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "9244c4ba7cb15f340496bec46dc74d81d83644b3c57badf5b0ed3e0ec370e928"
+    },
+    {
+      "ordinal": 3,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-25",
+        "category": "security",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "unit42:continuous-frontier-ai-defense:launch",
+        "development_summary": "Unit 42 Continuous Frontier AI Defense.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "978426b4d997c3d300e75e47f1a245df788dd12f4ca30f688155883e83579ef6"
+    },
+    {
+      "ordinal": 4,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-25",
+        "category": "security",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "darpa:surgical-competition:announcement",
+        "development_summary": "DARPA surgical robotics competition.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "399520d74c51743290213ed4eeeb25ab28625fd71cf4d7f8cb08e904d034f0ed"
+    },
+    {
+      "ordinal": 5,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-09-25",
+        "category": "money",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "us-markets:treasury-yield-repricing:2026-09-25",
+        "development_summary": "Treasury yield repricing.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "f78b5c3e6a81dbb5b671959c174405d2ad2e74d5c76ba33ded326e05a86f4503"
+    }
+  ]
+}

@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-22",
+  "archive_kind": "restored",
+  "record_count": 12,
+  "restored_count": 12,
+  "overview": "12 full story texts recovered; 0 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-22",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-21-github-cli-opt-in-to-expiring-auto-refreshing-oauth-tokens"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": "2026-10-21",
+        "normalized_event_key": "github:cli:v2.103.0:expiring-auto-refresh-oauth-preview:2026-10-21",
+        "development_summary": "GitHub CLI gains short-lived, automatically refreshed OAuth credentials",
+        "status": "new"
+      },
+      "record_sha256": "021d5b10d44bc9d19dd4ed628ffd7907d5784c124ff6abc7dca3688055a590f8",
+      "restored": {
+        "title": "GitHub CLI gains short-lived, automatically refreshed OAuth credentials",
+        "paragraphs": [
+          "GitHub has opened a public preview of expiring OAuth credentials in GitHub CLI v2.103.0. Users explicitly enable them with gh auth login --expiring ; the CLI stores an access token and rotating refresh token, then refreshes credentials when needed. Existing logins and manually supplied tokens are unchanged. Support covers github.com and ghe.com, with GitHub Enterprise Server 3.23 or later issuing expiring credentials.",
+          "TECHNICAL / PRACTICAL This reduces the useful lifetime of a leaked access token, but introduces a compatibility trap: scripts that capture gh auth token once may fail after expiry. GitHub recommends gh auth setup-git for HTTPS Git and Git 2.46+ to avoid stale credential caching. Older servers fall back to nonexpiring tokens.",
+          "Action: pilot on developer machines before changing build automation; re-read tokens at point of use rather than caching them."
+        ],
+        "sources": [
+          "https://github.blog/changelog/2026-10-21-github-cli-opt-in-to-expiring-auto-refreshing-oauth-tokens/"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "github:cli:v2.103.0:expiring-auto-refresh-oauth-preview:2026-10-21",
+        "source_name": "Arbiter-News-2026-10-22.html",
+        "source_sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "text_sha256": "bd5fd4c8b52ea6b223121338edb3d7a54d55c827fae174d5872ab983050f6e7b"
+      }
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-22",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://developers.googleblog.com/announcing-new-vllm-and-sglang-inference-engines-on-tpu"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-10-20",
+        "normalized_event_key": "google:tpu:torchtpu-vllm-sglang-native-pytorch-serving:2026-10-20",
+        "development_summary": "Native PyTorch vLLM and SGLang engines arrive for Google TPUs",
+        "status": "new"
+      },
+      "record_sha256": "4d2207cdfd498f58e5dc3ea54cb2177a650af8c06f23871dc2eec400bce8e813",
+      "restored": {
+        "title": "Native PyTorch vLLM and SGLang engines arrive for Google TPUs",
+        "paragraphs": [
+          "Google introduced native PyTorch backends for the vLLM and SGLang inference engines on TPUs, built using its TorchTPU effort. These are distinct from the existing JAX-based TPU backends: engineers can keep familiar PyTorch scheduling, worker and model definitions while using TPU-specific kernels underneath. Google says the engines support multi-turn serving, prefix caching, KV-cache offload, tool calling, structured outputs, and several speculative-decoding methods.",
+          "TECHNICAL / PRACTICAL The important change is architectural choice, not a new model. Teams evaluating non-GPU inference now have a path that looks closer to existing open-source serving stacks. Kernel maturity, supported model coverage, operational integrations and workload-specific throughput still need hands-on validation; advertised features are vendor-described capabilities, not independent benchmarks.",
+          "Watch: integration quality and reproducible latency/cost testing on real agent workloads, especially sustained KV-cache pressure."
+        ],
+        "sources": [
+          "https://developers.googleblog.com/announcing-new-vllm-and-sglang-inference-engines-on-tpu/"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "google:tpu:torchtpu-vllm-sglang-native-pytorch-serving:2026-10-20",
+        "source_name": "Arbiter-News-2026-10-22.html",
+        "source_sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "text_sha256": "20c2e734c1b951f652169fec02cac6dd53b3095395997c4605e3d03134e595f5"
+      }
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-22",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://www.businessinsider.com/hugging-face-ai-model-carbon-x-dna-sequences-gene-therapies-2026-10"
+        ],
+        "source_publication_date": "2026-10-22",
+        "underlying_event_date": "2026-10-22",
+        "normalized_event_key": "hugging-face:carbon-x:genomic-language-14b-release:2026-10-22",
+        "development_summary": "Hugging Face launches Carbon-X, a model for questioning and generating DNA",
+        "status": "new"
+      },
+      "record_sha256": "580bf4094516ff8f172fb151bd84f0ee3043865d3396502403c7a0c06b669fac",
+      "restored": {
+        "title": "Hugging Face launches Carbon-X, a model for questioning and generating DNA",
+        "paragraphs": [
+          "Hugging Face is releasing Carbon-X, a genomics-oriented model that pairs DNA sequences with natural-language interaction. According to an October 22 interview with its researchers, Carbon-X adapts Qwen3-14B using genomic and text data from humans and other organisms. Researchers can ask about sequences and candidate mutations or generate sequences for exploratory work. The team says viral DNA was deliberately excluded from training, and that researchers can run the open model locally.",
+          "TECHNICAL / PRACTICAL Local execution may reduce the need to send sensitive research sequences to a hosted model provider. But a generated mutation-risk explanation is a model prediction, not a validated clinical result; scientific benchmarking, safety review and wet-lab confirmation remain necessary. The release is interesting as a specialized open research tool, not evidence that AI-designed therapies are ready for patient use.",
+          "Watch: availability of full model artifacts, licensing, independent genomic evaluations and reproducible scientific validation."
+        ],
+        "sources": [
+          "https://www.businessinsider.com/hugging-face-ai-model-carbon-x-dna-sequences-gene-therapies-2026-10"
+        ],
+        "publication_date": "2026-10-22",
+        "source_event_key": "hugging-face:carbon-x:genomic-language-14b-release:2026-10-22",
+        "source_name": "Arbiter-News-2026-10-22.html",
+        "source_sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "text_sha256": "6b0a57a3bcd39d9cdfe8ffa9f33b5a18956d175036be9f29b48d08a4a2ae549a"
+      }
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-22",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://cloud.google.com/blog/topics/ai-infrastructure/confidential-g4-gpus-are-ga"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": "2026-10-21",
+        "normalized_event_key": "google-cloud:confidential-g4-rtx-pro-6000-blackwell-ga:2026-10-21",
+        "development_summary": "Confidential G4 GPUs reach general availability across 36 cloud zones",
+        "status": "new"
+      },
+      "record_sha256": "9ebe5e2b48cb6470fc7f84f0082f8237e027b0657797dc068f9d7487f298e6e4",
+      "restored": {
+        "title": "Confidential G4 GPUs reach general availability across 36 cloud zones",
+        "paragraphs": [
+          "Google Cloud has made Confidential G4, using NVIDIA RTX PRO 6000 Blackwell Server GPUs, generally available across 36 zones on Compute Engine and GKE. It combines encrypted memory, non-exportable hardware keys and remote attestation so organizations can verify an execution environment before entrusting it with model weights or sensitive prompts. Google says standard Ubuntu, NVIDIA driver and CUDA workflows can run without application rewrites. Confidential Space support is slated for general availability separately in coming weeks.",
+          "TECHNICAL / PRACTICAL For teams handling controlled documents, protected inference data or proprietary model weights, hardware attestation expands the available trust boundaries. It is not a blanket compliance certification or guarantee against application-level leakage: keys, endpoint controls, image provenance and workload-level policy still matter. Independent performance and attestation-chain testing should precede sensitive deployments.",
+          "Action: test attestation evidence and the data-release decision path before assuming confidential GPU hosting solves governance."
+        ],
+        "sources": [
+          "https://cloud.google.com/blog/topics/ai-infrastructure/confidential-g4-gpus-are-ga"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "google-cloud:confidential-g4-rtx-pro-6000-blackwell-ga:2026-10-21",
+        "source_name": "Arbiter-News-2026-10-22.html",
+        "source_sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "text_sha256": "9422d5dbe9e445591fa196722b72d2e46db39500c7e5e796d2b0adb26a7b922c"
+      }
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-22",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/cognito-multi-region-us-govcloud"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": "2026-10-21",
+        "normalized_event_key": "aws:cognito:mrr-expands-to-govcloud-us:2026-10-21",
+        "development_summary": "Cognito multi-Region identity replication expands into AWS GovCloud",
+        "status": "new"
+      },
+      "record_sha256": "dc8a1f5c0d4fe81b9e50ee05867e0a7fef9f5c3c91e9a7dc23e9e2feaa32a292",
+      "restored": {
+        "title": "Cognito multi-Region identity replication expands into AWS GovCloud",
+        "paragraphs": [
+          "AWS expanded Amazon Cognito multi-Region replication to GovCloud (US), allowing eligible user pools to synchronize user and machine identities, credentials, pool configurations and federation settings to a standby Region. Replication is near-real-time rather than an asserted zero-loss guarantee. If the primary Region is impaired, applications can redirect authentication to the standby environment. The capability had previously been offered in 16 commercial Regions.",
+          "TECHNICAL / PRACTICAL This addresses a difficult availability dependency: an otherwise redundant application may still fail when its identity service is unreachable. The feature is an add-on for Cognito Essentials or Plus and needs a multi-Region customer-managed AWS KMS key. It does not automatically validate application failover, DNS switching, session continuity or every federation integration.",
+          "Action: include actual sign-in and token-refresh tests in cross-Region exercises, not merely infrastructure-health checks."
+        ],
+        "sources": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/cognito-multi-region-us-govcloud/"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "aws:cognito:mrr-expands-to-govcloud-us:2026-10-21",
+        "source_name": "Arbiter-News-2026-10-22.html",
+        "source_sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "text_sha256": "3fa4914caa8cd20d35ff6266974a23a56f8ddcb60814df7398c90b0378f354eb"
+      }
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-22",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-aurora-rds-on-demand-capacity-reservations"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": "2026-10-21",
+        "normalized_event_key": "aws:aurora-rds:db-on-demand-capacity-reservations:2026-10-21",
+        "development_summary": "Aurora and RDS can reserve database capacity ahead of recovery or spikes",
+        "status": "new"
+      },
+      "record_sha256": "805b5925c697b89f8daef1066eb28829f4b4c21fc5c2d1ea80553e29291bc9d1",
+      "restored": {
+        "title": "Aurora and RDS can reserve database capacity ahead of recovery or spikes",
+        "paragraphs": [
+          "Aurora and Amazon RDS now support On-Demand Capacity Reservations for chosen DB engine, instance class and Availability Zone. AWS says reservations protect instance creation, restoration, startup and compute-scaling operations against insufficient underlying capacity. Organizations can reserve immediately and cancel without a minimum term, or schedule future capacity to begin 5–120 days ahead with a minimum commitment. Reservations can span multiple AZs for Multi-AZ needs.",
+          "TECHNICAL / PRACTICAL This converts a hidden disaster-recovery risk into an explicit capacity commitment: backups are not useful if a replacement database instance cannot be provisioned during regional pressure. The trade-off is cost. AWS bills reserved capacity at On-Demand rates even when unused, although applicable existing discounts can still apply. This is not storage reservation or a substitute for restore testing.",
+          "Action: target only critical classes/AZs and compare unused reservation spend against recovery-time exposure."
+        ],
+        "sources": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-aurora-rds-on-demand-capacity-reservations/"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "aws:aurora-rds:db-on-demand-capacity-reservations:2026-10-21",
+        "source_name": "Arbiter-News-2026-10-22.html",
+        "source_sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "text_sha256": "440f861e89a4b9f989358af95c23042be3e142b8ca564925cb1a5f6bf02145d3"
+      }
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-22",
+        "category": "cyber",
+        "canonical_source_urls": [
+          "https://blog.google/security/chrome-now-warns-before-insecure-http-connections"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": "2026-10-21",
+        "normalized_event_key": "google-chrome:all-users:http-first-visit-permission-warning:2026-10-21",
+        "development_summary": "Chrome now asks before opening insecure HTTP sites by default",
+        "status": "new"
+      },
+      "record_sha256": "40d508c3e4b628ea1f90504d2ebb0610d7777f09544d4bc2627cfa0c8827864b",
+      "restored": {
+        "title": "Chrome now asks before opening insecure HTTP sites by default",
+        "paragraphs": [
+          "Chrome says it has completed a change that prompts users before an insecure HTTP connection, expanding a protection previously enabled for Enhanced Protection users to everyone by default. Unlike a passive “Not Secure” badge, the prompt appears before the potentially exposed connection. A user’s approval suppresses further warnings for that site until it has gone unvisited for at least two weeks. Google says most desktop users see no such prompts in an ordinary week.",
+          "TECHNICAL / PRACTICAL Internal fleet administrators should expect some legacy public HTTP links to cause friction. The change is narrower than “all HTTP everywhere”: Chrome normally excludes local IP addresses and single-label intranet hosts that cannot obtain publicly trusted HTTPS certificates. Warnings are not a vulnerability scanner; they address a particular network-interception risk and cannot fix compromised pages.",
+          "Action: inventory public HTTP endpoints, migrate redirect chains to HTTPS, and document legitimate compatibility exceptions."
+        ],
+        "sources": [
+          "https://blog.google/security/chrome-now-warns-before-insecure-http-connections/"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "google-chrome:all-users:http-first-visit-permission-warning:2026-10-21",
+        "source_name": "Arbiter-News-2026-10-22.html",
+        "source_sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "text_sha256": "908b8f191fb1f09321c7a0b6a0176f44c9fe4673abac0f10c246e237baff9bf3"
+      }
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-22",
+        "category": "cyber",
+        "canonical_source_urls": [
+          "https://unit42.paloaltonetworks.com/ai-assisted-cybercrime-analysis"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": null,
+        "normalized_event_key": "palo-alto-unit42:bugster:hermes-deepseek-actor-intrusions-voip-study:2026-10-21",
+        "development_summary": "Unit 42 documents a real criminal operator using agent tooling across attacks",
+        "status": "new"
+      },
+      "record_sha256": "dfaf16c7203fd5b487f8dbcf4410cd0c624f14df25d6b348693206788bc5d5e5",
+      "restored": {
+        "title": "Unit 42 documents a real criminal operator using agent tooling across attacks",
+        "paragraphs": [
+          "Unit 42 published an investigation into an actor it calls BUGSTER who configured multiple Hermes Agent profiles backed by DeepSeek and used AI-generated reconnaissance and scripts for credential theft, university intrusions, Wi-Fi attacks, cryptocurrency reconnaissance and planning VoIP fraud. The researchers report one confirmed university breach exposing more than 5,200 personal-data records. Their evidence comes from the actor’s operational environment, not solely model-generated text.",
+          "TECHNICAL / PRACTICAL The report illustrates how one relatively unsophisticated operator can combine inexpensive AI assistance with conventional weak-password and exposed-service weaknesses. Crucially, Unit 42 found the VoIP fraud element at a planning or early-setup stage; it did not establish a completed fraud-calling operation. Vendor assessments of AI capability are not proof of fully autonomous execution of each intrusion.",
+          "Watch: repeated credential attacks and identity abuse; focus defense on MFA, exposure reduction, monitored privileged access and exfiltration alerts."
+        ],
+        "sources": [
+          "https://unit42.paloaltonetworks.com/ai-assisted-cybercrime-analysis/"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "palo-alto-unit42:bugster:hermes-deepseek-actor-intrusions-voip-study:2026-10-21",
+        "source_name": "Arbiter-News-2026-10-22.html",
+        "source_sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "text_sha256": "cc9b4b15d78b473dca4bd4d2b98ea09eb542953f4c71084e655a1a95db73cd3a"
+      }
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-22",
+        "category": "cyber",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/aerospace-defense/lockheed-pentagon-strike-initial-deal-produce-850-f-35-jets-2026-10-22"
+        ],
+        "source_publication_date": "2026-10-22",
+        "underlying_event_date": "2026-10-22",
+        "normalized_event_key": "us-dod-lockheed:f35:initial-850-aircraft-10yr-production-framework:2026-10-22",
+        "development_summary": "Pentagon and Lockheed sketch a ten-year F-35 production framework",
+        "status": "new"
+      },
+      "record_sha256": "55977363601fe7f33acceb2396fd6b1635e95ff527a8068feb0ea9a361534f36",
+      "restored": {
+        "title": "Pentagon and Lockheed sketch a ten-year F-35 production framework",
+        "paragraphs": [
+          "The Pentagon and Lockheed Martin announced an initial framework covering at least 850 F-35 fighter jets over ten years, including international demand, spare parts and modification kits. Lockheed is targeting output of 156 aircraft annually and says it will fund at least $7 billion of initiatives supporting the program. Reuters reports the arrangement is aimed at stabilizing production incentives and the supplier base.",
+          "TECHNICAL / PRACTICAL The essential distinction: this is not an executed order for 850 jets . Multi-year contracting authority, prices and delivery schedules still require further action and formal awards. Lockheed’s projections about jobs, economic output and cost reductions are company estimates, not realized results. Supplier throughput, maintenance capacity and congressional funding will determine whether the plan converts into delivered aircraft.",
+          "Watch: final award structure and funded production lots rather than treating the headline aircraft count as booked deliveries."
+        ],
+        "sources": [
+          "https://www.reuters.com/business/aerospace-defense/lockheed-pentagon-strike-initial-deal-produce-850-f-35-jets-2026-10-22/"
+        ],
+        "publication_date": "2026-10-22",
+        "source_event_key": "us-dod-lockheed:f35:initial-850-aircraft-10yr-production-framework:2026-10-22",
+        "source_name": "Arbiter-News-2026-10-22.html",
+        "source_sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "text_sha256": "553091c4964aba37986891490bf609a3234f5675adb1bc2ba69621ff3ed455d6"
+      }
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-22",
+        "category": "markets",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/us-weekly-jobless-claims-near-57-year-lows-2026-10-22"
+        ],
+        "source_publication_date": "2026-10-22",
+        "underlying_event_date": "2026-10-17",
+        "normalized_event_key": "us-dol:weekly-initial-claims-week-ended-2026-10-17:release-2026-10-22",
+        "development_summary": "U.S. weekly jobless claims fall to 194,000; continuing claims rise",
+        "status": "new"
+      },
+      "record_sha256": "1150719d1e4b74e27811846155a43e395ee2cbcef9a2fc21aebbc9627761abe9",
+      "restored": {
+        "title": "U.S. weekly jobless claims fall to 194,000; continuing claims rise",
+        "paragraphs": [
+          "New U.S. unemployment-benefit claims declined by 6,000 to a seasonally adjusted 194,000 for the week ended October 17, according to data released October 22. That is near—but not below—the 189,000 low reached in July. Meanwhile, continuing claims increased 25,000 to 1.728 million for the week ended October 10. The two measurements cover different weeks and capture different stages of unemployment.",
+          "TECHNICAL / PRACTICAL Low first-time claims point to limited firing, but a rise in continuing claims can signal that displaced workers are having more difficulty finding new positions. It is not the same as an unemployment rate or a measure of job openings. The more useful interpretation is whether subsequent claims and payroll releases confirm a persistent “low-hire, low-fire” market.",
+          "Watch: the next payroll report and revisions before interpreting a single weekly number as a decisive economic turn."
+        ],
+        "sources": [
+          "https://www.reuters.com/business/us-weekly-jobless-claims-near-57-year-lows-2026-10-22/"
+        ],
+        "publication_date": "2026-10-22",
+        "source_event_key": "us-dol:weekly-initial-claims-week-ended-2026-10-17:release-2026-10-22",
+        "source_name": "Arbiter-News-2026-10-22.html",
+        "source_sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "text_sha256": "04f8559401caae984df4c590662f5d2ef18a34e34d0750cf233ceadf0d60496b"
+      }
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-22",
+        "category": "markets",
+        "canonical_source_urls": [
+          "https://www.mba.org/news-and-research/newsroom/news/2026/10/21/mortgage-applications-decrease-in-latest-mba-weekly-survey",
+          "https://www.housingwire.com/articles/mba-applications-drop-53"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": "2026-10-16",
+        "normalized_event_key": "mba:weekly-mortgage-applications:week-ended-2026-10-16:release-2026-10-21",
+        "development_summary": "Mortgage demand drops 5.3% even as the surveyed 30-year rate eases",
+        "status": "new"
+      },
+      "record_sha256": "8128da3edfb047a535e1312337076b84767b93020b9afd1c4d7ca8c7db4eff7e",
+      "restored": {
+        "title": "Mortgage demand drops 5.3% even as the surveyed 30-year rate eases",
+        "paragraphs": [
+          "The Mortgage Bankers Association reported a 5.3% seasonally adjusted weekly drop in applications for the week ended October 16. Purchase applications decreased 7% week-over-week and were 18% below the same week a year earlier; refinancing fell 2% on the week. MBA’s average conforming 30-year fixed contract rate slipped to 7.41% from 7.50%. Those are survey averages, not offers to a particular borrower.",
+          "TECHNICAL / PRACTICAL A modest rate decline has not yet restored purchase demand. For a buyer, the dollar impact depends on taxes, insurance, points, term and expected time in the home—not just the quoted note rate. Adjustable-rate products were cheaper in the survey but transfer repricing risk to households. These data are a weekly activity snapshot, not a direct forecast of home prices.",
+          "Action: compare loan estimates on APR and total fees; avoid assuming one weekly mortgage-rate change makes affordability materially better."
+        ],
+        "sources": [
+          "https://www.mba.org/news-and-research/newsroom/news/2026/10/21/mortgage-applications-decrease-in-latest-mba-weekly-survey",
+          "https://www.housingwire.com/articles/mba-applications-drop-53/"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "mba:weekly-mortgage-applications:week-ended-2026-10-16:release-2026-10-21",
+        "source_name": "Arbiter-News-2026-10-22.html",
+        "source_sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "text_sha256": "dd1e3cd07dbc77240938f8ff27631ba71898dfc7e6f1aa4a33ee1a1fa34062b8"
+      }
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-22",
+        "category": "markets",
+        "canonical_source_urls": [
+          "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026",
+          "https://economysea.withgoogle.com"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": "2026-10-21",
+        "normalized_event_key": "google-temasek-bain:economy-sea-report-2026:368b-gmv-ai-usage:2026-10-21",
+        "development_summary": "Southeast Asia digital-commerce report projects $368B GMV in 2026",
+        "status": "new"
+      },
+      "record_sha256": "00fc4b7549b7d2ffba03b108e0021cb43ef94d01cfea933a21339f98f5e59008",
+      "restored": {
+        "title": "Southeast Asia digital-commerce report projects $368B GMV in 2026",
+        "paragraphs": [
+          "The 2026 e-Conomy SEA study by Google, Temasek and Bain projects $368 billion of digital-economy gross merchandise value across Southeast Asia this year, a 17% annual rise. The study estimates 243 million people actively use generative AI and sees e-commerce as the largest component at $226 billion GMV. The report’s headline 2035 projection of more than $1 trillion is a scenario, not an observed outcome.",
+          "TECHNICAL / PRACTICAL Gross merchandise value is the total value transacted, not the revenue or profit earned by platforms. The report highlights adoption in purchasing, travel and digital finance, which matters for payment infrastructure, consumer protection, cloud capacity and cross-border commerce. Its survey estimates and long-run AI growth assumptions are sponsor-produced findings that deserve independent checking.",
+          "Watch: actual payments growth, fraud controls and regional regulation rather than extrapolating a decade-long forecast into near-term returns."
+        ],
+        "sources": [
+          "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/",
+          "https://economysea.withgoogle.com/"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "google-temasek-bain:economy-sea-report-2026:368b-gmv-ai-usage:2026-10-21",
+        "source_name": "Arbiter-News-2026-10-22.html",
+        "source_sha256": "cf75f85427543c10199faf650406624aa94d3db2835078a1c8e02f0027955519",
+        "text_sha256": "7cd58c3b53456abf62b0f283d203b1d03e9c0d0fbe86143bd850404d78e07585"
+      }
+    }
+  ]
+}

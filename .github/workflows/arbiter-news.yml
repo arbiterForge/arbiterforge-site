@@ -1,10 +1,10 @@
 name: Arbiter News contracts
 on:
   pull_request:
-    paths: ['_data/arbiter_news/**', '_layouts/arbiter-news.html', '_includes/arbiter-news-card.html', 'news/**', 'tests/test_arbiter_news.py', 'tests/check_news_build.py', '.github/workflows/arbiter-news.yml']
+    paths: ['_data/arbiter_news/**', '_layouts/arbiter-news*.html', '_includes/arbiter-news*.html', 'news/**', 'tests/test_arbiter_news.py', 'tests/test_news_backfill.py', 'tests/check_news_build.py', '.github/workflows/arbiter-news.yml']
   push:
     branches: [main]
-    paths: ['_data/arbiter_news/**', '_layouts/arbiter-news.html', '_includes/arbiter-news-card.html', 'news/**', 'tests/test_arbiter_news.py', 'tests/check_news_build.py', '.github/workflows/arbiter-news.yml']
+    paths: ['_data/arbiter_news/**', '_layouts/arbiter-news*.html', '_includes/arbiter-news*.html', 'news/**', 'tests/test_arbiter_news.py', 'tests/test_news_backfill.py', 'tests/check_news_build.py', '.github/workflows/arbiter-news.yml']
   workflow_dispatch:
 permissions:
   contents: read

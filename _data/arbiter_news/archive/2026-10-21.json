@@ -1,0 +1,481 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-21",
+  "archive_kind": "restored",
+  "record_count": 14,
+  "restored_count": 14,
+  "overview": "14 full story texts recovered; 0 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://openai.com/index/openai-models-google-cloud"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": "2026-10-21",
+        "normalized_event_key": "openai:google-cloud-model-garden-codex-partnership:2026-10-21",
+        "development_summary": "OpenAI models and Codex are coming to Google Cloud’s Model Garden",
+        "status": "new"
+      },
+      "record_sha256": "bd908e6b74e013c9d5f9811c53d70010387f091c4a5af053d53f6fcd49a74173",
+      "restored": {
+        "title": "OpenAI models and Codex are coming to Google Cloud’s Model Garden",
+        "paragraphs": [
+          "OpenAI and Google Cloud announced a distribution partnership to bring OpenAI frontier models and Codex agentic workflows into Google Cloud Model Garden. Google Cloud customers are expected to purchase access through its Marketplace, including the ability to apply qualifying Google Cloud spend commitments. OpenAI also says its models will come to Google Antigravity and Gemini Agent. Crucially, this is an announced integration, not a claim that every model is accessible today: OpenAI places general availability in the coming weeks and still identifies Microsoft as its primary cloud partner.",
+          "Technical / practical implications. For engineering platforms, model selection, identity, spend controls and auditability could move closer to existing GCP procurement and governance. Access scopes and supported model lists must be checked at launch.",
+          "What to watch → Watch the actual GA date, model catalog, Codex integration depth and any differences in pricing or data-handling terms versus direct API access."
+        ],
+        "sources": [
+          "https://openai.com/index/openai-models-google-cloud/"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "openai:google-cloud-model-garden-codex-partnership:2026-10-21",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "002b8c71b8a3eb978a2867c2deb4f646d7ecf4b18119c37981855a3f2dad9553"
+      }
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://developers.googleblog.com/unifying-edge-ai-how-coral-npus-open-standard-brings-portable-energy-viable-intelligence-from-model-to-silicon",
+          "https://github.com/google-coral/coralnpu-compiler"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-10-20",
+        "normalized_event_key": "google:coral-npu-32bit-architecture-compiler-v1-synaptics-sr200:2026-10-20",
+        "development_summary": "Google completes an open Coral NPU architecture and ships compiler v1.0",
+        "status": "new"
+      },
+      "record_sha256": "7f3cb8d0ce71c9e7bd0d3ea6d0217cb9efb98f1f137c1f560bcc0f942cccd143",
+      "restored": {
+        "title": "Google completes an open Coral NPU architecture and ships compiler v1.0",
+        "paragraphs": [
+          "Google detailed completion of the 32-bit Coral NPU architecture with its fourth milestone, the Matrix Execution Unit, and published Coral Compiler v1.0 built on IREE/MLIR. The stated goal is portable on-device inference across chip vendors rather than a separate proprietary toolchain for every design. The release also brings the Synaptics Astra SR200 microcontroller family, rated at 400 GOPS, and new Coralboard hardware; Google cites a configurable matrix unit up to 1 TOPS with a 10 mW average-inference target. Those performance and energy figures are vendor targets, not independently benchmarked deployments.",
+          "Technical / practical implications. For embedded systems, the architecture/compiler pairing is more consequential than the TOPS headline. The public compiler repository currently documents a JAX flow with simulated hardware execution; broad cross-framework portability remains a goal to validate.",
+          "What to watch → Watch third-party silicon implementations and measurements on real models—portability promises matter only when kernels actually execute on the accelerator."
+        ],
+        "sources": [
+          "https://developers.googleblog.com/unifying-edge-ai-how-coral-npus-open-standard-brings-portable-energy-viable-intelligence-from-model-to-silicon/",
+          "https://github.com/google-coral/coralnpu-compiler"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "google:coral-npu-32bit-architecture-compiler-v1-synaptics-sr200:2026-10-20",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "1aacfe6dd719d93e9d93f23394a73eebbf2dac0a2a7534aff4542485a5017a2a"
+      }
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-20-bulk-migrate-branch-protections-to-rulesets-for-a-repository"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-10-20",
+        "normalized_event_key": "github:bulk-branch-protection-to-repository-rulesets:2026-10-20",
+        "development_summary": "GitHub adds one-step bulk migration from branch protections to rulesets",
+        "status": "new"
+      },
+      "record_sha256": "d37020220cb546f6680759121b414101fc499ec3d6cce8a863cec000978bf557",
+      "restored": {
+        "title": "GitHub adds one-step bulk migration from branch protections to rulesets",
+        "paragraphs": [
+          "Repository admins can now convert all existing branch-protection rules into GitHub rulesets in one action, extending a previous one-rule-at-a-time conversion tool. Before creating anything, a review dialog previews which rulesets will be created, which protections are already covered and where a single legacy rule must become multiple rulesets to preserve behavior. Admins choose Active, Evaluate or Disabled enforcement for each new ruleset and can retain or remove the old protections. The feature is available wherever repository rulesets are supported; it does not automatically retire your existing policy.",
+          "Technical / practical implications. For teams standardizing pull-request gates, rulesets support branch patterns, layered controls, organizational scope and more granular bypass permissions. The preview lets maintainers compare semantics before cutover.",
+          "What to watch → Treat a conversion as a governance migration: review exceptions, verify merge requirements and use Evaluate mode before deleting established protections."
+        ],
+        "sources": [
+          "https://github.blog/changelog/2026-10-20-bulk-migrate-branch-protections-to-rulesets-for-a-repository/"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "github:bulk-branch-protection-to-repository-rulesets:2026-10-20",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "281b14f23d0cc8ed37968c51b7af0930ecc22a36e6689b13ca019a391987723c"
+      }
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/announcing-amazon-ecs-gateway"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-10-20",
+        "normalized_event_key": "aws:ecs-gateway-managed-alb-ingress:2026-10-20",
+        "development_summary": "Amazon ECS Gateway centralizes ALB ingress for container services",
+        "status": "new"
+      },
+      "record_sha256": "c0af83f1fac291470bbe672cfec6ed01aaa0196eb751c18f69472c9f4e1ab191",
+      "restored": {
+        "title": "Amazon ECS Gateway centralizes ALB ingress for container services",
+        "paragraphs": [
+          "AWS launched ECS Gateway, a managed ingress resource that provisions and manages Application Load Balancers and supporting components in customer accounts. Platform teams define networking standards on a gateway, associate clusters and let individual services opt in. ECS then creates or removes ALBs as traffic endpoints need them, supplies host-based routing and unique service DNS names, and can place up to 25 ECS services behind one ALB. The feature supports awsvpc networking across ECS launch types and is available in all commercial AWS Regions.",
+          "Technical / practical implications. This shifts recurring per-service load-balancer configuration toward a shared platform contract, potentially reducing duplicated infrastructure and deployment friction. The gateway has no additional fee, but ALBs and other underlying resources remain billable.",
+          "What to watch → Test hostname/routing changes, isolation and cost assumptions before migrating existing ingress; shared infrastructure can simplify operations while expanding the impact of a bad policy."
+        ],
+        "sources": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/announcing-amazon-ecs-gateway/"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "aws:ecs-gateway-managed-alb-ingress:2026-10-20",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "15683e9c0be7e42e9b04109f8105f5861334a06947066af69d7311a5a0edaa13"
+      }
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://docs.cloud.google.com/gemini/enterprise/docs/release-notes"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-10-20",
+        "normalized_event_key": "google:gemini-enterprise-antigravity-enterprise-gateway-ga:2026-10-20",
+        "development_summary": "Antigravity Enterprise Gateway brings centralized audit and policy to developer inference",
+        "status": "new"
+      },
+      "record_sha256": "72737da7cb38add88f22c2cbbe6a9540e8878cd8f4925e102416103bf7948540",
+      "restored": {
+        "title": "Antigravity Enterprise Gateway brings centralized audit and policy to developer inference",
+        "paragraphs": [
+          "Google Cloud marked Antigravity Enterprise Gateway support generally available in the Gemini Enterprise release notes. Antigravity desktop, CLI and IDE requests can pass through a centralized enterprise gateway before reaching Google Cloud. Organizations can inspect and audit traffic, apply network-egress and security policies, and authenticate developers with a gateway API key instead of requiring each person to sign in with a Google account. Requests are executed using a central Google Cloud service account, with pay-as-you-go billing through Gemini Enterprise Agent Platform.",
+          "Technical / practical implications. The billing nuance matters: gateway requests do not consume the included monthly quotas of Gemini Enterprise seat subscriptions, and gateway use cannot be combined with individual Google-account sign-in at the same time.",
+          "What to watch → For a control-plane evaluation, test attribution, per-user audit visibility, policy granularity and actual token costs before replacing native sign-in."
+        ],
+        "sources": [
+          "https://docs.cloud.google.com/gemini/enterprise/docs/release-notes"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "google:gemini-enterprise-antigravity-enterprise-gateway-ga:2026-10-20",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "cfa138c4a9da98b6d4cf5f69a6ef271ed3d92d97a45437b5fdb83eaaa44cd96a"
+      }
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-cloudwatch-tags-on-alarm-actions-payload"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-10-20",
+        "normalized_event_key": "aws:cloudwatch-alarm-action-tag-inclusion:2026-10-20",
+        "development_summary": "CloudWatch alarms can now include ownership tags directly in incident messages",
+        "status": "new"
+      },
+      "record_sha256": "237b35c2b69cd76d7d5a60f9349418e8b5ccb54a0627e19a68814f6dceb218ba",
+      "restored": {
+        "title": "CloudWatch alarms can now include ownership tags directly in incident messages",
+        "paragraphs": [
+          "AWS added an opt-in setting that places an alarm’s tags directly into action payloads and EventBridge state-change events. Teams receiving alerts through SNS, Lambda or EventBridge can route them by service owner, environment or escalation team without issuing a separate ListTagsForResource lookup for every message. Inclusion policies can select all tags, a named subset or all except excluded keys. The change covers metric, composite and log alarms, and is offered in CloudWatch Regions except the UAE and Bahrain Regions.",
+          "Technical / practical implications. It reduces enrichment latency and a common source of brittle incident-routing Lambda code. But tags are now copied into downstream event streams, so sensitive tag values deserve a review before broad inclusion.",
+          "What to watch → A small, practical AIOps win: opt in on representative alarms, validate payload schemas and update routing playbooks without changing incident ownership conventions."
+        ],
+        "sources": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-cloudwatch-tags-on-alarm-actions-payload/"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "aws:cloudwatch-alarm-action-tag-inclusion:2026-10-20",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "ab66a62b29b4f17930aab38d4012b284ce2d91742afcde44d8ac9253b9c24ef6"
+      }
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.php.net/archive/2026.php",
+          "https://www.php.net/downloads.php"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": "2026-10-21",
+        "normalized_event_key": "php:cve-2026-109618+cve-2026-109619-critical-rce-patches:2026-10-21",
+        "development_summary": "PHP publishes emergency fixes for two unauthenticated remote-code-execution flaws",
+        "status": "new"
+      },
+      "record_sha256": "9bec9271badbcf61b8dbf2a6b9949b3c5c64355b5d2e9fac41e6ab2d4fece98b",
+      "restored": {
+        "title": "PHP publishes emergency fixes for two unauthenticated remote-code-execution flaws",
+        "paragraphs": [
+          "The PHP project’s October 21 advisory identifies two critical paths to unauthenticated remote code execution: CVE-2026-109618, involving out-of-memory cleanup of partially initialized request data, and CVE-2026-109619, involving stale request-owned global state. The project lists fixes in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35, and calls mod_php especially exposed. It warns that the published configuration mitigations address only particular attack paths: there is no complete configuration-only substitute for patched runtime code.",
+          "Technical / practical implications. Inventory internet-facing PHP-FPM, Apache/mod_php, php-cgi, FrankenPHP and LiteSpeed instances. Use vendor backports when package version labels differ, and restart affected worker pools after a verified patch rollout.",
+          "What to watch → Read the official advisory before choosing mitigations; prioritize patched packages, emergency change control and scanning any externally exposed PHP estates."
+        ],
+        "sources": [
+          "https://www.php.net/archive/2026.php",
+          "https://www.php.net/downloads.php"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "php:cve-2026-109618+cve-2026-109619-critical-rce-patches:2026-10-21",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "258eb34a194e8ee8595a990de77a1282a8fc342d14ebeeef98ae6226a62f73ea"
+      }
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.securityweek.com/hijacked-developer-account-used-to-plant-stealer-in-ovhcloud-cli",
+          "https://thehackernews.com/2026/10/hackers-hijack-five-ovhcloud-cli.html",
+          "https://github.com/ovh/ovhcloud-cli/releases/tag/v0.16.0"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": "2026-10-19",
+        "normalized_event_key": "ovhcloud:cli-release-archives-tampered-v0.11-v0.15:2026-10-19",
+        "development_summary": "An OVHcloud CLI release hijack shows why signed builds matter",
+        "status": "new"
+      },
+      "record_sha256": "888a8b1086799156c99ab973254975c2d3ca497a155a5168826488808a5b6467",
+      "restored": {
+        "title": "An OVHcloud CLI release hijack shows why signed builds matter",
+        "paragraphs": [
+          "An attacker using an OVHcloud contributor’s compromised GitHub account replaced downloadable binaries attached to five older CLI releases, v0.11.0–v0.15.0, on October 19. The swapped archives contained a credential-stealing binary and were available for roughly 94 minutes; the source tags and OVHcloud CI pipeline were not modified. OVHcloud removed the tainted assets and issued immutable v0.16.0. Independent reporting differs on some installation exposure paths—The Hacker News’ hash verification says Homebrew’s pinned checksums blocked the swapped files—so audit the actual artifact and installation method rather than assuming every installation was affected.",
+          "Technical / practical implications. Affected downloads warrant credential rotation from a separate trusted machine, not just installing a clean executable. The attack demonstrates that unchanged release URLs and updated checksums are not sufficient provenance guarantees.",
+          "What to watch → Verify release attestations, enable immutable releases and check package-source trust boundaries in CI, not only source-code review."
+        ],
+        "sources": [
+          "https://www.securityweek.com/hijacked-developer-account-used-to-plant-stealer-in-ovhcloud-cli/",
+          "https://thehackernews.com/2026/10/hackers-hijack-five-ovhcloud-cli.html",
+          "https://github.com/ovh/ovhcloud-cli/releases/tag/v0.16.0"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "ovhcloud:cli-release-archives-tampered-v0.11-v0.15:2026-10-19",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "b635341b3beded558da47a8436f6187551ce673147960733245fefd5ca6ea65a"
+      }
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-10-20",
+        "normalized_event_key": "github:package-firewall-npm-enterprise-cloud-public-preview:2026-10-20",
+        "development_summary": "GitHub previews a package firewall for npm installs by runners and agents",
+        "status": "new"
+      },
+      "record_sha256": "9f6328c4e0317e93e0a2872d571d5c041e99c9c86b7c8f15a384f0442beeffef",
+      "restored": {
+        "title": "GitHub previews a package firewall for npm installs by runners and agents",
+        "paragraphs": [
+          "GitHub launched a package firewall in public preview for GitHub Enterprise Cloud customers, including data-resident organizations. It sits between developer endpoints, CI runners or coding agents and upstream registries to inspect package metadata and downloads. Policy options now include a configurable delay before installing newly published versions, GitHub Advisory Database checks for malware or known vulnerabilities, and alerts on supply-chain attestation downgrades. Administrators set enterprise policy; each endpoint must be configured to use the firewall. The preview supports npm packages only, and GitHub says metered charges are planned after general availability.",
+          "Technical / practical implications. Installing packages is an execution boundary for many build systems, even when an agent only appears to be preparing dependencies. A centrally managed intermediary can help enforce consistent checks across ephemeral runners.",
+          "What to watch → Pilot on nonproduction workflows, track false positives and measure build latency; a firewall is another defense layer, not a replacement for lockfiles and provenance review."
+        ],
+        "sources": [
+          "https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "github:package-firewall-npm-enterprise-cloud-public-preview:2026-10-20",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "55300144bdf130e07c75b3d2788657a338a9e11a1deaa758e48d6875be834438"
+      }
+    },
+    {
+      "ordinal": 10,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.baesystems.com/en-us/article/bae-systems-us-department-of-war-sign-long-term-agreement-to-increase-apkws-production"
+        ],
+        "source_publication_date": "2026-10-19",
+        "underlying_event_date": "2026-10-19",
+        "normalized_event_key": "bae-systems:apkws-up-to-35000-kits-per-year-framework:2026-10-19",
+        "development_summary": "BAE signs seven-year framework to expand APKWS precision-rocket kit production",
+        "status": "new"
+      },
+      "record_sha256": "1c1872ddd41ff4a8eed9bc0c31148a307c9bef6de231be4e03f64b2418a57bf3",
+      "restored": {
+        "title": "BAE signs seven-year framework to expand APKWS precision-rocket kit production",
+        "paragraphs": [
+          "BAE Systems says it signed a multi-year procurement framework with the U.S. defense department, covering up to seven years and intended to raise APKWS laser-guidance-kit production capacity to as many as 35,000 units annually. The kit converts 2.75-inch unguided rockets into precision-guided munitions. Besides traditional strike uses, BAE highlights counter-uncrewed-aircraft-system applications across air and ground launch platforms. The distinction is important: the company says it is still negotiating a multi-year contract within this framework, so the annual capacity target should not be interpreted as a firm delivery order.",
+          "Technical / practical implications. Cost-effective interceptors and deep inventories have become a practical procurement problem as inexpensive drones strain conventional air-defense economics. Supplier throughput, not only interceptor performance, is the operational constraint.",
+          "What to watch → Watch the actual production contract, funding, delivery schedule and how counter-drone deployments affect training and sustainment demand."
+        ],
+        "sources": [
+          "https://www.baesystems.com/en-us/article/bae-systems-us-department-of-war-sign-long-term-agreement-to-increase-apkws-production"
+        ],
+        "publication_date": "2026-10-19",
+        "source_event_key": "bae-systems:apkws-up-to-35000-kits-per-year-framework:2026-10-19",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "237d511d0de096c62db03e29ee1c1d3d478387c462e5699ab1aba82bb7fbae47"
+      }
+    },
+    {
+      "ordinal": 11,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://news.lockheedmartin.com/2026-10-14-Lockheed-Martin-Expands-Advanced-Munitions-Manufacturing-in-Texas,-Driving-Thousands-of-New-American-Jobs"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "lockheed-hadrian:grand-prairie-24-machine-cell-2027:2026-10-14",
+        "development_summary": "Lockheed and Hadrian put automated missile machining inside a Texas plant",
+        "status": "new"
+      },
+      "record_sha256": "0211a75c8c6b8cc6f3f2baace9c68f70ca528aea7e978763457ec535a1acbe34",
+      "restored": {
+        "title": "Lockheed and Hadrian put automated missile machining inside a Texas plant",
+        "paragraphs": [
+          "In a distinct defense-manufacturing development announced October 14, Lockheed Martin outlined a $300 million expansion in Grand Prairie, Texas, and a partnership that places a 24-machine automated Hadrian machining cell directly in its production environment. Lockheed expects the cell to become operational in early 2027, not immediately. The larger manufacturing site supports components across PAC-3 MSE, THAAD, Precision Strike Missile and other programs; its total footprint is slated to exceed 735,000 square feet. The release also described domestic hiring plans, but those are company projections rather than completed job creation.",
+          "Technical / practical implications. This is about making precision components at repeatable industrial scale. Applying commercial automation inside a defense prime’s certified production operation is a different challenge from showing a standalone high-speed factory.",
+          "What to watch → Watch actual qualification yields, part lead times and whether the integration improves delivery cadence without introducing a new single-point dependency."
+        ],
+        "sources": [
+          "https://news.lockheedmartin.com/2026-10-14-Lockheed-Martin-Expands-Advanced-Munitions-Manufacturing-in-Texas,-Driving-Thousands-of-New-American-Jobs"
+        ],
+        "publication_date": "2026-10-14",
+        "source_event_key": "lockheed-hadrian:grand-prairie-24-machine-cell-2027:2026-10-14",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "fba3127dd99cbbe26368760cc3e48a35ffad2fb14061ba81ceef9d46071f4b92"
+      }
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "markets",
+        "canonical_source_urls": [
+          "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/september2026"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "uk-ons:september-2026-cpi-cpih-release:2026-10-21",
+        "development_summary": "UK inflation rises again: September CPI reaches 3.5%",
+        "status": "new"
+      },
+      "record_sha256": "95b38a8f8849ba2a424cc079ffd67940d2beadf4e7ba1b3b5bc36a652f9ae085",
+      "restored": {
+        "title": "UK inflation rises again: September CPI reaches 3.5%",
+        "paragraphs": [
+          "The UK Office for National Statistics reported September consumer-price inflation of 3.5% year over year, up from 3.1% in August; the broader CPIH measure, which includes owner-occupier housing costs, climbed to 3.6% from 3.3%. Transport—particularly motor fuels—made the largest upward contribution to the change in annual inflation rates, while restaurants and hotels offset part of the rise. Core CPI increased to 2.8% from 2.6%. These are September price changes released on October 21, not real-time October shop prices.",
+          "Technical / practical implications. A stronger inflation reading can complicate expectations for UK interest-rate relief and influence sterling and gilt yields, though neither direction is guaranteed from one release. For households it signals continuing pressure on transport and other recurring budgets.",
+          "What to watch → Watch the October energy/fuel trend and the Bank of England’s response; avoid extrapolating directly from UK CPI into U.S. household inflation."
+        ],
+        "sources": [
+          "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/september2026"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "uk-ons:september-2026-cpi-cpih-release:2026-10-21",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "e57164ee4b0abbc6317b4d49448e45ab189d4e4e80dc295f9d9c97ec5eab833a"
+      }
+    },
+    {
+      "ordinal": 13,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "markets",
+        "canonical_source_urls": [
+          "https://www.bls.gov/news.release/laus.nr0.htm"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "us-bls:state-employment-and-unemployment:september-2026:released-2026-10-20",
+        "development_summary": "September state jobs report shows patchy hiring; Florida unemployment edges down",
+        "status": "new"
+      },
+      "record_sha256": "617dfb781c8cd1dcc6b0a2345e45c8d63c13561c716a628068fc65d4e169d060",
+      "restored": {
+        "title": "September state jobs report shows patchy hiring; Florida unemployment edges down",
+        "paragraphs": [
+          "The Bureau of Labor Statistics reported that seasonally adjusted unemployment rates declined in five states during September and were statistically stable in 45 states plus Washington, D.C. Florida’s rate eased from 4.5% to 4.4%; the national rate was 4.2%. Payroll employment rose significantly in New Jersey (+14,900) and South Carolina (+12,500), fell in Wisconsin (−13,700), and was broadly unchanged elsewhere on the month. BLS cautions that household-based unemployment rates and employer-payroll counts come from separate surveys with different populations and methods.",
+          "Technical / practical implications. This is more useful for evaluating geographic labor-market resilience than a single national hiring headline. Hiring can be soft across most states even while a few regions show pronounced gains or losses.",
+          "What to watch → For salary planning, job changes or local market analysis, compare your state and industry to multi-month trends rather than making decisions from one monthly print."
+        ],
+        "sources": [
+          "https://www.bls.gov/news.release/laus.nr0.htm"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "us-bls:state-employment-and-unemployment:september-2026:released-2026-10-20",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "cb13c54766d43aef81f7f7c89eed78a0322ac0a658dc850b7d6887060aa3a00b"
+      }
+    },
+    {
+      "ordinal": 14,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-21",
+        "category": "markets",
+        "canonical_source_urls": [
+          "https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/publicsectorfinance/bulletins/publicsectorfinances/september2026"
+        ],
+        "source_publication_date": "2026-10-21",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "uk-ons:public-sector-finances-september-2026:released-2026-10-21",
+        "development_summary": "UK September borrowing hits £24.5 billion as debt crosses £3 trillion",
+        "status": "new"
+      },
+      "record_sha256": "6838ee60aa457f11fde865c96783c948506406a8c622537eb3c10cd649e5ee84",
+      "restored": {
+        "title": "UK September borrowing hits £24.5 billion as debt crosses £3 trillion",
+        "paragraphs": [
+          "The UK’s monthly public-sector borrowing reached £24.5 billion in September, up £1.8 billion from a year earlier and £1.9 billion above the government forecaster’s projection, according to newly released ONS data. Government debt interest payable totaled £10.9 billion for the month, £1.6 billion higher year over year. Public-sector net debt provisionally exceeded £3 trillion for the first time, although the debt-to-GDP ratio was lower than a year earlier. These debt figures are preliminary and subject to revision; the separate inflation release helps explain why index-linked borrowing costs may be rising.",
+          "Technical / practical implications. Fiscal headroom and borrowing costs constrain policy choices even before the next budget debate. For investors, the practical channel to watch is gilt yields and their potential influence on mortgage pricing and sterling rather than the headline debt total alone.",
+          "What to watch → Follow subsequent revisions and official budget forecasts; this is a fiscal-capacity signal, not an automatic prediction of taxes or interest rates."
+        ],
+        "sources": [
+          "https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/publicsectorfinance/bulletins/publicsectorfinances/september2026"
+        ],
+        "publication_date": "2026-10-21",
+        "source_event_key": "uk-ons:public-sector-finances-september-2026:released-2026-10-21",
+        "source_name": "Arbiter-News-2026-10-21.html",
+        "source_sha256": "555d43caa9623b8ab47caa672d1fad2c794040c22bcba971bfdec0dcd7bf56bb",
+        "text_sha256": "8c3197ae6fa2f5f8690ce5d9eecf30fb82bbcc6aaed1f265411da9b6f8d4c557"
+      }
+    }
+  ]
+}

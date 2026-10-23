@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-05",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-05",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://openai.com/index/eu-text-provenance"
+        ],
+        "source_publication_date": "2026-10-05",
+        "underlying_event_date": "2026-10-05",
+        "normalized_event_key": "openai:textgrain-eu-text-provenance:2026-10-05",
+        "development_summary": "OpenAI launched opt-in API text watermarking with textGrain and announced an EU rollout for eligible ChatGPT and Codex text.",
+        "status": "new"
+      },
+      "record_sha256": "649f26bd64d92ee6a5cf27819c91a860cd547d45d6682ae69f7f27b15ec65e3a"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-05",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/09/bedrock-managed-agents-preview",
+          "https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-managed-agents-openai.html"
+        ],
+        "source_publication_date": "2026-09-29",
+        "underlying_event_date": "2026-09-29",
+        "normalized_event_key": "aws:bedrock-managed-agents-openai:public-preview:2026-09-29",
+        "development_summary": "AWS made Bedrock Managed Agents powered by OpenAI publicly available in preview with IAM, durable sessions, approvals, CloudTrail, and customer-selected execution environments.",
+        "status": "new"
+      },
+      "record_sha256": "1826cd5013569c827926eb5fbfcdd7171a5eb42bcce6d825df4641b56f736304"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-05",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review"
+        ],
+        "source_publication_date": "2026-10-05",
+        "underlying_event_date": "2026-10-05",
+        "normalized_event_key": "github:reviewbench:open-ai-code-review-benchmark:2026-10-05",
+        "development_summary": "GitHub launched ReviewBench, an open benchmark and self-service evaluation harness for AI code-review agents.",
+        "status": "new"
+      },
+      "record_sha256": "8e92a9e6731ceba7067728eb15f8bb28d8f1c587b448fe7654e108de6b482ad2"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-05",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://cloud.google.com/blog/products/infrastructure-modernization/google-cloud-modernize-accelerate-transformation-with-ai"
+        ],
+        "source_publication_date": "2026-10-05",
+        "underlying_event_date": "2026-10-05",
+        "normalized_event_key": "google-cloud:modernize-portfolio-and-eks-gke-agent:2026-10-05",
+        "development_summary": "Google launched Google Cloud Modernize, including Modernization Hub, agentic assessment, and an EKS-to-GKE Agentic Migration public preview.",
+        "status": "new"
+      },
+      "record_sha256": "0b15be208a93cd50e8382053d6c4dbdc992067edcc59e32c6024a4e707068220"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-05",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/blogs/devops/restart-ec2-and-on-premises-fleets-faster-with-aws-codedeploy-restart-deployment-mode"
+        ],
+        "source_publication_date": "2026-10-05",
+        "underlying_event_date": "2026-10-05",
+        "normalized_event_key": "aws:codedeploy:restart-deployment-mode:2026-10-05",
+        "development_summary": "AWS introduced CodeDeploy RESTART mode for EC2 and on-premises fleets, retaining health, alarm, rollback, lifecycle, and audit controls.",
+        "status": "new"
+      },
+      "record_sha256": "fe420739154d91c8aaba36017efda9447eee83eb767c4c9a26a1595908503ee1"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-05",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://www.telekom.com/en/newsroom/latest-updates/media-information/2026/10/deutsche-telekom-boosts-growth-efficiency-and-quality-through-t"
+        ],
+        "source_publication_date": "2026-10-05",
+        "underlying_event_date": "2026-10-05",
+        "normalized_event_key": "deutsche-telekom:ai-investor-day-network-automation-savings:2026-10-05",
+        "development_summary": "Deutsche Telekom set AI and automation savings targets and described RAN Guardian Agent network-operations improvements.",
+        "status": "new"
+      },
+      "record_sha256": "138f61755b7d0217d36d3e8b7276c371d0ad23659ddad984595fa43df166ebb0"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-05",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://support.citrix.com/external/article/CTX697174/citrix-netscaler-adc-and-citrix-netscale.html",
+          "https://www.sophos.com/en-us/blog/citrix-netscaler-vulnerability-cve-2026-88779-in-active-exploitation"
+        ],
+        "source_publication_date": "2026-10-05",
+        "underlying_event_date": "2026-10-04",
+        "normalized_event_key": "citrix:netscaler:cve-2026-88779:active-exploitation:2026-10-04",
+        "development_summary": "Citrix disclosed a new SAML-path NetScaler memory-overflow flaw, CVE-2026-88779, with targeted exploitation and a separate required patch cycle after earlier NetScaler zero-days.",
+        "status": "material-update"
+      },
+      "record_sha256": "af79d4638746caa9dc3940c0a53c961eab8b34198fd0f3d11b201ed0ef934b6a"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-05",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/aerospace-defense/us-army-tests-counter-drone-tech-mexican-border-cartel-drone-use-rises-2026-10-05"
+        ],
+        "source_publication_date": "2026-10-05",
+        "underlying_event_date": "2026-09-24",
+        "normalized_event_key": "us-army:falcon-peak-counter-drone-border-test:2026-09-24",
+        "development_summary": "Reuters reported on the Army's Falcon Peak counter-UAS exercise at Yuma, where military officials said 378 border drone incursions had been detected in the prior 30 days.",
+        "status": "new"
+      },
+      "record_sha256": "57b5bcec33b5ae1975720d253bf2c95d2ecab513807e1fbcec1ce560129e86bb"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-05",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.microsoft.com/en-us/security/blog/2026/09/29/star-blizzard-refines-phishing-and-malware-delivery-with-the-redflick-technique"
+        ],
+        "source_publication_date": "2026-09-29",
+        "underlying_event_date": "2026-09-29",
+        "normalized_event_key": "microsoft:star-blizzard:redflick-public-analysis:2026-09-29",
+        "development_summary": "Microsoft detailed Star Blizzard's RedFlick delivery technique, larger-scale phishing, and targeting of more than 100 organizations.",
+        "status": "new"
+      },
+      "record_sha256": "1d8c60b1b6f2d1700f67be610082d6a41e3701f65552231b4dcc87e79347f15c"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-05",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.prnewswire.com/news-releases/services-pmi-at-54-9-september-2026-ism-services-pmi-report-302898421.html"
+        ],
+        "source_publication_date": "2026-10-05",
+        "underlying_event_date": "2026-10-05",
+        "normalized_event_key": "ism:services-pmi:2026-09:release-2026-10-05",
+        "development_summary": "ISM reported a September Services PMI of 54.9, with the Prices Index at 74.0, its highest level since July 2022.",
+        "status": "new"
+      },
+      "record_sha256": "8c9778272d74359923982badf7805c4032717d0930befb5046475e1f74e8e5fb"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-05",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/world/asia-pacific/dollar-holds-firm-french-fiscal-woes-keep-euro-back-foot-2026-10-05"
+        ],
+        "source_publication_date": "2026-10-05",
+        "underlying_event_date": "2026-10-05",
+        "normalized_event_key": "france:euro-sovereign-spread-stress-17-month-low:2026-10-05",
+        "development_summary": "French fiscal and political concerns pushed the euro to a 17-month low and widened the France-Germany sovereign yield spread to levels associated with 2011 stress.",
+        "status": "new"
+      },
+      "record_sha256": "2a0071ed238d7e8da4704b3944fc7ed76bedc08f36f1742633701e288b9992f3"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-05",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/energy/g7-release-100-million-barrels-diesel-other-reserves-through-iea-2026-10-02"
+        ],
+        "source_publication_date": "2026-10-02",
+        "underlying_event_date": "2026-10-02",
+        "normalized_event_key": "g7-iea:100m-barrel-emergency-reserve-release:2026-10-02",
+        "development_summary": "G7 leaders announced a coordinated 100-million-barrel release of diesel and other reserves through the IEA over four months.",
+        "status": "new"
+      },
+      "record_sha256": "e2c0f3511180441d7a9b6d6298dac7be4c6bc3bf598d71b84fd2f5d222195d43"
+    }
+  ]
+}

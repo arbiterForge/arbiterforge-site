@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-14",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-14",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://anthropic.com/engineering/redesigning-source-control"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "anthropic:scion-source-control-architecture-migration:2026-10-13",
+        "development_summary": "Anthropic described Scion, its new internal server-centric source-control system, after migrating a monorepo from Git in five months.",
+        "status": "new"
+      },
+      "record_sha256": "77dc90522546fb0567963000178bcfad2551068bff16b728e74e250de42f14d2"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-14",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://developers.cloudflare.com/changelog/post/2026-10-13-cloudflare-mcp-events"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "cloudflare:api-mcp-server-workers-issues-mcp-events:2026-10-13",
+        "development_summary": "Cloudflare added its first event type to the Cloudflare API MCP server: Workers Issues error notifications.",
+        "status": "new"
+      },
+      "record_sha256": "b4de91d4eab5bdcab671feab7cf5d5c22a5e7324c9cc34494e34e36e69618ff2"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-14",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-agent-registry-custom-metadata-registry-records"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "aws:agent-registry-custom-metadata-schemas:2026-10-13",
+        "development_summary": "AWS added configurable metadata fields to Agent Registry records covering agents, MCP servers, agent skills, gateways and custom resources.",
+        "status": "new"
+      },
+      "record_sha256": "893ab50d8f99cbdada3c7f515e8d30c9e8415668ff35a5e187079fb2840687d3"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-14",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://databricks.com/blog/introducing-private-network-gateway"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "databricks:private-network-gateway-preview:2026-10-14",
+        "development_summary": "Databricks introduced Private Network Gateway (PNG) to connect serverless compute to customer-controlled private network resources using one managed, network-level attachment.",
+        "status": "new"
+      },
+      "record_sha256": "4ba4868600bba3d4d6e20688f07fb0075351618322a25a53d325c5708c930d0c"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-14",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/ecs-service-metrics"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "aws:ecs-livetaskcount-free-runningtaskcount:2026-10-13",
+        "development_summary": "Amazon ECS introduced `LiveTaskCount`, a free service metric that counts active tasks even when their desired state is changing.",
+        "status": "new"
+      },
+      "record_sha256": "400d2bf61d1aa431ee268af0f36d078ee24187826ad22ae094c3588317bc99e4"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-14",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://github.com/hashicorp/terraform-provider-vault/releases/tag/v5.13.0"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "hashicorp:terraform-provider-vault:v5.13.0:2026-10-14",
+        "development_summary": "HashiCorp released Terraform Provider for Vault 5.13.0 with several infrastructure-as-code controls previously requiring manual configuration.",
+        "status": "new"
+      },
+      "record_sha256": "45452bab84fa8873297853b8b7e6742300a9ef989c93e6b9fc64726655df3e8c"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-14",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Connect-Secure-CVE-2026-104935",
+          "https://watchtowr.com/intelligence/ivanti-connect-secure-cve-2026-104935-faq"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "ivanti:connect-secure:cve-2026-104935:kev-active-exploitation:2026-10-13",
+        "development_summary": "Ivanti disclosed CVE-2026-104935, an authentication-bypass flaw in Connect Secure that can let a remote unauthenticated attacker run commands on an appliance.",
+        "status": "new"
+      },
+      "record_sha256": "34304d956d04f21d3b3e107d0a57253c53469b21eeb0d3d0fec331833a16262c"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-14",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://l3harris.com/newsroom/press-release/2026/10/l3harris-delivers-first-vampire-units-us-army-drone-defense"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-13",
+        "normalized_event_key": "l3harris:vampire-first-us-army-deliveries:2026-10-13",
+        "development_summary": "L3Harris says the first VAMPIRE counter-unmanned-aircraft systems have been delivered to the U.S.",
+        "status": "new"
+      },
+      "record_sha256": "1128fd60fe58692734e9589f34b8a9ee550282631e6e014562eac47d3e755225"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-14",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/security-hub-resource-criticality"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "aws:security-hub-resource-criticality-exposure:2026-10-14",
+        "development_summary": "AWS Security Hub now includes resource criticality in exposure prioritization.",
+        "status": "new"
+      },
+      "record_sha256": "356393b70a612f556711c19a6b4bef8a496c5e77c17d753547f4d208ddb70ba6"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-14",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://bls.gov/news.release/archives/cpi_10142026.htm"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "bls:cpi-u:september-2026:released-2026-10-14",
+        "development_summary": "The BLS reported that September’s Consumer Price Index rose 0.6% after seasonal adjustment, lifting the twelve-month headline rate from August’s 3.4% to 3.7%.",
+        "status": "new"
+      },
+      "record_sha256": "db0471022bf3310559964f757839fc752ed4fa7acf3af13fd0642dca524e9f59"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-14",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://ssa.gov/news/en/press/releases/2026-10-14.html"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "ssa:2027-social-security-ssi-cola:announced-2026-10-14",
+        "development_summary": "The Social Security Administration announced a 3.6% cost-of-living adjustment for 2027, covering retirement, disability, survivor and Supplemental Security Income programs.",
+        "status": "new"
+      },
+      "record_sha256": "2e0a6c97c965818e3e6bde21fa3804db2c5f46f2e76e9579ceed0d7673530855"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-14",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://federalreserve.gov/monetarypolicy/beigebook202610-summary.htm",
+          "https://federalreserve.gov/monetarypolicy/beigebook202610.htm"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "federal-reserve:beige-book:october-2026:released-2026-10-14",
+        "development_summary": "The Federal Reserve’s October Beige Book found moderate growth in two of twelve Districts, modest growth in three, slight growth in four and little change in three.",
+        "status": "new"
+      },
+      "record_sha256": "0c620398e0183852b407784dc15770b4660120bd56fd10bcc8eb3baaebe9dd1b"
+    }
+  ]
+}

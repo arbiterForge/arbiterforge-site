@@ -27,7 +27,7 @@ Latest, archive, RSS and coverage JSON are generated from the edition data autom
 
 ## Historical migration
 
-The initial public edition is October 23, 2026, imported from the previously delivered HTML without a new round of reporting. Its text and source links were retained; shared illustrative art and navigation were introduced for the website. 319 earlier records from September 24–October 22 are stored in `_data/arbiter_news/history_parts/`, with import provenance in `history.json`. They are coverage evidence, not independently verified reporting. Known record gaps include September 23 and October 6. The site does not imply all prior full editions were migrated.
+The initial public edition is October 23, 2026, imported from the previously delivered HTML without a new round of reporting. Its text and source links were retained; shared illustrative art and navigation were introduced for the website. 319 earlier records from September 24–October 22 are stored in `_data/arbiter_news/history_parts/`, with import provenance in `history.json`. They are coverage evidence, not independently verified reporting. Known record gaps include September 23 and October 6. The historical archive was subsequently backfilled with 92 recovered story texts across eight dates and explicitly labeled coverage-only records for the rest. See [BACKFILL.md](BACKFILL.md) for exact scope and gaps.
 
 ## Security and maintenance
 

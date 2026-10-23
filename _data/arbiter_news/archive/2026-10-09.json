@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-09",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-09",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://www.kore.ai/blog/autoloop-continuous-ai-agent-optimization-for-production"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "kore-ai:autoloop-artemis-agent-optimization:launch-2026-10-07",
+        "development_summary": "Kore.ai launches Autoloop to repair agent workflows without blind prompt edits",
+        "status": "new"
+      },
+      "record_sha256": "7025247a876e42169acee4e0d83c30c50c174227859d3b8daed54263d8293c46"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-09",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://www.anthropic.com/claude-haiku-5-5"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "anthropic:claude-haiku-5.5:release-2026-10-07",
+        "development_summary": "Claude Haiku 5.5 opens a cheaper, adjustable-effort tier for high-volume agents",
+        "status": "new"
+      },
+      "record_sha256": "63641c93353ca6166cbfbb259780e87298ffb3bdd3d163189bd9cf760bdd96f7"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-09",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "github:stacked-pull-requests:general-availability-2026-10-06",
+        "development_summary": "GitHub makes stacked pull requests generally available with safer rebase and merge behavior",
+        "status": "new"
+      },
+      "record_sha256": "a18ae2f88777cf9cb80c0233e19dc5016f444d1893016301d09972d0465dd81e"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-09",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-bedrock-attributes-in-cost-explorer"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "aws:bedrock-cost-product-attributes:2026-10-08",
+        "development_summary": "AWS Cost Explorer and Budgets gain model-level breakdowns for Amazon Bedrock",
+        "status": "new"
+      },
+      "record_sha256": "f0585e9d67754dcb96968f37a1a6072f69a6699eb610d9ca3aa40741fb301c06"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-09",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://www.redhat.com/en/blog/actionable-disconnected-cluster-analysis-available-now-pen-drive-powered-red-hat-lightspeed"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "redhat:openshift-pen-drive-offline-lightspeed-analysis:2026-10-08",
+        "development_summary": "Red Hat puts cluster drift and health analysis on a portable offline tool",
+        "status": "new"
+      },
+      "record_sha256": "6ca68e4a535b5c0b6dcfd8bdd5f0a3d459ee634e59b1c4795466003b19f63087"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-09",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-rds-oracle-minor-version-upgrade-precheck-new-patching-rds-event"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "aws:rds-oracle:minor-version-precheck-rds-event-0596:2026-10-08",
+        "development_summary": "RDS for Oracle adds pre-upgrade checks and clearer service-recovery signaling",
+        "status": "new"
+      },
+      "record_sha256": "f3f3a2d113681f41f822ac1f3880a0e9c4130d33818ec0cf1050ce533292b624"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-09",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-vulnerability-scanning-and-spear-phishing-tools-operated"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "us-doj-fbi:integrity-tech-microscan-fishhub-seven-domains-seized:2026-10-08",
+        "development_summary": "FBI and DOJ seize infrastructure behind Chinese-linked scanning and phishing tools",
+        "status": "new"
+      },
+      "record_sha256": "4b46fe96ac9bc90287d46916b8d589c37c35632ff0f8f95cd6989cc4d276eeec"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-09",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4621936/nsa-releases-zero-trust-guidance-for-protecting-operational-technology-systems"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "nsa:dow-critical-ot-zero-trust-cybersecurity-guidance:2026-10-08",
+        "development_summary": "NSA issues zero-trust guidance specifically for defense operational technology",
+        "status": "new"
+      },
+      "record_sha256": "e8d76df3dc3b9ce7aa2edd66f3e9c598f7cb6f04e45f474a377743ea6859dea9"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-09",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.rtx.com/news/news-center/2026/10/08/rtxs-raytheon-awarded-6-3-billion-multi-year-contract-for-sm-3-ib-interceptors"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "us-navy-mda:raytheon-sm3-block-ib-multiyear-production-contract:2026-10-08",
+        "development_summary": "Raytheon receives up to $6.3 billion for SM-3 Block IB interceptor production",
+        "status": "new"
+      },
+      "record_sha256": "6b9b4f448d8d34fa45fc7abfe07c5ba55d88b318cc2410d4ceb7f75d8506114e"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-09",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/us-consumer-sentiment-deteriorates-further-october-2026-10-09"
+        ],
+        "source_publication_date": "2026-10-09",
+        "underlying_event_date": "2026-10-09",
+        "normalized_event_key": "university-michigan:consumer-sentiment-october-2026-preliminary:release-2026-10-09",
+        "development_summary": "U.S. consumer sentiment slips near record lows as cost-of-living frustration spreads",
+        "status": "new"
+      },
+      "record_sha256": "b925a044ef389aed4705ba6e574a6dbf8be6a6407babdd8c6314a4374816b912"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-09",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.federalreserve.gov/releases/g19/current/default.htm"
+        ],
+        "source_publication_date": "2026-10-07",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "federal-reserve:g19-consumer-credit-august-2026:released-2026-10-07",
+        "development_summary": "Federal Reserve reports a reversal in revolving consumer-credit growth",
+        "status": "new"
+      },
+      "record_sha256": "3c1145c1c8cc9ef7723f6604cf3a9b68e186d6f5b6092412e81b72d87cb971c7"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-09",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.cms.gov/newsroom/fact-sheets/2027-medicare-advantage-part-d-star-ratings"
+        ],
+        "source_publication_date": "2026-10-08",
+        "underlying_event_date": "2026-10-08",
+        "normalized_event_key": "cms:medicare-advantage-part-d-stars-2027:published-2026-10-08",
+        "development_summary": "CMS publishes 2027 Medicare plan quality ratings before open enrollment",
+        "status": "new"
+      },
+      "record_sha256": "e47b174089be765f83ee0c164fa72f3b3ac9e160539cb0d5dddaa671b50f42f8"
+    }
+  ]
+}

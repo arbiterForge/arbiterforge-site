@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-19",
+  "archive_kind": "restored",
+  "record_count": 12,
+  "restored_count": 12,
+  "overview": "12 full story texts recovered; 0 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-19",
+        "category": "AI, Agents & Developer Tools",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/retail-consumer/amazon-says-its-ai-chips-will-work-with-popular-coding-language-challenging-2026-10-19"
+        ],
+        "source_publication_date": "2026-10-19",
+        "underlying_event_date": "2026-10-19",
+        "normalized_event_key": "aws:trainium:torchneuron-pytorch-compatibility:2026-10-19",
+        "development_summary": "Amazon unveiled TorchNeuron, promising PyTorch compatibility on Trainium via configuration rather than code rewrites; broad release remains prospective.",
+        "status": "new"
+      },
+      "record_sha256": "e0d9aefb4922e99c21e2942aaef421c32ccdcfb6515d4b1042c72a0b11b8ba3b",
+      "restored": {
+        "title": "Amazon targets the PyTorch portability barrier with TorchNeuron",
+        "paragraphs": [
+          "Amazon says its new TorchNeuron software can run existing PyTorch model code on AWS Trainium accelerators after a single configuration change, without developers rewriting the model. Reuters reports the announcement was planned for an October 19 developer event. Annapurna Labs says more than 30 early users span robotics, world models and voice AI; Amazon intends a free, open-source release.",
+          "Technical / practical implications. This attacks a real source of GPU lock-in: framework compatibility and migration effort, not merely silicon specifications. The reported path reduces porting friction, but says nothing yet about production throughput, kernel coverage, numerical behavior or workload-specific economics. Cost-saving assertions are AWS claims, not independently verified savings.",
+          "Why it matters / What to watch. Check the actual open-source package, compatibility matrix and reproducible end-to-end benchmarks once published. A configuration switch is useful only if real models, operators and inference/training stacks behave correctly."
+        ],
+        "sources": [
+          "https://www.reuters.com/business/retail-consumer/amazon-says-its-ai-chips-will-work-with-popular-coding-language-challenging-2026-10-19/"
+        ],
+        "publication_date": "2026-10-19",
+        "source_event_key": "aws:trainium:torchneuron-pytorch-compatibility:2026-10-19",
+        "source_name": "Arbiter-News-2026-10-19.html",
+        "source_sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "text_sha256": "eb7fad2f3f4735ceb0e4fbc463bf0346518a1ec135336fa6881ecc07641b5679"
+      }
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-19",
+        "category": "AI, Agents & Developer Tools",
+        "canonical_source_urls": [
+          "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-introduces-the-third-generation-of-its-employee-centric-AI-harness-so-the-workforce-can-build-and-use-the-AI-their-jobs-demand/default.aspx"
+        ],
+        "source_publication_date": "2026-10-15",
+        "underlying_event_date": "2026-10-15",
+        "normalized_event_key": "servicenow:employeeworks:third-generation-tools-toolsmith:2026-10-15",
+        "development_summary": "ServiceNow presented EmployeeWorks Productivity Assistants, Routines, ToolSmith and a Conversations API together, all in controlled availability.",
+        "status": "new"
+      },
+      "record_sha256": "48ed8b65ccb11332f1c06e9c694ce72b71e79c8eb6850f629b5e84dd857aef2d",
+      "restored": {
+        "title": "ServiceNow puts no-code employee agents and ToolSmith in one governed harness",
+        "paragraphs": [
+          "ServiceNow announced a third-generation EmployeeWorks harness combining employee-created Productivity Assistants, repeatable Productivity Routines, and the ToolSmith agentic developer environment. It says ToolSmith has training exposure to more than 75,000 APIs and can design integrations, inspect errors and propose fixes. A Conversations API is intended to put the same assistants inside custom applications and workplace channels.",
+          "Technical / practical implications. The notable architecture is the combination of no-code creation, developer-built tools and enterprise workflow permissions within one platform. The announcement frames actions as governed and auditable; an implementation still needs clear policy inheritance, cross-system authorization, execution receipts and separation between generating a tool and approving its use.",
+          "Why it matters / What to watch. All of these named capabilities are in controlled availability, not unrestricted general release. Ask about entitlement, human override, approval boundaries and logs before committing to a production rollout."
+        ],
+        "sources": [
+          "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-introduces-the-third-generation-of-its-employee-centric-AI-harness-so-the-workforce-can-build-and-use-the-AI-their-jobs-demand/default.aspx"
+        ],
+        "publication_date": "2026-10-15",
+        "source_event_key": "servicenow:employeeworks:third-generation-tools-toolsmith:2026-10-15",
+        "source_name": "Arbiter-News-2026-10-19.html",
+        "source_sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "text_sha256": "aea8e0a7b816a57d81a9cb181b594c9a8326814b0094d978ef3d9c6a2daa6b0f"
+      }
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-19",
+        "category": "AI, Agents & Developer Tools",
+        "canonical_source_urls": [
+          "https://arxiv.org/abs/2610.20245"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "research:p2patch:adversarial-agent-vulnerability-repair:2026-10-14",
+        "development_summary": "P2Patch reported execution-confirmed exploit bypasses in 41 of 101 repaired-CVE runs, motivating adversarial regression testing.",
+        "status": "new"
+      },
+      "record_sha256": "9a9cef098d91613c60e5b18cab052fd9f9abd5fbd84073290e3b4349d6781928",
+      "restored": {
+        "title": "New repair research shows why an AI-generated patch needs an adversarial second pass",
+        "paragraphs": [
+          "The P2Patch authors evaluated a loop that first generates an exploit, patches a vulnerability, then asks an adversarial agent to find another exploit path. In a benchmark of 101 Java and C/C++ CVEs, the agent found an execution-confirmed bypass after the initial patch passed its original test in 41 of 101 runs. Held-out fix coverage rose from 78.1% with their single-pass comparison to 84.7% with P2Patch.",
+          "Technical / practical implications. The failure mode is structural: a patch can block the reproducer used to create it yet leave alternate attack paths open. Replaying multiple independently discovered proofs of vulnerability is stronger evidence than treating one green regression test as repair completeness. These figures describe one experimental setup, not an industry-wide defect rate or established field performance.",
+          "Why it matters / What to watch. Consider adversarial regression generation in security repair gates, but measure the extra test and agent cost. This is a research preprint; do not mistake benchmark results for independently replicated production evidence."
+        ],
+        "sources": [
+          "https://arxiv.org/abs/2610.20245"
+        ],
+        "publication_date": "2026-10-14",
+        "source_event_key": "research:p2patch:adversarial-agent-vulnerability-repair:2026-10-14",
+        "source_name": "Arbiter-News-2026-10-19.html",
+        "source_sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "text_sha256": "8d68ddfc13e6013e002b75013e8e1deae7dad08695b1c3800d6c6d55bd7013e3"
+      }
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-19",
+        "category": "Cloud, AIOps, DevOps & Infrastructure",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-lambda-durable-go-sdk-support"
+        ],
+        "source_publication_date": "2026-10-15",
+        "underlying_event_date": "2026-10-15",
+        "normalized_event_key": "aws:lambda:durable-execution-go-sdk-ga:2026-10-15",
+        "development_summary": "AWS announced general availability of the Lambda Durable Execution SDK for Go, including step checkpointing and local test/lint tooling.",
+        "status": "new"
+      },
+      "record_sha256": "c9693645cf5fb1632aaf864260d35027bfa8610a8319e26a1d340a4e2c1d7b7e",
+      "restored": {
+        "title": "AWS Lambda durable execution reaches general availability for Go",
+        "paragraphs": [
+          "AWS made the Lambda Durable Execution SDK for Go generally available on October 15. Go programs can define workflow steps that checkpoint progress, wait for events or external callbacks, and resume without making application code manage every orchestration transition. AWS documents local test tooling, durabletest, and a durablelint analyzer, alongside the Go-compatible provided.al2023 runtime.",
+          "Technical / practical implications. The immediate payoff is simpler implementation of approval waits, agent workflows and multi-step integrations that outlive a normal synchronous invocation. Reliability still depends on step idempotency, stable serialized state and explicit handling of retries, cancellation and external side effects. Long-lived execution semantics should be measured against Step Functions rather than assumed to replace them.",
+          "Why it matters / What to watch. Prototype a callback-driven Go workflow with a deliberately repeated step and an external side effect. Verify checkpoint behavior, observability, service limits and pricing for your actual runtime pattern."
+        ],
+        "sources": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-lambda-durable-go-sdk-support/"
+        ],
+        "publication_date": "2026-10-15",
+        "source_event_key": "aws:lambda:durable-execution-go-sdk-ga:2026-10-15",
+        "source_name": "Arbiter-News-2026-10-19.html",
+        "source_sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "text_sha256": "50fe7da391ccf41bd2ec2031aef78b01b7805b0511222cc6af90298412ceec3f"
+      }
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-19",
+        "category": "Cloud, AIOps, DevOps & Infrastructure",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-s3-vercel-marketplace-v0"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "aws:amazon-s3:vercel-marketplace-v0-integrations:2026-10-14",
+        "development_summary": "AWS connected S3 buckets, Iceberg-backed S3 Tables and S3 Vectors to the Vercel Marketplace and v0 resource workflows.",
+        "status": "new"
+      },
+      "record_sha256": "506b482204c536839e2a5c52f4034d3f368c30fd042c274875826ba046a8ad0f",
+      "restored": {
+        "title": "AWS adds native S3, S3 Tables and S3 Vectors provisioning through Vercel",
+        "paragraphs": [
+          "AWS says Amazon S3 is now available in the Vercel Marketplace and v0 workflows. Developers can connect an AWS account and create or link S3 object buckets, S3 Tables backed by Apache Iceberg, and S3 Vectors for AI retrieval use cases from a Vercel-led workflow. The announcement groups three storage abstractions into a single integration rather than requiring developers to separately start in the AWS console.",
+          "Technical / practical implications. This shifts part of cloud resource provisioning into a front-end and app-generation surface. That can shorten prototypes, but it also changes the infrastructure ownership story: generated resources require deliberate identity boundaries, bucket policies, lifecycle management, tagging and inventory. The most consequential design question is who can create and mutate production infrastructure from the developer interface.",
+          "Why it matters / What to watch. Review identity federation, resource drift and permissions before enabling this for teams. The release itself does not imply that every resource or enterprise control is supported in v0."
+        ],
+        "sources": [
+          "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-s3-vercel-marketplace-v0/"
+        ],
+        "publication_date": "2026-10-14",
+        "source_event_key": "aws:amazon-s3:vercel-marketplace-v0-integrations:2026-10-14",
+        "source_name": "Arbiter-News-2026-10-19.html",
+        "source_sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "text_sha256": "12ae4ae814cf9414cfa5f43fabfb707c9fa2bfd0edb11dc829cebfa2a934e86e"
+      }
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-19",
+        "category": "Cloud, AIOps, DevOps & Infrastructure",
+        "canonical_source_urls": [
+          "https://docs.cloud.google.com/run/docs/release-notes"
+        ],
+        "source_publication_date": "2026-10-12",
+        "underlying_event_date": "2026-10-12",
+        "normalized_event_key": "google:cloud-run:budget-spend-caps-ga:2026-10-12",
+        "development_summary": "The October 12 Google Cloud Run release notes moved Budget spend caps that can pause workloads into general availability.",
+        "status": "new"
+      },
+      "record_sha256": "7b69303d807a721994472bf1ef3c57d6694da16dd9a2bb776d683a0b70dc7e07",
+      "restored": {
+        "title": "Google Cloud Run spend caps graduate from preview to GA",
+        "paragraphs": [
+          "Google Cloud’s October 12 Cloud Run release notes mark budget spend caps as generally available. The feature is designed to pause Cloud Run workloads when their configured budget controls are reached. It was previously listed as a preview feature in July, so this is a specific support-state change—not another announcement about generic billing dashboards or alert-only budgets.",
+          "Technical / practical implications. A pause mechanism is materially different from an email notification: teams running user-generated jobs, experimental agents and prototypes can build a stronger workload-level cost brake. It also creates an availability trade-off, because workloads that hit the cap stop serving or executing. Cloud-wide expenses, reporting delays and other services should not be assumed to cease at a mathematically exact threshold.",
+          "Why it matters / What to watch. Define which production services must stay online and which environments may halt. Test the cap’s trigger, restart procedure and alerting alongside load-surge and idle-cost scenarios."
+        ],
+        "sources": [
+          "https://docs.cloud.google.com/run/docs/release-notes"
+        ],
+        "publication_date": "2026-10-12",
+        "source_event_key": "google:cloud-run:budget-spend-caps-ga:2026-10-12",
+        "source_name": "Arbiter-News-2026-10-19.html",
+        "source_sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "text_sha256": "70a7b11496bb4b6a131340e6843acb5979aa655d4145285781517e91cdd81737"
+      }
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-19",
+        "category": "Cybersecurity & Defense Technology",
+        "canonical_source_urls": [
+          "https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed"
+        ],
+        "source_publication_date": "2026-10-19",
+        "underlying_event_date": "2026-10-19",
+        "normalized_event_key": "microsoft:entra-agentid:perception-dynamic-permissions-risk:2026-10-19",
+        "development_summary": "Microsoft announced broader Project Perception agent discovery and Entra-related dynamic permission and risk controls for AI agents.",
+        "status": "new"
+      },
+      "record_sha256": "e0778a1506e2633f60435a5ad3e4716a41437c78b553f759e2221f5d39d653a4",
+      "restored": {
+        "title": "Microsoft broadens agent identity discovery and introduces dynamic access controls",
+        "paragraphs": [
+          "Microsoft outlined further agent-security work on October 19, expanding Project Perception support by 35 local-agent types to a stated total of 60. The company describes identity assignment to discovered agents through Entra Agent ID and introduces Dynamic Permissions, dynamic agent-risk evaluation and conditional access designed around agent activity rather than static grants.",
+          "Technical / practical implications. The direction is significant for security architecture: an agent can have its own identity, short-lived scoped authority and a continuously assessed risk posture instead of borrowing the human operator’s standing rights. That maps more cleanly to accountability, tool authorization and post-incident reconstruction. Microsoft’s announced capability set should not be taken as universal tenant availability or a replacement for application-level authorization.",
+          "Why it matters / What to watch. Request availability by license and deployment type, then test revocation latency, delegated user context and audit correlation between agent identity and individual tool actions."
+        ],
+        "sources": [
+          "https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/"
+        ],
+        "publication_date": "2026-10-19",
+        "source_event_key": "microsoft:entra-agentid:perception-dynamic-permissions-risk:2026-10-19",
+        "source_name": "Arbiter-News-2026-10-19.html",
+        "source_sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "text_sha256": "46ced83511464c8b7c5f1ce02ab1119b1dd6457958c7105bb7f5ab970536395d"
+      }
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-19",
+        "category": "Cybersecurity & Defense Technology",
+        "canonical_source_urls": [
+          "https://shield.ai/shield-ai-delivers-first-v-bats-to-taiwan-deepening-its-partnership-with-taiwan-coast-guard-administration"
+        ],
+        "source_publication_date": "2026-10-13",
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "shield-ai:taiwan-coast-guard:first-v-bat-delivery:2026-10-07",
+        "development_summary": "Shield AI publicly confirmed first V-BAT deliveries for Taiwan’s coast guard, demonstrated October 7, with 12 aircraft expected in total.",
+        "status": "new"
+      },
+      "record_sha256": "b99e5e16a42a47aa92fbf053471f2668cf875666bb63af69c553ab85f8b2647f",
+      "restored": {
+        "title": "Taiwan Coast Guard receives its first Shield AI V-BAT aircraft",
+        "paragraphs": [
+          "Shield AI reported delivery of the first V-BAT vertical-takeoff uncrewed aircraft to Taiwan’s Coast Guard Administration. The newly arrived aircraft were presented at the Port of Taipei on October 7; the public company release is dated October 13. Taiwan expects a total of 12 aircraft over the coming months, supported by local partner AIDC for training and sustainment.",
+          "Technical / practical implications. A ducted-fan VTOL platform can operate from vessels without runways, expanding the options for maritime surveillance, coastal patrol and law-enforcement missions. Shield AI advertises endurance beyond 12 hours, but the actual operational performance of Taiwan’s deployment has not been independently verified. This is a capability delivery, not evidence that every ordered aircraft is fielded.",
+          "Why it matters / What to watch. Track acceptance and sea trials, integration with coast-guard command systems, sensor payloads and local maintenance support. Separate demonstration from persistent operating readiness."
+        ],
+        "sources": [
+          "https://shield.ai/shield-ai-delivers-first-v-bats-to-taiwan-deepening-its-partnership-with-taiwan-coast-guard-administration/"
+        ],
+        "publication_date": "2026-10-13",
+        "source_event_key": "shield-ai:taiwan-coast-guard:first-v-bat-delivery:2026-10-07",
+        "source_name": "Arbiter-News-2026-10-19.html",
+        "source_sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "text_sha256": "914a104b30e24d5fd5a71648a1170dfb4f237cb95546345a2cf071d88cc8400d"
+      }
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-19",
+        "category": "Cybersecurity & Defense Technology",
+        "canonical_source_urls": [
+          "https://www.cisco.com/c/en/us/support/docs/csa/cisco-sa-esa-afw-zqYJkjxp.html"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2026-10-14",
+        "normalized_event_key": "cisco:secure-email-gateway:cve-2026-76519-arbitrary-write:2026-10-14",
+        "development_summary": "Cisco disclosed actively exploited CVE-2026-76519, a 9.8-rated Secure Email Gateway arbitrary-write issue with fixed Content Scanner Tools builds.",
+        "status": "new"
+      },
+      "record_sha256": "11433a57c17911cf8157340387debdb8a98ae99350831979c12e88d125d3e0e0",
+      "restored": {
+        "title": "Cisco warns of exploited root-level attack path in Secure Email Gateway",
+        "paragraphs": [
+          "Cisco’s October 14 critical advisory details CVE-2026-76519, an unauthenticated arbitrary-file-write flaw in Secure Email Gateway’s AMP attachment handling. A crafted email can lead to root-command execution where File Reputation is assigned to a mail policy and Content Scanner Tools is older than 25.3.0.5525. Cisco says its incident response team is aware of active exploitation.",
+          "Technical / practical implications. This is an edge mail-security system with potentially broad trust and credential exposure, not simply an application crash. Cisco lists no workaround. Content Scanner Tools 25.3.0.5525 or later includes the fix; fixed AsyncOS releases include 15.5.5-014 and 16.5.0-780. Tool updates may avoid a system restart, but exposure must be verified per appliance.",
+          "Why it matters / What to watch. Inventory the affected gateway configuration, check contentscannerstatus and investigate Cisco’s system-log indicators. If compromise is suspected, preserve external evidence and follow Cisco TAC’s recovery guidance before rebuilding."
+        ],
+        "sources": [
+          "https://www.cisco.com/c/en/us/support/docs/csa/cisco-sa-esa-afw-zqYJkjxp.html"
+        ],
+        "publication_date": "2026-10-14",
+        "source_event_key": "cisco:secure-email-gateway:cve-2026-76519-arbitrary-write:2026-10-14",
+        "source_name": "Arbiter-News-2026-10-19.html",
+        "source_sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "text_sha256": "ee0674337e913b4f32be028ea8fffae70b9b4aa9f8c10fb6a94de674b89a24ce"
+      }
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-19",
+        "category": "Markets, Economy & Personal Finance",
+        "canonical_source_urls": [
+          "https://www.nahb.org/news-and-economics/press-releases/2026/10/builder-sentiment-falls-on-rising-rates"
+        ],
+        "source_publication_date": "2026-10-19",
+        "underlying_event_date": "2026-10-19",
+        "normalized_event_key": "nahb:hmi:2026-10-builder-sentiment-29",
+        "development_summary": "NAHB reported October builder confidence of 29, down three points and the lowest since June 2012.",
+        "status": "new"
+      },
+      "record_sha256": "86a3b8ecc310699850ec417563b75b85c362c66800ca490561d5b7ef785e0352",
+      "restored": {
+        "title": "U.S. homebuilder confidence slides to its lowest reading since 2012",
+        "paragraphs": [
+          "The NAHB/Wells Fargo Housing Market Index for October fell three points to 29, its weakest reading since June 2012. Builders cited mortgage rates above 7% and weak buyer traffic. Some 43% reported price cuts averaging 6%, and 65% offered sales incentives. The survey captures builders’ views, not completed transactions or nationwide house prices.",
+          "Technical / practical implications. A reading below 50 signals that more builders regard market conditions as poor than good. Buyers in markets with substantial new construction may find sellers willing to discuss financing incentives, upgrades or price reductions. Still, the availability of concessions varies sharply by geography and subdivision and can be offset by lender fees or restrictive terms.",
+          "Why it matters / What to watch. When comparing new construction, ask for the written net price and full cost of any rate buydown. Watch contract cancellations, permits and local inventories rather than treating the sentiment index as a guaranteed price forecast."
+        ],
+        "sources": [
+          "https://www.nahb.org/news-and-economics/press-releases/2026/10/builder-sentiment-falls-on-rising-rates"
+        ],
+        "publication_date": "2026-10-19",
+        "source_event_key": "nahb:hmi:2026-10-builder-sentiment-29",
+        "source_name": "Arbiter-News-2026-10-19.html",
+        "source_sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "text_sha256": "016fc31c3a71003d7445ca2299516e47997c6d2618ab35a29339aaeecf672cb6"
+      }
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-19",
+        "category": "Markets, Economy & Personal Finance",
+        "canonical_source_urls": [
+          "https://www.reuters.com/world/asia-pacific/view-chinas-economic-growth-accelerates-45-third-quarter-2026-10-19"
+        ],
+        "source_publication_date": "2026-10-19",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "china:nbs:2026-q3-gdp-release:2026-10-19",
+        "development_summary": "China reported 4.5% third-quarter GDP growth on October 19 alongside weak September retail sales and sharply lower property investment.",
+        "status": "new"
+      },
+      "record_sha256": "01ac6fac33cc25684f7a3d3380ef1e9a082dd9b320668d99c34bba846f8eb2f8",
+      "restored": {
+        "title": "China’s Q3 GDP beats forecasts, but the demand split remains stark",
+        "paragraphs": [
+          "Figures released October 19 show China’s third-quarter GDP grew 4.5% from a year earlier, above the 4.4% Reuters poll expectation and Q2’s 4.3%. The brighter top line sits alongside a softer domestic picture: September retail sales rose only 1.1% year on year, while property investment for January–September contracted 20.6%. Factory output rose 5.5% in September.",
+          "Technical / practical implications. The release suggests industrial and export-facing sectors are proving more resilient than household demand and real estate. For technology supply chains, it is a reminder that aggregate growth does not imply comparable recovery across Chinese consumer markets. The combination also complicates forecasts for commodities, industrial inputs and the policy response.",
+          "Why it matters / What to watch. Track whether domestic demand and property investment stabilize in subsequent releases; a one-quarter GDP beat does not resolve the structural mismatch. These are historical macro figures, not real-time asset prices."
+        ],
+        "sources": [
+          "https://www.reuters.com/world/asia-pacific/view-chinas-economic-growth-accelerates-45-third-quarter-2026-10-19/"
+        ],
+        "publication_date": "2026-10-19",
+        "source_event_key": "china:nbs:2026-q3-gdp-release:2026-10-19",
+        "source_name": "Arbiter-News-2026-10-19.html",
+        "source_sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "text_sha256": "638a62e4c6bf239487354ae96c8fd3fb49949cf88364f6593349f3b54bbe82d7"
+      }
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-19",
+        "category": "Markets, Economy & Personal Finance",
+        "canonical_source_urls": [
+          "https://www.federalreserve.gov/econres/notes/feds-notes/the-rise-of-semiliquid-funds-for-retail-investors-20261014.html"
+        ],
+        "source_publication_date": "2026-10-14",
+        "underlying_event_date": "2025-12-31",
+        "normalized_event_key": "fed:feds-notes:semiliquid-retail-funds:2026-10-14",
+        "development_summary": "Federal Reserve research reported semiliquid retail fund net assets rising from $15B in 2018 to $388B in 2025, despite limits on withdrawals.",
+        "status": "new"
+      },
+      "record_sha256": "662d94ca19873f5d736230e41fab7c52758dcac5696e97eaf781e531f51822c9",
+      "restored": {
+        "title": "Fed research spotlights the liquidity catch in fast-growing retail private funds",
+        "paragraphs": [
+          "Federal Reserve researchers documented the rise of semiliquid funds marketed to retail investors, including interval funds, tender-offer funds and non-traded perpetual-life business development companies. Their measured combined net assets grew from roughly $15 billion in 2018 to $388 billion in 2025. Many vehicles hold difficult-to-value private credit or other illiquid assets while offering limited periodic redemption windows.",
+          "Technical / practical implications. The critical distinction from an ETF is liquidity on demand. A fund can advertise recurring redemptions yet cap repurchases: the Fed notes that offers often run quarterly and are commonly around 5% of shares or net asset value, depending on the structure. Requests may be prorated when investors simultaneously seek cash. Investors should also examine valuation frequency, leverage and layered fees. The Fed paper is descriptive research, not an announcement of a new consumer restriction or a fund-quality endorsement.",
+          "Why it matters / What to watch. Before buying a private-market income product, read the actual redemption schedule and offer-size limits and compare them with your emergency-cash horizon. Do not treat published NAV as a guaranteed exit price."
+        ],
+        "sources": [
+          "https://www.federalreserve.gov/econres/notes/feds-notes/the-rise-of-semiliquid-funds-for-retail-investors-20261014.html"
+        ],
+        "publication_date": "2026-10-14",
+        "source_event_key": "fed:feds-notes:semiliquid-retail-funds:2026-10-14",
+        "source_name": "Arbiter-News-2026-10-19.html",
+        "source_sha256": "62c63947c7ab0d8a99d3c2df3ae3b382505ecd5128d454afec67509943d79692",
+        "text_sha256": "8afbd584a8084477d3b9bc492e222c99d9f9db19dcab9223552a960233ae88ca"
+      }
+    }
+  ]
+}

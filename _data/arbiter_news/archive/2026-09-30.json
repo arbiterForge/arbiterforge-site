@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-09-30",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-09-30",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://openai.com/index/introducing-dots"
+        ],
+        "source_publication_date": "2026-09-29",
+        "underlying_event_date": "2026-09-29",
+        "normalized_event_key": "openai:dots:launch:2026-09-29",
+        "development_summary": "OpenAI launched Dots, always-on agents with their own cloud computer, plugin access, approval controls, and an enterprise specialist-agent preview.",
+        "status": "new"
+      },
+      "record_sha256": "3a53eee5a2c2f2d8d03a226c8ddf05d4c379dcb3d021420d537631b15590e1a9"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-09-30",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://www.oracle.com/news/announcement/oracle-extends-fusion-agentic-applications-with-introduction-of-fusion-claw-2026-09-29",
+          "https://blogs.oracle.com/cx/introducing-fusion-claw"
+        ],
+        "source_publication_date": "2026-09-29",
+        "underlying_event_date": "2026-09-29",
+        "normalized_event_key": "oracle:fusion-claw:launch:2026-09-29",
+        "development_summary": "Oracle launched Fusion Claw, a governed runtime that combines frontier-model reasoning with deterministic enterprise computation across 25 new agentic applications.",
+        "status": "new"
+      },
+      "record_sha256": "bb39afc3cfb442fdbdd7d77c2c239d76fe2224cca0231334a3d0d11d14899c0c"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-09-30",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://www.anthropic.com/research/what-work-can-robots-do"
+        ],
+        "source_publication_date": "2026-09-30",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "anthropic:robot-exposure-index:2026-09-30",
+        "development_summary": "Anthropic published a robot-exposure index estimating broad technical capability but very limited current cost competitiveness.",
+        "status": "new"
+      },
+      "record_sha256": "7ef26ec242056e1faca9c7e819faa82eb566e3303f0a54593f619dfa2ae24f10"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-09-30",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://www.businesswire.com/news/home/20260930335555/en/HPE-Secures-Its-First-AMD-Helios-Order-in-$1.2-Billion-Deal-With-Vultr",
+          "https://www.reuters.com/business/hpe-boosts-networking-growth-outlook-gets-12-billion-ai-order-cloud-firm-vultr-2026-09-30"
+        ],
+        "source_publication_date": "2026-09-30",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "hpe:vultr:amd-helios-1.2b-order:2026-09-30",
+        "development_summary": "HPE announced a $1.2B Vultr order for AMD Helios AI Rack systems, its first Helios customer order.",
+        "status": "new"
+      },
+      "record_sha256": "56319ddfac9e8d89bc777e336ab2279055f103b19b2d09ef0aecd358d351c2ff"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-09-30",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://news.synopsys.com/2026-09-30-Synopsys-and-Amazon-Announce-Strategic,-Multi-year-IP-Agreement-for-Custom-Silicon-Collaboration-Also-Extends-to-Cloud-and-AI-Powered-Engineering"
+        ],
+        "source_publication_date": "2026-09-30",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "synopsys:amazon:custom-silicon-ip-agreement:2026-09-30",
+        "development_summary": "Synopsys and Amazon announced a multi-year $1B+ custom-silicon, EDA, cloud and AI-engineering agreement.",
+        "status": "new"
+      },
+      "record_sha256": "da63c2a1b9a3a226c55cf342a0812125609e8503db32c7afea3f139fd382a97f"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-09-30",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://aws.amazon.com/blogs/hpc/whats-next-for-research-and-engineering-studio-on-aws",
+          "https://docs.aws.amazon.com/res/latest/ug/res-end-of-support.html"
+        ],
+        "source_publication_date": "2026-09-29",
+        "underlying_event_date": "2026-09-29",
+        "normalized_event_key": "aws:research-engineering-studio:development-discontinued:2026-09-29",
+        "development_summary": "AWS made RES 2026.09 the final release and set September 30, 2027 as the final AWS support date.",
+        "status": "new"
+      },
+      "record_sha256": "8571f4628982bc2394c82edf16cb4f7130857f5b7252f32d32d2b0f54f24bcad"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-30",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570"
+        ],
+        "source_publication_date": "2026-09-30",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "zimbra:cve-2026-73570:active-exploitation-microsoft-report:2026-09-30",
+        "development_summary": "Microsoft documented confirmed exploitation of CVE-2026-73570 against internet-facing Zimbra servers and published mitigation and hunting guidance.",
+        "status": "new"
+      },
+      "record_sha256": "35ae71fde2dec0ebd29b16ea3e8b6dc1e539fb5c1cdf497da8c4e8f18c24acbe"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-30",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://blog.cloudflare.com/cloudflare-certificate-authority",
+          "https://blog.cloudflare.com/pq-ca-with-mtcs"
+        ],
+        "source_publication_date": "2026-09-29",
+        "underlying_event_date": "2026-09-29",
+        "normalized_event_key": "cloudflare:public-ca-post-quantum-mtc:2026-09-29",
+        "development_summary": "Cloudflare announced plans for a public CA, acquisition of GlobalSign root material, and production Merkle Tree Certificates targeted for Q1 2027.",
+        "status": "new"
+      },
+      "record_sha256": "5fcda9eef36102eab277fd1d8021aa196b0ff8da78476d304fee1622f8ddf0cb"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-30",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.wsj.com/politics/national-security/hegseth-unveils-new-command-to-oversee-military-drone-tech-d5b68073"
+        ],
+        "source_publication_date": "2026-09-30",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "dod:autonomous-warfare-command:announcement:2026-09-30",
+        "development_summary": "The Pentagon announced a new four-star Autonomous Warfare Command intended to accelerate acquisition, testing and deployment of drones and robotics.",
+        "status": "new"
+      },
+      "record_sha256": "b54f642152a1f67dc5429676ea0068eb3263d1a26504b603693fe89810f19939"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-09-30",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.bea.gov/news/2026/personal-income-and-outlays-august-2026",
+          "https://www.bea.gov/news/schedule"
+        ],
+        "source_publication_date": "2026-09-30",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "bea:personal-income-outlays:2026-08:release-2026-09-30",
+        "development_summary": "BEA released August 2026 income, spending and PCE inflation data alongside the annual national-accounts update.",
+        "status": "new"
+      },
+      "record_sha256": "b81fcd456cda44789450601ff8ecb1234be16a3852ea17ec4961f0764adfc86c"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-09-30",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.realtor.com/news/trends/sellers-slash-prices-historic-pace-september-2026-report"
+        ],
+        "source_publication_date": "2026-09-30",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "realtor:september-2026-price-cuts:release-2026-09-30",
+        "development_summary": "Realtor.com reported that 20.8% of U.S. active listings had price cuts in September 2026, the highest September share since 2018.",
+        "status": "new"
+      },
+      "record_sha256": "8d5efff88441e6cdd1eb157befdba6f0445c949e1038d244bc46db3a42a8997f"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-09-30",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/legal/government/wall-st-regulator-unveil-new-retail-investor-proposals-private-assets-2026-09-30",
+          "https://www.sec.gov/newsroom/meetings-events/agenda-open-093026"
+        ],
+        "source_publication_date": "2026-09-30",
+        "underlying_event_date": "2026-09-30",
+        "normalized_event_key": "sec:private-markets-retailization-proposals:2026-09-30",
+        "development_summary": "The SEC proposed changes affecting accredited-investor pathways, performance fees, and closed-end fund structures intended to broaden private-market access.",
+        "status": "new"
+      },
+      "record_sha256": "58a82d53a6b3f98d5475b028e8f3cf31047170a3eafb7b7e5bf7d47f373f442e"
+    }
+  ]
+}

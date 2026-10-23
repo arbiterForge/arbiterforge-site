@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-07",
+  "archive_kind": "coverage-only",
+  "record_count": 12,
+  "restored_count": 0,
+  "overview": "0 full story texts recovered; 12 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-07",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://mistral.ai/news/mistral-large-4",
+          "https://docs.mistral.ai/models/mistral-large-4-0"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "mistral:mistral-large-4:public-preview:2026-10-06",
+        "development_summary": "Mistral launched Mistral Large 4 in public preview, with 1M context, multimodal and agentic capabilities, and open weights planned later in October.",
+        "status": "new"
+      },
+      "record_sha256": "94fdd6c215479f437f5047df1e63c6d8243cc958c4c0c156987f06a1dad4b9f6"
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-07",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://cloud.google.com/blog/topics/developers-practitioners/announcing-mcp-toolbox-java-sdk-v10-agentic-data-access-for-the-enterprise"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "google-cloud:mcp-toolbox-java-sdk:1.0:2026-10-06",
+        "development_summary": "Google Cloud released MCP Toolbox Java SDK v1.0 with decoupled authentication, server-bound parameter pruning, session handling, transport abstraction, and enterprise Java integration.",
+        "status": "new"
+      },
+      "record_sha256": "287bd0a2769298eb5d4ec581f63b048640db7b46eba059146d9f5a33057d3b14"
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-07",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-06-code-scanning-ai-scan-enablement-status-in-security-overview"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "github:code-scanning-ai-scan:security-overview-visibility:2026-10-06",
+        "development_summary": "GitHub added organization- and enterprise-wide visibility, filtering, and CSV export for AI Scan for pull requests enablement.",
+        "status": "new"
+      },
+      "record_sha256": "d64095d60cc97adfff01e1650ff16451e9372a4740f9c6b80048b064c196eac4"
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-07",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://newrelic.com/press-release/20261006-1"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "new-relic:ai-evaluation:announcement:2026-10-06",
+        "development_summary": "New Relic announced AI Evaluation, linking LLM quality and guardrail scores with distributed traces, cost, golden datasets, and pre-production experiments.",
+        "status": "new"
+      },
+      "record_sha256": "f7d916d887c3f9e98201e94dfd925a4a7d9b112fa3beef50fcc0cdd9a839f38f"
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-07",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html"
+        ],
+        "source_publication_date": null,
+        "underlying_event_date": "2026-10-07",
+        "normalized_event_key": "aws:proton:end-of-support:2026-10-07",
+        "development_summary": "AWS Proton reaches end of support on October 7, 2026; deployed CloudFormation resources remain, but Proton access, management, and retained service data end.",
+        "status": "new"
+      },
+      "record_sha256": "594fb0ca4c7db12106d0836111a0ae57a9e4536c5448071445beba9f784731b0"
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-07",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://investors.constellationenergy.com/news-releases/news-release-details/google-and-constellation-announce-landmark-agreement-bring-890",
+          "https://www.reuters.com/business/energy/google-enters-massive-36-gw-power-deal-with-constellation-energy-2026-10-06"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "google-constellation:3.59gw-pjm-power-agreements:2026-10-06",
+        "development_summary": "Google and Constellation announced 3,590 MW of long-term PJM power agreements, including 890 MW of new nuclear uprate capacity and 2,700 MW of additional supply.",
+        "status": "new"
+      },
+      "record_sha256": "42b5a091e70a883737d0608e926430ceb2dec879bfd09ffb8acf4034dab07d4e"
+    },
+    {
+      "ordinal": 7,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-07",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.reuters.com/technology/accenture-contractor-removed-fbi-following-damaging-data-breach-sources-say-2026-10-06"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-05",
+        "normalized_event_key": "fbi-accenture:peoplesoft-breach-third-party-patch-failure:2026-10-06",
+        "development_summary": "The FBI said a third-party-managed platform breach followed a contractor's failure to apply an explicit security patch; Reuters identified Accenture and Oracle PeopleSoft.",
+        "status": "new"
+      },
+      "record_sha256": "b133d83e8f4547f0ad9b9889f72a8268e3f0b48f1d496585456bd3980439e5a4"
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-07",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.reuters.com/technology/thousands-european-wind-solar-power-systems-exposed-online-dutch-researchers-say-2026-10-06"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "europe-renewables:8547-internet-exposed-control-systems:2026-10-06",
+        "development_summary": "Dutch researchers reported 8,547 internet-facing wind and solar systems across 35 European countries, with roughly 181 potentially exposing full control.",
+        "status": "new"
+      },
+      "record_sha256": "f0b2da50a9e393627a6a1929cd1e6a8dc26efc593a4a89d86490a9bc374e01ed"
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-07",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/aerospace-defense/anduril-us-navy-invest-66-bln-boost-submarine-parts-production-2026-10-06"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "anduril-us-navy:arsenal-2-submarine-components:2026-10-06",
+        "development_summary": "Anduril announced a $3.7B Maryland shipyard and received a $2.9B Navy contract to manufacture Virginia-class submarine components.",
+        "status": "new"
+      },
+      "record_sha256": "4a57bb26f9337d11b6c808d57d746f431cc102231105672ec2575948ee8419f2"
+    },
+    {
+      "ordinal": 10,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-07",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.bea.gov/news/2026/us-international-trade-goods-and-services-august-2026"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "bea:us-international-trade:2026-08:release-2026-10-06",
+        "development_summary": "BEA and Census reported an August 2026 U.S. trade deficit of $105.6B as imports rose 4.3% to $420.8B and exports rose 1.4% to $315.2B.",
+        "status": "new"
+      },
+      "record_sha256": "d7435708e245de952ea60c7fbb6700df945abd03981b1b2aa303f42c1d1048cc"
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-07",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.federalreserve.gov/newsevents/speech/bowman20261006a.htm",
+          "https://www.reuters.com/business/finance/fed-plans-overhaul-bank-supervision-responsibilities-bowman-says-2026-10-06"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "federal-reserve:bank-supervision-five-region-realignment:2026-10-06",
+        "development_summary": "The Federal Reserve began realigning bank supervision into five regions with regional leaders accountable for supervisory activity.",
+        "status": "new"
+      },
+      "record_sha256": "4566ed79a73a3d713a16c6c801ed539875da89ef32c3dd2998e7b31134b35733"
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-07",
+        "category": "money",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/slowdown-money-fund-cash-flow-hits-short-term-treasuries-2026-10-06"
+        ],
+        "source_publication_date": "2026-10-06",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "us-money-market-funds:t-bill-demand-slowdown:2026-10-06",
+        "development_summary": "Money-market fund inflows slowed sharply in 2026, coinciding with wider Treasury-bill yield premiums and expectations for heavy fourth-quarter bill supply.",
+        "status": "new"
+      },
+      "record_sha256": "4c8769f66f0c97cf93ee4fb27362066f7e4e97413b1d2ba854b6a47bb5aeeb75"
+    }
+  ]
+}

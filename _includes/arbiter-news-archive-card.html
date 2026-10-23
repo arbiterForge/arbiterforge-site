@@ -1,0 +1,7 @@
+{% assign e = include.edition %}
+<a class="archive-card" href="/news/{{ e.edition_date }}/">
+<time datetime="{{ e.edition_date }}">{{ e.edition_date | date: '%B %-d, %Y' }}</time>
+<strong>{% if e.archive_kind %}{{ e.record_count }} retained records{% else %}{{ e.stories | size }} developments{% endif %} <span aria-hidden="true">↗</span></strong>
+<p>{{ e.overview | truncate: 230 | escape }}</p>
+<small>{% case e.archive_kind %}{% when 'restored' %}Restored story text{% when 'partial' %}Partial text recovery · {{ e.restored_count }} full texts{% when 'coverage-only' %}Coverage records only{% else %}{% if e.publication_kind == 'migrated' %}Imported briefing{% else %}Daily edition{% endif %}{% endcase %}</small>
+</a>

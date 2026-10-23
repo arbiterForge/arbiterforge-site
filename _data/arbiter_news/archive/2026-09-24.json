@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-09-24",
+  "archive_kind": "restored",
+  "record_count": 5,
+  "restored_count": 5,
+  "overview": "5 full story texts recovered; 0 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-09-24",
+        "category": "ai",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "anthropic:claude-opus-5.5:launch-general-pricing-capabilities",
+        "development_summary": "Claude Opus 5.5 launch/pricing/capabilities.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "c21d362a4e912704778e99bf2aab304fc1585b44e74a619a9968a7bcd97aeee2",
+      "restored": {
+        "title": "Opus 5.5 is here. The upgrade is not just the model.",
+        "paragraphs": [
+          "Anthropic says its new model matches Fable 5.1 on most work and costs about 40% less to run than Opus 5. The release also changes sensitive-workload routing and introduces integration considerations beyond a model-ID swap. [1]",
+          "Anthropic lists availability across AWS, Google Cloud and Azure. Its new safeguards route most cybersecurity workloads to Opus 4.8, while routine software bug-fixing remains supported. [1]",
+          "Re-run representative tasks before changing a default model. Compare task success, latency, tool behavior and cost. A vendor-wide launch does not establish access in a particular account or region.",
+          "The 40% comparison is Anthropic-reported, not a savings guarantee. For Claude API accounts created on or after August 31, 2026, preserved-thinking requirements apply to Opus 5.5 and Fable 5.1. The announcement also says thinking cannot be disabled. Check these compatibility boundaries without bypassing safeguards. [1]"
+        ],
+        "sources": [
+          "https://www.anthropic.com/claude-opus-5-5"
+        ],
+        "publication_date": "2026-09-22",
+        "source_event_key": null,
+        "source_name": "Arbiter-News-2026-09-24.html",
+        "source_sha256": "536517507cb8625d01f0460308558c3dd287695b5e65fe165022955d4eb92176",
+        "text_sha256": "c5a563d7ae26d1fa2d63c16d9f6f46d13ac3daa4eb1a65f95dedd0f9ea2d3718"
+      }
+    },
+    {
+      "ordinal": 2,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-09-24",
+        "category": "cloud",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "github:actions:node20-retirement-node24",
+        "development_summary": "GitHub Actions Node 20 retirement.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "c83033a20321a1dea6e7febcdac14a908c66e23a1bdbc5ab94e542aac67b445a",
+      "restored": {
+        "title": "GitHub Actions retires Node 20 for JavaScript actions.",
+        "paragraphs": [
+          "GitHub says its runners now execute JavaScript actions with Node 24. The temporary Node 20 opt-out has ended; maintainers and workflow consumers should move to compatible action releases. [2]",
+          "The action’s embedded runtime is not the same as the Node version your application tests. Changing setup-node alone does not address the action runtime.",
+          "Inventory action versions and custom action.yml files, then validate runner OS support before updating workflows.",
+          "The notice applies to github.com and GitHub with Data Residency. Node 24 is incompatible with macOS 13.4 and earlier and does not officially support ARM32. Do not assume this same rollout applies to Gitea or GitHub Enterprise Server. [2]"
+        ],
+        "sources": [
+          "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        ],
+        "publication_date": "2026-09-23",
+        "source_event_key": null,
+        "source_name": "Arbiter-News-2026-09-24.html",
+        "source_sha256": "536517507cb8625d01f0460308558c3dd287695b5e65fe165022955d4eb92176",
+        "text_sha256": "ec318f6cf7c5d6e7a922a368d4651ceeace719be4cb3ea25a18c429d38bbf0cb"
+      }
+    },
+    {
+      "ordinal": 3,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-09-24",
+        "category": "security",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "checkmarx:npm:btree-malware-campaign",
+        "development_summary": "npm btree runtime malware research.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "764e600c9a975513512abc1abd2481998b36fd8f7553e2f18ea61b520f22bb6e",
+      "restored": {
+        "title": "The npm trap: clean installation, malicious runtime code.",
+        "paragraphs": [
+          "Checkmarx describes indexed-btree , a malicious look-alike of sorted-btree , with its loader buried in library code rather than install hooks. The report details host-data theft and a blockchain-backed command channel. [3]",
+          "Blocking install scripts does not stop malicious code triggered by library use. A plausible repository and a large download count are not provenance checks.",
+          "Search lockfiles and package inventories for the report’s indicators. Do not install a suspect package just to investigate it.",
+          "The original research is dated September 17; DevOps.com covered it September 22. Reported download volumes are not counts of compromised systems. The legitimate sorted-btree is not the look-alike identified here. Current registry status and your environment’s exposure have not been checked. [3] [4]"
+        ],
+        "sources": [
+          "https://checkmarx.com/zero-post/npm-btree-malware-campaign-affects-millions-of-downloads-no-need-for-install-script/",
+          "https://devops.com/new-npm-threat-bypasses-install-script-protections/"
+        ],
+        "publication_date": "2026-09-17",
+        "source_event_key": null,
+        "source_name": "Arbiter-News-2026-09-24.html",
+        "source_sha256": "536517507cb8625d01f0460308558c3dd287695b5e65fe165022955d4eb92176",
+        "text_sha256": "e24990d09f77ee34377ce39a0a0e6f93467b6b4c06567c4a83dca98ad7c5140a"
+      }
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-09-24",
+        "category": "cloud",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "github:copilot:otel-export",
+        "development_summary": "GitHub Copilot OpenTelemetry export.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "49f7512d3aa8f7a82bb0087ae50e54885e60b63931c4bf0ba37b0bdbc30d9461",
+      "restored": {
+        "title": "Copilot agent traces can flow into your monitoring stack.",
+        "paragraphs": [
+          "The GitHub Copilot app now supports OpenTelemetry through enterprise-managed settings. Administrators can export agent-session activity, model requests and tool activity to compatible monitoring backends. [5]",
+          "This brings agent diagnostics into existing operational tools. It is visibility, not a guarantee of correct decisions or a mechanism for enforcing spending limits.",
+          "Pilot an approved collector endpoint and inspect the exported fields. Leave content capture off until data-handling rules are approved.",
+          "OpenTelemetry is an open observability framework. This announcement is specific to the Copilot app’s enterprise-managed settings, not every Copilot integration or other coding harness. Prompt and response content is excluded by default. Telemetry export and content capture are separate decisions. [5]"
+        ],
+        "sources": [
+          "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app/"
+        ],
+        "publication_date": "2026-09-22",
+        "source_event_key": null,
+        "source_name": "Arbiter-News-2026-09-24.html",
+        "source_sha256": "536517507cb8625d01f0460308558c3dd287695b5e65fe165022955d4eb92176",
+        "text_sha256": "3e86a81116865dfdfb1d432e8668728f12e0113c3ad1485239c19f1d58696b67"
+      }
+    },
+    {
+      "ordinal": 5,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-09-24",
+        "category": "money",
+        "canonical_source_urls": [],
+        "source_publication_date": null,
+        "underlying_event_date": null,
+        "normalized_event_key": "fed:barr-rate-outlook:2026-09-23",
+        "development_summary": "Fed Barr rate outlook.",
+        "status": "historical-coverage"
+      },
+      "record_sha256": "8cf0b7a075c8d3c4bdb7e55b8b7e5977d05e5a5734261fe8c40559076886fead",
+      "restored": {
+        "title": "Barr says further rate adjustments may be needed.",
+        "paragraphs": [
+          "In a September 23 speech, Fed Governor Michael Barr supported the prior week’s rate increase and said further adjustments are likely in his base case. The September 16 FOMC decision raised the target range to 3.75–4.00%. [6] [7]",
+          "An actual committee decision and one policymaker’s outlook are different things. This speech is not a new rate change and does not lock in the next one.",
+          "Keep the policy target distinct from consumer rates: mortgage pricing depends on more than the Fed’s short-term target. [6]",
+          "Barr’s remarks represent his views, not a commitment by the full Federal Open Market Committee. The target range is not a savings yield or mortgage quote. This is general economic context, not an account review, investment recommendation or return forecast. [6] [7]"
+        ],
+        "sources": [
+          "https://www.federalreserve.gov/newsevents/speech/barr20260923a.htm",
+          "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+        ],
+        "publication_date": "2026-09-23",
+        "source_event_key": null,
+        "source_name": "Arbiter-News-2026-09-24.html",
+        "source_sha256": "536517507cb8625d01f0460308558c3dd287695b5e65fe165022955d4eb92176",
+        "text_sha256": "daf518beb57f74b783c26d5bfff6f27413b00bb490bbc56c75867522f9204e70"
+      }
+    }
+  ]
+}

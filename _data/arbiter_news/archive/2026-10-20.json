@@ -1,0 +1,452 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-20",
+  "archive_kind": "restored",
+  "record_count": 13,
+  "restored_count": 13,
+  "overview": "13 full story texts recovered; 0 retained coverage summaries. Historical material, not newly reported or independently reverified.",
+  "note": "Retained records can differ from the original issue count because historical ledgers omitted some repeated coverage and combined multiple same-day editions. Missing prose has not been reconstructed.",
+  "entries": [
+    {
+      "ordinal": 1,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams",
+          "https://docs.github.com/en/enterprise-cloud@latest/rest/enterprise-admin/ai-controls"
+        ],
+        "source_publication_date": "2026-10-19",
+        "underlying_event_date": "2026-10-19",
+        "normalized_event_key": "github:copilot-model-policy-rest-api-enterprise-teams-apps-orgs:2026-10-19",
+        "development_summary": "GitHub adds API-level control over which Copilot models teams can use",
+        "status": "new"
+      },
+      "record_sha256": "c8b8f6984d9b54651d0ece92e561bc89cdec20f8685649692cfe7944682e009e",
+      "restored": {
+        "title": "GitHub adds API-level control over which Copilot models teams can use",
+        "paragraphs": [
+          "GitHub made GET and PATCH REST endpoints generally available for Copilot model policies at enterprise, enterprise-team, enterprise-app and organization levels. Enterprise owners can delegate policy authority either to organizations or, in enterprise-teams mode, to designated teams and apps. This is about administrative model availability, not a newly released foundation model.",
+          "Practical implications. Organizations can put approved-model inventories under configuration management, review policy drift and automate changes rather than rely on repeated console work. Delegation still requires careful scoping: a model allowed at one policy level should not be assumed available to every user.",
+          "Why it matters — model access becomes an enforceable platform setting. For regulated engineering teams, verify precedence between enterprise and delegated controls before building a policy reconciler."
+        ],
+        "sources": [
+          "https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams/",
+          "https://docs.github.com/en/enterprise-cloud@latest/rest/enterprise-admin/ai-controls"
+        ],
+        "publication_date": "2026-10-19",
+        "source_event_key": "github:copilot-model-policy-rest-api-enterprise-teams-apps-orgs:2026-10-19",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "08c0268a75e159649f3fc9183db7030253e1bdb1f12ece5a4a0d14499d0778b0"
+      }
+    },
+    {
+      "ordinal": 2,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://developers.cloudflare.com/changelog/post/2026-10-19-cloudflare-mcp-step-up",
+          "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization"
+        ],
+        "source_publication_date": "2026-10-19",
+        "underlying_event_date": "2026-10-19",
+        "normalized_event_key": "cloudflare:api-mcp-server:step-up-oauth-scope-authorization:2026-10-19",
+        "development_summary": "Cloudflare’s API MCP server gains just-in-time OAuth scope approval",
+        "status": "new"
+      },
+      "record_sha256": "78ae35042f5583d25d453f4a19716dbf519aa9235e47aa36fefdaaa12194dff6",
+      "restored": {
+        "title": "Cloudflare’s API MCP server gains just-in-time OAuth scope approval",
+        "paragraphs": [
+          "Cloudflare added step-up authorization to its API MCP server. A user can connect with minimal initial scopes; when an agent asks for a tool action needing more access, the server replies with an MCP insufficient_scope challenge identifying the additional scope. Compatible clients can then request fresh consent without discarding permissions already granted.",
+          "Practical implications. The release concerns authorization at tool-call time, not the initial MCP server launch covered in an earlier edition. It only works with clients implementing the step-up protocol, so compatibility testing is essential before treating least-privilege prompting as universal.",
+          "Why it matters — this is a practical pattern for dynamic, human-visible privilege elevation in agent control planes. Check whether the client records consent changes and whether tokens can be revoked cleanly."
+        ],
+        "sources": [
+          "https://developers.cloudflare.com/changelog/post/2026-10-19-cloudflare-mcp-step-up/",
+          "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization"
+        ],
+        "publication_date": "2026-10-19",
+        "source_event_key": "cloudflare:api-mcp-server:step-up-oauth-scope-authorization:2026-10-19",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "89eb2b048c0812abd6096353f46973b9bf6fc912da2de8758e6602df85a81618"
+      }
+    },
+    {
+      "ordinal": 3,
+      "category": "ai",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "ai",
+        "canonical_source_urls": [
+          "https://www.anthropic.com/responsible-scaling-policy/updates"
+        ],
+        "source_publication_date": "2026-10-19",
+        "underlying_event_date": "2026-10-06",
+        "normalized_event_key": "anthropic:automated-biological-guard-redteam-evaluation-24-pairs:2026-10-19",
+        "development_summary": "Automated jailbreak testing beats human bounty submissions in Anthropic’s internal trial",
+        "status": "new"
+      },
+      "record_sha256": "f524efa6112a0c8f5a9b166f468a9df0f0c2962a3573b0957665db8d23aa31f6",
+      "restored": {
+        "title": "Automated jailbreak testing beats human bounty submissions in Anthropic’s internal trial",
+        "paragraphs": [
+          "Anthropic reported completing an internal red-teaming milestone on October 6 and removed the goal from its public roadmap October 19. Against eight biosecurity bug-bounty questions across three classifier generations, its automated system matched or exceeded the best human submission on all 24 question/classifier pairs, outperforming it on 23. Anthropic says runs took 24–48 hours versus weeks or months of bounty work.",
+          "Practical implications. This is a vendor-reported, narrow evaluation of biological-weapons classifier guardrails—not a general claim that autonomous agents outperform human security teams. A more detailed methods paper was promised but was not linked in the announcement.",
+          "What to watch — independent reproducibility, total compute cost and whether automation finds qualitatively different failures. The result raises the benchmark for continuous safety testing."
+        ],
+        "sources": [
+          "https://www.anthropic.com/responsible-scaling-policy/updates"
+        ],
+        "publication_date": "2026-10-19",
+        "source_event_key": "anthropic:automated-biological-guard-redteam-evaluation-24-pairs:2026-10-19",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "a05d9782b928fe498d156966e8658e297dce4c7c28273925a030de3c330b89dc"
+      }
+    },
+    {
+      "ordinal": 4,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://apnews.com/article/google-outage-europe-bank-apps-e8d708a22cb1a1b225e2b1b70e963a31",
+          "https://www.reuters.com/business/google-cloud-services-largely-back-up-uk-2026-10-20",
+          "https://status.cloud.google.com/regional/europe"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-10-20",
+        "normalized_event_key": "google-cloud:europe-west2-power-event-service-outage-uk-banking:2026-10-20",
+        "development_summary": "London Google Cloud power event knocks banking apps offline; region restored",
+        "status": "new"
+      },
+      "record_sha256": "b2d21ced3b3b354518371bbf5717554ba11ef0bc8b5002acc3262029d542d375",
+      "restored": {
+        "title": "London Google Cloud power event knocks banking apps offline; region restored",
+        "paragraphs": [
+          "A power-related disruption in Google Cloud’s London region began at approximately 06:08 GMT on Tuesday, with failures affecting online services at Lloyds, Halifax, HSBC and Revolut. Associated Press reported partial recovery while banks worked through application-level restoration. In a statement reported by Reuters at 12:43 UTC, Google said full service had been restored in the London cloud region.",
+          "Practical implications. The distinction matters: a cloud provider recovering its region is not proof that every dependent banking workflow has recovered. U.K. financial regulators also sought details about the incident as critical-technology supplier oversight receives a real-world test.",
+          "Why it matters — multi-zone deployments alone may not protect against regional or shared power dependencies. Rehearse regional failover, test customer-facing graceful degradation and reconcile provider status with synthetic end-to-end checks."
+        ],
+        "sources": [
+          "https://apnews.com/article/google-outage-europe-bank-apps-e8d708a22cb1a1b225e2b1b70e963a31",
+          "https://www.reuters.com/business/google-cloud-services-largely-back-up-uk-2026-10-20/",
+          "https://status.cloud.google.com/regional/europe"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "google-cloud:europe-west2-power-event-service-outage-uk-banking:2026-10-20",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "7ddea736cbb2effabe0e35bec5dd0ad623c9a8f7b27524884807d94be604c50f"
+      }
+    },
+    {
+      "ordinal": 5,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://blogs.microsoft.com/blog/2026/10/20/advancing-digital-sovereignty-with-greater-control-and-choice"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-10-20",
+        "normalized_event_key": "microsoft:sovereign-cloud-external-key-hsm-control-panel-data-guardian:2026-10-20",
+        "development_summary": "Microsoft extends sovereign-cloud controls from key custody to operator oversight",
+        "status": "new"
+      },
+      "record_sha256": "a1e511d0d3d2488dc69c6e181b55056b76d2d87b6db3b5aae62d7bfa5e4618e5",
+      "restored": {
+        "title": "Microsoft extends sovereign-cloud controls from key custody to operator oversight",
+        "paragraphs": [
+          "Microsoft announced the next package of Sovereign Cloud controls. External key management with Azure Managed HSM is now generally available, allowing the root encryption key to remain in hardware a customer or trusted third party operates. In EU/EFTA environments, Data Guardian oversight and tamper-evident Production Touch Ledger records are rolling out in phases for qualifying engineer access.",
+          "Practical implications. Do not confuse announced plans with shipped functions: Sovereign Control Panel and connected-to-disconnected transition features are entering preview, while GitHub Enterprise Local and Foundry Local milestones are scheduled for Ignite. These have different maturity and deployment requirements.",
+          "Why it matters — for highly regulated workloads, location of key material, operator privileges and offline continuity are distinct controls. Map exact availability and supported services before making compliance commitments."
+        ],
+        "sources": [
+          "https://blogs.microsoft.com/blog/2026/10/20/advancing-digital-sovereignty-with-greater-control-and-choice/"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "microsoft:sovereign-cloud-external-key-hsm-control-panel-data-guardian:2026-10-20",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "9a88b6e090f87cacb567846472ae5a3dd18fe6fa77f39883e56faf85779e53cd"
+      }
+    },
+    {
+      "ordinal": 6,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://developers.cloudflare.com/changelog/post/2026-10-19-cloud-workload-security-beta"
+        ],
+        "source_publication_date": "2026-10-19",
+        "underlying_event_date": "2026-10-19",
+        "normalized_event_key": "cloudflare:cloud-workload-security-proxy-rego-beta:2026-10-19",
+        "development_summary": "Cloudflare opens beta for pre-provider cloud API policy enforcement",
+        "status": "new"
+      },
+      "record_sha256": "475a0676d715d4d286f4ec83d8c889e522ce88ba56ef74d887f5fcdbc4c3a6d9",
+      "restored": {
+        "title": "Cloudflare opens beta for pre-provider cloud API policy enforcement",
+        "paragraphs": [
+          "Cloudflare introduced Cloud Workload Security in beta: a proxy deployed into the customer environment that evaluates cloud API requests before they reach the underlying provider. Teams configure workloads and policy sets in the dashboard, using request filters and Rego checks; Cloudflare’s example is stopping an operation that would make an R2 bucket public.",
+          "Practical implications. This is a request-path guardrail, not a substitute for IAM, provider policies or post-deployment drift detection. The documented beta requires a Zero Trust subscription, with the free plan sufficient. Organizations still must route the relevant clients through the proxy to obtain enforcement.",
+          "Why it matters — design-time rules can be moved closer to mutation time. Test failure behavior, audit logs, coverage across SDKs and bypass paths before putting this in the approval loop."
+        ],
+        "sources": [
+          "https://developers.cloudflare.com/changelog/post/2026-10-19-cloud-workload-security-beta/"
+        ],
+        "publication_date": "2026-10-19",
+        "source_event_key": "cloudflare:cloud-workload-security-proxy-rego-beta:2026-10-19",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "b3610db8f69607c46893e9a511944bb6f238f5ca2248924c73a9b24e1cf6a9d9"
+      }
+    },
+    {
+      "ordinal": 7,
+      "category": "cloud",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "cloud",
+        "canonical_source_urls": [
+          "https://docs.cloud.google.com/kubernetes-engine/docs/release-notes"
+        ],
+        "source_publication_date": "2026-10-19",
+        "underlying_event_date": "2026-10-19",
+        "normalized_event_key": "google-gke:z4m-storage-optimized-machines-node-support:2026-10-19",
+        "development_summary": "GKE adds storage-optimized Z4M nodes, but automation support is version-gated",
+        "status": "new"
+      },
+      "record_sha256": "702617e05d7885af3e81d40ff814549bbf5bf34cb63ff4c455bbf52e835373bd",
+      "restored": {
+        "title": "GKE adds storage-optimized Z4M nodes, but automation support is version-gated",
+        "paragraphs": [
+          "Google added Z4M storage-optimized machine support for GKE node provisioning, targeting I/O-intensive databases and large parallel file systems for AI/ML. Manual provisioning requires GKE 1.36.3-gke.1767000 or later. Compute classes, cluster autoscaling, node-pool auto-creation and Autopilot require the newer 1.37.0-gke.4713000 line or later.",
+          "Practical implications. Google explicitly excludes Z4M bare-metal instances from GKE support. The release is therefore not an automatic gain for every existing cluster: node image compatibility, scheduling constraints and regional capacity still need evaluation.",
+          "Why it matters — storage-bound workloads now have a better-fitting compute option. Benchmark the actual persistent and local I/O path, and validate cluster version before updating autoscaling assumptions or cost models."
+        ],
+        "sources": [
+          "https://docs.cloud.google.com/kubernetes-engine/docs/release-notes"
+        ],
+        "publication_date": "2026-10-19",
+        "source_event_key": "google-gke:z4m-storage-optimized-machines-node-support:2026-10-19",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "78f686da02dc77de6f8227f2bda87f1cff9c29669cf0b7e5014a08537312202b"
+      }
+    },
+    {
+      "ordinal": 8,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://norforge.com/blog/inside_cairn"
+        ],
+        "source_publication_date": "2026-10-19",
+        "underlying_event_date": "2026-10-19",
+        "normalized_event_key": "norforge:cairn-exposed-agentic-attack-panels-clusters:2026-10-19",
+        "development_summary": "Research exposes operational dashboards behind AI-assisted intrusion campaigns",
+        "status": "new"
+      },
+      "record_sha256": "87fda6105353690bbc72f755c0f737fc12cb062b62f3d4aefa8cd6bf1f8b2802",
+      "restored": {
+        "title": "Research exposes operational dashboards behind AI-assisted intrusion campaigns",
+        "paragraphs": [
+          "NorForge examined publicly reachable Cairn control panels used to coordinate AI-assisted penetration tests and malicious intrusions. Researchers identified more than 20 panels they assess as likely malicious, along with accidentally exposed legitimate red-team operations. One suspected financially motivated cluster, AIA0001, was linked to 14 dashboards and more than 1,100 attack projects targeting organizations, especially e-commerce businesses.",
+          "Practical implications. The researcher describes stateful project graphs, shared fact boards, target instructions and observed paths to web-shell deployment. This is observational intelligence with redactions; dashboards and project counts are not a verified count of successful breaches, and attribution remains the researcher’s assessment.",
+          "Why it matters — agent-assisted intrusion has an operational footprint defenders can search for. Treat exposed orchestration dashboards as sensitive assets and correlate unusual API access with persistence indicators."
+        ],
+        "sources": [
+          "https://norforge.com/blog/inside_cairn"
+        ],
+        "publication_date": "2026-10-19",
+        "source_event_key": "norforge:cairn-exposed-agentic-attack-panels-clusters:2026-10-19",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "69abd090742c9b3e229f2a92e7c10a631c58eea603a675729debc4c049b77362"
+      }
+    },
+    {
+      "ordinal": 9,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://productcert.siemens.com/news/2026/10/19/active-exploitation-of-cve-2026-110936-in-siemens-software-center",
+          "https://productcert.siemens.com/productcert/html/ssa-580366.html"
+        ],
+        "source_publication_date": "2026-10-19",
+        "underlying_event_date": "2026-10-19",
+        "normalized_event_key": "siemens:software-center:cve-2026-110936:confirmed-in-wild-exploitation:2026-10-19",
+        "development_summary": "Siemens confirms active DLL sideloading exploitation; Software Center fix available",
+        "status": "new"
+      },
+      "record_sha256": "6a9cd684d2ef1e3f851bfca46320872e48ff533e0dc037d33918df3348cbc5f9",
+      "restored": {
+        "title": "Siemens confirms active DLL sideloading exploitation; Software Center fix available",
+        "paragraphs": [
+          "Siemens validated in-the-wild abuse of CVE-2026-110936, an uncontrolled DLL search-path flaw in Siemens Software Center, in a ClickFix-linked campaign it labels Romulus. The attackers packaged a genuine signed Siemens executable alongside malicious DLLs; Siemens says its software distribution and update systems were not breached. An advisory initially appeared October 15; the vendor’s detailed exploitation confirmation followed October 19.",
+          "Practical implications. All Software Center versions below 4.0.9.8 are affected; Siemens says existing installs auto-update on next startup. The vendor published file hashes, command-and-control indicators and behaviors, including suspicious launches from AppData paths, to support hunting.",
+          "Why it matters — do not trust a signed carrier executable by itself. Inventory installations, confirm version 4.0.9.8+, and hunt for the specified DLL/process combinations on endpoints."
+        ],
+        "sources": [
+          "https://productcert.siemens.com/news/2026/10/19/active-exploitation-of-cve-2026-110936-in-siemens-software-center/",
+          "https://productcert.siemens.com/productcert/html/ssa-580366.html"
+        ],
+        "publication_date": "2026-10-19",
+        "source_event_key": "siemens:software-center:cve-2026-110936:confirmed-in-wild-exploitation:2026-10-19",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "ec4386f1ee21f54dd0ef07afc534e87390f05b61327b8c9f15e40c182d518a7e"
+      }
+    },
+    {
+      "ordinal": 10,
+      "category": "security",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "security",
+        "canonical_source_urls": [
+          "https://www.twz.com/air/f-22-pilot-controls-fq-44-fighter-drone-from-the-cockpit-for-the-first-time"
+        ],
+        "source_publication_date": "2026-10-16",
+        "underlying_event_date": "2026-10 (flight); announced 2026-10-16",
+        "normalized_event_key": "usaf-anduril:f22-yfq44a-fury-airborne-control-demonstration:2026-10-16",
+        "development_summary": "F-22 pilot issues airborne mission updates to Anduril’s YFQ-44A Fury",
+        "status": "new"
+      },
+      "record_sha256": "5d52f8ef8fc12bba45641c9178daccf2cd52ba2ad24a26889fcfbb6038dcb222",
+      "restored": {
+        "title": "F-22 pilot issues airborne mission updates to Anduril’s YFQ-44A Fury",
+        "paragraphs": [
+          "The U.S. Air Force and Anduril disclosed an Edwards Air Force Base demonstration in which an F-22 pilot sent an updated mission plan to the autonomous YFQ-44A Fury collaborative combat aircraft while both aircraft were airborne. The tactical data link let the pilot command operationally relevant maneuvers without directly flying the uncrewed aircraft. The flight occurred earlier in October; the announcement came October 16.",
+          "Practical implications. It is an integration and command-and-control milestone, not evidence of weapons employment or fielded autonomous wingmen. The Air Force has not disclosed the F-22 cockpit control interface in detail, and managing pilot workload remains an open issue.",
+          "Why it matters — the hard problem shifts from individual drone autonomy toward trustworthy, low-workload human command of teams of aircraft. Watch upcoming formation and multi-platform exercises."
+        ],
+        "sources": [
+          "https://www.twz.com/air/f-22-pilot-controls-fq-44-fighter-drone-from-the-cockpit-for-the-first-time"
+        ],
+        "publication_date": "2026-10-16",
+        "source_event_key": "usaf-anduril:f22-yfq44a-fury-airborne-control-demonstration:2026-10-16",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "6397a120a164785431c1f39020d5e1f8158034afdc4894014e73d4dc66867d8e"
+      }
+    },
+    {
+      "ordinal": 11,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "markets",
+        "canonical_source_urls": [
+          "https://www.census.gov/construction/nrc/current/index.html"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-09",
+        "normalized_event_key": "us-census:residential-construction:september-2026:released-2026-10-20",
+        "development_summary": "U.S. housing starts fall to a 1.221-million annualized pace in September",
+        "status": "new"
+      },
+      "record_sha256": "cf97618234864a9d185aaea241723d0419c805503d800c3deb78e6a6b33982dd",
+      "restored": {
+        "title": "U.S. housing starts fall to a 1.221-million annualized pace in September",
+        "paragraphs": [
+          "The Census Bureau’s September residential-construction report put U.S. privately owned housing starts at a 1.221 million seasonally adjusted annual rate, down 5.2% from revised August. Single-family starts reached 859,000, down 4.6%. Building permits, an earlier pipeline measure, were little changed at 1.400 million, while single-family permits slipped 4.0% to 845,000.",
+          "Practical implications. Important statistical caveat: the headline month-to-month starts change came with a ±11.8-percentage-point sampling margin. That is too wide to treat this one estimate as a confirmed sharp decline. Permits, starts and completions measure different stages, and revisions can be material.",
+          "Why it matters — the supply pipeline affects rent, home availability and construction employment. For household housing decisions, watch a few releases together rather than extrapolate one volatile month."
+        ],
+        "sources": [
+          "https://www.census.gov/construction/nrc/current/index.html"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "us-census:residential-construction:september-2026:released-2026-10-20",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "17615107c0d6c4c0642d70077acc5ae9601f7cb6b002bcd55727cb57bfdfad43"
+      }
+    },
+    {
+      "ordinal": 12,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "markets",
+        "canonical_source_urls": [
+          "https://www.reuters.com/business/fed-skip-october-raise-rates-again-december-nearly-all-economists-say-2026-10-20"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-10-16 to 2026-10-20 (survey)",
+        "normalized_event_key": "reuters:fed-economist-poll:october-hold-december-hike:2026-10-20",
+        "development_summary": "Economists expect an October Fed hold, with December tightening still forecast",
+        "status": "new"
+      },
+      "record_sha256": "5fcad50617fda4f6b2630682e2ea50c6be986c945265e58a22eddec6da975248",
+      "restored": {
+        "title": "Economists expect an October Fed hold, with December tightening still forecast",
+        "paragraphs": [
+          "In a Reuters survey conducted October 16–20, 94 of 100 economists expected the Federal Reserve to leave its target rate at 3.75%–4.00% at the October 27–28 meeting. All 100 respondents anticipated another increase in December. The October outlook aligned with observed market pricing in the report, but it is a poll of forecasts, not a Federal Reserve policy announcement.",
+          "Practical implications. Inflation persistence and uncertainty about the timing of rate moves have whipsawed short-term Treasury yields. One survey can shift quickly following new jobs or price data, and individual consumer borrowing rates do not mechanically track a meeting-day action.",
+          "Why it matters — households reviewing adjustable-rate debt or near-term cash yields should focus on their actual terms and liquidity needs, not assume the December forecast is guaranteed."
+        ],
+        "sources": [
+          "https://www.reuters.com/business/fed-skip-october-raise-rates-again-december-nearly-all-economists-say-2026-10-20/"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "reuters:fed-economist-poll:october-hold-december-hike:2026-10-20",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "b0b7b8979e715a73cf27102136ffa27abab866dd101167d5f78401749e3ae3f2"
+      }
+    },
+    {
+      "ordinal": 13,
+      "category": "money",
+      "record": {
+        "edition_date": "2026-10-20",
+        "category": "markets",
+        "canonical_source_urls": [
+          "https://www.ons.gov.uk/employmentandlabourmarket/peoplenotinwork/unemployment",
+          "https://www.reuters.com/world/uk/sterling-rises-strong-labour-market-data-reinforces-rate-hike-bets-2026-10-20"
+        ],
+        "source_publication_date": "2026-10-20",
+        "underlying_event_date": "2026-06 to 2026-09 (series)",
+        "normalized_event_key": "uk-ons:labour-market:june-august-2026-september-payroll:october20-release",
+        "development_summary": "U.K. unemployment eases to 4.7%, while falling vacancies temper the rebound",
+        "status": "new"
+      },
+      "record_sha256": "ab48aba66811832caf9f1e7f964c36b6d278285635deea9633838687f7cec82d",
+      "restored": {
+        "title": "U.K. unemployment eases to 4.7%, while falling vacancies temper the rebound",
+        "paragraphs": [
+          "The U.K. Office for National Statistics reported unemployment at 4.7% for June–August 2026, down from 4.9% previously. Early payroll estimates showed a 13,000 rise in September employment. Meanwhile, vacancies fell by 21,000 to approximately 691,000, pointing to weaker demand for new hires despite a somewhat firmer near-term jobs picture.",
+          "Practical implications. Sterling rose after the release and traders leaned toward a quarter-point Bank of England rate increase in November. Those are market expectations, not an announced decision; continued vacancy declines and uneven pay growth complicate the picture. U.K. labor-series measurement periods also differ, making direct month-to-month comparisons easy to misread.",
+          "Why it matters — overseas labor and rate surprises can move currencies and global bond yields. Monitor employment alongside wage inflation and openings rather than treating one improved headline as an all-clear."
+        ],
+        "sources": [
+          "https://www.ons.gov.uk/employmentandlabourmarket/peoplenotinwork/unemployment",
+          "https://www.reuters.com/world/uk/sterling-rises-strong-labour-market-data-reinforces-rate-hike-bets-2026-10-20/"
+        ],
+        "publication_date": "2026-10-20",
+        "source_event_key": "uk-ons:labour-market:june-august-2026-september-payroll:october20-release",
+        "source_name": "Arbiter-News-2026-10-20.html",
+        "source_sha256": "64b35d3470e9ee19a1d41430622120cb90c469f76b40df7b9935dacd9939cb76",
+        "text_sha256": "ffc03868bb1d62c17e5c3b7afacacc63017b3efe0a4ce1c0f2e4352e960d273b"
+      }
+    }
+  ]
+}
