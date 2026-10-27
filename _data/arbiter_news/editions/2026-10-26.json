@@ -104,14 +104,14 @@
       "publication_date": "2026-10-23",
       "event_date": "2026-10-23",
       "freshness": "Recent • not previously covered",
-      "highlights": "Google's October 23 release notes describe maintenance changes for Cloud SQL for MySQL, PostgreSQL and SQL Server in response to security bulletin GCP-2026-071. Google says managed-instance certificate stores require no customer action, and that managed fixes will arrive through scheduled maintenance; a future notice will identify when the self-service maintenance fix becomes available. Client-side obligations are separate: Cloud SQL Auth Proxy must be upgraded to at least 2.26.3, Proxy Operator to at least 1.8.4, and gcloud installations to 590.0.1. Connector users should update their runtime and operating-system CA certificates.",
+      "highlights": "Google's October 23 release notes describe maintenance changes for Cloud SQL for MySQL, PostgreSQL and SQL Server in response to security bulletin GCP-2026-071. Google says managed-instance certificate stores require no customer action, and that managed fixes will arrive through scheduled maintenance; a future notice will identify when the self-service maintenance fix becomes available. Client-side obligations are separate: Cloud SQL Auth Proxy must be upgraded to at least 2.26.3, Proxy Operator to at least 1.8.4, and gcloud installations to 590.0.1. Standalone Auth Proxy binary users must also update the host's certificate authority (CA) certificates; connector users must update the language runtime and operating-system CA certificates.",
       "implications": "Managed database patching is not a substitute for patching application-side connection software. Mixed client versions and outdated trust stores can produce inconsistent behavior across containers, hosts and automation. Google has not described these changes as a completed, fleet-wide managed rollout, so maintenance status must be checked per deployment.",
       "takeaway": "Inventory all Cloud SQL proxies, operators and language connectors; stage upgrades with representative certificate and TLS connection tests, then confirm the instance maintenance state independently.",
       "development_summary": "Google published GCP-2026-071 remediation steps for Cloud SQL managed components and separate Auth Proxy, Proxy Operator, gcloud and connector upgrades.",
       "sources": [
         {
           "label": "Google Cloud release notes, October 23",
-          "url": "https://docs.cloud.google.com/release-notes"
+          "url": "https://docs.cloud.google.com/sql/docs/release-notes"
         }
       ]
     },
