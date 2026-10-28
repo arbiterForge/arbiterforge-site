@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-28",
+  "title": "Arbiter News",
+  "intro": "Twelve distinct, newly verified developments across AI, cloud operations, cybersecurity and defense, and household economics. Public original sources and practical stakes are built into every card.",
+  "overview": "Agent tooling gets organizational service identities, formal software verification and more selective execution approvals. Cloud operations gain shared GPU scheduling and configurable data durability while accelerator vendors diversify their roadmaps. Cyber teams face an exploited e-commerce vulnerability; defense buyers examine domestic edge computing and a cleared drone platform. Consumer confidence, house prices and equipment orders provide three separate reads on the economy.",
+  "history_note": "Compared underlying developments and canonical source URLs against all 367 accessible normalized coverage records: 319 imported historical records spanning September 24–October 22, 2026, plus 12 published stories on each of October 23, 24, 26 and 27. The complete ten repository history parts and all four published edition JSON files on main were read; the public coverage.json web reader was unavailable, so source-of-truth repository data were used. History lacks September 23, October 6 and October 25 editions, and several imported dates preserve only coverage summaries without original URLs. Prior records establish earlier coverage, not independent verification of their claims. Sources for today's stories were checked anew.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "github:copilot-sdk:github-app-server-to-server-org-auth-preview:2026-10-27",
+      "status": "new",
+      "topic": "Agent authentication",
+      "title": "Copilot SDK gains workload-owned GitHub App credentials",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-10-27",
+      "event_date": "2026-10-27",
+      "freshness": "New • last 48 hours",
+      "highlights": "GitHub opened public-preview server-to-server authentication for services and agents using the Copilot SDK. Instead of borrowing an employee's interactive login, a GitHub App installed in an organization can obtain a short-lived installation token with the read-only Copilot Requests organization permission. Requests and charges are attributed to that organization; its model restrictions, spending limits and budgets remain in force. The feature is intended for machine-operated workflows, not a change to model capabilities or an automatic grant of repository privileges.",
+      "implications": "Platform teams gain a clearer service-identity boundary for unattended agents. Administrators can inventory authorized apps, see app_client_id in AI usage CSV reporting, and suspend or uninstall an app to revoke access. This does not eliminate the need to scope every other API capability an agent can reach, secure token storage or audit downstream actions. Access is a public preview, so production commitments should be checked before adoption.",
+      "takeaway": "Pilot with a dedicated low-privilege GitHub App and verify attribution, budgets, revocation and audit trails end to end.",
+      "development_summary": "GitHub previewed organizational GitHub App installation-token authentication for the Copilot SDK.",
+      "sources": [
+        {
+          "label": "GitHub product announcement",
+          "url": "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "harmonic:aristotle:c-and-verilog-formal-verification-usage-pricing:2026-10-27",
+      "status": "new",
+      "topic": "Formal software verification",
+      "title": "Harmonic extends Aristotle proofs to C software and Verilog chip designs",
+      "publisher": "Reuters / Harmonic",
+      "publication_date": "2026-10-27",
+      "event_date": "2026-10-27",
+      "freshness": "New • last 48 hours",
+      "highlights": "Harmonic said October 27 that Aristotle, its AI-powered formal-reasoning product, can now work on C software and Verilog hardware descriptions as well as mathematical tasks. The company also described usage-based access. Verification is the important distinction from a coding assistant merely generating tests: formal methods attempt to prove explicitly stated properties against a model or specification. Harmonic highlighted a fusion-research example in which a team reportedly reconstructed part of reactor-control software from a paper and a brief prompt in four hours. That case study is a participant-reported result, not independent evidence of general reliability.",
+      "implications": "Safety-critical code and silicon teams could use this as another route to discovering inconsistent requirements or generating machine-checkable artifacts. The proof is only as useful as its assumptions, specifications and the correspondence between the model and deployed implementation. Software compilation, hardware synthesis, review and regression testing are not automatically replaced.",
+      "takeaway": "Ask to see the exact proof obligations, supported language subset, failure cases and reproducible comparisons before trusting a verification claim.",
+      "development_summary": "Harmonic announced Aristotle support for verification of C software and Verilog chip designs with usage pricing.",
+      "sources": [
+        {
+          "label": "Reuters original reporting",
+          "url": "https://www.reuters.com/technology/robinhood-ceos-ai-startup-harmonic-expands-into-software-chip-design-2026-10-27/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot-assisted-permissions:cli-app-vscode-general-availability:2026-10-26",
+      "status": "new",
+      "topic": "Agent execution boundaries",
+      "title": "Copilot assisted permissions reaches general availability across three clients",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-10-26",
+      "event_date": "2026-10-26",
+      "freshness": "Recent • not previously covered",
+      "highlights": "GitHub made assisted permissions generally available October 26 in Copilot CLI, the Copilot desktop app and Visual Studio Code. When an agent wants to run a command, read a path or open a URL, a language model classifies the request. Actions considered clearly safe proceed without an additional prompt; others still require approval. Users select the mode through each client's permissions interface. Enterprise administrators can independently prohibit unrestricted Allow All, disallow Assisted or establish an allowed default for new sessions.",
+      "implications": "The change targets the friction of approving routine operations, but a probabilistic classifier is not a deterministic security boundary. A mistakenly approved command, surprising file content or a prompt-injection attempt may still create risk. Admin policy and operating-system sandboxing remain distinct safeguards, and teams should inspect what is logged when a request bypasses the interactive prompt. This is a permission-workflow release, separate from GitHub's new organization-owned SDK authentication announced October 27.",
+      "takeaway": "Treat assisted mode as a measured convenience: test edge cases, permission escalation and audit evidence before enabling it broadly.",
+      "development_summary": "Copilot assisted permissions became GA in CLI, desktop app and VS Code with enterprise policy controls.",
+      "sources": [
+        {
+          "label": "GitHub release note",
+          "url": "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:ecs:gpu-sharing-nvidia-mps-tasks-managed-instances-ec2:2026-10-27",
+      "status": "new",
+      "topic": "Container orchestration",
+      "title": "Amazon ECS can share one NVIDIA GPU across multiple tasks",
+      "publisher": "AWS What's New",
+      "publication_date": "2026-10-27",
+      "event_date": "2026-10-27",
+      "freshness": "New • last 48 hours",
+      "highlights": "AWS introduced Amazon ECS scheduling support for NVIDIA Multi-Process Service on October 27, letting several ECS tasks share a physical GPU rather than assigning one whole GPU to each task. Container definitions specify GPU memory demand and can optionally cap compute share; ECS places tasks according to remaining capacity. AWS identifies lightweight inference, embedding generation, simulation and multi-model serving as candidates. The feature works on ECS Managed Instances and ECS on EC2 across commercial and GovCloud US Regions. For Managed Instances, ECS also monitors the MPS daemon and replaces an instance when it becomes unhealthy.",
+      "implications": "This is useful when small, uneven workloads strand accelerator memory, but it is not automatic performance isolation. Concurrent kernels can interfere with latency and throughput; model loading, memory headroom and noisy neighbors still matter. Real savings depend on GPU utilization, instance sizing and service-level objectives, not merely a higher task density on a dashboard.",
+      "takeaway": "Benchmark p95 latency and cost per completed request under concurrent load before converting dedicated GPU tasks.",
+      "development_summary": "AWS ECS added managed NVIDIA MPS GPU sharing and per-task memory/compute reservation options.",
+      "sources": [
+        {
+          "label": "AWS service announcement",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ecs-gpu-sharing-nvidia-mps/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:elasticache-valkey9:existing-cluster-synchronous-asynchronous-durability-switch:2026-10-27",
+      "status": "new",
+      "topic": "State durability",
+      "title": "ElastiCache for Valkey permits in-place changes to write durability",
+      "publisher": "AWS What's New",
+      "publication_date": "2026-10-27",
+      "event_date": "2026-10-27",
+      "freshness": "New • last 48 hours",
+      "highlights": "Amazon ElastiCache for Valkey now lets operators enable or disable durability on an existing node-based cluster without building a replacement. AWS announced the change October 27 for Valkey 9.0 and newer in supported Regions. With synchronous writes, the service persists a change across at least two Availability Zones before acknowledging it, a design AWS says targets zero data loss for a single failure with single-digit-millisecond write latency. Asynchronous writes acknowledge sooner and can retain microsecond-scale latency, but AWS warns as much as ten seconds of not-yet-persisted data may be lost in a rare failure.",
+      "implications": "The new switch matters to agent workflow state, retrieval indexes, tokenization, inventories and other workloads that gradually outgrow an expendable cache. It does not by itself establish an application's recovery point, cross-Region continuity, consistency under concurrent updates or a backup strategy. The performance figures are vendor descriptions; actual impact varies with traffic, geography and application semantics.",
+      "takeaway": "Document the maximum tolerable state loss and test failover before changing durability on production clusters.",
+      "development_summary": "ElastiCache for Valkey added in-place switching between synchronous and asynchronous write durability.",
+      "sources": [
+        {
+          "label": "AWS product release",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/elasticache-changing-durability/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "oracle-cloud:2026-10-27:nvidia-vera-rubin-expanded-google-tpu-cerebras-sambanova-chip-options",
+      "status": "new",
+      "topic": "Cloud accelerator supply",
+      "title": "Oracle broadens its AI chip roadmap beyond NVIDIA-only deployments",
+      "publisher": "Reuters / Oracle and suppliers",
+      "publication_date": "2026-10-27",
+      "event_date": "2026-10-27",
+      "freshness": "New • last 48 hours",
+      "highlights": "Oracle and NVIDIA announced an expanded arrangement October 27 involving future multi-gigawatt-scale Vera Rubin server capacity; the companies did not disclose a contract value. Oracle also said it will offer Google's TPU accelerators for the first time and plans inference options from Cerebras and SambaNova. Even in the NVIDIA-based systems, Oracle said it expects to use its own Acceleron networking in some positions instead of every NVIDIA network component. These announcements describe supplier relationships, product plans and future deployment capacity, not a verified inventory of machines already running.",
+      "implications": "For enterprise infrastructure buyers, accelerator choice could create new leverage on workload placement, model-serving economics and portability, while adding compiler, networking and operational differences. Training and low-latency inference do not necessarily favor the same hardware. Capital-expenditure targets and large-scale supply commitments should not be confused with delivered compute, available regional quotas or published service levels.",
+      "takeaway": "Track actual SKU availability, compatible frameworks, network designs and measured throughput rather than extrapolating from announced gigawatts.",
+      "development_summary": "Oracle announced expanded NVIDIA Vera Rubin supply and planned Google TPU, Cerebras and SambaNova offerings.",
+      "sources": [
+        {
+          "label": "Reuters original reporting",
+          "url": "https://www.reuters.com/business/oracle-expands-chip-supply-deal-with-nvidia-adds-google-cerebras-offerings-2026-10-27/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "cisa:kev:adobe-commerce-cve-2026-48356-confirmed-exploited-addition:2026-10-27",
+      "status": "new",
+      "topic": "Active exploitation / e-commerce",
+      "title": "CISA flags exploited Adobe Commerce file-upload flaw despite July patch",
+      "publisher": "CISA KEV / Adobe bulletin",
+      "publication_date": "2026-10-27",
+      "event_date": "2026-10-27",
+      "freshness": "New • last 48 hours",
+      "highlights": "On October 27, CISA added CVE-2026-48356 to its Known Exploited Vulnerabilities catalog, recording evidence of attacks against Adobe Commerce and Magento deployments. The issue involves unrestricted upload of a dangerous file type that can lead to code execution in an affected storefront; Adobe's description includes a user-interaction condition. The vulnerability and matching fixes are not new: Adobe published bulletin APSB26-73 on July 14. What changed this week is the confirmed-exploitation designation and associated federal remediation deadline of November 10, 2026. Administrators should use Adobe's product-by-product matrix to determine the fixed branch, not guess from a single version number.",
+      "implications": "The designation raises priority for unpatched stores, including headless storefronts and less-visible staging systems. A patch applied today does not prove an earlier exposed installation was uncompromised. Response should include inventory, access and upload-log review, credential hygiene where indicated, and verification that custom integrations remain functional after updating. CISA's federal deadline is not an automatic grace period for other operators.",
+      "takeaway": "Apply the appropriate Adobe update urgently and investigate exposed instances for signs of abuse.",
+      "development_summary": "CISA added previously patched Adobe Commerce/Magento CVE-2026-48356 to KEV on October 27 after observing exploitation.",
+      "sources": [
+        {
+          "label": "CISA known exploited catalog",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+        },
+        {
+          "label": "Adobe APSB26-73 bulletin",
+          "url": "https://www.adobe.com/trust/security/products/commerce/apsb26-73.html"
+        },
+        {
+          "label": "Dated KEV coverage",
+          "url": "https://www.tuskira.ai/advisories/cve-2026-48356"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "anduril-qualcomm:bluechip-defense-laptops-domestic-supply-chain-plan:2026-10-27",
+      "status": "new",
+      "topic": "Defense edge compute",
+      "title": "Anduril and Qualcomm plan domestic-built BlueChip laptops for defense users",
+      "publisher": "Reuters / Anduril and Qualcomm",
+      "publication_date": "2026-10-27",
+      "event_date": "2026-10-27",
+      "freshness": "New • last 48 hours",
+      "highlights": "Anduril and Qualcomm unveiled a plan October 27 for a BlueChip laptop line targeting government and defense users who need local AI processing and greater control over hardware supply chains. Reuters reported that Snapdragon X chips are to be fabricated at TSMC's Arizona plants, with circuit-board assembly planned for an Anduril facility in Ohio. The companies are still developing US sourcing for cases, batteries and additional components and describe a phased effort toward more domestic production. No blanket claim that all parts are presently US-made or that operational military units have received the product is warranted.",
+      "implications": "The development is about trusted endpoint manufacturing and edge inference, not a new autonomous weapon. Offline or on-device models can reduce how often sensitive work must leave a controlled environment, but hardware origin alone does not establish firmware integrity, attestation, zero-trust enforcement or software security. Commercial readiness, performance and certification require verification as the program matures.",
+      "takeaway": "Watch actual delivered configurations, supply-chain attestations, repairability, operating-system controls and measured local inference performance.",
+      "development_summary": "Anduril and Qualcomm announced a phased BlueChip laptop manufacturing partnership emphasizing US production and on-device AI.",
+      "sources": [
+        {
+          "label": "Reuters original report",
+          "url": "https://www.reuters.com/business/aerospace-defense/anduril-qualcomm-partner-new-line-us-made-laptops-2026-10-27/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "skyborne:cerberus-mi-blue-uas-cleared-list-procurement-eligibility:2026-10-26",
+      "status": "new",
+      "topic": "Uncrewed systems acquisition",
+      "title": "Skyborne Cerberus MI joins the defense Blue UAS Cleared List",
+      "publisher": "Skyborne Technologies",
+      "publication_date": "2026-10-26",
+      "event_date": "2026-10-26",
+      "freshness": "Recent • not previously covered",
+      "highlights": "Skyborne Technologies announced October 26 that its Cerberus MI small uncrewed aircraft system has been added to the Department of War Blue UAS Cleared List. The manufacturer says the assessment examined cybersecurity, supply-chain and foreign-ownership-control considerations against the program's requirements. The cleared-list placement can simplify departmental procurement or use without a separate exception-to-policy process. Skyborne describes Cerberus MI as a reusable Group 2 multirole platform with onboard AI assistance and human authorization for its armed mission functions. Those capability descriptions are manufacturer claims rather than independent operational test results.",
+      "implications": "Eligibility changes acquisition options but should not be mistaken for a contract award, successful combat deployment or a certification of fitness for every mission. Program teams still need airworthiness, integration, training, safety, sustainment, data-link and operator-control assessments. The meaningful defense-technology story is the procurement gate crossing, not an assertion that an autonomous capability has been fielded.",
+      "takeaway": "Watch specific buys and independent test evidence before treating cleared-list status as a performance endorsement.",
+      "development_summary": "Skyborne announced Cerberus MI was added to the defense Blue UAS Cleared List.",
+      "sources": [
+        {
+          "label": "Manufacturer's dated announcement",
+          "url": "https://skybornetech.com/skyborne-technologies-cerberus-mi-suas-added-to-blue-uas-cleared-list/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "conference-board:consumer-confidence-october-2026-91p7-release:2026-10-27",
+      "status": "new",
+      "topic": "Household sentiment",
+      "title": "Consumer confidence rebounds in October, but forward expectations remain cautious",
+      "publisher": "The Conference Board",
+      "publication_date": "2026-10-27",
+      "event_date": "2026-10-27",
+      "freshness": "New • last 48 hours",
+      "highlights": "The Conference Board's October 27 release put its US Consumer Confidence Index at 91.7, up 7.5 points from a revised 84.2 in September. Its Present Situation Index improved to 120.4, while the Expectations Index recovered to 72.6 after three monthly declines. The survey's preliminary collection window was October 1–21, so these figures capture responses during that period rather than spending or prices measured today. The organization linked improving sentiment partly to lower gasoline prices, while also describing an ongoing longer-term downtrend and lingering concern about living costs.",
+      "implications": "Better confidence may help explain household willingness to make purchases, but survey answers are not observed wage growth, retail receipts or the Consumer Price Index. Expectations remaining below their historical comfort range calls for caution when inferring a broad economic turnaround. For family decisions, borrowing rates, job security and actual monthly cash flow are more actionable than an index level alone.",
+      "takeaway": "Watch follow-up surveys alongside inflation, jobs and spending data; one rebound is not a reversal of every household pressure.",
+      "development_summary": "The Conference Board reported October US confidence rising to 91.7, with expectations at 72.6.",
+      "sources": [
+        {
+          "label": "Conference Board original release",
+          "url": "https://www.prnewswire.com/news-releases/us-consumer-confidence-increased-in-october-302920731.html"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "fhfa:house-price-index-august-2026-mom0p3-yoy2p4-release:2026-10-27",
+      "status": "new",
+      "topic": "Housing affordability",
+      "title": "FHFA finds August home prices up nationally, with large regional differences",
+      "publisher": "Federal Housing Finance Agency",
+      "publication_date": "2026-10-27",
+      "event_date": "2026-08-31",
+      "freshness": "New • last 48 hours",
+      "highlights": "Fresh Federal Housing Finance Agency data published October 27 show US house prices rose 0.3% in August from July on a seasonally adjusted basis and 2.4% from August 2025. FHFA also revised July's monthly increase down from 0.3% to 0.2%. National figures conceal wide geography: August monthly changes ranged from a 0.8% decline in New England to a 2.1% increase in East South Central. Across twelve months, census-division gains ranged from 0.5% in Mountain to 4.4% in East North Central. FHFA's index reflects single-family mortgage-linked transaction information, not a fresh tally of homes going under contract.",
+      "implications": "For buyers and homeowners, slight national appreciation cannot answer whether a particular market offers better negotiating power. Mortgage financing costs, insurance, taxes, property condition and local inventories can dominate the monthly index movement. The August observation date is distinct from the October publication date, and individual neighborhood prices may diverge materially.",
+      "takeaway": "Use the FHFA regional series as context, then evaluate actual local comparables and all-in ownership costs.",
+      "development_summary": "FHFA's August 2026 HPI rose 0.3% monthly and 2.4% yearly; regional changes varied widely.",
+      "sources": [
+        {
+          "label": "FHFA official statistical release",
+          "url": "https://www.fhfa.gov/news/news-release/fhfa-house-price-index-up-0.3-percent-in-august-up-2.4-percent-from-last-year"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-census:durable-goods-core-capital-orders-shipments-september-2026:released-2026-10-27",
+      "status": "new",
+      "topic": "Business investment",
+      "title": "Core capital orders and shipments signal ongoing US equipment spending",
+      "publisher": "Reuters / US Census Bureau",
+      "publication_date": "2026-10-27",
+      "event_date": "2026-09-30",
+      "freshness": "New • last 48 hours",
+      "highlights": "New Census Bureau durable-goods figures reported October 27 show September orders for nondefense capital goods excluding aircraft rose 0.5% after a 1.6% August gain. This measure, often used as a proxy for business investment in equipment, was up 10.9% from a year earlier. Shipments of the same core equipment jumped 1.2% in September after a 0.6% August gain; those shipments feed into estimates of equipment spending in GDP. The report reflects September manufacturing orders and deliveries, not an October stock-price move, and monthly series can be revised.",
+      "implications": "Strong equipment demand is consistent with continued data-center, AI and industrial investment, but the published aggregate does not isolate those causes or guarantee profitable projects. Economists cited by Reuters expected another strong quarter of investment; that remains an estimate until the official GDP release. Households may see indirect effects through hiring, wages, power infrastructure and inflation, often on different schedules.",
+      "takeaway": "Compare the figures with forthcoming GDP details and later revisions rather than projecting every investment trend from one month.",
+      "development_summary": "US September core capital goods orders increased 0.5% and shipments rose 1.2% in Census data released October 27.",
+      "sources": [
+        {
+          "label": "Reuters original economic reporting",
+          "url": "https://www.reuters.com/business/us-core-capital-goods-rise-september-shipments-accelerate-2026-10-27/"
+        }
+      ]
+    }
+  ]
+}
