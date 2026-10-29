@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-29",
+  "title": "Arbiter News",
+  "intro": "Twelve independently sourced developments across frontier AI, agent engineering, cloud operations, cyber defense, public policy and household economics.",
+  "overview": "Google's next model rolls out narrowly to cyber defenders as GitHub introduces model orchestration and general-purpose agent workflows. Akamai adds agent-serving infrastructure, Node.js 26 becomes LTS, and Microsoft's cloud earnings illuminate capacity pressures. Dependabot receives reachability analysis, the U.S. Army selects cyber-defense pilot partners, and new legal-sector threat research tracks extortion. A Fed rate hold, UK energy assistance and Census housing occupancy data provide practical financial context.",
+  "history_note": "Compared underlying developments and canonical HTTPS sources against the complete 379 accessible normalized event records: 319 imported historical records across ten history-part files for September 24–October 22, 2026, plus all 60 stories from the five published editions on October 23, 24, 26, 27 and 28. The public coverage.json web reader was inaccessible, so full repository data were used instead. Known missing edition coverage includes September 23, October 6 and October 25; portions of the imported history contain only short summaries without original URLs. Historical entries are evidence of prior coverage, not verification of old factual claims. All cited stories here were independently researched from the linked primary source or original reporting.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "google:gemini-4-carbon:trusted-cyber-defender-rollout-and-model-announcement:2026-10-28",
+      "status": "new",
+      "topic": "Frontier models / defensive security",
+      "title": "Google introduces Gemini 4 Carbon with restricted cyber-defender access",
+      "publisher": "Google / Gemini announcement",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "freshness": "New • last 48 hours",
+      "highlights": "Google announced Gemini 4 Carbon on October 28, positioning the new model for long-running engineering work and cyber defense. In Google's published evaluations it scored 88.2% on SEC-bench Pro vulnerability discovery, 54.8% on ExploitGym and 71.0% on CWE-bench patching. Those figures are vendor-reported results on particular benchmarks, not independent proof of production security reliability. Google says it is releasing Carbon first to a subset of cyber defenders through its Fairwind program while continuing safety assessment. Broader developer, business and consumer availability is planned, not yet generally active. It listed introductory prices of $2 per million input tokens and $10 per million output tokens.",
+      "implications": "This is a genuinely new model following Gemini 4 Argon, not renewed coverage of Argon's release. Security teams should separate discovery, exploitation validation and patch correctness, then test verified findings under their own authorization boundaries. Access restrictions and future product integrations matter more than impressive headline benchmark ratios.",
+      "takeaway": "Track real customer availability, false-positive rates and accepted patch quality; avoid planning deployment around an access program that has not opened broadly.",
+      "development_summary": "Google introduced the distinct Gemini 4 Carbon model and began a restricted cyber-defender rollout on October 28.",
+      "sources": [
+        {
+          "label": "Google original model announcement",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot-fusion:multi-model-orchestration-general-availability:2026-10-28",
+      "status": "new",
+      "topic": "Developer agents / model routing",
+      "title": "Copilot Fusion reaches GA with task-based multi-model routing",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "freshness": "New • last 48 hours",
+      "highlights": "GitHub made Copilot Fusion generally available October 28. Rather than committing a coding session to one model, developers select Fusion Standard, High or Max and let GitHub choose models per task. Fusion can use a single model, a cascade that escalates after a quality check, or a critique loop where another model reviews a draft. Enterprise administrators can constrain its eligible models and set the default effort level through existing managed settings. GitHub attributes about half the API task cost and approximately 40% shorter task time in one published benchmark comparison to its orchestration system; these are vendor-presented measurements, not universal performance guarantees.",
+      "implications": "Actual billing includes each model called at its standard rate, with a limited promotional 30% discount on Fusion model costs for eligible paid users. For engineering organizations, the question shifts from which single model is best to whether routing improves accepted changes, latency and predictability without obscuring auditability.",
+      "takeaway": "Evaluate representative repository tasks and total model spend against explicit baselines; verify the model-policy boundary and inspect multi-model traces before standardizing.",
+      "development_summary": "GitHub made Copilot Fusion's Single, Cascade and Critique multi-model routing generally available.",
+      "sources": [
+        {
+          "label": "GitHub product changelog",
+          "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:agentic-workflows:markdown-compiled-actions-ga-arc-isolation:2026-10-28",
+      "status": "new",
+      "topic": "Agent-based automation / CI",
+      "title": "GitHub Agentic Workflows graduates to GA with ARC runner support",
+      "publisher": "GitHub Next / GitHub Changelog",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "freshness": "New • last 48 hours",
+      "highlights": "GitHub announced general availability of Agentic Workflows on October 28. Teams define reasoning-based automations such as issue triage, CI failure investigations and documentation updates in Markdown; the project compiles them into ordinary GitHub Actions YAML. The workflow supports GitHub Copilot or a selected third-party coding agent, reusing existing runner groups and organizational policies. GitHub describes read-only permissions by default, container sandboxing behind an agent workflow firewall, validated safe outputs and a dedicated threat-detection job. GA additions include Actions Runner Controller with Docker-in-Docker support, improved model routing, budget forecasting and optional micro-VM isolation.",
+      "implications": "This is a distinct lifecycle event for an open-source workflow system, rather than another model launch. Production adopters should review the generated YAML, outbound network limits, tool permissions and escalation paths, particularly when agents propose writes or operate across repositories. GA does not make arbitrary agent-authored automation safe.",
+      "takeaway": "Start with a read-only investigative workflow, measure results and inspect its compiled workflow plus security steps before allowing mutation.",
+      "development_summary": "GitHub Agentic Workflows reached GA with Markdown-to-Actions compilation, ARC support and sandboxed execution options.",
+      "sources": [
+        {
+          "label": "GitHub announcement",
+          "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "akamai:inference-agent-sandbox:managed-ai-platform-beta:2026-10-27",
+      "status": "new",
+      "topic": "AI infrastructure / sandboxing",
+      "title": "Akamai pairs managed inference with isolated agent execution",
+      "publisher": "Akamai / original announcement",
+      "publication_date": "2026-10-27",
+      "event_date": "2026-10-27",
+      "freshness": "Recent • not previously covered",
+      "highlights": "Akamai announced Akamai Inference and Akamai Agent Sandbox together on October 27 as connected components of its cloud AI stack. The managed inference service exposes OpenAI-compatible APIs with serverless and dedicated options, and an initial catalog of 12 open-weight models plus embedding models. The companion sandbox provides a constrained environment for code generated or invoked by AI agents. Akamai positions its existing compute, networking and security footprint as the common operating surface. Availability and capabilities need to be checked against the beta/product documentation rather than read as proof that all features are generally deployed everywhere.",
+      "implications": "The architectural opportunity is a clearer separation between model serving and untrusted tool execution without assembling two unrelated vendors. But a sandbox still requires explicit network egress limits, filesystem rules, short-lived credentials, execution quotas and an auditable approval boundary. Vendor scale and latency claims are not independent workload benchmarks.",
+      "takeaway": "Consider a constrained pilot only after confirming supported regions, supported languages, isolation controls, costs and whether failure handling meets operational requirements.",
+      "development_summary": "Akamai introduced managed AI inference and an agent execution sandbox as one October 27 platform announcement.",
+      "sources": [
+        {
+          "label": "Akamai original announcement",
+          "url": "https://www.akamai.com/newsroom/press-release/akamai-launches-ai-inference-service-and-agent-execution-environment"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "nodejs:26.13.0-lithium:lts-transition-support-to-april2029:2026-10-28",
+      "status": "new",
+      "topic": "Runtime lifecycle / CI-CD",
+      "title": "Node.js 26 becomes LTS; Linux runtime compatibility deserves a check",
+      "publisher": "Node.js release team",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "freshness": "New • last 48 hours",
+      "highlights": "The Node.js project released version 26.13.0 on October 28 and promoted the 26.x line to Long Term Support under the Lithium codename. The project's release notice says support continues through April 2029. This particular patch is chiefly the LTS metadata transition: it introduces no additional changes beyond 26.12.1. The operationally important caveat for teams upgrading from Node.js 24, 22 or older is that official Linux binaries since Node 25 link against libatomic, which may need to be installed separately on some distributions. The update is not a security emergency or a new major-version launch.",
+      "implications": "For CI/CD, the LTS milestone provides a supported runtime target for dependency and container migrations. Teams using GitHub Actions, self-hosted runners or custom base images should test native modules, OS packages, TLS behavior and deployment parity before broad adoption; being LTS alone does not establish compatibility.",
+      "takeaway": "Schedule controlled runtime-matrix testing and verify libatomic on Linux images before changing build or production defaults.",
+      "development_summary": "Node.js 26.13.0 entered LTS on October 28, with the project targeting maintenance through April 2029.",
+      "sources": [
+        {
+          "label": "Node.js official release notice",
+          "url": "https://nodejs.org/en/blog/release/v26.13.0"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "microsoft:fy2027-q1:azure-revenue-growth-48-cloud-63.9b:2026-10-28",
+      "status": "new",
+      "topic": "Cloud industry / capacity and investment",
+      "title": "Microsoft reports 48% Azure growth amid AI capacity pressure",
+      "publisher": "Microsoft Investor Relations / original earnings",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-09-30",
+      "freshness": "New results • last 48 hours",
+      "highlights": "Microsoft's October 28 earnings release covers its fiscal first quarter ended September 30, 2026, not October trading. It reported total revenue of $92.3 billion, up 19% year over year; Microsoft Cloud revenue of $63.9 billion, up 30%; and Azure revenue growth of 48%. Its commercial remaining performance obligation reached $677 billion, up 73%. Those are company-reported results; the backlog is a contractual performance measure rather than all immediate recognized revenue. Separately, original financial reporting highlighted constraints and delays in bringing AI data-center capacity online, a reminder that sold capacity and delivered compute do not always expand on the same schedule.",
+      "implications": "For cloud operators, demand growth and power/build-out constraints can translate into regional GPU scarcity, longer provisioning lead times and shifting reserved-capacity economics. Earnings figures cannot predict a specific customer's availability or next-quarter pricing. Investment and demand forecasts should remain explicitly conditional.",
+      "takeaway": "Build availability and portability assumptions around tested regional capacity, not provider-wide growth headlines; watch next-quarter capacity disclosures.",
+      "development_summary": "Microsoft's FY27 Q1 release reported Azure revenue growth of 48% and Microsoft Cloud revenue of $63.9B for the quarter ended September 30.",
+      "sources": [
+        {
+          "label": "Microsoft official quarterly release",
+          "url": "https://www.microsoft.com/en-us/Investor/earnings/FY-2027-Q1/press-release-webcast"
+        },
+        {
+          "label": "Financial Times original reporting",
+          "url": "https://www.ft.com/content/93f53cb4-1fc8-4ca5-aa91-186b77b03d92"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "github:dependabot:codeql-dependency-callgraph-reachability-public-preview-js-ts:2026-10-28",
+      "status": "new",
+      "topic": "Software supply-chain risk",
+      "title": "GitHub previews call-path reachability for Dependabot vulnerabilities",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "freshness": "New • last 48 hours",
+      "highlights": "GitHub opened reachability analysis for Dependabot alerts in public preview on October 28 for JavaScript and TypeScript. A managed Actions workflow uses curated vulnerable-function data and CodeQL to build a call graph from application code into dependencies. Existing alerts receive a verdict of reachable, potentially reachable, unreachable or unavailable; the interface can show an evidence path and expose verdicts through the REST API. GitHub explicitly says the analysis does not automatically dismiss or close alerts. A potentially reachable verdict should be treated as reachable until examined, while unavailable means the normal triage process still applies.",
+      "implications": "This improves security backlog prioritization beyond package-presence scans and severity scores, but static call graphs can miss dynamic invocation, runtime configuration and data-dependent exploitation conditions. Organizations should combine the signal with exposure, EPSS, deployed versions and threat intelligence. It is a preview, not proven broad language coverage or a substitute for updates.",
+      "takeaway": "Pilot against known-vulnerable test repositories, inspect both false negatives and the workflow's permissions, and never equate 'unreachable' with 'safe forever.'",
+      "development_summary": "GitHub added CodeQL-based vulnerable dependency call-path evidence to Dependabot alerts in a JavaScript/TypeScript public preview.",
+      "sources": [
+        {
+          "label": "GitHub original preview announcement",
+          "url": "https://github.blog/changelog/2026-10-28-prioritize-dependabot-alerts-with-reachability-analysis/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "us-army:project-griffin:aws-wwt-2.6m-agentic-defense-pilot-selection:2026-10-23",
+      "status": "new",
+      "topic": "Defense cyber / autonomy",
+      "title": "US Army chooses two partners for a $2.6M autonomous cyber-defense pilot",
+      "publisher": "U.S. Army Public Affairs",
+      "publication_date": "2026-10-26",
+      "event_date": "2026-10-23",
+      "freshness": "Recent • not previously covered",
+      "highlights": "The U.S. Army announced October 26 that it had selected Amazon Web Services and World Wide Technology on October 23 to support Project Griffin, a combined $2.6 million pilot. The effort sits within the Army's Project ARDS initiative and aims to accelerate agentic, superintelligence-enabled network defense: detecting, diverting and deceiving hostile cyber activity at faster-than-manual speeds. These are stated program objectives and an initial partner-selection award, not a report that autonomous defensive operations are already fielded. The Army has not published comparative success rates, operational authority limits or a completed evaluation of the pilot.",
+      "implications": "The significant defense-technology question is how machine-speed automation will be constrained around production networks, cyber authorities and false-positive containment. In a controlled pilot, security posture should be measured by verified detection, disruption safety and reproducibility rather than vague claims of autonomy. Separate procurement scope from deployable capability.",
+      "takeaway": "Watch formal pilot acceptance criteria, operator oversight, red-team evaluation and measurable defensive outcomes before treating Griffin as an operational capability.",
+      "development_summary": "The Army named AWS and WWT for a combined $2.6M Project Griffin cyber-defense pilot selected October 23 and announced October 26.",
+      "sources": [
+        {
+          "label": "U.S. Army official announcement",
+          "url": "https://www.army.mil/article/296330/army_selects_project_griffin_partners_to_accelerate_si_enabled_cyber_defense"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "crowdstrike:2026-legal-threat-landscape:leak-sites-455-financial-motivation-report:2026-10-28",
+      "status": "new",
+      "topic": "Original threat intelligence / legal sector",
+      "title": "CrowdStrike finds escalating extortion exposure in legal-sector attacks",
+      "publisher": "CrowdStrike threat research",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "freshness": "New research • last 48 hours",
+      "highlights": "CrowdStrike released its 2026 Legal Threat Landscape findings on October 28. Within its observed activity against legal-sector organizations, it attributes 82% to financially motivated adversaries. It counted 455 legal entities named on criminal leak sites, up 39% year over year, and highlights actors impersonating internal technology staff to establish remote access before stealing sensitive records. The researcher also reports a marked increase in CHATTY SPIDER operations. These figures describe the vendor's detection and reporting scope, not a comprehensive census of all law-firm incidents or independently proven national rates.",
+      "implications": "Law firms and outsourced legal services hold privileged client material, case strategies and third-party identity access, making them high-value extortion targets and potential routes into customer ecosystems. The actionable response is to harden remote-support verification, monitor unusual RMM tool installation and improve credential isolation, logging and incident escalation across legal vendors.",
+      "takeaway": "Rehearse help-desk impersonation and third-party access abuse; treat vendor statistics as directional rather than a precise measure of every organization's risk.",
+      "development_summary": "CrowdStrike published October 28 research recording 455 legal entities on leak sites and high financially motivated threat activity.",
+      "sources": [
+        {
+          "label": "CrowdStrike original research",
+          "url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-2026-legal-threat-landscape-report/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "fed:fomc-target-range-3.75-4.00-hold-10-2-dissent:2026-10-28",
+      "status": "new",
+      "topic": "Federal Reserve / household borrowing",
+      "title": "Federal Reserve keeps rates at 3.75%–4.00%; two governors favor a hike",
+      "publisher": "Federal Reserve / FOMC statement",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "freshness": "New decision • last 48 hours",
+      "highlights": "At its October 28 meeting the Federal Open Market Committee voted 10–2 to maintain the federal funds target range at 3.75%–4.00%. The official statement says activity remains strong, employment conditions have changed little and inflation is still elevated. Governors Lisa Cook and Beth Hammack dissented in favor of raising the target by a quarter percentage point. This is an actual policy decision, distinct from the October 20 economist survey that forecast a pause; it does not include a commitment to hold or raise rates in December. The target is an overnight bank funding range, not a mortgage, credit-card or savings rate offered to households.",
+      "implications": "For household finances the near-term implication is that no fresh Fed hike occurred, while market expectations and lender pricing may still move independently. Credit-card APRs, adjustable loans, deposit yields and mortgage quotes respond differently and on different timetables. A two-vote dissent is not the majority policy path.",
+      "takeaway": "Review actual loan terms and cash rates before making changes, and track the next inflation and labor releases instead of forecasting a guaranteed Fed move.",
+      "development_summary": "The FOMC voted 10–2 on October 28 to hold the federal funds target at 3.75%–4.00%, with two dissents favoring a hike.",
+      "sources": [
+        {
+          "label": "Federal Reserve original FOMC statement",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "uk-treasury:autumn-budget-2026:household-energy-payment-100-england-january2027:2026-10-28",
+      "status": "new",
+      "topic": "Household finance policy / UK",
+      "title": "UK Budget outlines £100 winter energy payment for eligible English households",
+      "publisher": "UK Department for Energy Security and Net Zero",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "freshness": "New policy • last 48 hours",
+      "highlights": "The UK government published its Autumn Budget 2026 household-energy guidance on October 28. It says an eligible main-home household in England with council tax band A, B, C or D will receive a £100 Household Energy Payment from January 2027. Officials estimate up to 20 million households qualify. Eligibility depends on council-tax liability and property status, with certain exemptions and operational details still to be finalized. Second homes, empty properties and most cases where the resident is not liable for council tax are excluded. The budget also describes changes intended to relieve electricity bills and gas standing charges, but future market reforms and savings are government plans rather than verified savings already received.",
+      "implications": "This is UK household financial policy, not a U.S. rebate or an automatically universal benefit. For eligible households, the practical point is to verify council-tax band and payment administration rather than assume a grant has already been paid. Projected cost-of-living effects remain uncertain.",
+      "takeaway": "Check final eligibility and payment instructions with the responsible council; do not confuse a proposed 2027 disbursement with cash available in October 2026.",
+      "development_summary": "UK government outlined a £100 energy payment for eligible English council-tax A–D households beginning January 2027.",
+      "sources": [
+        {
+          "label": "UK government household energy guidance",
+          "url": "https://www.gov.uk/government/news/what-the-autumn-budget-2026-means-for-your-energy-bills"
+        },
+        {
+          "label": "UK Budget 2026 official document",
+          "url": "https://www.gov.uk/government/publications/budget-2026-document/budget-2026-html"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-census:housing-vacancy-homeownership:q3-2026-release-2026-10-28",
+      "status": "new",
+      "topic": "Housing supply / household economics",
+      "title": "U.S. rental vacancy reaches 7.6%; homeownership rate remains broadly flat",
+      "publisher": "U.S. Census Bureau Housing Vacancy Survey",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-09-30",
+      "freshness": "New data • last 48 hours",
+      "highlights": "The U.S. Census Bureau released its third-quarter 2026 residential vacancies and homeownership estimates on October 28. The national rental vacancy rate was 7.6%, versus 7.1% in third-quarter 2025 and 7.3% in the preceding quarter. Homeowner vacancy remained 1.2%. The national homeownership rate was 65.5%, compared with 65.3% a year earlier and 65.0% in the second quarter, but the Census explicitly says those homeownership differences were not statistically significant. This is survey data describing the July–September housing market, not a current list of available rentals or a change in individual home values.",
+      "implications": "More vacant rental units nationally can change bargaining power over time, but local conditions differ substantially by neighborhood, apartment type and lease timing. The release is separate from FHFA's August house-price index published October 27, which measures prices rather than occupancy. Homeownership data do not establish a meaningful nationwide increase.",
+      "takeaway": "Renters can compare local vacancies and concessions, while owners should avoid treating a small nonsignificant survey shift as a price forecast.",
+      "development_summary": "Census reported Q3 2026 rental vacancy of 7.6%, homeowner vacancy of 1.2%, and a statistically little-changed 65.5% homeownership rate.",
+      "sources": [
+        {
+          "label": "Census Bureau original October 28 release",
+          "url": "https://www.census.gov/housing/hvs/current/index.html"
+        },
+        {
+          "label": "NAHB economic research interpretation",
+          "url": "https://eyeonhousing.org/2026/10/homeownership-rate-rises-to-65-5/"
+        }
+      ]
+    }
+  ]
+}
