@@ -8,33 +8,6 @@
   "stories": [
     {
       "category": "ai",
-      "event_key": "mistral:large4:open-weights-fp8-nvfp4-checkpoint-release:2026-10-29",
-      "status": "material-update",
-      "updates_event_key": "mistral:mistral-large-4:public-preview:2026-10-06",
-      "change_summary": "Mistral Large 4 was covered on October 7 as an October 6 hosted API preview whose downloadable weights were only promised. On October 29, Mistral published actual FP8 and NVFP4 model checkpoints, downstream GGUF formats and inference guidance, enabling local or private deployments under its stated open-weight license.",
-      "topic": "Model distribution / self-hosting",
-      "title": "Mistral Large 4 moves from hosted preview to downloadable weights",
-      "publisher": "Hugging Face / Mistral AI",
-      "publication_date": "2026-10-29",
-      "event_date": "2026-10-29",
-      "freshness": "Material update",
-      "highlights": "Mistral Large 4 has a new distribution milestone, not another launch-day benchmark. On October 29, Mistral and Hugging Face made official FP8 and NVFP4 checkpoints downloadable; community-converted GGUF versions are also available. The model is multimodal, with roughly one trillion total parameters, about 49 billion active parameters and a stated million-token context window. Its release includes inference guidance for Transformers, vLLM and llama.cpp. The Mistral Ecosystem Open-Weight License is derived from MIT but restricts some model-as-a-service uses, so “open weight” should not be confused with unrestricted commercialization.",
-      "implications": "The October 6 edition covered a hosted public preview and a future weights promise. Actual checkpoints materially change the deployment decision: teams can now evaluate private hosting, local controls and tailored serving instead of waiting for access. But model size makes infrastructure economics, memory topology and latency central. Performance claims in launch material are not independently validated for a given workload.",
-      "takeaway": "For self-hosting, inspect the license, verify downloadable artifact provenance and test realistic throughput and tool use before comparing private deployment with a paid API.",
-      "development_summary": "Mistral published downloadable Large 4 FP8 and NVFP4 checkpoints on October 29, fulfilling a weights promise from its earlier hosted preview.",
-      "sources": [
-        {
-          "label": "Hugging Face original release",
-          "url": "https://huggingface.co/blog/mistral-large4"
-        },
-        {
-          "label": "Mistral official model collection",
-          "url": "https://huggingface.co/collections/mistralai/mistral-large-4"
-        }
-      ]
-    },
-    {
-      "category": "ai",
       "event_key": "cloudflare:agents-sdk:filesystem-skills-r2-code-sources-breaking-change:2026-10-29",
       "status": "new",
       "topic": "Agent runtime / skill portability",
@@ -72,6 +45,33 @@
         {
           "label": "GitHub Universe release",
           "url": "https://github.blog/changelog/2026-10-28-github-copilot-app-universe-releases/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "mistral:large4:open-weights-fp8-nvfp4-checkpoint-release:2026-10-29",
+      "status": "material-update",
+      "updates_event_key": "mistral:mistral-large-4:public-preview:2026-10-06",
+      "change_summary": "Mistral Large 4 was covered on October 7 as an October 6 hosted API preview whose downloadable weights were only promised. On October 29, Mistral published actual FP8 and NVFP4 model checkpoints, downstream GGUF formats and inference guidance, enabling local or private deployments under its stated open-weight license.",
+      "topic": "Model distribution / self-hosting",
+      "title": "Mistral Large 4 moves from hosted preview to downloadable weights",
+      "publisher": "Hugging Face / Mistral AI",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-29",
+      "freshness": "Material update",
+      "highlights": "Mistral Large 4 has a new distribution milestone, not another launch-day benchmark. On October 29, Mistral and Hugging Face made official FP8 and NVFP4 checkpoints downloadable; community-converted GGUF versions are also available. The model is multimodal, with roughly one trillion total parameters, about 49 billion active parameters and a stated million-token context window. Its release includes inference guidance for Transformers, vLLM and llama.cpp. The Mistral Ecosystem Open-Weight License is derived from MIT but restricts some model-as-a-service uses, so “open weight” should not be confused with unrestricted commercialization.",
+      "implications": "The October 6 edition covered a hosted public preview and a future weights promise. Actual checkpoints materially change the deployment decision: teams can now evaluate private hosting, local controls and tailored serving instead of waiting for access. But model size makes infrastructure economics, memory topology and latency central. Performance claims in launch material are not independently validated for a given workload.",
+      "takeaway": "For self-hosting, inspect the license, verify downloadable artifact provenance and test realistic throughput and tool use before comparing private deployment with a paid API.",
+      "development_summary": "Mistral published downloadable Large 4 FP8 and NVFP4 checkpoints on October 29, fulfilling a weights promise from its earlier hosted preview.",
+      "sources": [
+        {
+          "label": "Hugging Face original release",
+          "url": "https://huggingface.co/blog/mistral-large4"
+        },
+        {
+          "label": "Mistral official model collection",
+          "url": "https://huggingface.co/collections/mistralai/mistral-large-4"
         }
       ]
     },
