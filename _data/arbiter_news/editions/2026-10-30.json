@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-30",
+  "title": "Arbiter News",
+  "intro": "Twelve verified developments across AI, cloud infrastructure, cybersecurity, defense, and household economics—with practical implications and links to original sources.",
+  "overview": "This morning's biggest changes span newly downloadable Mistral weights and a breaking agent-skills migration; managed streaming, Kubernetes ingress and OpenTelemetry improvements; an actionable Oracle vulnerability, a defense-logistics acquisition agreement, and North Korea's unmanned-systems ambitions; plus fresh U.S. growth, inflation and mortgage-rate data. Each card covers a distinct event and separates evidence from vendor claims and forecasts.",
+  "history_note": "Compared event identities, summaries and canonical source links with all 391 accessible stored coverage records: 319 imported historical records from ten repository history-part files covering September 24–October 22, 2026, and 72 stories from six published editions dated October 23, 24, 26, 27, 28 and 29. The public coverage.json web reader could not retrieve the complete ledger, so all available underlying repository data were read instead. Known history gaps include September 23, October 6 and October 25; some imported records retain only short summaries without original links. Prior coverage is used for deduplication, not independent proof of old reports. Today's original sources were checked anew.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "mistral:large4:open-weights-fp8-nvfp4-checkpoint-release:2026-10-29",
+      "status": "material-update",
+      "updates_event_key": "mistral:mistral-large-4:public-preview:2026-10-06",
+      "change_summary": "Mistral Large 4 was covered on October 7 as an October 6 hosted API preview whose downloadable weights were only promised. On October 29, Mistral published actual FP8 and NVFP4 model checkpoints, downstream GGUF formats and inference guidance, enabling local or private deployments under its stated open-weight license.",
+      "topic": "Model distribution / self-hosting",
+      "title": "Mistral Large 4 moves from hosted preview to downloadable weights",
+      "publisher": "Hugging Face / Mistral AI",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-29",
+      "freshness": "Material update",
+      "highlights": "Mistral Large 4 has a new distribution milestone, not another launch-day benchmark. On October 29, Mistral and Hugging Face made official FP8 and NVFP4 checkpoints downloadable; community-converted GGUF versions are also available. The model is multimodal, with roughly one trillion total parameters, about 49 billion active parameters and a stated million-token context window. Its release includes inference guidance for Transformers, vLLM and llama.cpp. The Mistral Ecosystem Open-Weight License is derived from MIT but restricts some model-as-a-service uses, so “open weight” should not be confused with unrestricted commercialization.",
+      "implications": "The October 6 edition covered a hosted public preview and a future weights promise. Actual checkpoints materially change the deployment decision: teams can now evaluate private hosting, local controls and tailored serving instead of waiting for access. But model size makes infrastructure economics, memory topology and latency central. Performance claims in launch material are not independently validated for a given workload.",
+      "takeaway": "For self-hosting, inspect the license, verify downloadable artifact provenance and test realistic throughput and tool use before comparing private deployment with a paid API.",
+      "development_summary": "Mistral published downloadable Large 4 FP8 and NVFP4 checkpoints on October 29, fulfilling a weights promise from its earlier hosted preview.",
+      "sources": [
+        {
+          "label": "Hugging Face original release",
+          "url": "https://huggingface.co/blog/mistral-large4"
+        },
+        {
+          "label": "Mistral official model collection",
+          "url": "https://huggingface.co/collections/mistralai/mistral-large-4"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "cloudflare:agents-sdk:filesystem-skills-r2-code-sources-breaking-change:2026-10-29",
+      "status": "new",
+      "topic": "Agent runtime / skill portability",
+      "title": "Cloudflare turns agent skills into mutable workspace files",
+      "publisher": "Cloudflare Changelog",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-29",
+      "freshness": "New • last 48 hours",
+      "highlights": "Cloudflare changed Agents SDK skill handling on October 29: skills are now file-backed and discovered at agent turn boundaries rather than compiled into a fixed registry. An agent can create or edit a skill document in its workspace and use it in a later turn without a deployment. Teams can draw skills from a workspace, R2 object storage or code. The release references the Agent Skills specification, supports script execution through the workspace tool and supplies a parser to validate proposed skill content.",
+      "implications": "This is a breaking SDK change, not a silent compatibility improvement. Direct legacy skill imports, compilation hooks and SkillRegistry were removed; Cloudflare directs developers to Agents SDK 0.32.0 and Think 0.23.0 or later. It also promises common skill activation and resource-reading tools across multiple harnesses. Dynamic skills reduce release friction but raise new questions about provenance, authorization, prompt injection and version rollback when an agent changes its own tools.",
+      "takeaway": "Before upgrading, inventory removed imports, make skill edits auditable and test untrusted content handling. The important capability is safe lifecycle management, not merely hot-loading text.",
+      "development_summary": "Cloudflare Agents SDK introduced file-backed, runtime-refreshable skills from workspace, R2 and code sources with a breaking migration.",
+      "sources": [
+        {
+          "label": "Cloudflare original changelog",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-10-29-agent-skills-from-files/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot-app:projects-multirepo-goals-public-preview:2026-10-28",
+      "status": "new",
+      "topic": "Developer work orchestration",
+      "title": "Copilot Projects previews cross-repository goals, context and automations",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "freshness": "Recent • not previously covered",
+      "highlights": "At GitHub Universe on October 28, GitHub introduced Projects in the Copilot app as a public preview for work that does not fit in one coding session or repository. A project can combine multiple repositories with design files, meeting notes and connected-tool context. A user describes a goal, chooses models and tools, and receives coordinated agent results such as reviewable pull requests. Project automations can repeat tasks when a defined trigger occurs. The same release also expanded work with connected apps including Slack and Figma.",
+      "implications": "The change is a persistent multi-task workspace, distinct from the Copilot Fusion model-routing release and the Agentic Workflows GitHub Actions release already covered yesterday. GitHub describes agents that continue work and request input as needed; this is vendor-documented preview behavior, not proof of autonomous reliability or complete integration coverage. Cross-repository permissions and approvals become more important as the breadth of a single project grows.",
+      "takeaway": "Evaluate multi-repo issue tracking, artifact provenance, PR handoff, approval checkpoints and failure recovery before trusting projects with long-lived software delivery.",
+      "development_summary": "GitHub opened a public preview of Copilot Projects for context-rich, cross-repository goals and repeatable project automations.",
+      "sources": [
+        {
+          "label": "GitHub Universe release",
+          "url": "https://github.blog/changelog/2026-10-28-github-copilot-app-universe-releases/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:msk-connect:inplace-plugin-worker-configuration-updates-offset-retention:2026-10-29",
+      "status": "new",
+      "topic": "Streaming / operational changes",
+      "title": "MSK Connect now updates plugins without rebuilding connectors",
+      "publisher": "AWS What's New",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-29",
+      "freshness": "New • last 48 hours",
+      "highlights": "Amazon MSK Connect added the ability to change an existing Kafka Connect connector's custom plugin and worker configuration in place on October 29. Operators can upgrade connector code or its dependencies and adjust worker-level converters plus producer and consumer settings without deleting and recreating the connector. AWS says committed offsets are retained, allowing tasks to resume from their previously committed positions after the update. Previously, this kind of modification required an operationally disruptive rebuild.",
+      "implications": "For production event pipelines, retained offsets reduce the risk of accidental replay or gaps caused by an unnecessarily destructive deployment procedure. They do not eliminate the need to test connector compatibility, schema conversion, ordering and exactly-once assumptions under failure. A configuration change could still pause processing during rollout. AWS lists support in all Regions where MSK Connect runs and says there is no additional feature charge, separate from underlying service spending.",
+      "takeaway": "Treat this as a maintenance-window simplifier: test stateful restart behavior, lag, rollback and compatibility of the new plugin against retained offsets before automating upgrades.",
+      "development_summary": "AWS enabled in-place Amazon MSK Connect custom-plugin and worker-configuration changes while preserving committed Kafka Connect offsets.",
+      "sources": [
+        {
+          "label": "AWS official announcement",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-connect-update-plugin-worker-configurations/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:eks-auto-mode:kubernetes-gateway-api-gateway-httproute-support:2026-10-28",
+      "status": "new",
+      "topic": "Kubernetes networking / ingress",
+      "title": "EKS Auto Mode adopts Kubernetes Gateway API for managed load balancing",
+      "publisher": "AWS What's New",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "freshness": "Recent • not previously covered",
+      "highlights": "AWS added Kubernetes Gateway API support to EKS Auto Mode on October 28. Teams can define Gateway and HTTPRoute resources to describe ingress, while Auto Mode provisions and manages the associated AWS load-balancing infrastructure without an additional installed controller. The announced capabilities include HTTP and gRPC routing, weighted traffic splitting, header matches, cross-namespace routes and certificate discovery through AWS Certificate Manager. Existing Kubernetes Ingress definitions continue working alongside Gateway API resources.",
+      "implications": "Gateway API separates shared gateway infrastructure from individual application routes, potentially improving delegation between central platform teams and workload owners. It also provides a more portable specification than provider-specific annotations, although the actual AWS load-balancer behavior, listener policy and costs remain cloud-specific. AWS says support is included with EKS Auto Mode in supported Regions, with standard charges for load balancers. Migration is therefore an architecture choice, not a required emergency switch.",
+      "takeaway": "Test namespace policy, certificate rotation, traffic-weight behavior and costs in a staging cluster before converting important Ingress traffic. Standards compliance and provider-specific behavior both matter.",
+      "development_summary": "Amazon EKS Auto Mode added native Kubernetes Gateway API resources with automatically managed AWS application load balancing.",
+      "sources": [
+        {
+          "label": "AWS original release",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-eks-auto-mode-kubernetes-gateway-api/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "google-gke:managed-opentelemetry-otlp-traces-metrics-logs-ga-v1.37.1:2026-10-29",
+      "status": "new",
+      "topic": "Cloud observability / OpenTelemetry",
+      "title": "Google makes managed OpenTelemetry for GKE generally available",
+      "publisher": "Google Cloud GKE Release Notes",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-29",
+      "freshness": "New • last 48 hours",
+      "highlights": "Google marked Managed OpenTelemetry for GKE generally available on October 29 for clusters running GKE 1.37.1-gke.1697000 or newer. A Google-managed collector can ingest OpenTelemetry Protocol traces, metrics and logs instead of requiring teams to operate a separate collector deployment. It supports gRPC ingestion on port 4317 as well as HTTP on 4318. The release adds logging through the Cloud Telemetry API, improved signal-specific queues and scaling, and GA instrumentation support for multimodal prompts and responses in certain LangGraph and Agent Development Kit workflows.",
+      "implications": "This removes some day-two collector operations from application teams and makes end-to-end telemetry for agent systems more approachable. But it does not remove the need to decide which content may be captured, how traces are sampled, where logs are retained or how telemetry costs are controlled. Earlier preview clusters need a version upgrade; the feature is not automatically available on all older GKE deployments.",
+      "takeaway": "Validate upgrade eligibility, ingestion cost, trace continuity and sensitive prompt filtering before replacing an existing production OpenTelemetry Collector.",
+      "development_summary": "GKE released managed OTLP trace, metric and log collection in GA for supported 1.37.1+ clusters, with expanded agent telemetry.",
+      "sources": [
+        {
+          "label": "Google Cloud official GKE release notes",
+          "url": "https://docs.cloud.google.com/kubernetes-engine/docs/release-notes-new-features"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "oracle:ebs-application-object-library:cve-2026-101767-honeypot-probing:2026-10-27",
+      "status": "new",
+      "topic": "Active probing / critical patching",
+      "title": "Oracle E-Business Suite flaw draws exploit probes after October patch",
+      "publisher": "SecurityWeek / Oracle",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-27",
+      "freshness": "Recent • not previously covered",
+      "highlights": "SecurityWeek reported October 28 that Defused observed exploratory attempts against Oracle E-Business Suite CVE-2026-101767 in its decoy systems on October 27. Oracle addressed the vulnerability in its October Critical Patch Update. The Application Object Library SQL injection carries a CVSS 9.8 rating and may allow remote, unauthenticated access over HTTP, potentially leading to code execution. The known evidence is probing of decoys; the report expressly says that broader real-world victim exploitation had not independently been established.",
+      "implications": "E-Business Suite deployments may contain commercially sensitive processes and data, so an internet-reachable business application with a critical unauthenticated entry point warrants urgent ownership and exposure review. The difference between scanning, exploit attempts and confirmed compromise is important for honest incident reporting. Administrators should review Oracle's affected-version and patch documentation, limit externally reachable routes and examine application telemetry for anomalous requests. A high score alone is not a substitute for asset-level reachability assessment.",
+      "takeaway": "Patch supported affected EBS releases promptly and investigate suspicious HTTP activity, but do not describe honeypot probing as confirmed organization-wide exploitation.",
+      "development_summary": "Defused reported October 27 exploit probes against Oracle EBS CVE-2026-101767, a critical October-2026-patched unauthenticated flaw.",
+      "sources": [
+        {
+          "label": "SecurityWeek original reporting",
+          "url": "https://www.securityweek.com/hackers-start-probing-fresh-oracle-ebs-vulnerability/"
+        },
+        {
+          "label": "Oracle October 2026 Critical Patch Update",
+          "url": "https://www.oracle.com/security-alerts/cpuoct2026.html"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "salesforce:rune-technologies:missionforce-defense-logistics-acquisition-agreement:2026-10-29",
+      "status": "new",
+      "topic": "Defense software / acquisition",
+      "title": "Salesforce agrees to acquire Rune for disconnected military logistics",
+      "publisher": "Reuters / Salesforce statements",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-29",
+      "freshness": "New • last 48 hours",
+      "highlights": "Salesforce said October 29 that it agreed to acquire Rune Technologies to expand Missionforce, its military and government business. Rune builds AI-enabled logistics software that helps operators forecast supplies, plan resource allocations and make decisions in places with unreliable network connectivity. Salesforce says the U.S. Army and Marine Corps already use Rune products. The companies did not disclose financial terms, and Salesforce expects the transaction to close in its fiscal 2027 fourth quarter, subject to ordinary completion conditions.",
+      "implications": "Military logistics increasingly depends on software that works with intermittent links, constrained local data and controlled human decisions rather than always-on cloud calls. This agreement would place an edge-oriented planning product within a much larger enterprise platform and integration ecosystem. Those possible benefits are prospective; an agreed acquisition does not prove integrated products, fielded new capabilities or a completed government procurement. Contract structure, data handling and offline operations matter more than the buyer's general AI positioning.",
+      "takeaway": "Watch closing, deployment architecture and verifiable mission outcomes. Distinguish an acquisition agreement from an operationally proven integration.",
+      "development_summary": "Salesforce announced an agreement to acquire Rune Technologies for defense logistics software, with closing expected later in its FY2027.",
+      "sources": [
+        {
+          "label": "Reuters original deal reporting",
+          "url": "https://www.reuters.com/legal/transactional/salesforce-buy-defense-tech-firm-rune-military-business-push-2026-10-29/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "north-korea:kim-uncrewed-aircraft-exhibition-military-ai-drone-priority:reported-2026-10-30",
+      "status": "new",
+      "topic": "Defense autonomy / regional security",
+      "title": "North Korea elevates drones and military AI at unmanned-systems exhibition",
+      "publisher": "Reuters / KCNA attribution",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-30",
+      "freshness": "New • last 48 hours",
+      "highlights": "In a Reuters report published late October 29 UTC and datelined Seoul October 30, North Korean state news agency KCNA said Kim Jong Un visited an unmanned aviation exhibition and called for dominant drone technology and broader use of high-level AI in unmanned weapons. KCNA described a demonstration involving tactical attack drones, cruise missiles, multipurpose drones and rocket launchers. Photographs supplied by state media show exhibited systems, but they do not independently verify stated performance, inventories or operational autonomy.",
+      "implications": "The strategic signal is prioritization of uncrewed capabilities by a government facing increasing pressure to diversify strike and reconnaissance options. Reports of North Korean experience from the Russia–Ukraine war add context, but do not prove that exhibition technology is mature, deployed at scale or using reliable autonomous target selection. Defensive planners should track tested capabilities, communications resilience and counter-UAS measures rather than reading an exhibition as battlefield validation.",
+      "takeaway": "Treat announced military-AI intentions as a development worth monitoring, while separating state-media claims from independently demonstrated engineering and fielded capability.",
+      "development_summary": "State-media reporting published October 30 in Seoul said Kim Jong Un prioritized AI-enabled drones and displayed unmanned systems, without verified performance data.",
+      "sources": [
+        {
+          "label": "Reuters original reporting",
+          "url": "https://www.reuters.com/business/aerospace-defense/north-koreas-kim-urges-absolute-superiority-drone-technology-weapons-exhibition-2026-10-29/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "bea:gdp-advance-estimate:q3-2026-3p4-saar-release-2026-10-29",
+      "status": "new",
+      "topic": "US growth / preliminary GDP",
+      "title": "U.S. third-quarter GDP advance estimate reaches 3.4% annualized",
+      "publisher": "U.S. Bureau of Economic Analysis",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-29",
+      "freshness": "New data • last 48 hours",
+      "highlights": "The Bureau of Economic Analysis reported October 29 that real U.S. GDP grew at a 3.4% seasonally adjusted annual rate during July–September 2026, accelerating from a 2.2% second-quarter pace. Investment, consumer spending and government spending contributed positively, partly offset by lower exports; imports increased and subtract arithmetically from GDP. Real final sales to private domestic purchasers, an indicator of underlying domestic demand, increased 4.9% annualized. These are changes during the third quarter, not year-over-year GDP growth.",
+      "implications": "The release indicates stronger measured activity even as households face expensive financing and persistent price pressure. An annualized quarterly growth rate projects one quarter's change over a full year for comparability; it is not the economy growing 3.4% between July and September in unannualized terms. The report is explicitly an advance estimate based on incomplete information, with revisions scheduled as more inputs arrive. Different GDP components may not share the headline's momentum.",
+      "takeaway": "Track the November 25 second estimate, domestic final demand and inflation indicators before extrapolating the number into household or investment decisions.",
+      "development_summary": "BEA's October 29 advance estimate put 2026 Q3 real GDP growth at 3.4% SAAR versus 2.2% in Q2.",
+      "sources": [
+        {
+          "label": "BEA official advance GDP release",
+          "url": "https://www.bea.gov/news/2026/gdp-advance-estimate-3rd-quarter-2026"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "bea:personal-income-outlays-pce:september-2026-release-2026-10-29",
+      "status": "new",
+      "topic": "Household purchasing power / inflation",
+      "title": "September spending outpaces income as PCE inflation rises",
+      "publisher": "U.S. Bureau of Economic Analysis",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-09-30",
+      "freshness": "New data • last 48 hours",
+      "highlights": "BEA's separate September Personal Income and Outlays report, released October 29, showed nominal personal income rising 0.2% month over month while consumer spending increased 0.5%. Real spending increased by less than 0.1% after inflation, and real disposable personal income fell 0.3%. The PCE price index increased 0.5% in the month and 3.6% from a year earlier; the index excluding food and energy increased 0.3% monthly and 3.1% annually. The personal saving rate was estimated at 3.8%. These figures describe September, not prices on the morning of publication.",
+      "implications": "The meaningful household signal is that higher nominal spending was not translating into equivalent increases in purchased volume, while inflation eroded real take-home income. That is distinct from the new quarterly GDP release: one measures September household cash-flow and PCE prices, the other all-economy output across a quarter. Inflation does not affect every household identically, and aggregate personal saving should not be mistaken for a typical family's account balance.",
+      "takeaway": "Use actual monthly spending and wage changes—not one macro average—to judge affordability. Watch subsequent PCE revisions and compare them with labor-market income.",
+      "development_summary": "BEA reported September 2026 nominal income +0.2%, spending +0.5%, PCE inflation 3.6% year-over-year and a 3.8% saving rate.",
+      "sources": [
+        {
+          "label": "BEA official September income and outlays",
+          "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-september-2026"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "freddie-mac:pmms:weekly-oct29-2026-30yr-7p24-15yr-6p60",
+      "status": "new",
+      "topic": "Mortgage borrowing / households",
+      "title": "Freddie Mac survey puts 30-year mortgage average at 7.24%",
+      "publisher": "Freddie Mac Primary Mortgage Market Survey",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-29",
+      "freshness": "New data • last 48 hours",
+      "highlights": "Freddie Mac's weekly Primary Mortgage Market Survey, released October 29, recorded a U.S. average 30-year fixed-rate mortgage rate of 7.24%, down from 7.32% a week earlier. Its 15-year fixed-rate average fell to 6.60% from 6.68%. By contrast, the comparable 30-year average was 6.17% one year earlier. The survey draws from mortgage applications submitted through Freddie Mac's Loan Product Advisor, and describes market averages over a collection window rather than an offer available to every household.",
+      "implications": "Even a modest weekly rate decline can affect a purchase budget or refinance break-even calculation, but the average remains substantially higher than the prior-year figure. Actual rates vary with credit, loan size, down payment, property, lock timing, points and lender fees. National survey movement does not establish a qualifying family's quote or prove that refinancing will save money after costs. This is a new dated survey, not a recycled story about an earlier week's rates.",
+      "takeaway": "For a real financing decision, compare same-day lender loan estimates by APR, monthly payment, points and total costs—not just this national headline rate.",
+      "development_summary": "Freddie Mac's October 29, 2026 PMMS reported 7.24% average 30-year and 6.60% average 15-year fixed mortgage rates.",
+      "sources": [
+        {
+          "label": "Freddie Mac weekly survey",
+          "url": "https://www.freddiemac.com/pmms"
+        }
+      ]
+    }
+  ]
+}
