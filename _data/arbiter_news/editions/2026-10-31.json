@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-31",
+  "title": "Arbiter News",
+  "intro": "Twelve distinct, source-verified developments across agent tooling, cloud operations, cybersecurity and defense, and household economics.",
+  "overview": "A common publisher training signal and new physical-agent preview lead AI. Cloud platform teams get programmable budget shutoffs, shared GPUs and upgraded Kafka transport. A newly urgent decompressor flaw, easier bot-defense deployment and the long lead time on Patriot interceptors shape security and defense. Wage costs, real household spending and a fresh China manufacturing survey show why the economic picture remains mixed.",
+  "history_note": "Compared underlying events, normalized event keys and canonical source URLs against all 403 accessible prior records: 319 historical records in ten repository history files spanning September 24–October 22, 2026, plus 84 stories in seven published editions dated October 23, 24, 26, 27, 28, 29 and 30. Public coverage.json could not be fully retrieved in the web reader, so the complete underlying repository data were read instead. Known missing daily coverage includes September 23, October 6 and October 25; some historical imported records have only summaries and no source URLs. Earlier records provide deduplication evidence, not truth verification. Each selected source was read independently for this edition.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "openai:ietf-ai-preferences:robots-txt-common-training-signal-support-pledge:2026-10-30",
+      "status": "new",
+      "topic": "AI training / publisher control",
+      "title": "OpenAI backs a shared robots.txt AI-training preference, with implementation still ahead",
+      "publisher": "OpenAI",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-10-30",
+      "freshness": "New • last 48 hours",
+      "highlights": "On October 30 OpenAI announced it plans to honor a common AI-training preference signal in robots.txt being developed through the IETF AI Preferences working group. The intended benefit is letting publishers express training choices to multiple participating AI providers rather than maintaining a separate crawler rule for each. Crucially, OpenAI says implementation is planned for the coming months: today's announcement is a commitment, not confirmation that its crawlers already interpret the new signal. Existing per-crawler robots.txt controls remain in place and continue to apply.",
+      "implications": "This could simplify policy administration for sites balancing search discovery, model training permissions and attribution. Whether the shared signal becomes meaningful depends on provider adoption, standard maturity, clear semantics and verifiable crawler behavior. It does not, by itself, settle copyright or license disputes.",
+      "takeaway": "Site operators should keep existing crawler policies while watching the final specification, implementation details and independently observed compliance.",
+      "development_summary": "OpenAI pledged support for the emerging cross-provider IETF robots.txt training preference signal, with implementation expected later.",
+      "sources": [
+        {
+          "label": "OpenAI announcement",
+          "url": "https://openai.com/index/helping-websites-express-ai-training-preferences/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "google-cloud:gemini-robotics-er2:enterprise-platform-public-preview:2026-10-27",
+      "status": "new",
+      "topic": "Physical AI / enterprise agents",
+      "title": "Google opens enterprise access to Gemini Robotics Embodied Reasoning 2",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-10-27",
+      "event_date": "2026-10-27",
+      "freshness": "Recent • not previously covered",
+      "highlights": "Google Cloud announced on October 27 that Gemini Robotics Embodied Reasoning 2 is available in public preview on its Gemini platform. This is an enterprise access and integration development; Google introduced the underlying robotics model earlier in 2026. The specialized model accepts multimodal inputs such as streamed video, audio and text, and can orchestrate declared navigation, vision-language-action and hardware interfaces as tools. Google describes long-horizon task planning, adaptive behavior and coordination of multiple robots, alongside Cloud lifecycle and security tooling. These performance and safety claims come from the vendor rather than independent field validation.",
+      "implications": "For industrial or logistics projects, the notable shift is exposure of a high-level robot decision layer through managed developer infrastructure. Prototype teams still need deterministic motion controls, real-world hazard assessments, authorization, testing and emergency stops; a planning model does not certify physical safety.",
+      "takeaway": "Evaluate preview limits and tool-call control boundaries in simulation before testing on real equipment.",
+      "development_summary": "Google Cloud made the previously announced Gemini Robotics ER 2 model accessible through its enterprise platform in public preview.",
+      "sources": [
+        {
+          "label": "Google Cloud announcement",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-robotics-embodied-reasoning-2-is-now-available-on-google-cloud/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "aws-kiro:govcloud-web-search-citations-administrator-controls:2026-10-30",
+      "status": "new",
+      "topic": "Coding agents / regulated cloud",
+      "title": "Kiro adds cited web search in AWS GovCloud",
+      "publisher": "AWS What's New",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-10-30",
+      "freshness": "New • last 48 hours",
+      "highlights": "Amazon announced on October 30 that Kiro's web-search capability is available for AWS GovCloud (US) customers. The coding agent can consult current web results and page content when answering questions about recent technologies or information outside its training data; AWS says answers that use those results include citations. Enterprise administrators may disable web search and page fetching for the organization. Teams can also remove web tools from particular custom agents or restrict their use through capability-based permission rules. This is a GovCloud availability change, not a new foundational model or an assurance that every returned webpage is trustworthy.",
+      "implications": "For restricted environments, live retrieval changes the threat model: fetched content can contain prompt injections, copyrighted material, stale advice or unintended disclosure paths. Citations support inspection, but do not make the claims independently correct. Organizations need to determine whether outbound retrieval is acceptable under their own policy.",
+      "takeaway": "Test source handling, logs, egress policy and per-agent permissions before enabling internet-connected assistance in regulated workflows.",
+      "development_summary": "AWS made cited Kiro web search available to GovCloud users, with organizational and custom-agent disable controls.",
+      "sources": [
+        {
+          "label": "AWS release",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/kiro-web-search-aws-govcloud-us/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "google-cloud:budgets-spend-caps-api-live-cost-monthly-auto-resets-ga:2026-10-30",
+      "status": "material-update",
+      "topic": "FinOps / cloud guardrails",
+      "title": "Google expands spend caps with API automation, live estimates and monthly resets",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-10-30",
+      "freshness": "Material update",
+      "highlights": "Google announced general availability of spend caps on Google Cloud Budgets on October 30, adding three concrete operational controls: a spend-caps API within the Cloud Billing Budgets API; near-real-time estimated charges in Cost Reports when an AI-service cap trips; and automatic resets that can resume previously blocked services at the beginning of a new month. Administrators can create, update or lift caps programmatically for eligible services, including at project provisioning. Alerts at 50%, 80% and 100% reach configured billing stakeholders. Google's earlier October 12 Cloud Run spend-cap milestone addressed a narrower compute workload guardrail; this update introduces broader billing automation and reset behavior.",
+      "implications": "Unlike ordinary budget alerts, enforced caps can interrupt workloads. Estimated costs are not finalized invoices and not all service types are necessarily eligible. Teams should set exceptions and protect production workloads from unexpectedly blocked access or month-boundary restarts.",
+      "takeaway": "Pilot caps on development sandboxes, record enforcement events and document resumption ownership before production adoption.",
+      "development_summary": "Google added programmatic Google Cloud Budgets spend caps, faster triggering cost reports and automatic monthly resets beyond its earlier Cloud Run spend-cap milestone.",
+      "sources": [
+        {
+          "label": "Google Cloud announcement",
+          "url": "https://cloud.google.com/blog/topics/cost-management/google-cloud-spend-caps-now-generally-available"
+        }
+      ],
+      "updates_event_key": "google:cloud-run:budget-spend-caps-ga:2026-10-12",
+      "change_summary": "On October 30, Google added a Cloud Billing Budgets spend-caps API, live triggering cost estimates and automatic monthly resets beyond the narrower Cloud Run spend-cap general availability reported October 12."
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:sagemaker-inference:gpu-mig-partitioning-multi-model-endpoints:2026-10-30",
+      "status": "new",
+      "topic": "AI infrastructure / utilization",
+      "title": "SageMaker real-time inference can split one GPU among several models",
+      "publisher": "AWS What's New",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-10-30",
+      "freshness": "New • last 48 hours",
+      "highlights": "AWS released GPU partitioning for SageMaker AI real-time inference endpoints on October 30. Using NVIDIA Multi-Instance GPU (MIG), supported accelerators can be divided into as many as seven hardware-isolated compute and memory partitions. Developers assign separately deployed inference components to slices sized for models such as rerankers, embedders and fine-tuned classifiers, while client applications continue invoking models by name. The initial listed instance families are P4d, P5, G7 and G7e in selected US, European and Asian regions. This does not imply all model workloads will gain speed or that GPU memory can be oversubscribed without limits.",
+      "implications": "The economics are potentially significant for lightly loaded models that previously occupied whole accelerators. Shared infrastructure still requires utilization tests, capacity right-sizing, model isolation validation and fallbacks when an endpoint or physical GPU fails. AWS has not published an independent cost benchmark for arbitrary workloads.",
+      "takeaway": "Measure throughput, tail latency and dollars per successful inference before replacing single-model endpoints.",
+      "development_summary": "AWS SageMaker inference now supports NVIDIA MIG partitions so multiple independently invoked models can share an eligible GPU.",
+      "sources": [
+        {
+          "label": "AWS release",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-gpu-partitioning/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:msk-provisioned:tls13-named-encryption-policies-opt-in:2026-10-30",
+      "status": "new",
+      "topic": "Kafka / transport encryption",
+      "title": "Amazon MSK Provisioned adds opt-in TLS 1.3 policies",
+      "publisher": "AWS What's New",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-10-30",
+      "freshness": "New • last 48 hours",
+      "highlights": "Amazon MSK announced TLS 1.3 support on October 30 for its Provisioned Kafka clusters. Customers enable it by selecting a named encryption policy that determines acceptable TLS versions and cipher suites; existing clusters do not change until such a policy is applied. Transitional policies can negotiate either TLS 1.2 or TLS 1.3, while stricter policies reject clients that cannot connect with TLS 1.3. AWS lists the capability in all regions supporting MSK Provisioned, without an extra feature charge. This is a transport-security change, distinct from the MSK Connect connector plugin-update release covered yesterday.",
+      "implications": "Kafka environments often include older brokers, connectors, monitoring tools and client runtimes with different TLS support. Adopting a strict policy prematurely can break producers and consumers even though the cluster remains healthy. TLS 1.3 support is not, by itself, an already deployed post-quantum encryption implementation.",
+      "takeaway": "Inventory all client TLS stacks, observe negotiation in staging, and then move from dual-version to stricter policies if required.",
+      "development_summary": "Amazon MSK Provisioned added selectable TLS 1.3 encryption policies, with no automatic change to existing clusters.",
+      "sources": [
+        {
+          "label": "AWS release",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-tls/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "brotli:cve-2026-111497:singapore-csa-active-exploitation-alert:2026-10-30",
+      "status": "new",
+      "topic": "Active exploitation / application runtimes",
+      "title": "Singapore warns critical Brotli decoder flaw is reportedly being exploited",
+      "publisher": "Singapore Cyber Security Agency / Node.js",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-10-30",
+      "freshness": "New • last 48 hours",
+      "highlights": "Singapore's Cyber Security Agency issued an October 30 alert urging immediate updates for CVE-2026-111497, an out-of-bounds write in the Brotli decompressor used by Node.js and other runtimes. It rates the issue CVSS 9.8 and says a public proof of concept exists and active exploitation is reported; it does not publish case-level confirmation. Attackers need a vulnerable application to decompress malicious Brotli-compressed input. Node.js versions before 22.23.4, 24.22.1 and 26.12.1 are named; CSA also lists affected .NET lines, for which vendor-specific updates must be checked. The Node.js security disclosure was released earlier, on October 21; today's new event is the government exploitation alert.",
+      "implications": "Applications using compressed uploads, streams or untrusted network data need immediate exposure assessment. Not every installed Node.js process is remotely exploitable, but patching a vulnerable runtime is preferable to trusting that one path is unreachable.",
+      "takeaway": "Prioritize services decompressing externally supplied data, deploy fixed runtime builds, and monitor advisories for updated exploitation evidence.",
+      "development_summary": "CSA's October 30 alert elevated urgency for Brotli CVE-2026-111497 with reports of active exploitation and patch guidance.",
+      "sources": [
+        {
+          "label": "Singapore CSA warning",
+          "url": "https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-154/"
+        },
+        {
+          "label": "Node.js security release",
+          "url": "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "aws:waf-cloudfront:automatic-client-js-sdk-injection-managed-bot-fraud-rules:2026-10-30",
+      "status": "new",
+      "topic": "Bot defense / web security",
+      "title": "AWS WAF can now inject its bot and fraud SDK through CloudFront",
+      "publisher": "AWS What's New",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-10-30",
+      "freshness": "New • last 48 hours",
+      "highlights": "AWS announced automatic JavaScript SDK integration for CloudFront distributions protected by eligible AWS WAF web ACLs on October 30. CloudFront can add the client-side script tag to served HTML without requiring each application team to modify templates and redeploy. The SDK supplies signals for Bot Control's targeted-inspection mode and the Account Takeover Prevention and Account Creation Fraud Prevention managed rule groups. AWS says console-created new web ACLs using these groups enable the integration by default, whereas programmatic creation leaves it off by default; existing applications still require appropriate configuration.",
+      "implications": "The deployment simplification removes a frequent discrepancy between a configured bot rule and missing browser telemetry. But injected scripts can interact with content-security policies, caching, consent decisions and automated testing. Administrators must assess where the JavaScript runs and retain a usable experience for legitimate visitors who block scripts.",
+      "takeaway": "Review applicable WAF rules and CloudFront associations, test script injection under CSP, and inspect false positives before enabling broadly.",
+      "development_summary": "AWS WAF added optional CloudFront-side injection of its client JavaScript SDK for eligible bot and fraud protection rule groups.",
+      "sources": [
+        {
+          "label": "AWS release",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-waf-automatic-sdk-integration-amazon-cloudfront/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "us-state-department:ukraine:500-pac3-mse-patriot-interceptors-2.1b-proposed-sale-approved:2026-10-30",
+      "status": "new",
+      "topic": "Defense procurement / air defense",
+      "title": "U.S. approves proposed $2.1 billion sale of Patriot interceptors to Ukraine",
+      "publisher": "Reuters / U.S. State Department",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-10-30",
+      "freshness": "New • last 48 hours",
+      "highlights": "The U.S. State Department said October 30 it approved a proposed foreign military sale of 500 Patriot PAC-3 interceptors to Ukraine, with an estimated value of $2.1 billion and Lockheed Martin identified as principal contractor. Reuters reports Ukraine would fund the procurement through its own resources and contributions from Canada, Germany and Norway and EU-backed mechanisms. The missiles have not already been delivered: Reuters sources expect newly manufactured interceptors in the early 2030s absent accelerated production or other arrangements. This approval is a procurement step subject to the normal sale and congressional process, not immediate combat availability.",
+      "implications": "The potential deal highlights production lead times as a defense-technology constraint alongside missile performance. For Ukraine, the urgent requirement is near-term interception of ballistic threats; a multi-year future order does not directly resolve that gap. For allies, industrial surge capacity and interim supply are separate policy decisions.",
+      "takeaway": "Track contract execution, delivery schedules and actual manufacturing throughput rather than treating the approval headline as inventory already in theater.",
+      "development_summary": "State Department approved a proposed 500-interceptor $2.1B Patriot PAC-3 sale to Ukraine; deliveries remain future and uncertain.",
+      "sources": [
+        {
+          "label": "Reuters original reporting",
+          "url": "https://www.reuters.com/business/aerospace-defense/us-approves-21-billion-patriot-missile-sale-ukraine-2026-10-30/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-bls:employment-cost-index:q3-2026:released-2026-10-30",
+      "status": "new",
+      "topic": "Wages / purchasing power",
+      "title": "U.S. employment costs rise 0.8% in Q3 while real wages remain under pressure",
+      "publisher": "U.S. Bureau of Labor Statistics",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-09-30",
+      "freshness": "New data • last 48 hours",
+      "highlights": "The Bureau of Labor Statistics released its third-quarter Employment Cost Index on October 30. Civilian-worker compensation rose 0.8% on a seasonally adjusted basis during the three months ending September, compared with 0.9% in the preceding quarter; wages and salaries advanced 0.7% and benefit costs 0.9%. Over twelve months, total compensation was up 3.4% and wages up 3.1%. The release also reports inflation-adjusted private-industry wages down 0.6% year over year, a useful reminder that nominal pay gains need not mean a larger shopping budget.",
+      "implications": "Because ECI adjusts for occupational and industry composition, it helps separate underlying labor-cost pressure from a change in the mix of jobs. It is still an aggregate employer-cost measure, not the raise available to any particular worker. Benefits, taxes and region-specific living costs determine household take-home results.",
+      "takeaway": "Compare individual compensation changes against realized household expenses rather than assuming a positive nominal raise increased purchasing power.",
+      "development_summary": "BLS reported Q3 civilian compensation +0.8% and twelve-month wages +3.1%, while inflation-adjusted private pay declined.",
+      "sources": [
+        {
+          "label": "BLS release",
+          "url": "https://www.bls.gov/news.release/eci.nr0.htm"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-bls:consumer-expenditure-survey:2025-annual-spending-81905-released-2026-10-29",
+      "status": "new",
+      "topic": "Household spending / budgeting",
+      "title": "BLS 2025 household-spending survey puts the average annual outlay at $81,905",
+      "publisher": "U.S. Bureau of Labor Statistics",
+      "publication_date": "2026-10-29",
+      "event_date": "2025-12-31",
+      "freshness": "New data • last 48 hours",
+      "highlights": "BLS published its 2025 Consumer Expenditure Survey on October 29: average annual spending per consumer unit reached $81,905, up 4.3% from 2024, while average pretax income was $110,847, up 6.4%. Housing averaged $27,790 and accounted for 33.9% of spending; transportation represented 16.5%, food 13.0% and personal insurance and pensions 12.4%. Averages conceal substantial income-group differences: BLS reports about $37,935 spent by the lowest income quintile versus $159,512 by the highest. Collection was interrupted in October and November 2025 by a federal funding lapse, and the agency applied statistical weight adjustments.",
+      "implications": "This gives households a useful benchmark for category allocation, not an instruction that every family should match the national mean. Regional housing costs, household size, age and income mix can dominate comparisons. The interruption adds measurement caveats even though BLS published adjusted estimates.",
+      "takeaway": "Use the full expenditure tables to compare major categories against comparable households, while treating national averages as context.",
+      "development_summary": "BLS reported 2025 average consumer-unit expenditures of $81,905, including 33.9% spent on housing, with survey collection caveats.",
+      "sources": [
+        {
+          "label": "BLS release",
+          "url": "https://www.bls.gov/news.release/cesan.nr0.htm"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "china-nbs:manufacturing-nonmanufacturing-composite-pmi:october-2026-release-2026-10-31",
+      "status": "new",
+      "topic": "Global economy / manufacturing",
+      "title": "China's October manufacturing and services gauges slip below 50",
+      "publisher": "China National Bureau of Statistics",
+      "publication_date": "2026-10-31",
+      "event_date": "2026-10-31",
+      "freshness": "New data • today",
+      "highlights": "China's National Bureau of Statistics released October purchasing-manager surveys on October 31 at 09:30 Beijing time, which was October 30 in U.S. Eastern time. The manufacturing PMI dropped to 49.3 from September's 50.1, nonmanufacturing business activity declined to 49.7 from 50.2, and the composite output gauge fell to 49.7. Manufacturing production registered 49.8 and new orders 49.4. Sector differences remain: the high-tech manufacturing PMI was 51.3 while consumer-goods manufacturing was 48.8. The agency cited partly front-loaded demand before China's national holiday and a complicated international environment.",
+      "implications": "A sub-50 diffusion index means more surveyed firms reported deterioration than improvement; it is not an estimate that production or GDP fell by 0.7%. The readings suggest weaker momentum in demand and construction even while technology-related manufacturing held up. International suppliers may watch orders and factory pricing for follow-through.",
+      "takeaway": "Compare November surveys with trade data and industrial production rather than interpreting one monthly index as a definitive downturn.",
+      "development_summary": "China's official October PMI release showed manufacturing 49.3, nonmanufacturing 49.7 and composite output 49.7.",
+      "sources": [
+        {
+          "label": "China NBS October 31 commentary",
+          "url": "https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261031_1965719.html"
+        }
+      ]
+    }
+  ]
+}
