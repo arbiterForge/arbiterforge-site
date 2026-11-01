@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-01",
+  "title": "Arbiter News",
+  "intro": "Twelve verified developments across agent reliability, cloud operations, actionable credential security, defense technology and household finance.",
+  "overview": "Pydantic AI and Claude Code ship practical agent reliability and safety controls, while security-team consolidation signals tighter development review. Cloudflare changes rollout semantics, AWS exposes deterministic workflows to agents and GitHub adds actionable webhook ranges. Northflank customers face urgent secret rotation, and original defense reporting examines base vulnerabilities and missile manufacturing. For households, Treasury I bond rates reset while European housing and GDP releases provide dated economic context.",
+  "history_note": "Compared candidate developments and canonical HTTPS source URLs against all 415 accessible prior records: 319 imported historical records across ten repository history files spanning September 24–October 22, 2026, and 96 stories in eight published editions dated October 23, 24, 26, 27, 28, 29, 30 and 31. The web reader did not expose the complete public coverage.json; the complete underlying repository data were retrieved instead. Known missing daily coverage includes September 23, October 6 and October 25; some imported historical records are summary-only and lack original URLs. The records are used for deduplication, not as independent fact confirmation. Primary sources and original reporting for each selected event were independently opened and verified.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "pydantic-ai:v2.64.0:sticky-fallback-and-artifact-scanner:2026-10-30",
+      "status": "new",
+      "topic": "Agent reliability and supply-chain safety",
+      "title": "Pydantic AI 2.64 brings sticky model fallbacks and skill-artifact scanning",
+      "publisher": "Pydantic AI GitHub release",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-10-30",
+      "freshness": "New • last 48 hours",
+      "highlights": "Pydantic AI released version 2.64.0 on October 30 with new controls for coding-agent reliability. Its ModelFallback capability can retain the fallback model that successfully answered within a conversation, while a first-event timeout allows streams that never begin to trigger another attempt. Agent developers can inspect model requests before each retry, and an ArtifactScanner now supports checking Memory and Skills artifacts. The release also introduces BoxdSandbox for running harness capabilities in isolated boxd workspaces. These are maintainer-described features, not a benchmark of autonomous task completion.",
+      "implications": "The compatibility notes matter as much as the new features. The Coder harness no longer enables strict tool schemas by default; callers must opt in with Coder(strict=True). The json-repair package becomes optional, so projects using the dependent tools must include it explicitly. Stateful response identifiers are now restricted to their originating endpoints.",
+      "takeaway": "Review fallback behavior, tool-schema assumptions and dependency lockfiles before upgrading. Test real interrupted streams and unsafe artifacts rather than inferring production resilience from the feature list.",
+      "development_summary": "Pydantic AI 2.64.0 added sticky model fallback, timeout and scanner capabilities alongside Coder compatibility changes.",
+      "sources": [
+        {
+          "label": "Pydantic AI v2.64.0 release",
+          "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.64.0"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "anthropic:claude-code:v2.1.316-subagent-effort-and-restricted-file-safety:2026-10-31",
+      "status": "new",
+      "topic": "Agent harness operations",
+      "title": "Claude Code 2.1.316 adds subagent effort controls and closes a restricted-file gap",
+      "publisher": "Anthropic Claude Code release notes",
+      "publication_date": "2026-10-31",
+      "event_date": "2026-10-31",
+      "freshness": "New • last 48 hours",
+      "highlights": "Anthropic shipped Claude Code 2.1.316 on October 31. The release adds CLAUDE_CODE_SUBAGENT_EFFORT, letting operators choose the default effort for spawned agents instead of inheriting the parent session's setting. A separate switch disables ultrathink keyword handling. For managed Claude gateways, group members can share a pooled monthly budget alongside individual limits, and layered policy mode applies multiple matching policies rather than only the first. Bedrock upstreams also gain guardrail input tagging. These are operational changes in the coding harness and gateway, not a new model launch.",
+      "implications": "Security and reliability fixes include preventing --restricted sessions from uploading files outside the working directories when an overly broad Read allow rule existed. The release also addresses shell processes left running after exit, mishandled PowerShell blocking hooks and incomplete model-deny checks in the gateway. The version has other platform-specific fixes described in the notes.",
+      "takeaway": "Test restricted-path boundaries, nested-agent effort and gateway policy precedence after upgrading. A vendor changelog is an implementation statement; your own harness regression tests determine deployment readiness.",
+      "development_summary": "Claude Code 2.1.316 introduced per-subagent effort and layered gateway policy while fixing restricted-session file uploads.",
+      "sources": [
+        {
+          "label": "Anthropic Claude Code v2.1.316 release",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.316"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "cognition:corridor:joining-devin-security-announcement:2026-10-28",
+      "status": "new",
+      "topic": "Autonomous development security",
+      "title": "Corridor joins Cognition to help build security capabilities around Devin",
+      "publisher": "Corridor founders / Cognition",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "freshness": "Recent • not previously covered",
+      "highlights": "Corridor cofounders Jack Cable and Ashwin Ramaswami announced October 28 that their security company is joining Cognition, the developer of the Devin software-engineering agent. Their statement says the team intends to advance Devin Security and work with Cognition's security leadership. Corridor had focused on security tooling for AI-native development teams. The announcement establishes a team and product direction, but provides neither transaction terms nor a date for specific integrated security features. It should not be read as a claim that every code change Devin generates is already validated by Corridor technology.",
+      "implications": "The interesting product question is whether vulnerability discovery, exploit evidence and repair verification can share repository-level context with code-writing agents. A closer workflow could reduce the handoff between automated implementation and security review, but could also concentrate authority in one agent platform. Product claims need testing against representative vulnerable repositories and false positives.",
+      "takeaway": "Track the actual integration release, permission boundaries, auditability and independent verification before adopting a unified coding-and-security workflow.",
+      "development_summary": "Corridor's founders announced they are joining Cognition to work on Devin Security, without detailed product-launch commitments.",
+      "sources": [
+        {
+          "label": "Corridor founders' announcement",
+          "url": "https://cognition.com/blog/corridor-joining-cognition"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "cloudflare:durable-objects:deferred-code-updates-default:2026-10-30",
+      "status": "new",
+      "topic": "Stateful runtime deployments",
+      "title": "Cloudflare Durable Objects now defer code swaps to protect in-flight work",
+      "publisher": "Cloudflare Developers Changelog",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-10-30",
+      "freshness": "New • last 48 hours",
+      "highlights": "Cloudflare changed Durable Objects deployments on October 30 so active instances can defer adopting new code for up to five minutes by default. Previously a deployment applied the code change immediately, interrupting work or open connections. Under the new behavior, an object can continue executing its current version until it hibernates or the deferral expires. When using the WebSocket Hibernation API, connections can survive the transition. Operators can configure code_update_strategy and max_delay, with a supported ceiling of 24 hours, or explicitly request immediate updates for a deployment.",
+      "implications": "This changes rollout semantics for long-running agents, collaborative sessions and stateful WebSocket services. Running old and new application versions across a fleet for a short overlap can complicate schema evolution and request compatibility. Cloudflare explicitly says deferral is best effort: runtime events can still reset an object before the configured delay ends. It is not a transactional guarantee.",
+      "takeaway": "Validate state migrations, client compatibility and rollback under both deferred and immediate modes. Do not use the new default as a replacement for idempotent work and resumable jobs.",
+      "development_summary": "Cloudflare made deferred Durable Objects code updates the default, with a five-minute best-effort window.",
+      "sources": [
+        {
+          "label": "Cloudflare October 30 changelog",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-10-30-durable-objects-deferred-code-updates/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:step-functions:agentcore-gateway-mcp-tool-connector:2026-10-29",
+      "status": "new",
+      "topic": "Deterministic agent orchestration",
+      "title": "AWS exposes existing Step Functions workflows as agent-callable MCP tools",
+      "publisher": "AWS What's New",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-29",
+      "freshness": "Recent • not previously covered",
+      "highlights": "On October 29 AWS announced that Amazon Bedrock AgentCore Gateway can expose existing AWS Step Functions workflows as tools for AI agents through the Model Context Protocol. An agent chooses which tool to call and supplies input, while the state machine executes its predefined sequence. Both Standard and Express workflows are supported. AWS illustrates the pattern with a support agent invoking a refund workflow containing eligibility checks, manager approval and account-credit steps. Agents may also query workflow execution details to help investigate operational failures. Availability follows AgentCore Gateway's supported AWS Regions, with ordinary usage charges for both services.",
+      "implications": "The distinction is important: probabilistic task selection does not need to imply probabilistic enforcement of every downstream business step. A Step Functions definition can retain explicit checkpoints, approvals and auditable execution records while the agent handles natural-language intent. Tool authorization, argument validation and data permissions still require architecture work; using MCP does not automatically grant safe or compliant behavior.",
+      "takeaway": "Treat the workflow as a controlled tool boundary. Test caller identity, approval requirements, invalid inputs, idempotency, retries and chargeback before allowing agents to initiate sensitive processes.",
+      "development_summary": "AWS enabled Step Functions Standard and Express workflows as MCP tools through Bedrock AgentCore Gateway.",
+      "sources": [
+        {
+          "label": "AWS product announcement",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/step-functions-workflows-ai-agent-tools/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "github:meta-api:webhook-delivery-new-cidrs:2026-10-29",
+      "status": "new",
+      "topic": "CI and webhook network operations",
+      "title": "GitHub adds three webhook sender ranges that static firewalls must allow",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-29",
+      "freshness": "Recent • not previously covered",
+      "highlights": "GitHub announced October 29 that it expanded the source IP ranges used for webhook deliveries from github.com. The Meta API hooks list now includes 9.234.98.160/28, 9.234.98.176/28 and 9.234.106.48/28. Organizations with static allowlists on webhook receivers should add the prefixes to avoid unexpectedly rejecting valid deliveries. Operators that already synchronize the allowlist automatically from GitHub's Meta API do not need a change for these additions. GitHub says the update applies across github.com plans, including Enterprise Cloud.",
+      "implications": "Webhooks often trigger repository integrations, ticket synchronization and CI automation. An inbound firewall mismatch can make jobs silently fail even though the GitHub-side event was generated. The change is about webhook delivery source addresses, not GitHub Actions artifact or log destinations; those were a different previously covered October event. Never replace authentication and signature verification with IP allowlisting alone.",
+      "takeaway": "Compare your receiver's current source CIDR policy to the official Meta API, then test a signed webhook delivery. Automate future range refreshes rather than building operational dependence on a frozen list.",
+      "development_summary": "GitHub extended webhook source IP ranges in its Meta API, requiring updates only for static allowlists.",
+      "sources": [
+        {
+          "label": "GitHub October 29 changelog",
+          "url": "https://github.blog/changelog/2026-10-29-webhook-ip-ranges-added-to-the-meta-api/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "northflank:platform-secrets:oct30-31-2026-incident-ai-key-abuse-rotation",
+      "status": "new",
+      "topic": "Cloud platform credential incident",
+      "title": "Northflank warns customers to rotate all secrets after reported AI-key abuse",
+      "publisher": "Northflank status updates / BleepingComputer",
+      "publication_date": "2026-10-31",
+      "event_date": "2026-10-30 to 2026-10-31",
+      "freshness": "New • last 48 hours",
+      "highlights": "Northflank disclosed a security incident on October 30 after an alert from Wiz and told customers to assume environment variables could have been decrypted. Its updates instructed users to rotate all secrets in workloads, secret groups and global secrets, and to disable unnecessary public access to add-ons. By late October 30, customers had reported unauthorized use of AI-provider API keys stored on the platform. During October 31 Northflank enabled audit logs for all users and added secret-rotation facilities for several database and messaging add-ons. The company has not established publicly that every customer's secrets were accessed, or identified the initial intrusion method or total affected population.",
+      "implications": "This is an actionable supply-chain concern because a hosting-platform secret can also authorize access to an external cloud account or costly AI inference. Changing an environment-variable value does not revoke a previously copied key. The issuing provider must invalidate the old credential, and downstream systems may need redeployment and activity review.",
+      "takeaway": "Affected customers should revoke old keys at issuers, replace them, inspect AI usage and billing logs, review add-on exposure and retain audit evidence while Northflank investigates.",
+      "development_summary": "Northflank told customers to rotate all stored secrets amid reports of unauthorized AI API-key use during an ongoing investigation.",
+      "sources": [
+        {
+          "label": "Northflank incident timeline",
+          "url": "https://status.northflank.com/history/1"
+        },
+        {
+          "label": "Original security reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "ap:iran-us-bases:115-strikes-26-sites-original-satellite-analysis:2026-11-01",
+      "status": "new",
+      "topic": "Military infrastructure resilience",
+      "title": "AP satellite analysis maps extensive damage to U.S. bases from Iran-linked strikes",
+      "publisher": "Associated Press / original investigation",
+      "publication_date": "2026-11-01",
+      "event_date": "2026-02 to 2026-08",
+      "freshness": "New investigation • today",
+      "highlights": "An Associated Press investigation published November 1 combined commercial satellite imagery and interviews with regional officials to assess attacks on U.S. military sites in the Middle East. AP identified damage from more than 115 Iranian or Iran-backed drone and missile strikes at 26 bases or other locations with American equipment through August 2026. Its imagery indicates early attacks targeted radars and air-defense facilities before subsequent strikes on aircraft, hangars, storage, communications and troop accommodations. AP says some important imagery became publicly accessible only after months of delays. These are newly published findings about earlier wartime events, not a claim that 115 attacks happened today.",
+      "implications": "The investigation highlights the fragility of concentrated sensors and fixed installations under repeated low-cost attacks. Losing early-warning radar or logistics infrastructure can degrade multiple units even where individual aircraft survive. AP's satellite-damage assessment should be distinguished from official casualty accounting, and some operational details remain disputed or undisclosed. The U.S. military has offered limited site-level damage figures.",
+      "takeaway": "For planners, prioritization of radar redundancy, dispersal, rapid repair and protected communications merits renewed attention; avoid treating incomplete imagery as a complete military-loss inventory.",
+      "development_summary": "AP's November 1 satellite-image investigation documented damage from more than 115 strikes across 26 U.S.-linked sites through August.",
+      "sources": [
+        {
+          "label": "Associated Press original investigation",
+          "url": "https://apnews.com/article/iran-war-us-base-damage-trump-26e0f05e01d6f56ff46f7c1a14384f7c"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "destinus:ruta:block2-production-claimed-300-per-month-2026-10-29",
+      "status": "new",
+      "topic": "European missile production",
+      "title": "Destinus claims nearly 300 Ruta missiles monthly as Block 2 enters production",
+      "publisher": "Reuters original reporting",
+      "publication_date": "2026-10-29",
+      "event_date": "2026-10-29",
+      "freshness": "Recent • not previously covered",
+      "highlights": "Reuters reported October 29 that Netherlands-headquartered Destinus says it has built more than 1,750 Ruta cruise missiles in Europe and raised monthly production to nearly 300. Its chief executive also said the company had begun producing Ruta Block 2, designed for a 250-kilogram payload and more than 700 kilometers of range. Unlike the first variant, Block 2 is designed for container-based storage, transport and launch. These production and performance numbers are company statements to Reuters, not an independent audit of output or demonstrated battlefield range. A capability designed into a weapon is not evidence of completed operational fielding.",
+      "implications": "The reporting illuminates a potential shift from scarce missile production to the infrastructure needed to stockpile, maintain, target and employ larger inventories. Destinus argues that military logistics and unit-level integration are becoming constraints as factories scale. That matters to procurement as much as the platform's nominal specifications or announced capacity.",
+      "takeaway": "Watch confirmed delivery schedules, independent testing, supplier resilience and logistics investment. Separate a manufacturer's production claim from government acceptance and operational readiness.",
+      "development_summary": "Destinus told Reuters it was approaching 300 Ruta missiles monthly and had begun production of longer-range Block 2.",
+      "sources": [
+        {
+          "label": "Reuters October 29 interview",
+          "url": "https://www.reuters.com/business/aerospace-defense/destinus-monthly-output-tops-europes-pre-war-annual-cruise-missile-production-2026-10-29/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-treasury:series-i-savings-bonds:nov2026-apr2027-5p51-fixed1p40",
+      "status": "new",
+      "topic": "Household saving rates",
+      "title": "Treasury sets new I bond composite rate at 5.51% for November issues",
+      "publisher": "U.S. Treasury / TreasuryDirect",
+      "publication_date": "2026-11-01",
+      "event_date": "2026-11-01",
+      "freshness": "New rate • today",
+      "highlights": "The U.S. Treasury's TreasuryDirect website lists a 5.51% initial composite rate for Series I savings bonds issued from November 1, 2026, through April 30, 2027. The rate includes a 1.40% fixed component that stays with the bond for its life; the inflation-linked component adjusts every six months. This replaces the 4.26% initial composite rate and 0.90% fixed component for issues from May through October 2026. The 5.51% is the rate for the first six-month interest period on newly issued bonds, not a guaranteed thirty-year yield.",
+      "implications": "I bonds are bought electronically through TreasuryDirect and earn monthly interest compounded semiannually. A holder cannot redeem during the first 12 months, and redemption before five years forfeits the last three months of interest. Individuals generally face a $10,000 annual electronic purchase limit. Interest is subject to federal income tax but not state and local income tax. These restrictions make I bonds different from immediately accessible emergency cash.",
+      "takeaway": "Compare the fixed-rate advantage against liquidity needs, Treasury bills and savings accounts before purchasing; do not assume the current variable rate persists throughout ownership.",
+      "development_summary": "TreasuryDirect lists a 5.51% November 2026 I bond composite rate with a 1.40% permanent fixed component.",
+      "sources": [
+        {
+          "label": "TreasuryDirect current I bond rates",
+          "url": "https://www.treasurydirect.gov/savings-bonds/i-bonds/"
+        },
+        {
+          "label": "TreasuryDirect rate mechanics",
+          "url": "https://treasurydirect.gov/savings-bonds/i-bonds/i-bonds-interest-rates/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "nationwide:uk-house-price-index:october-2026-0p5-percent-yoy:2026-10-30",
+      "status": "new",
+      "topic": "Housing affordability and credit",
+      "title": "Nationwide says U.K. house-price growth cooled to 0.5% in October",
+      "publisher": "Nationwide House Price Index",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-10-31",
+      "freshness": "New data • last 48 hours",
+      "highlights": "Nationwide's October 2026 U.K. House Price Index put year-over-year home-price growth at 0.5%, down from 0.8% in September and the slowest annual rate since January 2024. On a seasonally adjusted basis prices were essentially unchanged from September, after a 0.3% monthly decline the prior month. The unadjusted average price in October was £273,566, compared with £274,251 in September. The original report was released October 30 and refers to the October measurement period; it is not a November housing-market quote.",
+      "implications": "Nationwide's index reflects its mortgage-linked property sample and is not a direct valuation of every U.K. home. Price stability at the national level can obscure wide regional and property-type differences. The slowdown illustrates how financing costs and consumer affordability can restrain prices even without a sharp nominal collapse; no single monthly index establishes the future direction of mortgage rates.",
+      "takeaway": "Watch subsequent lender and official transaction-based series, housing supply and mortgage approval data. Treat this as measured October housing conditions, not a short-term investment forecast.",
+      "development_summary": "Nationwide reported flat U.K. October home prices month over month and 0.5% growth over twelve months.",
+      "sources": [
+        {
+          "label": "Nationwide October 2026 HPI",
+          "url": "https://www.nationwide.co.uk/media/hpi/reports/annual-house-price-growth-slows-again-in-october"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "eurostat:euro-area-eu:2026-q3-preliminary-flash-gdp:released-2026-10-30",
+      "status": "new",
+      "topic": "International growth and consumers",
+      "title": "Eurostat reports slower quarter-on-quarter growth across Europe in Q3",
+      "publisher": "Eurostat / European Union",
+      "publication_date": "2026-10-30",
+      "event_date": "2026-09-30",
+      "freshness": "New data • last 48 hours",
+      "highlights": "Eurostat's October 30 preliminary flash estimate found that seasonally adjusted real GDP grew 0.4% in the euro area and 0.5% across the European Union in the third quarter of 2026. Those rates were slower than the second quarter's 0.6% and 0.7%, respectively. Against the third quarter of 2025, output was 1.3% higher in the euro area and 1.5% higher across the EU. Country-level estimates differ: Germany rose 0.2% quarter over quarter while France slipped 0.1%, and Spain rose 0.6%. These are measured but preliminary estimates rather than forecasts.",
+      "implications": "The distinction between quarterly and annual comparisons is important: moderating growth rates do not imply economic contraction across the whole bloc. The report is based on incomplete information, with some country inputs categorized as experimental and subject to larger revision. Strong headline numbers in small economies should not be over-interpreted as a uniform European demand picture.",
+      "takeaway": "Use this first read to frame trade and business conditions, then check Eurostat's November 13 update and country releases before revising economic assumptions.",
+      "development_summary": "Eurostat's Q3 2026 preliminary GDP estimate showed 0.4% euro-area and 0.5% EU quarterly growth, slower than Q2.",
+      "sources": [
+        {
+          "label": "Eurostat October 30 preliminary flash estimate",
+          "url": "https://ec.europa.eu/eurostat/web/products/euro-indicators/w/2-30102026-ap"
+        }
+      ]
+    }
+  ]
+}
