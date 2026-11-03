@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-03",
+  "title": "Arbiter News",
+  "intro": "Twelve source-verified developments across AI, cloud operations, cybersecurity, defense technology and household finances, with practical significance in every card.",
+  "overview": "An agent-scale Git redesign and a new everyday AI evaluation reframe software quality, while Firebase imposes an immediate attestation requirement. Infrastructure teams face upcoming GitHub Actions policy brownouts, faster container image startup and plans for grid-flexible AI campuses. Security coverage spans the XCPE device supply-chain botnet, maritime drone defense and gaps in repository protection. US factory expansion, AI-financing demands and the 2027 health-insurance enrollment window complete the morning view.",
+  "history_note": "Compared all 439 accessible repository coverage records: 319 imported historical events dated September 24–October 22, 2026, across ten history files, plus 120 stories across ten published editions dated October 23, 24, 26–31, November 1 and November 2. Event identities and canonical source URLs were checked; none of these twelve match a recorded prior development. The public coverage.json was inaccessible to the web reader, so underlying full repository history and all edition JSON were retrieved instead. Known history gaps are September 23, October 6 and October 25; some legacy records have only summaries without source URLs. Prior news was used for deduplication, not factual verification. All current sources were opened and independently read.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "openai:pando-causal-git-backend:public-architecture-disclosure:2026-11-02",
+      "status": "new",
+      "topic": "Agent-scale source control",
+      "title": "OpenAI discloses Pando, a Git backend built for parallel agents",
+      "publisher": "OpenAI Engineering",
+      "publication_date": "2026-11-02",
+      "event_date": "2026-11-02",
+      "freshness": "New • last 48 hours",
+      "highlights": "OpenAI published the architecture of Pando on November 2, a source-control backend designed for many simultaneous branch writers and Git fetches. It retains the normal Git protocol while using branch-level causal consistency, reusable packfiles and cache-friendly data delivery. OpenAI says its migration cut median push latency by nearly 80% and that Pando serves nearly a petabyte of Git data per day; those are internal measurements, not independently reproduced benchmarks. The team says it also contributes client changes and fixes upstream.",
+      "implications": "The design distinguishes fast independent branch pushes from global cross-branch consistency. Reusing packs avoids regenerating the same repository history for every CI runner or agent. Organizations exploring a similar architecture must independently validate object correctness, branch visibility and failure recovery.",
+      "takeaway": "Pando is internal infrastructure, not a newly available hosted Git product. Its value for others lies in the documented design tradeoffs and Git client improvements.",
+      "development_summary": "OpenAI disclosed Pando's causal-consistency and reusable-pack Git design, including vendor-reported latency improvements.",
+      "sources": [
+        {
+          "label": "OpenAI engineering article",
+          "url": "https://openai.com/index/scaling-git-at-openai/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "openai:lifeval:everyday-agent-tasks-evaluation-publication:2026-11-02",
+      "status": "new",
+      "topic": "Agent evaluations",
+      "title": "LifeVal evaluates AI against caregiving and everyday administrative tasks",
+      "publisher": "OpenAI Research",
+      "publication_date": "2026-11-02",
+      "event_date": "2026-11-02",
+      "freshness": "New • last 48 hours",
+      "highlights": "On November 2, OpenAI described LifeVal, an evaluation of assistance with ordinary life tasks such as finding childcare, navigating government services, household planning and personal finances. Researchers began with the American Time Use Survey and Multinational Time Use Study, then used a demographically representative survey of 3,995 respondents to prioritize what people want help with. Published examples include school selection, volunteer coordination and meal planning. OpenAI reports strong model scores on selected examples; its own research is not independent proof of successful real-world execution.",
+      "implications": "This broadens agent testing beyond code and math benchmarks toward messy, multistep tasks requiring current information, permission boundaries and human escalation. A task that looks correct in an evaluation may still fail when an appointment, payment, eligibility requirement or important preference changes.",
+      "takeaway": "Use the methodology to design meaningful personal-agent tests, but assess tool reliability, source verification and failure handling separately.",
+      "development_summary": "OpenAI introduced LifeVal using time-use datasets and a survey of 3,995 people to define practical agent tasks.",
+      "sources": [
+        {
+          "label": "OpenAI LifeVal publication",
+          "url": "https://openai.com/index/lifeval/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "google-firebase:ai-logic:required-app-check-auto-enforcement:2026-11-02",
+      "status": "new",
+      "topic": "AI app authentication",
+      "title": "Firebase AI Logic starts blocking requests without App Check tokens",
+      "publisher": "Firebase Documentation",
+      "publication_date": "2026-11-02",
+      "event_date": "2026-11-02",
+      "freshness": "New • last 48 hours",
+      "highlights": "Google's Firebase AI Logic documentation, updated November 2, confirms that App Check enforcement begins automatically that day for projects not already enforcing it. Requests without a valid attestation token are blocked, including those from previously released app versions that never implemented a production attestation provider. This is a service-access deadline, not a new AI model. Google describes an option to postpone automatic enforcement through January 21, 2027 while clients migrate.",
+      "implications": "Developers should inspect recent App Check metrics, identify clients that cannot attest and test the oldest actively used production versions. A Firebase API key is not a substitute for valid attestation, and local development needs its own documented debug-provider approach. A temporary postponement can prevent an outage but does not solve unsupported application builds.",
+      "takeaway": "If Firebase AI Logic powers customer features, test older clients and stage releases now; treat the delay as a bounded migration period.",
+      "development_summary": "Firebase AI Logic began required App Check enforcement November 2, with temporary deferral available through January 21.",
+      "sources": [
+        {
+          "label": "Firebase AI Logic FAQ",
+          "url": "https://firebase.google.com/docs/ai-logic/faq-and-troubleshooting"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "openai:grid-protectors-program:datacenter-grid-demand-flexibility-announcement:2026-11-02",
+      "status": "new",
+      "topic": "Power / datacenters",
+      "title": "OpenAI proposes grid-responsive AI campuses under Grid Protectors",
+      "publisher": "OpenAI / Global Affairs",
+      "publication_date": "2026-11-02",
+      "event_date": "2026-11-02",
+      "freshness": "New • last 48 hours",
+      "highlights": "OpenAI launched its Grid Protectors Program on November 2, proposing that future compute campuses negotiate electricity demand reductions during periods of grid stress. The company also discussed batteries, on-site generation and smoother power draw. At its planned Effingham County, Georgia, campus, it cites a Georgia Power arrangement for up to 1,000 megawatts of demand response. The site is still under development: this is a prospective operating capability, not 1,000 megawatts already curtailed.",
+      "implications": "Large AI campuses can influence utility tariffs, transmission upgrades and the costs borne by surrounding businesses and households. Demand flexibility might help lower peak capacity requirements, but benefits depend on enforceable terms, actual operating behavior, and grid conditions. A national program announcement does not establish uniform utility agreements.",
+      "takeaway": "Watch signed local commitments, measured curtailment tests and public rate impacts before treating reduced costs or improved resilience as achieved.",
+      "development_summary": "OpenAI announced future datacenter demand-response plans, citing a prospective 1,000 MW Georgia flexibility arrangement.",
+      "sources": [
+        {
+          "label": "OpenAI Grid Protectors announcement",
+          "url": "https://openai.com/index/grid-protectors-program/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:lambda-managed-instances:soci-seekable-oci-lazy-loading-support:2026-10-28",
+      "status": "new",
+      "topic": "Serverless image startup",
+      "title": "AWS Lambda Managed Instances gains SOCI lazy container loading",
+      "publisher": "AWS What's New",
+      "publication_date": "2026-10-28",
+      "event_date": "2026-10-28",
+      "freshness": "Recent • not previously covered",
+      "highlights": "On October 28, AWS added Seekable OCI support for container-packaged Event Functions running on Lambda Managed Instances. SOCI lets a function retrieve files from an image as needed during startup instead of downloading the entire container first. AWS claims up to 70% faster startup for suitable workloads, with results dependent on image contents and access patterns. Operators build a SOCI index, store it in Amazon ECR with the image and reference the indexed tag; Lambda detects the index without another switch.",
+      "implications": "This addresses large dependency images used by compute-intensive APIs and data-processing functions. The feature is specifically for Managed Instances, not a blanket acceleration of every Lambda runtime. Better initialization performance does not guarantee improved end-to-end latency if execution or downstream calls dominate.",
+      "takeaway": "Benchmark representative cold starts, scaling events and costs before adopting it across a fleet. Confirm the feature is available in the target commercial Region.",
+      "development_summary": "AWS launched SOCI lazy image loading on Lambda Managed Instances, claiming startup reductions of up to 70%.",
+      "sources": [
+        {
+          "label": "AWS October 28 release",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-lambda-seekable-oci-soci/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "github:actions:pull-request-target-default-block-postponed-dec2-brownouts:2026-11-02",
+      "status": "new",
+      "topic": "CI/CD policy",
+      "title": "GitHub resets pull_request_target enforcement to December 2",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-11-02",
+      "event_date": "2026-11-02",
+      "freshness": "New • last 48 hours",
+      "highlights": "GitHub announced November 2 that public repositories will block pull_request_target Actions events by default beginning December 2, unless an applicable policy explicitly allows the event. That moves the previously scheduled November 2 enforcement. Two temporary brownouts are planned for November 9 and November 16, from 16:00 to 18:00 UTC. Outside those windows, the policy is in evaluate mode so teams can inspect workflows that would be blocked. The change does not apply to private or internal repositories.",
+      "implications": "pull_request_target runs with permissions of the base repository and may access secrets. Running untrusted fork code in that context can expose tokens or let an attacker change repository state. Teams should inspect actual event usage, the associated checkouts, and whether fine-grained exceptions are warranted rather than giving broad approval.",
+      "takeaway": "Audit affected workflows before November 9; test an intentionally restricted run. This is a changed enforcement timeline with operational consequences.",
+      "development_summary": "GitHub postponed its default public-repository pull_request_target block to December 2, with two November brownouts.",
+      "sources": [
+        {
+          "label": "GitHub November 2 notice",
+          "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "google-partners:xcpe-videostrong-1.3m-device-botnet-disruption:disclosed-2026-11-02",
+      "status": "new",
+      "topic": "Hardware supply-chain malware",
+      "title": "Google discloses XCPE botnet disruption across 1.3 million TV boxes",
+      "publisher": "Google Threat Intelligence Group",
+      "publication_date": "2026-11-02",
+      "event_date": "2026-11-02",
+      "freshness": "New • last 48 hours",
+      "highlights": "Google Threat Intelligence Group reported November 2 that it and partners disrupted the XCPE backdoor last week after identifying more than 1.3 million compromised Android set-top boxes. Google attributes deliberately implanted firmware malware to manufacturer Videostrong and describes downstream use for ad fraud, residential-proxy abuse and further infections. Google estimates disruption of associated command infrastructure may sever access to at least 10 million other compromised devices. These attribution and scale estimates are Google's forensic findings, not independently audited counts.",
+      "implications": "A factory-level implant can persist below ordinary application controls and spread across multiple product brands. Google says it ended relationships with the manufacturer and tightened device review procedures. Network takedowns do not prove every deployed device has been disinfected or can receive trusted updates.",
+      "takeaway": "Inventory unknown media devices, isolate them from sensitive networks and replace equipment without a verifiable remediation path.",
+      "development_summary": "Google reported disruption of XCPE, a firmware botnet involving over 1.3 million Android set-top boxes.",
+      "sources": [
+        {
+          "label": "Google original investigation",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/shutting-the-door-on-the-xcpe-botnet/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "knds-seaowl:explosive-autonomous-surface-interceptor-launch:2026-11-03",
+      "status": "new",
+      "topic": "Maritime defense technology",
+      "title": "KNDS and SeaOwl unveil expendable maritime drone interceptor",
+      "publisher": "Reuters original reporting",
+      "publication_date": "2026-11-03",
+      "event_date": "2026-11-03",
+      "freshness": "New • reported this morning",
+      "highlights": "Reuters reported at 08:02 UTC November 3 that Franco-German defense company KNDS and French startup SeaOwl introduced an explosive unmanned surface vessel intended to intercept hostile drones near harbors, ships and oil terminals. SeaOwl is to build the vessel while KNDS supplies a 30-kilogram explosive payload. The partners say the interceptor can launch from up to seven meters, become operational within seconds and operate in groups. SeaOwl is discussing the system with prospective European and Middle Eastern clients; this is not evidence that any navy has fielded it.",
+      "implications": "Maritime infrastructure faces relatively low-cost uncrewed threats, driving interest in point defense that does not rely exclusively on expensive interceptors. Harbor clutter, threat identification, autonomous engagement limits and safe use of an explosive payload all require testing before operational deployment.",
+      "takeaway": "Watch actual procurement, independent intercept trials and command-and-control safeguards. Treat speed and performance as manufacturer claims pending verification.",
+      "development_summary": "KNDS and SeaOwl announced a 30-kg-payload expendable surface drone for protecting maritime infrastructure.",
+      "sources": [
+        {
+          "label": "Reuters November 3 report",
+          "url": "https://www.reuters.com/business/aerospace-defense/defence-firm-knds-launches-suicide-drone-with-startup-seaowl-2026-11-03/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "github:security-risk-assessment:protected-repository-status-visibility:2026-11-02",
+      "status": "new",
+      "topic": "Application-security coverage",
+      "title": "GitHub risk assessments now reveal unprotected repositories",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-11-02",
+      "event_date": "2026-11-02",
+      "freshness": "New • last 48 hours",
+      "highlights": "GitHub updated its code security and secret risk assessments on November 2 to show whether a finding is located in a protected or unprotected repository. Organization administrators and security managers can use the assessments to identify where security tools have not yet been enabled, rather than receiving only a list of risks without coverage context. The improvement is live in GitHub Enterprise Cloud and Team; GitHub Enterprise Server 3.24 is a future target for secret-risk assessment support.",
+      "implications": "This offers a more usable coverage inventory for organizations managing many repositories, especially where important projects are not centrally owned. Yet a protected status does not demonstrate detection accuracy, successful remediation or revoked exposed credentials. Governance should combine tool enablement with ownership and operational response measures.",
+      "takeaway": "Use the updated assessment to prioritize security coverage gaps and validate controls in high-impact repositories, not to declare security complete.",
+      "development_summary": "GitHub added protected/unprotected repository indicators to organizational code and secret security risk assessments.",
+      "sources": [
+        {
+          "label": "GitHub November 2 changelog",
+          "url": "https://github.blog/changelog/2026-11-02-security-risk-assessments-include-repository-protection-status/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "ism:us-manufacturing-pmi:october-2026-released-2026-11-02",
+      "status": "new",
+      "topic": "US manufacturing / prices",
+      "title": "October US manufacturing PMI rises while price pressures remain high",
+      "publisher": "Institute for Supply Management",
+      "publication_date": "2026-11-02",
+      "event_date": "2026-10-31",
+      "freshness": "New data • last 48 hours",
+      "highlights": "ISM's November 2 release put the October 2026 US Manufacturing PMI at 55.5, up from 54.5 in September. Its survey reported the tenth consecutive month of manufacturing expansion. The Production Index was 59.0, New Orders 55.5 and Employment 52.4. The Prices Index eased from 77.9 to 75.2 but continued to signal higher materials prices; 75.2 is a diffusion index, not a 75.2% inflation rate. Supplier deliveries also slowed, suggesting continuing supply pressure.",
+      "implications": "Expanding orders and elevated inputs may influence hiring, inventory and pricing decisions, but monthly survey responses should not be equated with measured GDP or actual household inflation. The report represents purchasing managers' reported changes rather than a complete census of factories.",
+      "takeaway": "Watch whether the orders improvement carries into official output and employment data. Use measured inflation rather than PMI index levels for budgeting and borrowing decisions.",
+      "development_summary": "ISM reported October manufacturing PMI at 55.5 with production 59.0 and prices index 75.2.",
+      "sources": [
+        {
+          "label": "ISM October official report",
+          "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/pmi/october/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "oracle:equity-bonds-20-billion-ai-infrastructure-financing:2026-11-02",
+      "status": "new",
+      "topic": "AI investment / corporate financing",
+      "title": "Oracle seeks $20 billion in stock and bonds for AI infrastructure",
+      "publisher": "Reuters original reporting",
+      "publication_date": "2026-11-02",
+      "event_date": "2026-11-02",
+      "freshness": "New • last 48 hours",
+      "highlights": "On November 2, Reuters reported that Oracle would raise approximately $20 billion through a combination of equity and bonds to fund a capital-intensive AI and cloud expansion. The announced structure was roughly $10 billion in shares and $10 billion in debt with maturities ranging from 2029 to 2046. Reuters reported 86.2 million shares priced at $116 that day. Oracle identified general corporate needs including infrastructure spending, debt repayment, acquisitions and dividends among possible uses; the reported share price is a dated offering term, not a live market quotation.",
+      "implications": "Financing AI datacenters increasingly raises questions about shareholder dilution, debt service and whether future cloud demand will justify capital expenditure. The headline fundraising total alone does not establish cash flows, returns or operational delivery.",
+      "takeaway": "Examine later filings for final proceeds, interest expense and the time between construction, utilization and customer revenue. Avoid treating announced investment as booked profit.",
+      "development_summary": "Oracle launched approximately $20B in equity and debt fundraising linked to AI infrastructure and general corporate uses.",
+      "sources": [
+        {
+          "label": "Reuters November 2 original reporting",
+          "url": "https://www.reuters.com/business/oracle-offer-10-billion-bonds-2026-11-02/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "healthcare-gov:2027-marketplace-open-enrollment-start:2026-11-01",
+      "status": "new",
+      "topic": "Household coverage",
+      "title": "2027 ACA Marketplace enrollment begins with December and January deadlines",
+      "publisher": "HealthCare.gov / US government",
+      "publication_date": "2026-11-01",
+      "event_date": "2026-11-01",
+      "freshness": "Recent • not previously covered",
+      "highlights": "HealthCare.gov opened applications for 2027 individual Marketplace health coverage on November 1. Its current federal guidance says to select a plan by December 15, 2026 for coverage starting January 1, or by January 15, 2027 for coverage starting February 1. Some state-based marketplaces use different dates, and eligibility for financial assistance may differ from the prior year. People insured through employers, Medicare or Medicaid should not assume the same annual enrollment rules apply.",
+      "implications": "Comparison shopping matters because monthly premiums are only one part of the cost. Deductibles, out-of-pocket maximums, insurer networks, prescription coverage and estimated premium tax credits can change substantially even when a plan name stays familiar. Automatic renewals may not be the lowest-total-cost option.",
+      "takeaway": "Check your official state or federal marketplace and compare plans before December 15 if January 1 coverage is needed. Confirm deadlines, subsidies and eligibility for your own application.",
+      "development_summary": "2027 federal Marketplace open enrollment began November 1; HealthCare.gov lists December 15 and January 15 milestones.",
+      "sources": [
+        {
+          "label": "Official HealthCare.gov 2027 guide",
+          "url": "https://www.healthcare.gov/quick-guide/one-page-guide-to-the-marketplace/"
+        },
+        {
+          "label": "Federal enrollment guidance",
+          "url": "https://www.healthcare.gov/get-answers/"
+        }
+      ]
+    }
+  ]
+}
