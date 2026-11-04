@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-04",
+  "title": "Arbiter News",
+  "intro": "Twelve independently sourced developments across agent quality, developer tooling, cloud operations, security, naval autonomy and the U.S. economy.",
+  "overview": "Google's rigorous engineering-agent evaluation shows how far autonomous systems still have to go. GitHub expands agent integrations and BYOK usage visibility while Cloudflare, AWS and GitHub improve operations and cost-management controls. A newly exploited WordPress flaw, AWS agent guardrails and a drone-centric naval concept lead security and defense coverage. September hiring demand and factory orders, together with Treasury's next-quarter borrowing estimates, round out the financial view.",
+  "history_note": "Compared 451 accessible prior event records: all 319 imported historical records dated September 24 through October 22, 2026, in ten repository history parts, and 132 stories across eleven published editions dated October 23–November 3 (no October 25 edition). Underlying event identities and canonical source URLs were checked for the current 12 choices; no duplicate event was identified. The source repository was used because the public coverage.json could not be read by the web reader. Known record gaps include September 23 and October 6, 2026, plus the absent October 25 edition; some legacy records contain summaries without source links. Prior records were not used as evidence of new claims. Primary sources were opened and checked independently. November 4 Treasury refunding details are not included because they were not yet released as of briefing preparation.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "google-mercor:physical-engineerings-last-exam:85-tasks-29-open:2026-11-03",
+      "status": "new",
+      "topic": "AI agent evaluations",
+      "title": "Google tests agents on real engineering deliverables, not textbook answers",
+      "publisher": "Google AI & Infrastructure",
+      "publication_date": "2026-11-03",
+      "event_date": "2026-11-03",
+      "freshness": "New • last 48 hours",
+      "highlights": "Google and Mercor introduced Physical-Engineering's Last Exam on November 3. The benchmark uses 85 long-running mechanical, electrical, civil and structural engineering assignments built around actual project files, standards, calculations and deliverables; 29 tasks and their graders are public. Google says it tested 14 frontier models with seven harnesses. Its best reported configuration averaged 48.3% on the private test set, and only 41.3% of its outputs passed all hard safety and feasibility checks.",
+      "implications": "This is a more useful reality check than single-question model scores: agents must reconcile documents, codes and cost constraints before producing something an engineer could approve. Results are vendor-conducted benchmark measurements, not an independent assessment of deployment readiness. Differences in model choice were larger than typical harness differences in Google's experiments.",
+      "takeaway": "Explore the public tasks for evaluation design, but keep licensed professional review and independent engineering validation in charge of real-world outcomes.",
+      "development_summary": "Google and Mercor released an engineering-agent benchmark with 85 tasks, 29 public examples and model evaluations under safety and feasibility checks.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-physical-engineerings-last-exam-for-agents"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot-jetbrains-air:agent-client-protocol-local-cloud-launch:2026-11-03",
+      "status": "new",
+      "topic": "Coding agents",
+      "title": "GitHub Copilot joins JetBrains Air for parallel local and cloud coding tasks",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-11-03",
+      "event_date": "2026-11-03",
+      "freshness": "New • last 48 hours",
+      "highlights": "GitHub announced November 3 that Copilot is selectable inside JetBrains Air, using the Agent Client Protocol. Developers can delegate coding tasks, review changes alongside project context, and manage multiple sessions from JetBrains tooling. Local tasks use Copilot in the IDE; eligible Air Teams organizations can also run cloud tasks in isolated, fresh virtual-machine containers through Air in a browser or IDE. Cloud task execution uses a Copilot subscription rather than JetBrains AI credits.",
+      "implications": "Cloud tasks require a JetBrains account in an Air Teams-enabled business organization, a GitHub Copilot subscription and administrator enablement. The announcement says cloud containers are fresh per task and route network traffic through a proxy. Those controls do not substitute for reviewing untrusted repository code, tokens or generated changes. Plan selection may not be controllable on an individual task.",
+      "takeaway": "This is an integration for organizations already using both tools, not a new coding model; pilot with representative repositories and administrator policies.",
+      "development_summary": "GitHub introduced Copilot as an ACP-connected agent in JetBrains Air, supporting local work and qualifying isolated cloud tasks.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot-usage-api:local-byok-enterprise-custom-model-breakouts:2026-11-03",
+      "status": "new",
+      "topic": "AI cost governance",
+      "title": "Copilot usage reports now separate local BYOK and enterprise custom models",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-11-03",
+      "event_date": "2026-11-03",
+      "freshness": "New • last 48 hours",
+      "highlights": "GitHub's November 3 metrics update distinguishes developer-managed local BYOK use from organization-provisioned custom models in Copilot usage reports. New fields identify local BYOK users and counts by client and BYOK kind, while an enterprise custom-model flag separates those requests from hosted-model usage. Data is available in organization and enterprise one-day and 28-day reports, including aggregate and user-level views. Existing usage totals do not change.",
+      "implications": "Local BYOK includes provider keys and local inference services such as Ollama; client telemetry may undercount activity when disabled, and some local providers omit token counts. Enterprise custom models are observed server-side and therefore have better coverage. Teams must not interpret a model-name match as evidence of identical billing or routing, and historical days are not retroactively annotated.",
+      "takeaway": "Use the new fields to reconcile AI cost attribution and BYOK policy, while recording telemetry gaps explicitly.",
+      "development_summary": "GitHub exposed BYOK and enterprise custom-model usage distinctions in Copilot organization and enterprise reporting without altering existing totals.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-03-byok-and-enterprise-custom-models-in-the-copilot-usage-api/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "cloudflare:r2:per-region-request-status-and-rate-limit-metrics:2026-11-03",
+      "status": "new",
+      "topic": "Object storage observability",
+      "title": "Cloudflare R2 adds regional request and HTTP-error breakdowns",
+      "publisher": "Cloudflare Developers",
+      "publication_date": "2026-11-03",
+      "event_date": "2026-11-03",
+      "freshness": "New • last 48 hours",
+      "highlights": "Cloudflare's November 3 R2 changelog adds two views on each bucket's Metrics page. Request Distribution by Region can filter reads, writes, errors and rate-limited HTTP 429 responses. Errors by Status Code displays counts and trends grouped by actual HTTP result. The improvement targets bucket-level diagnosis rather than introducing a new storage class, region or API behavior. It is available in the Cloudflare dashboard, according to the product notice.",
+      "implications": "Regional and status-code granularity can help teams distinguish traffic concentration, hot clients and rate limiting from broad service failures. These charts do not by themselves reveal the requesting application, root cause or how a regional problem affected an end user. Operators still need application traces, request logs and service-health evidence to correlate timing and scope.",
+      "takeaway": "During an R2 incident, check 429s and region distribution first, then correlate with client retries and application logs rather than inferring a global outage.",
+      "development_summary": "Cloudflare added R2 dashboard metrics for regional request distribution and HTTP-status error trends.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-03-r2-request-error-breakdowns/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "github:billing-cost-center-resource-lookup-rest-endpoint:2026-11-03",
+      "status": "new",
+      "topic": "Cloud platform chargeback",
+      "title": "GitHub REST API can identify a resource's cost center directly",
+      "publisher": "GitHub Changelog",
+      "publication_date": "2026-11-03",
+      "event_date": "2026-11-03",
+      "freshness": "New • last 48 hours",
+      "highlights": "GitHub introduced a REST endpoint on November 3 that looks up the cost-center membership of a named user, organization, repository or enterprise team. Previously, administrators had to enumerate cost centers and search their resource memberships manually. The response identifies a matching cost center by ID and name, or returns an empty memberships array when a resource has no assignment. This is a billing-management API change, not a change to billable rates.",
+      "implications": "Access is permission-scoped: enterprise owners, billing managers and qualifying GitHub Apps with enterprise billing read access can inspect enterprise resources; organization-level roles see only authorized resources. Automated chargeback should treat an empty assignment as a real governance exception, not silently allocate it to another team. API responses also need reconciliation against actual metered usage and changing team ownership.",
+      "takeaway": "Inventory unassigned repositories and teams before relying on cost centers for engineering-platform showback or chargeback.",
+      "development_summary": "GitHub released direct REST lookup of cost-center memberships for users, organizations, repositories and enterprise teams.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-03-look-up-a-resources-cost-center-with-the-github-rest-api/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:rds-oracle:m8i-r8i-new-zealand-calgary-europe-tel-aviv-expansion:2026-11-03",
+      "status": "new",
+      "topic": "Managed databases",
+      "title": "AWS expands Oracle RDS M8i and R8i capacity to more regions",
+      "publisher": "AWS What's New",
+      "publication_date": "2026-11-03",
+      "event_date": "2026-11-03",
+      "freshness": "New • last 48 hours",
+      "highlights": "AWS announced November 3 that RDS for Oracle supports M8i and R8i DB instances in Asia Pacific (New Zealand) and Canada West (Calgary), with R8i added in Milan, Stockholm, Zurich and Tel Aviv. The Intel Xeon 6-based instance families are offered through the Bring Your Own License model for supported Oracle Enterprise Edition and Standard Edition 2 configurations. Sizes and licensing options vary by edition and region. AWS claims up to 15% better price-performance and 2.5 times the memory bandwidth compared with previous Intel-based generations.",
+      "implications": "This is a geographical expansion of existing instance families, not their first launch. A published theoretical performance claim does not guarantee a database migration's results: licensing, I/O, wait events, available instance sizes and reserved-capacity economics still matter. R8i availability in a region does not imply M8i is available there.",
+      "takeaway": "Verify the exact regional class and Oracle license eligibility, then benchmark representative SQL and memory pressure before migrating production.",
+      "development_summary": "AWS expanded RDS for Oracle M8i/R8i regional availability, with differing per-region coverage and vendor-reported performance gains.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-oracle-m8i-r8i-instances-new-regions/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "cisa-wordpress:core-cve-2026-119977-added-kev:2026-11-03",
+      "status": "new",
+      "topic": "Actively exploited vulnerabilities",
+      "title": "CISA flags exploited WordPress core flaw; check versions before 7.1.4",
+      "publisher": "Canadian Centre for Cyber Security / CISA",
+      "publication_date": "2026-11-03",
+      "event_date": "2026-11-03",
+      "freshness": "New • last 48 hours",
+      "highlights": "Canada's Cyber Centre issued advisory AV26-1117 on November 3 after CISA added CVE-2026-119977 to its Known Exploited Vulnerabilities catalog that day. The Canadian advisory identifies WordPress Core versions before 7.1.4 as affected and links to the fixed release and CISA record. Listing in KEV means CISA has evidence of exploitation in the wild; it is more urgent than a vulnerability with a high severity score alone. Administrators should verify their installed core version and relevant supported update branch.",
+      "implications": "Internet-facing content systems are a common intrusion path, particularly when patching depends on plugins, themes or managed-hosting release cycles. A fix should be validated for the actual running site rather than inferred from an update notification. Check web-server logs, unusual administrative users, recently modified files and backup integrity if exposure or suspicious activity is suspected.",
+      "takeaway": "Apply the appropriate supported WordPress security update promptly and investigate potentially exposed sites; do not assume a plugin update fixes a core vulnerability.",
+      "development_summary": "On November 3 CISA added WordPress Core CVE-2026-119977 to KEV; Canadian guidance points to WordPress 7.1.4 as patched.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.cyber.gc.ca/en/alerts-advisories/wordpress-security-advisory-av26-1117"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "crowdstrike-aws:falcon-guardian-bedrock-agentcore-ecs-managed-instances-integration:2026-11-03",
+      "status": "new",
+      "topic": "AI and cloud workload defense",
+      "title": "CrowdStrike announces guardrail-layer AI protection and ECS managed-host sensors",
+      "publisher": "CrowdStrike / AWS",
+      "publication_date": "2026-11-03",
+      "event_date": "2026-11-03",
+      "freshness": "New • last 48 hours",
+      "highlights": "At its November 3 Fal.Con Europe event, CrowdStrike announced integration of Falcon Guardian with Amazon Bedrock AgentCore Guardrails, describing protections for prompt injection, sensitive data leakage and malicious behavior in agents and applications using Bedrock. It also introduced a Falcon sensor integration for Amazon ECS Managed Instances, intended to deploy automatically as applicable managed hosts scale. CrowdStrike says the latter removes manual host installation and reduces configuration drift; these are vendor descriptions, not independent attack-resistance results.",
+      "implications": "Embedding a security decision into an agent's managed guardrail path is different from scanning outputs after the fact. Teams still must test policy quality, false positives, latency, permitted tool actions and how failures are handled. A host sensor cannot substitute for IAM minimization, image provenance, network isolation or application authorization. The announcement does not specify universal customer availability, pricing or measured effectiveness.",
+      "takeaway": "Treat this as an integration to evaluate, not a guarantee that prompt injection or runtime compromise has been eliminated.",
+      "development_summary": "CrowdStrike introduced Bedrock AgentCore guardrail integration and ECS Managed Instances sensor support on November 3.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://crowdstrike.gcs-web.com/news-releases/news-release-details/crowdstrike-announces-new-native-ai-security-innovations-aws"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "naval-group:scx26-uncrewed-systems-warship-concept-euronaval:2026-11-03",
+      "status": "new",
+      "topic": "Naval autonomy and defense design",
+      "title": "Naval Group unveils SCX 26, a drone-oriented 8,000-ton warship concept",
+      "publisher": "Naval Group",
+      "publication_date": "2026-11-03",
+      "event_date": "2026-11-03",
+      "freshness": "New • last 48 hours",
+      "highlights": "French shipbuilder Naval Group unveiled SCX 26 at Euronaval on November 3 as a concept for future high-intensity naval warfare. Its proposed 170-meter, 8,000-ton design centers an aft mission bay around deployment, recovery, maintenance and reconfiguration of aerial, surface and underwater drones. Naval Group also proposes modular capacity, distributed sensors and substantial defensive weaponry. The published dimensions, endurance and weapon fit describe a design exercise, not a ship being built, funded or fielded.",
+      "implications": "The concept illustrates a transition from treating drones as accessories to designing naval combatants as platforms for mixed crewed and uncrewed operations. In practice, deck handling, communications under electronic attack, human authorization, survivability and replenishment would determine whether such a vessel could sustain operations. Future procurement requirements and engineering tradeoffs remain unconfirmed.",
+      "takeaway": "Follow actual customer acquisition decisions and sea trials before counting the SCX 26 as new fleet capability; today it is an architectural proposal.",
+      "development_summary": "Naval Group disclosed an uncrewed-systems-centered SCX 26 warship concept at Euronaval, not an ordered or operational vessel.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.naval-group.com/en/naval-group-unveils-its-new-concept-ship-designed-naval-warfare-future"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "bls:jolts-september-2026-job-openings-7.523m-release:2026-11-03",
+      "status": "new",
+      "topic": "Labor market",
+      "title": "September job openings rise to 7.52 million in new U.S. JOLTS report",
+      "publisher": "U.S. Bureau of Labor Statistics",
+      "publication_date": "2026-11-03",
+      "event_date": "2026-11-03",
+      "freshness": "New • last 48 hours",
+      "highlights": "BLS published its September 2026 Job Openings and Labor Turnover Survey on November 3. Seasonally adjusted vacancies stood at 7.523 million on the final business day of September, up about 333,000 from a revised 7.190 million in August; the job-openings rate was 4.5%. JOLTS also separately measures hiring, quits and layoffs during the month. A change in posted vacancies is not the same thing as new hires or guaranteed positions available to a given worker.",
+      "implications": "The increase suggests some ongoing demand for labor, but industry and regional patterns differ substantially. Employers may retain listings while lengthening interview cycles, and both survey sampling and revisions complicate single-month conclusions. Household decisions about switching jobs or negotiating compensation are better informed by openings in a specific occupation and region than by one national figure.",
+      "takeaway": "Read the rise as one labor-market signal, not proof hiring conditions have broadly improved. Compare it with payroll employment, unemployment and wage data.",
+      "development_summary": "BLS reported 7.523 million September job openings in its November 3 JOLTS release, versus revised 7.190 million in August.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.bls.gov/news.release/jolts.htm"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-census:m3-september-2026-full-manufacturing-orders-shipments-inventory:2026-11-03",
+      "status": "new",
+      "topic": "U.S. manufacturing",
+      "title": "Factory orders increase 1.8% in September's full manufacturing report",
+      "publisher": "U.S. Census Bureau",
+      "publication_date": "2026-11-03",
+      "event_date": "2026-11-03",
+      "freshness": "New • last 48 hours",
+      "highlights": "The Census Bureau's November 3 full report puts September 2026 new manufactured-goods orders at $677.2 billion, up $12.2 billion or 1.8% from revised August. Shipments rose 1.3% to $668.5 billion, unfilled orders gained 0.9% to $1.624 trillion, and inventories rose 0.4% to $976.0 billion. The full survey includes nondurable industries alongside the durable-goods advance report published October 27. Census specifically notes the figures are seasonally adjusted but not adjusted for changes in prices.",
+      "implications": "Rising factory orders can signal future production, but the order value alone does not show whether real output expanded after inflation. The increase in unfilled orders may reflect a backlog rather than immediate delivery or new employment. Read manufacturing momentum against purchasing-manager surveys, industrial production, and individual company investment rather than equating nominal orders with stronger household purchasing power.",
+      "takeaway": "The full September survey adds nondurable orders and factory balance-sheet context beyond last week's advance durable-goods reading.",
+      "development_summary": "November 3 full factory-orders release reported September new orders +1.8%, with shipments, unfilled orders and inventories also higher.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.census.gov/manufacturing/m3/prel/pdf/s-i-o.pdf"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-treasury:privately-held-net-marketable-borrowing-q4-2026-q1-2027-estimates:2026-11-02",
+      "status": "new",
+      "topic": "Federal borrowing and rates",
+      "title": "Treasury forecasts $618 billion borrowing this quarter and $800 billion next",
+      "publisher": "U.S. Department of the Treasury",
+      "publication_date": "2026-11-02",
+      "event_date": "2026-11-02",
+      "freshness": "New • last 48 hours",
+      "highlights": "On November 2 the Treasury published updated estimates for privately held net marketable borrowing. It expects $618 billion during October–December 2026 assuming an $850 billion quarter-end cash balance, and $800 billion during January–March 2027 assuming a $1 trillion ending balance. The current-quarter figure is $10 billion below the August forecast, mainly because the starting cash balance was higher than assumed. Treasury reported $742 billion actually borrowed in July–September.",
+      "implications": "These are financing estimates with explicit cash-balance assumptions, not a newly legislated spending total or a forecast of Treasury yields. Auction supply and investor demand can influence financing conditions, but mortgage and savings yields also respond to Federal Reserve expectations and broader markets. The detailed quarterly refunding announcement is scheduled for 8:30 a.m. Eastern November 4, after this briefing's preparation; it is not yet being reported as released.",
+      "takeaway": "Track the separate refunding announcement before drawing conclusions about specific security maturities or household interest rates.",
+      "development_summary": "Treasury forecast $618 billion of privately held net borrowing for Q4 2026 and $800 billion for Q1 2027, subject to cash assumptions.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://home.treasury.gov/news/press-releases/sb0675"
+        }
+      ]
+    }
+  ]
+}
