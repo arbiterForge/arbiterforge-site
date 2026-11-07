@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-07",
+  "title": "Arbiter News",
+  "intro": "Saturday, November 7, 2026: twelve original-source developments across AI, cloud infrastructure, cybersecurity and defense technology, and money.",
+  "overview": "Agent governance and persistent work agents share the headlines with regulated-cloud infrastructure, an exploited VPN flaw, a major counter-drone radar deal, and mixed U.S. household economic data.",
+  "history_note": "Compared 487 accessible earlier coverage records: 319 historical records across ten repository history parts and 168 stories from fourteen editions dated October 23 through November 6, 2026. Checked underlying developments, normalized event keys and canonical source URLs; none of the selected news reuses a prior event or canonical URL. Historical gaps: September 23, October 6, no October 25 edition, plus legacy records without URLs. The public coverage endpoint was not readable through the available reader; all repository datasets generating it were inspected. Routine Opus 5.5 launch coverage was excluded.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "github:copilot-code-review:enterprise-org-repo-policy-api-attribution:2026-11-06",
+      "status": "new",
+      "topic": "Code review governance",
+      "title": "GitHub adds managed Copilot review policies and attribution APIs",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "New • last 24 hours",
+      "highlights": "On November 6, GitHub expanded REST and GraphQL management of Copilot code reviews across enterprise, organization and repository scopes. Review comments now expose attribution, available effort metadata and the skills, MCP servers or custom instructions reported as sources. Administrators can control enablement, review effort, runner configuration and repository-specific context. GitHub also reports improved automatic retry behavior, clearer skipped-file explanations and balanced reviews using three reviewer models plus a synthesizer.",
+      "implications": "Analysis: Central controls offer a more auditable way to govern AI review, but a reported source is not proof a finding is correct. Enterprise and organization settings endpoints do not accept GitHub Apps or fine-grained personal access tokens, complicating fully automated administration.",
+      "takeaway": "Takeaway: Map the policy hierarchy and required token types, then assess review precision and actual fixes before scaling.",
+      "development_summary": "GitHub introduced Copilot review-management APIs, source attribution and resilience changes.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "perplexity:computer-teammates:persistent-multiagent-work:2026-11-04",
+      "status": "new",
+      "topic": "Persistent work agents",
+      "title": "Perplexity launches Teammates for ongoing delegated work",
+      "publisher": "Perplexity",
+      "publication_date": "2026-11-04",
+      "event_date": "2026-11-04",
+      "freshness": "New • last 7 days",
+      "highlights": "Perplexity unveiled Teammates on November 4 as agents operating inside Perplexity Computer that coordinate other sessions and teammates, remember goals and task history, and continue monitoring assigned work without a new prompt. The vendor describes sales, operations, marketing and support workflows, Slack collaboration, connections to GitHub and Gmail, separate browser environments and progress that humans can inspect. Access initially targets Max subscribers on the web; iOS and broader availability remain future plans.",
+      "implications": "Analysis: Persistent ownership differs from a single chat-generated answer. It also elevates the importance of access control, action approvals, audit records, error recovery and reliable status reporting. Product demonstrations are not independent validation of success rates.",
+      "takeaway": "Takeaway: Pilot a narrow, reversible workflow with explicit intervention points and measure outcomes rather than activity counts.",
+      "development_summary": "Perplexity introduced persistent coordinating AI teammates with project memory and connected tools.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot-impact-dashboard:chat-vscode-agent-28day-engagement:2026-11-06",
+      "status": "new",
+      "topic": "Adoption analytics",
+      "title": "Copilot impact dashboard counts Chat and VS Code agent activity",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "New • last 24 hours",
+      "highlights": "GitHub's November 6 Copilot impact dashboard update added Copilot Chat and the VS Code Agents window, expanding tracked experiences to nine. The enterprise and organization 28-day usage reports now offer chat and vscode_agent entries under copilot_feature_engagement.totals_by_feature. The formerly named Passive users cohort becomes Chat-first users. To qualify as engaged for a feature, a person must use it on at least two days during the 28-day window; users can appear under several features.",
+      "implications": "Analysis: This extends visibility to developers who interact with chat but do not necessarily accept suggested code. It is not a productivity measure: Chat and Agents usage do not advance adoption phases, prior historical exports have only seven features, and cohort counts are unchanged.",
+      "takeaway": "Takeaway: Annotate metric changes and distinguish usage, adoption and measurable delivery outcomes before reporting a trend.",
+      "development_summary": "GitHub expanded Copilot feature-engagement metrics and renamed a cohort without changing its underlying definition.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws-glue:iceberg-rest-external-catalog-vended-s3-prefix-credentials:2026-11-06",
+      "status": "new",
+      "topic": "Federated data security",
+      "title": "AWS Glue accepts Iceberg catalog-vended temporary credentials",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "New • last 24 hours",
+      "highlights": "AWS announced November 6 that Glue Data Catalog can consume credentials issued by an external Apache Iceberg REST catalog. Federated tables can be read from Athena, EMR, Redshift and Glue using storage credentials scoped by the external catalog to an S3 prefix, rather than only a customer-configured IAM role with broad bucket permissions. Lake Formation remains available to enforce finer-grained table, row and column access and cross-account sharing.",
+      "implications": "Analysis: This is useful where data ownership spans distinct services and organizations. The external catalog becomes an important trust and authorization boundary; narrow credentials reduce unnecessary storage access but do not replace the need to validate principal identity, policy evaluation, token expiry or data residency.",
+      "takeaway": "Takeaway: Run one federated workload end to end and inspect the effective S3, catalog and Lake Formation permissions.",
+      "development_summary": "AWS Glue added temporary external catalog-issued credentials for Iceberg federation.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-vended-credentials-iceberg/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws-agentcore:agent-registry-govcloud-us-west-ga:2026-11-06",
+      "status": "new",
+      "topic": "Governed agent registry",
+      "title": "AWS Agent Registry reaches GovCloud US-West",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "New • last 24 hours",
+      "highlights": "On November 6, AWS made Bedrock AgentCore Agent Registry generally available in GovCloud US-West. The managed catalog can organize MCP servers, tools, AI agents, skills and custom resources, with discovery through browsing, hybrid search and an MCP endpoint. Teams can establish an approval workflow that determines which published capabilities become discoverable. The release concerns GovCloud regional availability of the registry, not availability of every AgentCore service in that region.",
+      "implications": "Analysis: A central catalog reduces duplicated integrations and can make an approved tools inventory easier to maintain in controlled environments. Catalog approval alone does not authorize execution; IAM access, network paths, data classifications and action logging remain separate responsibilities.",
+      "takeaway": "Takeaway: Test approval, discoverability, revocation, identity and audit traces in the destination region before broader use.",
+      "development_summary": "Bedrock AgentCore Agent Registry launched in GovCloud US-West with managed discovery and curation.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-agent-registry-govcloud-us-west/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws-msk-replicator:govcloud-east-west-kafka-replication-ga:2026-11-06",
+      "status": "new",
+      "topic": "Streaming resilience",
+      "title": "Amazon MSK Replicator expands to both GovCloud regions",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "New • last 24 hours",
+      "highlights": "AWS announced November 6 that MSK Replicator is available in GovCloud US-East and US-West. It can replicate Kafka streaming data between Amazon MSK clusters and ingest from external Apache Kafka clusters, including self-managed, on-premises and other-cloud deployments, into MSK Provisioned. The release extends an existing managed data-replication capability to regulated regions. It supports possible migration, continuity and cross-cluster distribution patterns without maintaining a custom replication process.",
+      "implications": "Analysis: Replication is not a complete disaster-recovery plan. Recovery objectives, consumer offset behavior, sequencing, failover routing, duplicate messages and data-residency obligations still need engineering decisions and validation. Regional availability does not guarantee every topology meets security or latency requirements.",
+      "takeaway": "Takeaway: Rehearse a realistic producer and consumer failover and verify replication lag, offsets, authorization and replay semantics.",
+      "development_summary": "AWS expanded the MSK Replicator managed Kafka service into both GovCloud regions.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-replicator-additional-aws-regions/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "sonicwall:sonicos-sslvpn:cve-2026-19868-saml-auth-bypass-kev:2026-11-06",
+      "status": "new",
+      "topic": "Active VPN exploitation",
+      "title": "SonicWall VPN authentication flaw enters CISA's exploited catalog",
+      "publisher": "SonicWall / CISA",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "New • last 24 hours",
+      "highlights": "On November 6, SonicWall warned that CVE-2026-19868 affects SonicOS SSLVPN authentication enforcement. Someone with valid credentials for an alternate authentication method may bypass SAML authentication controls and potentially SAML-enforced multifactor authentication in affected configurations. SonicWall says attackers are exploiting the issue, and CISA placed it in its Known Exploited Vulnerabilities catalog on November 6. Canada's national cybersecurity agency also published guidance directing administrators to check affected versions and apply updates.",
+      "implications": "Analysis: This is not described as a universal anonymous login, but it can undermine a key layer of security on an exposed VPN. KEV inclusion confirms exploitation evidence, not the number of affected organizations. Merely patching without reviewing sign-in activity may miss prior access.",
+      "takeaway": "Takeaway: Prioritize affected gateway updates, verify vendor-fixed releases, and investigate unusual authentication events.",
+      "development_summary": "SonicWall reported active exploitation of a SAML authentication bypass in SonicOS SSLVPN; CISA listed the flaw in KEV.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0014"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "aws-security-hub:orgwide-sbom-compute-inventory-ec2-ecr-lambda:2026-11-06",
+      "status": "new",
+      "topic": "Software supply-chain defense",
+      "title": "AWS Security Hub adds an organization-wide SBOM inventory",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "New • last 24 hours",
+      "highlights": "On November 6, AWS announced that Security Hub can display an inventory of installed software packages using software bills of materials generated by Amazon Inspector. It covers inspected EC2 instances, ECR container images and Lambda functions, with filtering by package, version, type, AWS account and region and visibility into how many resources contain a component. AWS describes an automatically refreshed view without extra setup when the underlying Inspector data are available.",
+      "implications": "Analysis: An SBOM-based view helps security teams identify exposure across fleets when a vulnerable component is disclosed. However, completeness depends on Inspector deployment and collection freshness; observing a package does not establish its exploitability or runtime reachability. A package inventory should complement, not substitute for, prioritization and patch verification.",
+      "takeaway": "Takeaway: Audit inventory coverage, then test how quickly a vulnerable library can be located and remediated across supported resources.",
+      "development_summary": "AWS Security Hub began aggregating Amazon Inspector SBOMs into a searchable software inventory.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-sbom-inventory/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "shield:echodyne-radar-acquisition-5p3b-deal-counter-uas:2026-11-05",
+      "status": "new",
+      "topic": "Counter-drone sensors",
+      "title": "Shield agrees to buy Echodyne radar business for $5.3 billion",
+      "publisher": "Shield",
+      "publication_date": "2026-11-05",
+      "event_date": "2026-11-05",
+      "freshness": "New • last 48 hours",
+      "highlights": "Shield announced November 5 that it signed a definitive agreement to buy Echodyne for a $5.3 billion transaction value, up to $500 million of which depends on performance milestones. Shield also described a $2.5 billion financing package. Echodyne manufactures electronically steered radar employed in counter-drone and security settings, according to the companies, and would join Shield's Hivemind autonomy software and V-BAT/X-BAT aircraft portfolio. The transaction is expected to close in early 2027 after required approvals.",
+      "implications": "Analysis: This is an attempt to integrate sensing, tracking and autonomous response in counter-uncrewed-aircraft systems, not evidence of a new fielded defense capability. The transaction value includes conditional consideration. Customers should watch whether Echodyne remains interoperable with other systems and whether manufacturing scale translates into demonstrated reliability.",
+      "takeaway": "Takeaway: Monitor approvals, independent operational tests, open interfaces and production readiness before assuming battlefield integration.",
+      "development_summary": "Shield signed a proposed $5.3 billion purchase of counter-drone radar company Echodyne.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://shield.ai/shield-to-acquire-echodyne-in-a-transaction-valued-at-5-3-billion-and-raise-2-5-billion-at-a-28-8-billion-valuation/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "bls:october-2026-payroll-jobs-165k-unemployment-4p1:2026-11-06",
+      "status": "new",
+      "topic": "U.S. employment",
+      "title": "October U.S. payrolls increase 165,000; jobless rate at 4.1%",
+      "publisher": "U.S. Bureau of Labor Statistics",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "New • last 24 hours",
+      "highlights": "The Bureau of Labor Statistics reported November 6 that U.S. employers added 165,000 payroll jobs in October, while unemployment edged down to 4.1 percent. Professional and business services added 70,000 jobs, health care 42,000, transportation and warehousing 25,000, and manufacturing 19,000. August and September job counts were revised upward by a combined 84,000. Average hourly pay rose 0.4 percent over the month and 3.1 percent over the year; the broader underemployment rate increased to 7.9 percent.",
+      "implications": "Analysis: The headline points to resilient hiring, but the increase in broader underemployment and year-over-year pay rising more slowly than consumer prices complicate the household picture. Large revisions also caution against declaring a new trend after a single report. Monetary policymakers will weigh the labor numbers alongside inflation.",
+      "takeaway": "Takeaway: Compare three-month hiring, real wage changes and underemployment instead of focusing on a single payroll headline.",
+      "development_summary": "BLS reported 165,000 jobs added in October, 4.1 percent unemployment, and upward past-month revisions.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.bls.gov/news.release/archives/empsit_11062026.htm"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "umich:consumer-sentiment-preliminary-november-2026-51:2026-11-06",
+      "status": "new",
+      "topic": "Consumer outlook",
+      "title": "November preliminary consumer sentiment improves to 51.0",
+      "publisher": "University of Michigan Surveys of Consumers",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "New • last 24 hours",
+      "highlights": "The University of Michigan's November preliminary survey, released November 6, showed sentiment at 51.0, up from October's 48.0. Current conditions increased from 46.7 to 51.0 and expectations from 48.8 to 50.9. Year-ahead inflation expectations fell to 4.3 percent from 4.7 percent; longer-term expectations eased to 3.4 percent from 3.5 percent. Interviews covered October 20 through November 2. The survey said 57 percent of respondents spontaneously mentioned erosion of living standards from higher prices.",
+      "implications": "Analysis: The modest improvement starts from very weak confidence and does not establish that purchasing power has recovered. The preliminary survey can be revised, and expected inflation is not the same as measured inflation. Responses also differed depending on respondents' financial-asset exposure.",
+      "takeaway": "Takeaway: Look for confirmation in final sentiment, actual inflation and inflation-adjusted household earnings rather than extrapolating the preliminary index.",
+      "development_summary": "The University of Michigan reported higher preliminary November sentiment and slightly lower inflation expectations.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.sca.isr.umich.edu/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "fed:g19-september-2026-consumer-credit-up-27p8b:2026-11-06",
+      "status": "new",
+      "topic": "Household borrowing",
+      "title": "Federal Reserve reports a $27.8 billion rise in September consumer credit",
+      "publisher": "Federal Reserve Board",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "New • last 24 hours",
+      "highlights": "The Federal Reserve's November 6 G.19 release estimated that September consumer credit rose approximately $27.8 billion to $5.224 trillion, a 6.4 percent seasonally adjusted annualized pace. Revolving credit, mainly credit cards, climbed at a 14.5 percent annualized rate and accounted for about $16.3 billion of the increase. Nonrevolving credit, including vehicle and education financing, grew at a 3.6 percent annualized pace. G.19 excludes real-estate-secured loans. The reported annualized rates are not actual monthly percentage increases.",
+      "implications": "Analysis: Rising revolving balances can raise debt-servicing costs where borrowers carry expensive card debt, but aggregate balances alone cannot reveal the financial health of individual households. Credit growth could reflect changing payments, demand or stress; delinquencies, interest rates and disposable incomes help distinguish them.",
+      "takeaway": "Takeaway: Assess the borrowing rebound alongside card APRs, delinquency trends and income growth rather than treating it as a stand-alone warning.",
+      "development_summary": "Federal Reserve September G.19 data showed $27.8 billion growth in consumer credit led by revolving borrowing.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.federalreserve.gov/releases/g19/20261106/"
+        }
+      ]
+    }
+  ]
+}
