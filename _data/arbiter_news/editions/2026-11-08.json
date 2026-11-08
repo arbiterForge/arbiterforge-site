@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-08",
+  "title": "Arbiter News",
+  "intro": "Sunday, November 8, 2026: twelve original-source developments across AI and agents, cloud infrastructure, cybersecurity and defense technology, and markets and money.",
+  "overview": "The weekend edition follows a newly general-available chat-to-code workflow, model deployment options, Google storage infrastructure, cold-chain OT warnings, a proposed defense aviation sale, and rate and rule changes affecting economic decisions.",
+  "history_note": "Compared 499 accessible earlier coverage records: 319 historical records in ten repository history parts and 180 stories from 15 editions dated October 23 through November 7, 2026. Checked underlying developments, normalized event keys and canonical source URLs across all available records; material updates explicitly link previously covered events. Historical gaps include September 23, October 6 and the unpublished October 25 edition, as well as legacy records without source URLs. The public rendered coverage endpoint could not be read directly, so all repository data that generate it were inspected. Routine Opus 5.5 launch coverage was excluded.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "github:slack-teams-copilot:general-availability-canvas-attribution:2026-11-06",
+      "status": "material-update",
+      "topic": "Chat-to-code workflows",
+      "title": "GitHub makes @GitHub generally available in Slack and Teams",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "Material update • last 7 days",
+      "highlights": "GitHub announced general availability of its @GitHub assistant in Slack and Microsoft Teams on November 6. Participants can ask it to investigate a bug, create an issue, implement a code change and open a pull request from a team conversation. The update adds a shared Canvas experience in Teams for discussing plans, reviewing changes and previews with colleagues. It also improves repository identification and onboarding, fixes a follow-up response problem, and attributes generated issues and pull requests to their originating conversation.",
+      "implications": "Analysis: This moves coding assistance closer to the place teams triage work. It does not automatically establish that code is reviewed, safe or approved. Teams need controls for which conversations may initiate actions, who authorizes repository access, how source context is handled, and what audit trail survives the chat.",
+      "takeaway": "Takeaway: Pilot an issue-to-PR workflow with limited repository permissions, mandatory human review and explicit conversation-to-commit traceability.",
+      "development_summary": "GitHub expanded its previously covered Slack/Teams assistant from multi-repository conversation support to general availability with Teams Canvas and clearer issue/PR attribution.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available/"
+        }
+      ],
+      "updates_event_key": "github:copilot-slack-teams-multi-repository-conversations:2026-10-15",
+      "change_summary": "October 15 introduced cross-repository discussion support; November 6 changed availability to general release, added Teams Canvas for implementation collaboration and improved attribution and onboarding."
+    },
+    {
+      "category": "ai",
+      "event_key": "aws-bedrock:moonshot-kimi-k3p1-pro-highspeed-inference-availability:2026-11-06",
+      "status": "material-update",
+      "topic": "Model deployment options",
+      "title": "Moonshot's Kimi K3.1 Pro reaches Amazon Bedrock",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "Material update • last 7 days",
+      "highlights": "On November 6, AWS made Moonshot AI's Kimi K3.1 Pro (Highspeed) available through Amazon Bedrock for coding, document processing and other agent workflows. AWS describes an open-weight, multimodal model supplied through Bedrock's managed inference and governance boundary, with cross-Region inference and explicit prompt caching support. Moonshot reports a one-million-token context window, a three-trillion-parameter-class architecture and improvements in several agentic tasks. Those capacity and capability figures are vendor descriptions, not independent measurements.",
+      "implications": "Analysis: The change is a deployment path, not a fresh model launch. It gives teams already invested in Bedrock a route to evaluate another model under established access controls and cost accounting, while cross-Region routing still raises residency and approval questions. Long advertised context does not imply every application can afford it.",
+      "takeaway": "Takeaway: Compare quality, latency, cache behavior, cost and allowed inference destinations against your existing approved models.",
+      "development_summary": "Moonshot's previously announced Kimi K3.1 Pro gained a managed high-speed inference option on Amazon Bedrock.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/moonshot-ai-kimi-k3-1-pro-on-amazon-bedrock/"
+        }
+      ],
+      "updates_event_key": "moonshot:kimi-k3.1-pro:announcement-cyber-dataset-exclusion:2026-10-24",
+      "change_summary": "October 24 coverage concerned the Kimi K3.1 Pro model announcement and its cyber dataset limitations; November 6 adds managed Bedrock deployment, prompt caching and governance integration."
+    },
+    {
+      "category": "ai",
+      "event_key": "google-gemini-business:data-cloud-connectors-conversational-analytics-preview:2026-11-06",
+      "status": "new",
+      "topic": "Governed conversational analytics",
+      "title": "Gemini previews permission-aware questions over enterprise databases",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "New • last 48 hours",
+      "highlights": "Google introduced Data Cloud connectors in Gemini for business in preview on November 6. Users can ask natural-language questions about live enterprise data through BigQuery, Looker and operational databases including Spanner, AlloyDB and Cloud SQL, subject to each connector's current preview status. Knowledge Catalog maps business terms to relevant datasets and semantic definitions; query execution uses the requesting person's identity and existing row- and column-level access rules. Google also describes certified Conversational Analytics agents that data teams can scope for repeatable analyses.",
+      "implications": "Analysis: The significant change is a business-facing querying interface, separate from the previously discussed cross-cloud data platform. Permission inheritance can reduce accidental exposure, but generated SQL may still misunderstand business definitions or return misleading aggregations. Preview availability and data-source support are uneven.",
+      "takeaway": "Takeaway: Start with approved datasets, inspect generated queries and compare every answer with a validated report before trusting decisions.",
+      "development_summary": "Google announced preview conversational Data Cloud connectors inside Gemini for business with user-scoped enterprise query execution.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://cloud.google.com/blog/products/data-analytics/query-enterprise-data-in-gemini-with-data-cloud-connectors/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "google-compute:z4m-storage-optimized-vm-baremetal-general-availability:2026-11-07",
+      "status": "material-update",
+      "topic": "Storage-intensive AI infrastructure",
+      "title": "Google brings Z4M storage-optimized virtual machines and bare metal to GA",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-07",
+      "event_date": "2026-11-07",
+      "freshness": "Material update • last 7 days",
+      "highlights": "Google announced general availability of its Z4M machine series on November 7, with both Compute Engine virtual machines and bare-metal configurations. Designed for AI training checkpoints, distributed key-value caches and parallel file systems, Z4M combines fifth-generation Intel Xeon processors with as much as 168,000 GiB of local SSD storage and up to 400 Gbps of Cloud RDMA networking. Google claims RDMA can cut data-access latency by as much as 60 percent versus TCP in applicable workloads. Individual shapes and regional capacity require checking.",
+      "implications": "Analysis: The earlier Z4M news concerned GKE node support; this is a broader GA announcement for direct VM and bare-metal deployment. High local throughput may reduce accelerator idle time, but local disks and network topology bring failure-domain, durability and replication trade-offs. Published maxima do not predict application performance.",
+      "takeaway": "Takeaway: Benchmark checkpoint recovery, data persistence, network topology and failure handling before replacing shared storage.",
+      "development_summary": "Google advanced Z4M from earlier GKE integration coverage to general availability of storage-optimized Compute Engine VM and bare-metal offerings.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://cloud.google.com/blog/products/compute/storage-optimized-z4m-machine-series-are-ga/"
+        }
+      ],
+      "updates_event_key": "google-gke:z4m-storage-optimized-machines-node-support:2026-10-19",
+      "change_summary": "October 19 coverage described Z4M node compatibility and version gates in GKE; November 7 establishes general availability of the broader VM and bare-metal machine series."
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws-fsx-lustre:intelligent-tiering-192k-metadata-iops-expansion:2026-11-05",
+      "status": "new",
+      "topic": "High-performance file systems",
+      "title": "FSx for Lustre raises Intelligent-Tiering metadata ceiling sixteenfold",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-05",
+      "event_date": "2026-11-05",
+      "freshness": "New • last 7 days",
+      "highlights": "AWS announced November 5 that new Amazon FSx for Lustre Intelligent-Tiering file systems can provision up to 192,000 metadata operations per second, compared with the former maximum of 12,000. Metadata operations include creating, listing, reading attributes and deleting files or directories. The enhanced ceiling is intended for high-performance computing and machine-learning datasets with large file counts, and is available in AWS Regions where this storage class exists. AWS specifically identifies Intelligent-Tiering as an elastic option for mixed hot and cold data rather than a promise of SSD-level consistency.",
+      "implications": "Analysis: A sixteenfold service limit increase is not equivalent to sixteenfold improvement in training speed. Jobs dominated by data throughput, small-client concurrency, network constraints or storage tier transitions may see smaller gains. Existing file systems also should not be assumed to inherit the new maximum.",
+      "takeaway": "Takeaway: Profile actual metadata pressure and compare provisioned IOPS economics, tier latency and checkpoint timing before resizing.",
+      "development_summary": "AWS increased the per-file-system FSx for Lustre Intelligent-Tiering metadata maximum to 192,000 IOPS on new file systems.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-fsx-for-lustre-intelligent-tiering-16x-higher-metadata-iops/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws-ssm:parameter-store-13-validated-data-types:2026-11-05",
+      "status": "new",
+      "topic": "Configuration correctness",
+      "title": "AWS Parameter Store adds thirteen validated configuration types",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-05",
+      "event_date": "2026-11-05",
+      "freshness": "New • last 7 days",
+      "highlights": "On November 5, AWS introduced thirteen additional data types for Systems Manager Parameter Store that validate values when PutParameter creates or changes a parameter. Standard and advanced parameters gain ten types including AWS Region, account ID, boolean, integer, float, binary, hostname, email, and IPv4/IPv6 addresses. Advanced parameters additionally support URL, JSON and JSONC validation. Types work with String and SecureString, some also with StringList, and can be combined with AllowedPattern. Invalid values are rejected before downstream applications consume them.",
+      "implications": "Analysis: This adds a practical quality gate to configuration delivery and can reduce preventable rollout incidents. Format validation is not authorization or semantic validation: a correctly formatted hostname, account ID or JSON document can still target the wrong service or violate policy. The three advanced-only types carry standard advanced-tier charges.",
+      "takeaway": "Takeaway: Type critical inputs and maintain separate environment, ownership and access-policy checks in CI.",
+      "development_summary": "AWS added built-in validation for thirteen Parameter Store value types, including JSON and network identifiers.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-ssm-parameter-store-allows-organization-validation-with-new-data-types/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "cisa-fbi-hhs-usda-dot:industrial-cold-chain-ot-cyber-advisory:2026-11-05",
+      "status": "new",
+      "topic": "Critical infrastructure exposure",
+      "title": "U.S. agencies warn of attacks on industrial refrigeration controls",
+      "publisher": "CISA and federal partners",
+      "publication_date": "2026-11-05",
+      "event_date": "2026-11-05",
+      "freshness": "New • last 7 days",
+      "highlights": "On November 5, U.S. government partners warned of malicious cyber activity targeting internet-connected industrial refrigeration and cold-chain monitoring equipment globally. Such controllers may be used for warehouses, food distribution and healthcare storage. The warning describes risks from vulnerable or exposed controllers that could allow remote temperature adjustments, extended heating or defrost cycles, loss of temperature visibility, spoiled inventory or unsafe equipment conditions. Guidance urges operators to inventory exposed devices, remove unnecessary internet access, patch supported firmware, strengthen authentication and segment operational technology networks.",
+      "implications": "Analysis: This is an operational safety and supply-chain problem, not merely a data-theft scenario. A refrigerator may keep running while monitoring or setpoints are compromised, so independent local alarms and physical response procedures matter. The government warning does not establish that every system is being actively attacked or identify one universal attacker.",
+      "takeaway": "Takeaway: Prioritize remote-management exposure reviews and test out-of-band temperature alarms at critical facilities.",
+      "development_summary": "Federal agencies issued a joint warning on malicious targeting of industrial refrigeration and cold-chain monitoring controls.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.cisa.gov/resources-tools/resources/us-government-partners-urge-hardening-industrial-refrigeration-and-cold-chain-monitoring-systems"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "pushsecurity:fake-ai-event-invites-kali365-voidproxy-phishing:2026-11-05",
+      "status": "new",
+      "topic": "Identity phishing",
+      "title": "Fake AI-event invitations combine device-code and proxy phishing",
+      "publisher": "Push Security",
+      "publication_date": "2026-11-05",
+      "event_date": "2026-11-05",
+      "freshness": "New • last 7 days",
+      "highlights": "Push Security published an investigation November 5 of fake invitations to OpenAI, SpaceX and Anthropic-themed events observed in late October and early November. The lures offer trial subscriptions or event rewards and direct users into Microsoft or Google corporate sign-in flows. Researchers found Microsoft device-code attacks operated through Kali365 and adversary-in-the-middle login proxying through VoidProxy, sometimes chained on the same invitation. The group used ordinary short links and familiar brands to make delivery seem credible. The report includes campaign-specific infrastructure indicators and observed dates.",
+      "implications": "Analysis: Legitimate identity-provider pages can be part of malicious device-authorization flows, so recognizing the authentic login domain is not sufficient. Reverse proxies may capture sessions even when users complete multifactor authentication. The indicators describe observed infrastructure; shared phishing services do not prove ownership or attribution.",
+      "takeaway": "Takeaway: Restrict device-code flows where feasible, monitor unexpected OAuth grants and treat event-linked work-account sign-ins as high risk.",
+      "development_summary": "Push researchers connected fake AI and technology event registration pages to Kali365 device-code and VoidProxy session-capture phishing.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://pushsecurity.com/blog/ai-themed-fake-event-campaign-analysis"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "us-state-dept:mexico-11-uh60m-blackhawks-proposed-fms-1p075b:2026-11-06",
+      "status": "new",
+      "topic": "Defense procurement",
+      "title": "U.S. clears potential $1.075 billion Black Hawk sale to Mexico",
+      "publisher": "U.S. Department of State",
+      "publication_date": "2026-11-06",
+      "event_date": "2026-11-06",
+      "freshness": "New • last 48 hours",
+      "highlights": "The U.S. State Department announced on November 6 that it approved a possible Foreign Military Sale to Mexico of eleven UH-60M Black Hawk helicopters and associated equipment, training and support, with an estimated value of $1.075 billion. Sikorsky, a Lockheed Martin company, is listed as the proposed prime contractor. The package is described as supporting Mexico's helicopter fleet modernization and mobility for operations including counternarcotics. Congressional notification marks an authorization step; it is not a signed production contract, completed transfer or confirmed delivery timetable.",
+      "implications": "Analysis: The proposal would reinforce an existing military aviation platform rather than introduce an untested aircraft. Total package estimates include services and support, so dividing the ceiling by eleven does not reveal unit helicopter price. Budget approval, contracting and actual fielding still matter.",
+      "takeaway": "Takeaway: Track congressional response, final negotiated scope and training/sustainment commitments before treating the headline price as booked business.",
+      "development_summary": "The State Department cleared a possible Mexico foreign military sale of eleven UH-60M helicopters and related support valued up to $1.075 billion.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.state.gov/releases/bureau-of-political-military-affairs/2026/11/mexico-uh-60m-blackhawk-helicopters/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "freddie-mac:pmms-week-2026-11-05-30yr-7p18-15yr-6p57",
+      "status": "new",
+      "topic": "U.S. housing costs",
+      "title": "Freddie Mac's thirty-year mortgage average falls to 7.18%",
+      "publisher": "Freddie Mac",
+      "publication_date": "2026-11-05",
+      "event_date": "2026-11-05",
+      "freshness": "New • last 7 days",
+      "highlights": "Freddie Mac's November 5 Primary Mortgage Market Survey found the average U.S. thirty-year fixed rate at 7.18%, down from 7.24% on October 29 and the third consecutive weekly decline. The fifteen-year fixed average was 6.57%, compared with 6.60% a week earlier. A year earlier, the thirty-year reading was 6.22%, so financing remained materially costlier despite the recent improvement. The survey focuses on conforming, conventional, fully amortizing home-purchase applications from borrowers with excellent credit and twenty percent down.",
+      "implications": "Analysis: A six-basis-point weekly move modestly affects monthly principal-and-interest payments; it does not by itself reverse housing affordability challenges. Real quotes depend on credit, points, property, taxes, insurance and lender pricing, and advertised surveys should not be read as locked rates. The three-week decline is new weekly evidence, not a prediction.",
+      "takeaway": "Takeaway: Compare lender loan estimates and all-in monthly housing expense rather than chasing a national average.",
+      "development_summary": "Freddie Mac's November 5 weekly survey reported three consecutive declines in 30-year fixed mortgage rates to 7.18%.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.globenewswire.com/news-release/2026/11/05/3396882/0/en/mortgage-rates-decline-for-third-consecutive-week-to-7-18.html"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "bank-of-england:mpc-bank-rate-hike-to-4p00:2026-11-05",
+      "status": "new",
+      "topic": "Central-bank policy",
+      "title": "Bank of England raises its policy rate to 4% on energy-driven inflation risks",
+      "publisher": "Bank of England",
+      "publication_date": "2026-11-05",
+      "event_date": "2026-11-04",
+      "freshness": "New • last 7 days",
+      "highlights": "At its meeting ending November 4, the Bank of England's Monetary Policy Committee voted eight to one to increase Bank Rate by a quarter percentage point to 4%, publishing its decision November 5. The dissenting member favored a larger half-point increase. The Bank cited persistently high energy costs associated with conflict in the Middle East, September U.K. consumer-price inflation of 3.5%, and stronger-than-expected activity. Its central projection sees inflation approaching 5% in mid-2027, before easing; that is a forecast, not an observed future outcome.",
+      "implications": "Analysis: This decision tightens borrowing conditions even as real incomes face pressure from energy costs. Mortgages and credit products respond according to their contract terms, not always immediately or one-for-one. Policymakers explicitly said future decisions depend on incoming evidence, so one increase is not an assured hiking cycle.",
+      "takeaway": "Takeaway: Watch inflation expectations, domestic wage pressure and rate-reset exposure rather than extrapolating a preset path.",
+      "development_summary": "The Bank of England raised Bank Rate by 25 basis points to 4% after an 8–1 vote, citing worsening energy-related inflation risks.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/november-2026"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "sec:investment-company-adviser-small-entity-rfa-definitions-finalized:2026-11-04",
+      "status": "new",
+      "topic": "Investment regulation",
+      "title": "SEC updates the regulatory meaning of a small investment firm",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "publication_date": "2026-11-04",
+      "event_date": "2026-11-04",
+      "freshness": "New • last 7 days",
+      "highlights": "The Securities and Exchange Commission adopted rule amendments November 4 updating which registered investment companies, investment advisers and business development companies count as small entities for analyses under the Regulatory Flexibility Act. The change increases asset thresholds, revises aggregation of related funds' assets, removes an investment-adviser total-assets threshold and provides for inflation adjustments at ten-year intervals. The SEC says the definitions had not been meaningfully refreshed for almost thirty years, leaving regulatory impact assessments out of step with industry scale.",
+      "implications": "Analysis: The change concerns how the agency evaluates rulemaking effects on smaller firms. It is not a blanket exemption from registration, fiduciary obligations, investor protections or existing compliance requirements. Thresholds and aggregation details will influence which firms' economics must be considered when the SEC develops future rules; they do not prove those rules will change.",
+      "takeaway": "Takeaway: Compliance teams should examine the adopting rule's definitions and effective date before changing internal classifications.",
+      "development_summary": "The SEC finalized updated RFA small-entity definitions for investment companies and advisers, changing thresholds and future inflation-adjustment procedures.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-112-sec-adopts-amendments-update-definitions-small-entity-investment-companies-investment-advisers"
+        }
+      ]
+    }
+  ]
+}
