@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-12",
+  "title": "Arbiter News",
+  "intro": "Thursday, November 12, 2026: twelve verified developments from November 9–11 in AI and agent tooling, cloud operations, security and defense, and money.",
+  "overview": "Developers gain account-free AWS emulation, healthcare-focused AI agents and more open-weight model hosting options. Cloud operators see x86 isolated runtimes, larger Kubernetes control-plane storage and database-native AI extraction. Credential leak response and regional security policy automation advance as the U.S. coordinates counter-drone safety. AI infrastructure spending, mortgage credit availability and Treasury auction results round out the economic picture.",
+  "history_note": "Compared all 547 accessible prior coverage records: 319 historical records across ten repository history parts and 228 story records across 19 published edition JSONs through November 11, 2026. Compared underlying developments, normalized event keys and canonical source URLs across more than 30 days of history; no selected story repeats a previous underlying event or canonical source URL. The rendered public coverage.json could not be opened from this reader, so all accessible repository records that generate it were inspected instead. Known date gaps: September 23, October 6 and unpublished October 25; older records sometimes lack original source URLs. The November 10 ten-year Treasury auction is explicitly marked as an update to the November 4 refunding calendar with the completed auction delta. Routine Opus 5.5 launch coverage is excluded.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "aws:emulator:local-sdk-cli-agent-ci-inmemory-api-availability:2026-11-11",
+      "status": "new",
+      "topic": "Agent test environments",
+      "title": "AWS Emulator introduces account-free local AWS API testing",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-11",
+      "event_date": "2026-11-11",
+      "freshness": "New • last 24–48 hours",
+      "highlights": "On November 11, AWS released AWS Emulator for developing and testing against supported service APIs locally. SDK and CLI calls can point to the emulator instead of deploying real cloud resources. It signs requests with emulator-provided credentials, stores resources in memory for the lifetime of each process, and gives each running instance separate keys, port and state. AWS says supported API operations reproduce successful responses and errors; unsupported behavior returns HTTP 501 Not Implemented. A coding agent could therefore create a test DynamoDB table and exercise its application code without touching a production or sandbox AWS account. The implementation is generated from published AWS API models, but AWS explicitly develops and verifies behavior service by service.",
+      "implications": "Analysis: Local, disposable integration environments can reduce cloud test costs, credential exposure and interference between parallel coding agents or CI jobs. Fidelity varies by operation, however; service quotas, IAM edge cases, event delivery and actual distributed behavior still need tests against real AWS. A fast in-memory response is not proof of deployability or production equivalence.",
+      "takeaway": "Takeaway: Use it for early SDK contract tests, assert explicitly on unsupported calls, and retain a separate live-AWS integration stage.",
+      "development_summary": "AWS introduced local, isolated emulation of supported service operations for development agents and CI.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "google:gemini-for-healthcare:preview-industry-agent-skills-ehr-claims-governance:2026-11-10",
+      "status": "new",
+      "topic": "Healthcare agents",
+      "title": "Google previews Gemini for healthcare with governed clinical and payer workflows",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-10",
+      "event_date": "2026-11-10",
+      "freshness": "New • last 24–48 hours",
+      "highlights": "Google announced Gemini for healthcare on November 10 as a preview extending its previously introduced general-purpose Gemini work agent. This is an industry product, not a new base model release. It supplies configurable healthcare skills, connectors to electronic health records and claims systems, partner integrations, and an administrative policy layer. Google describes workflows that assemble patient histories, prepare prior-authorization evidence, and help plans explain coverage decisions. Its Epic and Oracle Health connectors are described as read-only, retaining the source systems' access rules rather than writing clinical charts. Each agent has a distinct identity, and Google positions the platform as designed to support HIPAA compliance and auditability. Those statements describe architecture and intended workflows, not measured clinical improvements.",
+      "implications": "Analysis: High-value coordination across fragmented systems makes authorization boundaries, record provenance and human clinical oversight central product requirements. HIPAA-supporting features are not a blanket certification of any deployment or output; site configuration, agreements, source data and downstream review still matter. Preview status also limits assumptions about production readiness.",
+      "takeaway": "Takeaway: Pilot a nonclinical administrative workflow first, validate citations and least-privilege connectors, and require licensed reviewers for clinical decisions.",
+      "development_summary": "Google introduced a healthcare-specific preview with agent skills and governed clinical and payer integrations.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-for-healthcare/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "aws-sagemaker:deepseek-v4-pro-flash-v4p1-flash:jumpstart-catalog-availability:2026-11-11",
+      "status": "new",
+      "topic": "Open-weight model deployment",
+      "title": "Three DeepSeek V4 variants become deployable through SageMaker JumpStart",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-11",
+      "event_date": "2026-11-11",
+      "freshness": "New • last 24–48 hours",
+      "highlights": "AWS announced on November 11 that SageMaker JumpStart now lists DeepSeek-V4-Pro, DeepSeek-V4-Flash and DeepSeek-V4.1-Flash, three MIT-licensed open-weight model variants. AWS lists V4-Pro at 1.6 trillion total parameters with 49 billion active per token, and V4-Flash at 284 billion total with 13 billion active. It lists a 552-billion-parameter V4.1-Flash backbone with different prefill and decode active-parameter counts. AWS attributes million-token context capacity and differentiated reasoning, coding, latency and multimodal capabilities to the model designs; these are provider specifications, not independently verified workload results. The new event is SageMaker catalog availability and deployment tooling, rather than the original creation of the model family.",
+      "implications": "Analysis: Open weights plus AWS-managed deployment pathways increase options for infrastructure teams evaluating data locality and hosting control. Actual serving expense depends on GPU size, active concurrency, long-context memory and utilization, not simply active-parameter counts. MIT license terms do not eliminate customer obligations for data handling and model evaluation.",
+      "takeaway": "Takeaway: Benchmark one representative agent and coding workload across variants before selecting instance sizes or promising cost savings.",
+      "development_summary": "AWS expanded SageMaker JumpStart with three newly supported DeepSeek V4 open-weight model variants.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/01/deepseek-v4-pro-v4-flash-v4.1-flash-on-sagemaker-jumpstart/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws-lambda-microvms:x86-image-architecture-support:2026-11-11",
+      "status": "new",
+      "topic": "Isolated runtime infrastructure",
+      "title": "Lambda MicroVMs adds x86 execution for isolated agent and developer workloads",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-11",
+      "event_date": "2026-11-11",
+      "freshness": "New • last 24–48 hours",
+      "highlights": "On November 11, AWS added x86 CPU support to Lambda MicroVMs, the isolated, state-preserving compute environment intended for running user and AI-generated code. The original service supported Arm-based AWS Graviton; new image creation now permits either x86 or Arm. Developers create a MicroVM image from a Dockerfile and select architecture, then launch isolated environments through the console, infrastructure-as-code or agent toolkit. AWS says the change lets existing x86 binaries and dependencies run without a port or recompilation. The x86 option is offered in MicroVM-supported regions except Hong Kong, Malaysia, Thailand and Spain. This is an architecture extension, not the initial launch of Lambda MicroVMs or a claim of unlimited regional capacity.",
+      "implications": "Analysis: Reducing architecture mismatches could help CI runners, sandboxed coding agents and security tools that depend on x86-only packages. Isolation remains distinct from complete containment; teams still have to govern outbound access, filesystem persistence, privileges and resource cost. CPU architecture and region availability should be recorded as schedulable workload constraints.",
+      "takeaway": "Takeaway: Run parity and escape-boundary tests on actual x86 workloads, then compare launch latency and spend against Arm images.",
+      "development_summary": "AWS added an x86 option to the previously launched isolated Lambda MicroVM runtime.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-microvms-x86-architecture/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws-eks:provisioned-control-plane-4xl8xl-etcd24gb:2026-11-11",
+      "status": "new",
+      "topic": "Kubernetes control planes",
+      "title": "EKS raises provisioned control-plane etcd capacity to 24 GB",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-11",
+      "event_date": "2026-11-11",
+      "freshness": "New • last 24–48 hours",
+      "highlights": "AWS announced November 11 that Provisioned Control Plane clusters in the Amazon EKS 4XL and 8XL tiers now receive 24 GB of etcd storage, up from 16 GB. The 50 percent increase applies to EKS version 1.34 and later in supported commercial regions; eligible existing clusters gain the capacity automatically. Etcd holds Kubernetes object state, so growing counts of Pods, Jobs, events and custom resources can exhaust this database even when worker nodes still have free compute. A full datastore can prevent new object creation or updates, directly affecting large training pipelines, batch systems and automated controllers. The change is specific to those provisioned control-plane tiers, not standard EKS clusters generally.",
+      "implications": "Analysis: More control-plane headroom matters for large-scale automation and ML orchestration, where high object churn makes state storage a practical reliability bottleneck. It does not increase worker memory or remove API server throttling, controller defects, stale finalizers or excessive event generation. Higher control-plane tiers may also alter infrastructure costs.",
+      "takeaway": "Takeaway: Monitor etcd utilization, API errors and object churn; upgrade tiers only when observed requirements justify the capacity.",
+      "development_summary": "AWS expanded etcd capacity on the 4XL and 8XL EKS Provisioned Control Plane tiers.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-provisioned-control-plane-larger-etcd-database/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "google-alloydb:ai-classify-extract-sql-functions-pg18-preview:2026-11-11",
+      "status": "new",
+      "topic": "Operational database AI",
+      "title": "AlloyDB previews SQL-based classification and structured extraction",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-11",
+      "event_date": "2026-11-11",
+      "freshness": "New • last 24–48 hours",
+      "highlights": "Google announced a November 11 preview of `ai.classify` and `ai.extract` for AlloyDB AI, delivered through the `google_ml_integration` extension version 1.6.1 or newer on PostgreSQL 18. SQL queries can assign one or multiple predefined classes to text or extract information into structured output. Google's query engine supports batching calls to Gemini Enterprise Agent Platform models, reducing per-row overhead compared with an application loop. Example use cases include contract terms, support tickets and records reconciliation. Although the functions appear in database SQL, the blog explains that batching sends inputs to model services; this should not be described as all inference remaining strictly within the database process. This is distinct from AlloyDB's previously reported federated lakehouse integration.",
+      "implications": "Analysis: Bringing model calls into SQL can simplify application code, but may also make query cost, latency and sensitive-data movement less visible to operators. Nondeterministic model outputs complicate transaction repeatability, indexing and auditability. The preview designation means application-level correctness and governance testing are still essential.",
+      "takeaway": "Takeaway: Test row-level authorization, model routing, cost ceilings and reproducibility before moving business logic into SQL queries.",
+      "development_summary": "Google previewed two new AlloyDB AI SQL functions for labeling text and extracting structured records.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://cloud.google.com/blog/products/databases/ai-classify-and-ai-extract-functions-in-alloydb-ai"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "cloudflare-access:github-scanning-leaked-cfast-service-tokens-auto-revoke:2026-11-11",
+      "status": "new",
+      "topic": "Credential exposure response",
+      "title": "Cloudflare automatically disables Access service tokens leaked to public GitHub",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-11",
+      "event_date": "2026-11-11",
+      "freshness": "New • last 24–48 hours",
+      "highlights": "Cloudflare's November 11 Access changelog says GitHub secret scanning now detects exposed Cloudflare Access service-token secrets in public repositories. On detection, GitHub reports the finding to Cloudflare; Access disables the affected token and emails account administrators. Newer token secrets follow a recognizable `cfast_` format, created on or after August 26, 2026. Cloudflare cautions that its published detection pattern does not cover legacy 64-character hexadecimal secrets and that matching text does not necessarily prove a valid active secret. Restoring a disabled token requires rotating the secret before re-enabling it. There is no grace period in which the old secret remains valid following that rotation.",
+      "implications": "Analysis: Automatic revocation shortens the exposure window but can interrupt service-to-service applications unexpectedly when a credential is published. Teams using Access tokens must distinguish containment from recovery, and avoid treating GitHub scanning as exhaustive coverage of private repos, historic formats or copied secrets elsewhere. Recovery runbooks need clear owners and dual-sided deployment coordination.",
+      "takeaway": "Takeaway: Inventory token formats, move credentials out of source, and exercise rotation with dependent services before an incident.",
+      "development_summary": "Cloudflare and GitHub added automated detection and disabling of leaked Access service-token credentials.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://developers.cloudflare.com/changelog/product/access/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "aws-network-security-manager:31new-regions-europe-sovereign-waf-shield:2026-11-11",
+      "status": "new",
+      "topic": "Cloud protection governance",
+      "title": "AWS expands centralized network security enforcement to new regions",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-11",
+      "event_date": "2026-11-11",
+      "freshness": "New • last 24–48 hours",
+      "highlights": "AWS announced on November 11 that Network Security Manager is available in the European Sovereign Cloud and 31 additional AWS regions. The service is intended to centralize deployment and enforcement of network protections across targeted resources and accounts. AWS describes automation for AWS WAF on Internet-facing application load balancers, protection management with Shield Advanced, and detection and remediation of configuration drift. In the European Sovereign Cloud, AWS specifies support for WAF and Shield. Regional expansion is the new development; these capabilities should not be mistaken for an entirely new firewall engine or a newly discovered attack. AWS does not present independent evidence that every configuration will be appropriate for every application.",
+      "implications": "Analysis: For multi-account cloud estates, consistent baseline policies and drift remediation can reduce manual administration. The same centralized control plane can propagate an incorrect rule broadly, including legitimate-traffic blocks. Sovereign-region support may matter for permitted deployment geography, but does not itself establish a customer's compliance posture.",
+      "takeaway": "Takeaway: Adopt policy-as-code review, staged rollouts and traffic-impact testing before enforcing region-wide security baselines.",
+      "development_summary": "AWS broadened Network Security Manager regional availability, including European Sovereign Cloud WAF and Shield operations.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "us-faa-federal-agencies:counter-uas-interagency-mou-safety-evaluation-process:2026-11-09",
+      "status": "new",
+      "topic": "Counter-drone defense governance",
+      "title": "Five federal agencies establish coordinated counter-drone safety review",
+      "publisher": "Federal Aviation Administration",
+      "publication_date": "2026-11-09",
+      "event_date": "2026-11-09",
+      "freshness": "Uncovered • last 7 days",
+      "highlights": "The FAA announced November 9 that the transportation, defense, homeland security, energy and justice departments agreed on a new interagency process for evaluating and introducing counter-unmanned-aircraft systems. The memorandum addresses detection, tracking and disabling methods, with FAA and FCC requirements incorporated into development and testing. It calls for technical information sharing, coordinated field trials and expedited aviation safety-risk assessments before potentially disruptive systems operate near civilian aircraft or navigation equipment. The agency says this builds on existing border flight restrictions and a high-energy-laser safety assessment. This is a coordination agreement, not a new deployed weapon, a purchase contract or evidence that counter-drone systems have achieved a particular interception rate.",
+      "implications": "Analysis: The expanding use of drones makes electromagnetic, kinetic and directed-energy countermeasures a safety and airspace integration problem as well as a defense procurement problem. A common review path could improve interoperability and deployment readiness, but it cannot replace local risk assessment or prove operational efficacy.",
+      "takeaway": "Takeaway: Track forthcoming technical standards and deployment approvals rather than treating the memorandum as an immediately fielded capability.",
+      "development_summary": "Federal agencies introduced a process to evaluate counter-drone tools while protecting civil aviation and spectrum use.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.faa.gov/newsroom/trump-administration-deepens-interagency-collaboration-protect-nations-skies-unmanned"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "coreweave:q3-2026-earnings-3p661b-revenue-132p5b-backlog-capex-guidance:2026-11-10",
+      "status": "new",
+      "topic": "AI infrastructure economics",
+      "title": "CoreWeave's third-quarter growth comes with a $37–39 billion capex outlook",
+      "publisher": "CoreWeave",
+      "publication_date": "2026-11-10",
+      "event_date": "2026-11-10",
+      "freshness": "New • last 24–48 hours",
+      "highlights": "CoreWeave's November 10 earnings release for the quarter ended September 30 reports $3.661 billion in revenue, versus $1.365 billion one year earlier. The company gives roughly $132.5 billion of revenue backlog at September 30, which includes commitments subject to future service delivery and availability. Management raised its 2026 revenue forecast to $13.0–13.3 billion and capital-expenditure forecast to $37–39 billion. The company also expects about $9 billion in customer prepayments and deposits during the subsequent three months. These future figures are forecasts, not cash already received or revenue already earned. The company highlights new AI infrastructure commitments and accelerated power buildout alongside its results.",
+      "implications": "Analysis: Reported revenue shows substantial AI infrastructure demand, while capex, financing costs and power deployment expose the capital intensity behind that growth. Backlog is not a cash balance, and customer deposits are not equivalent to recognized revenue or profit. Comparisons with software-company valuations should account for construction and financing risk.",
+      "takeaway": "Takeaway: Separate actual quarterly results from management guidance when assessing AI infrastructure growth and funding exposure.",
+      "development_summary": "CoreWeave reported Q3 2026 earnings and raised its capital expenditure and revenue outlook.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.nasdaq.com/press-release/coreweave-reports-strong-third-quarter-2026-results-2026-11-10"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "mba:october-2026-mortgage-credit-availability-index107p5:released-2026-11-10",
+      "status": "new",
+      "topic": "Housing-credit access",
+      "title": "Mortgage credit availability edges up, led by jumbo and adjustable-rate offerings",
+      "publisher": "Mortgage Bankers Association",
+      "publication_date": "2026-11-10",
+      "event_date": "2026-11-10",
+      "freshness": "New • last 24–48 hours",
+      "highlights": "The Mortgage Bankers Association reported on November 10 that its October Mortgage Credit Availability Index rose 0.4 percent to 107.5, ending two months of declines. The survey-derived index uses lending programs and eligibility criteria from ICE Mortgage Technology data. Conventional mortgage credit availability increased 0.6 percent, government-backed availability just 0.1 percent, the jumbo subindex 0.8 percent and conforming availability was unchanged. MBA economists linked part of the improvement to additional adjustable-rate loans for borrowers with lower loan-to-value ratios and certain cash-out refinancing options. The index measures lender product availability in October, not the average rate on a new mortgage or the actual number of approved borrowers.",
+      "implications": "Analysis: A modest expansion of credit menus for well-collateralized borrowers does not establish that mortgages became broadly affordable or accessible to first-time buyers. Adjustable-rate terms can trade a lower initial payment for future payment risk. Lending costs, income verification and local housing prices remain separate constraints.",
+      "takeaway": "Takeaway: Compare loan terms and adjustment caps rather than inferring a general easing of borrowing conditions from a 0.4 percent index move.",
+      "development_summary": "MBA's October index registered slightly wider mortgage product availability, concentrated in conventional and jumbo offerings.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.mba.org/news-and-research/newsroom/news/2026/11/10/mortgage-credit-availability-increased-in-october"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-treasury:nov2026-refunding-42b-10year-auction-highyield5p020-btc2p46:2026-11-10",
+      "status": "material-update",
+      "topic": "Treasury financing",
+      "title": "Treasury's $42 billion ten-year note auction clears at 5.020%",
+      "publisher": "U.S. Department of the Treasury",
+      "publication_date": "2026-11-10",
+      "event_date": "2026-11-10",
+      "freshness": "New • last 24–48 hours",
+      "highlights": "The Treasury's official November 10 auction result records a $42 billion ten-year note offering, CUSIP 91282CRX1, with a 5.020 percent high yield and a 5.000 percent coupon. The bid-to-cover ratio was 2.46. Competitive awards included about $25.57 billion to indirect bidders, $12.11 billion to direct bidders and $4.08 billion to primary dealers. The issue date is November 16, 2026, with maturity on November 15, 2036. The auction follows the previously reported quarterly refunding calendar and is a separate ten-year result from the three-year auction covered on November 10's Arbiter News edition. The reported high yield is the clearing auction outcome, not a prediction of future market yields or an offered consumer borrowing rate.",
+      "implications": "Analysis: Ten-year Treasury yields are an important market benchmark for duration-sensitive financing, although mortgage pricing and business loan rates contain many other spreads and risks. Bid-to-cover describes bids relative to the offering, not a standalone measure of policy stance. The new result updates auction execution rather than announcing another refinancing plan.",
+      "takeaway": "Takeaway: Use the official auction result for issuance facts and avoid treating one auction as a forecast for mortgages or the Federal Reserve.",
+      "development_summary": "The Treasury priced the ten-year tranche of its announced November refunding auctions.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2026/R_20261110_1.pdf"
+        }
+      ],
+      "updates_event_key": "us-treasury:november-2026-quarterly-refunding-125b-auction-calendar:2026-11-04",
+      "change_summary": "On November 10 the previously scheduled $42 billion ten-year offering actually cleared at a 5.020 percent high yield with 2.46 bids per dollar offered, adding completed auction results to the November 4 refunding calendar."
+    }
+  ]
+}
