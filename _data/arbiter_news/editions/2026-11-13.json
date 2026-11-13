@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-13",
+  "title": "Arbiter News",
+  "intro": "Friday, November 13, 2026: twelve independently sourced developments, primarily announced November 10–12, spanning agent tooling, cloud operations, security and defense, and the economy.",
+  "overview": "Agent developers gain open-source container-free browsing and a hosted large-context model, while Adobe expands programmable creative workflows. Infrastructure teams face a hosted-runner compatibility deadline, an early-access Chile cloud region and more precise realtime credentials. In security and defense, drone manufacturing investment, Army sensor integration and reverse-proxy path handling take focus. Housing sales, AI infrastructure earnings and the latest mortgage-rate survey round out the market picture.",
+  "history_note": "Reviewed all 559 accessible prior coverage records that generate the public coverage index: 319 historical records across the ten history_parts JSON files and 240 cards from 20 published edition JSON files (October 23–November 12, excluding October 25). Compared underlying events, event keys and canonical source URLs across more than 30 days (including October 14–November 12) before selection. The public rendered coverage.json could not be opened directly by this reader; the complete accessible repository data behind the generator was inspected instead. Known gaps: September 23, October 6, October 25, and some older records lack original source URLs. The November 12 Freddie Mac survey is a distinct weekly observation from the November 5 release, not a material update to that event. Excluded repeated Opus 5.5 launch coverage.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "cloudflare:kitesurf-browser-engine-apache2-opensource-workers-cdp:2026-11-12",
+      "status": "new",
+      "topic": "Open-source agent browsers",
+      "title": "Cloudflare open-sources Kitesurf, a browser engine built for agents",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "New • last 24 hours",
+      "highlights": "Cloudflare published the source for Kitesurf under Apache 2.0 on November 12. Unlike the standard approach of automating a Chromium container, Kitesurf parses HTML, applies CSS, runs page JavaScript and produces screenshots entirely within Cloudflare Workers. It exposes the Chrome DevTools Protocol, allowing clients such as Puppeteer to connect. Developers can build and test locally with Wrangler or deploy their own instance. The project is explicitly experimental: web compatibility, rendering accuracy and performance remain work in progress. A hosted deployment requires paid Workers with Dynamic Workers, and the engine does not include its own authentication.",
+      "implications": "Analysis: A container-free browser could simplify concurrent web tasks for agents and reduce operational overhead, but CDP compatibility does not guarantee full browser fidelity. Authentication, egress restrictions and exposure to malicious pages are deployment responsibilities rather than solved properties of open-sourcing.",
+      "takeaway": "Takeaway: Prototype it against real browser workflows and security controls before replacing production browser isolation.",
+      "development_summary": "Cloudflare released the Kitesurf agent browser engine as Apache-licensed open source while retaining experimental status.",
+      "sources": [
+        {
+          "label": "Cloudflare changelog",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-12-kitesurf-open-source/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "thinking-machines-cloudflare:inkling-2-small-workers-ai-hosted-moe-multimodal:2026-11-12",
+      "status": "new",
+      "topic": "Model serving and agent architecture",
+      "title": "Inkling 2 Small arrives on Workers AI with a million-token context window",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "New • last 24 hours",
+      "highlights": "Cloudflare made Thinking Machines Lab's Inkling 2 Small accessible through Workers AI on November 12. Cloudflare describes it as a multimodal mixture-of-experts model with 594 billion total parameters and 18 billion active parameters. The hosted offering accepts text and images, supports function calling and offers a 1,048,576-token context window. Developers can set reasoning effort from none through max and access the model through Workers bindings, a REST API, OpenAI-compatible endpoints or AI Gateway. It requires a Workers Paid plan or prepaid AI Gateway credits; the stated standard throughput cap is 20 requests per minute, versus 50 using prepaid credits.",
+      "implications": "Analysis: An additional hosted model gives agent builders a new cost, reasoning and context trade-off without maintaining inference hardware. The advertised long context is a capacity limit, not evidence of consistent long-document recall, and vendor descriptions are not independent benchmarks.",
+      "takeaway": "Takeaway: Benchmark task success, tail latency, rate limits and actual billable tokens against existing providers.",
+      "development_summary": "Cloudflare launched hosted Inkling 2 Small with multimodal input, tool calling and long-context support.",
+      "sources": [
+        {
+          "label": "Cloudflare release",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-12-inkling-2-small-workers-ai/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "adobe:firefly-max2026-creative-agent-graph-builder-beta-workflows:2026-11-10",
+      "status": "new",
+      "topic": "Agentic creative workflows",
+      "title": "Adobe expands Firefly into an agent-driven creative workflow studio",
+      "publisher": "Adobe",
+      "publication_date": "2026-11-10",
+      "event_date": "2026-11-10",
+      "freshness": "New • within 72 hours",
+      "highlights": "At Adobe MAX on November 10, Adobe announced a broader Firefly creative studio organized around its Creative Agent. The Firefly AI Assistant, in beta, can orchestrate editing tasks across Adobe tools and a selection of third-party models while creators guide the result. Newly announced Firefly Graph beta allows custom repeatable workflows, including sequences of image, video and design steps. Firefly Builder, a private beta with a waitlist, aims to turn prompts into on-brand interactive prototypes whose elements can be edited on a canvas. Adobe separately lists Edit Text, Retouch, Relight and Quick Actions as generally available; other elements remain previews or betas.",
+      "implications": "Analysis: The interesting shift is from one-off media generation toward inspectable, reusable production pipelines and editable assets. Availability varies considerably across the features, so an announced end-to-end workflow should not be mistaken for a fully shipping product.",
+      "takeaway": "Takeaway: Evaluate repeatable Graph workflows and editable outputs, not promotional examples of autonomous creation.",
+      "development_summary": "Adobe expanded Firefly with an orchestrating Creative Agent, Firefly Graph beta and a private-beta design-to-code Builder.",
+      "sources": [
+        {
+          "label": "Adobe MAX announcement",
+          "url": "https://news.adobe.com/news/2026/11/adobe-firefly-expands"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "github:actions-hosted-runners-arm32-linux-windows-aarch32-retirement-dec8:2026-11-12",
+      "status": "new",
+      "topic": "CI/CD platform compatibility",
+      "title": "GitHub sets December 8 deadline for ARM32 hosted-runner support",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "New • last 24 hours",
+      "highlights": "GitHub announced on November 12 that GitHub Actions hosted runners will stop supporting native ARM32 job execution on both Linux and Windows by December 8, 2026. This specifically removes support for AArch32 user-space execution on hosted runner images. GitHub ties the retirement to the broader Node 20 end-of-support transition and the absence of ARM32 support in Node 24. The notice describes hosted runners; it should not automatically be read as a ban on every cross-compilation target, self-hosted runner or ARM64 job. Repositories using old architecture-specific toolchains and binaries need an inventory before the cutoff.",
+      "implications": "Analysis: CI can fail even when application source has not changed, because the build environment and architecture support are contractual dependencies. Affected test matrices should distinguish jobs that execute 32-bit binaries from those that merely cross-compile 32-bit artifacts.",
+      "takeaway": "Takeaway: Audit runner images, native AArch32 dependencies and CI smoke tests well before December 8.",
+      "development_summary": "GitHub announced the December 8 removal of ARM32 Linux and Windows execution on GitHub-hosted Actions runners.",
+      "sources": [
+        {
+          "label": "GitHub changelog",
+          "url": "https://github.blog/changelog/2026-11-12-actions-for-arm32-linux-windows-retirement/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:south-america-chile-region-early-access-4b-investment:2026-11-11",
+      "status": "new",
+      "topic": "Regional cloud infrastructure",
+      "title": "AWS opens Chile cloud region to early customers ahead of broader launch",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-11",
+      "event_date": "2026-11-11",
+      "freshness": "New • last 48 hours",
+      "highlights": "On November 11, AWS said its first cloud infrastructure region in Chile was operational for a selected early-access group. General availability remains expected in the coming weeks or by the end of 2026; it is not generally available today. Amazon says it plans to invest more than $4 billion in the region, its third in Latin America, with a projected contribution of more than $7.5 billion to Chilean GDP. Core compute, storage, networking and databases are due at launch, while Amazon Bedrock and SageMaker AI are expected within the first year rather than necessarily on day one. AWS highlights local data residency, latency and regulated-sector demands.",
+      "implications": "Analysis: An additional regional footprint may change deployment and disaster-recovery options for organizations operating in the Southern Cone. Forecast economic benefits and future service availability are vendor estimates, not observed operating metrics.",
+      "takeaway": "Takeaway: Wait for the general-availability announcement and published service matrix before planning regulated production migrations.",
+      "development_summary": "AWS began select-customer operation of its first Chile region and announced planned investment above $4 billion, ahead of general availability.",
+      "sources": [
+        {
+          "label": "AWS announcement",
+          "url": "https://www.aboutamazon.com/news/aws/aws-south-america-chile-region-launch"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "cloudflare:realtimekit-token-custom-not-before-expiry-individual-revocation:2026-11-12",
+      "status": "new",
+      "topic": "Realtime platform operations",
+      "title": "RealtimeKit makes participant credentials time-bound and individually revocable",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "New • last 24 hours",
+      "highlights": "Cloudflare added configurable validity windows and per-token revocation to RealtimeKit on November 12. Previously, tokens returned when meeting participants were added remained valid for 100 days by default. Applications can now supply optional not_before and expires_on fields so a participant credential becomes active only for its intended event. Operators may revoke one participant token without deactivating the entire meeting; if that participant is connected, the service removes the participant. The change is backward-compatible: omitting the new fields retains the prior 100-day period. Cloudflare says revocation may take up to 60 seconds to propagate, whereas deleting a participant is the immediate-blocking path.",
+      "implications": "Analysis: Short-lived, scoped credentials reduce exposure from forwarded or retained meeting links while avoiding full-session disruption. They also shift responsibility toward application teams to define refresh, clock-skew and early-revocation behavior.",
+      "takeaway": "Takeaway: Use explicit expiration for scheduled sessions and test revocation propagation, not just token issuance.",
+      "development_summary": "Cloudflare introduced per-participant RealtimeKit token activation, expiration and individual revocation.",
+      "sources": [
+        {
+          "label": "Cloudflare changelog",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-12-realtimekit-auth-token-validity/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "uforce:700m-series-a-six-billion-valuation-drone-manufacturing-ukraine-allies:2026-11-12",
+      "status": "new",
+      "topic": "Defense industrial capacity",
+      "title": "UFORCE raises $700 million to scale Ukrainian-developed autonomous systems",
+      "publisher": "UFORCE",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "New • last 24 hours",
+      "highlights": "UFORCE, a defense company founded in Ukraine and headquartered in London, announced a $700 million Series A on November 12 at a stated $6 billion valuation. The round was co-led by Valor Equity Partners and the UK National Wealth Fund, with U.S.–Ukraine Reconstruction Investment Fund participation. UFORCE says proceeds will expand distributed production across Ukraine and allied countries and support research and output of MAGURA uncrewed surface vessels, NEMESIS aerial platforms, LIUT ground vehicles and PREDATOR turrets. Retired NATO commander Christopher Cavoli is joining its board. The financing is a company announcement; the funding and valuation are not proof of delivered procurement quantities or independent battlefield performance.",
+      "implications": "Analysis: Investor-backed distributed manufacturing could improve resilience against attacks on Ukrainian production and enable allied sourcing. Export controls, interoperability, maintainability and procurement verification remain distinct from investment commitments.",
+      "takeaway": "Takeaway: Watch for actual factory capacity, fielded deliveries and allied acquisition contracts rather than valuations alone.",
+      "development_summary": "UFORCE announced a $700 million financing round intended to expand autonomous defense production and allied manufacturing capacity.",
+      "sources": [
+        {
+          "label": "UFORCE announcement",
+          "url": "https://www.uforce.com/news/uforce-raises-700m-at-6-billion-valuation-from-leading-tech-and-sovereign-wealth-funds-to-scale-combat-proven-defence-systems-for-ukraine-and-allied-nations"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "safe-pro-anduril:army-2p5m-ghostx-ground-explosive-threat-detection-prime-award:2026-11-10",
+      "status": "new",
+      "topic": "Autonomous reconnaissance and force protection",
+      "title": "Safe Pro and Anduril pursue drone-based explosive-threat mapping for tanks",
+      "publisher": "Safe Pro Group",
+      "publication_date": "2026-11-10",
+      "event_date": "2026-11-10",
+      "freshness": "New • within 72 hours",
+      "highlights": "On November 10, Safe Pro Group announced a $2.5 million U.S. Army prime contract under a Commercial Solutions Opening for aerial ground-threat detection. The contractor plans to run its Ground Truth Air detection technology onboard Anduril's Ghost-X reconnaissance drone to help identify and geolocate landmines, cluster munitions and other hazards near Abrams tank operations. Safe Pro says its software is designed to recognize more than 150 threat types from live video and relay detections into systems including ATAK and Anduril Lattice. It cites training data from more than 3.2 million images, but these are vendor-reported figures rather than independent assessments of false alarms or field reliability.",
+      "implications": "Analysis: Onboard processing could reduce latency and dependence on long communications paths in contested environments. Test results, target prevalence, terrain and false-positive rates will determine whether alerts actually improve survivability.",
+      "takeaway": "Takeaway: Treat the contract as a funded integration effort, not proof of production deployment or detection accuracy.",
+      "development_summary": "Safe Pro announced a $2.5 million Army prime contract to integrate explosive-threat detection with Anduril Ghost-X drones.",
+      "sources": [
+        {
+          "label": "Contractor announcement",
+          "url": "https://www.globenewswire.com/news-release/2026/11/10/3399521/0/en/safe-pro-group-awarded-u-s-army-prime-contract-teams-with-anduril-for-super-intelligence-on-ghost-x-drone-for-tank-protection.html"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "cloudflare:cloudflared-2026p11-normalize-semicolon-path-before-ingress-access-feb2027-default:2026-11-12",
+      "status": "new",
+      "topic": "Identity-aware reverse proxy hardening",
+      "title": "Cloudflare Tunnel closes another path-normalization gap in Access routing",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "New • last 24 hours",
+      "highlights": "Cloudflare said on November 12 that cloudflared version 2026.11.0 extends earlier URL normalization to semicolon-delimited path parameters before ingress rules are matched. The improvement targets tunnels whose path-based rules require Cloudflare Access validation, preventing differences in path interpretation from affecting which validation rule matches. The original request path forwarded to the origin is not rewritten. Normalization is still off by default; Cloudflare now plans to enable it by default for new cloudflared releases on February 8, 2027, replacing the previously announced January 25 date. Operators can enable it in advance and test affected routing configurations.",
+      "implications": "Analysis: Edge identity controls depend on consistent URL parsing between proxies and authorization checks. Even security-motivated normalization can change how existing path matchers behave, making staging and regression tests necessary.",
+      "takeaway": "Takeaway: Upgrade, test semicolon-containing paths and Access-protected ingress rules, then prepare for February's default change.",
+      "development_summary": "Cloudflare expanded Tunnel ingress path normalization to semicolon parameters and moved planned default enablement to February 8, 2027.",
+      "sources": [
+        {
+          "label": "Cloudflare changelog",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-12-cloudflared-matrix-path-parameters/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "nar:existing-home-sales-october-2026-3p75m-5p5-decline:released-2026-11-12",
+      "status": "new",
+      "topic": "Housing market and affordability",
+      "title": "October existing-home sales fall 5.5% even as inventory grows",
+      "publisher": "National Association of Realtors",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-10",
+      "freshness": "New release • last 24 hours",
+      "highlights": "The National Association of Realtors reported on November 12 that existing-home transactions fell 5.5% in October to a seasonally adjusted annual rate of 3.75 million, down 8.8% from a year earlier. Total inventory reached 1.59 million unsold homes, a 5.1-month supply versus 4.7 months in September. The median price across existing housing types was $416,700, 0.4% above October 2025. Sales declined month over month in the Midwest, South and West and were flat in the Northeast. NAR reported 29% first-time-buyer participation and 29% all-cash transactions, while its affordability index fell compared with a year earlier.",
+      "implications": "Analysis: More inventory gives buyers some negotiating room, but high financing costs and sticky nominal prices can still prevent transactions. National averages hide sharp differences in local supply and affordability; the annualized sales pace is not the literal number of October closings.",
+      "takeaway": "Takeaway: Compare local inventory, payment affordability and price trends rather than inferring conditions from national median prices.",
+      "development_summary": "NAR released October 2026 existing-home sales showing a 5.5% monthly drop and 5.1 months of inventory.",
+      "sources": [
+        {
+          "label": "NAR original report",
+          "url": "https://www.nar.realtor/newsroom/existing-home-sales-decreased-5-5-percent-october-nar-report"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "cerebras:q3-2026-210p8m-gaap-revenue-cloud-2026-core-guidance-940-960m:2026-11-12",
+      "status": "new",
+      "topic": "AI infrastructure economics",
+      "title": "Cerebras raises its full-year outlook as AI inference-cloud sales surge",
+      "publisher": "Cerebras Systems",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-09-30",
+      "freshness": "New earnings • last 24 hours",
+      "highlights": "Cerebras reported third-quarter 2026 results on November 12. GAAP revenue totaled $210.8 million, up 55% year over year; its separately defined non-GAAP Core revenue was $230.9 million, up 70%. Core cloud and services revenue reached $144.9 million, a 272% increase from the prior year. The company raised full-year Core revenue guidance to $940 million–$960 million and forecast fourth-quarter Core revenue of $310 million–$330 million. It disclosed $26.1 billion in remaining performance obligations and said 700 megawatts of data-center capacity is under contract for delivery by end-2027. The company reported a negative 106% GAAP operating margin alongside a negative 14% Core operating margin.",
+      "implications": "Analysis: Strong inference demand is translating into contracted cloud business, but non-GAAP adjustments, customer concentration, heavy infrastructure commitments and delayed capacity delivery make margins and cash conversion essential checks. Booked obligations are not the same as collected revenue.",
+      "takeaway": "Takeaway: Track GAAP losses, capacity commissioning and customer diversification alongside headline Core growth.",
+      "development_summary": "Cerebras released Q3 results, raised 2026 Core revenue guidance and detailed contracted cloud and data-center capacity.",
+      "sources": [
+        {
+          "label": "Cerebras investor relations",
+          "url": "https://investors.cerebras.ai/news-releases/news-release-details/cerebras-systems-delivers-record-revenue-third-quarter-2026"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "freddie-mac:pmms-2026-11-12-30yr-7p11-15yr-6p45-weekly-survey",
+      "status": "new",
+      "topic": "Household borrowing costs",
+      "title": "Freddie Mac reports 30-year mortgage average at 7.11% on November 12",
+      "publisher": "Freddie Mac",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "New weekly observation • last 24 hours",
+      "highlights": "Freddie Mac's Primary Mortgage Market Survey, released November 12, showed an average 30-year fixed mortgage rate of 7.11%, down from 7.18% one week earlier. The 15-year fixed mortgage average was 6.45%, compared with 6.57% the prior week. A year earlier, the respective survey averages were 6.24% and 5.49%. Freddie Mac called this the fourth consecutive weekly decline, with the 30-year average at its lowest level in seven weeks. The survey focuses on conventional conforming, fully amortizing purchase mortgages for borrowers with excellent credit who put down 20%; actual quotes depend on borrower, points, lender and timing.",
+      "implications": "Analysis: A seven-basis-point decline offers modest relief but does not reverse the year-over-year increase in financing costs. Because this is a fresh weekly reading, it is distinct from the previously covered November 5 survey rather than an attempt to repackage that event.",
+      "takeaway": "Takeaway: Compare actual loan estimates and total closing costs, not only the headline weekly benchmark.",
+      "development_summary": "Freddie Mac published the November 12 weekly mortgage survey: 30-year 7.11%, 15-year 6.45%, distinct from the prior November 5 survey.",
+      "sources": [
+        {
+          "label": "Freddie Mac original release",
+          "url": "https://www.globenewswire.com/news-release/2026/11/12/3402013/0/en/mortgage-rates-decline-for-fourth-consecutive-week-to-7-11.html"
+        }
+      ]
+    }
+  ]
+}
