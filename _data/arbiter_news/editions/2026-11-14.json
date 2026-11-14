@@ -1,0 +1,280 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-14",
+  "title": "Arbiter News",
+  "intro": "Saturday, November 14, 2026: twelve independently sourced developments announced November 10–13, covering agents, enterprise cloud operations, cyber and defense technology, and the economy.",
+  "overview": "Agent-powered development gains a new fast model, GitHub Enterprise Server integration and approval-gated purchases. Infrastructure operators face a major Microsoft 365 resilience lesson, community governance for agent isolation and more accountable GPU spending. Security coverage tracks new exploited vulnerabilities, a B-21 weapons-release milestone and automation for AI Scan policy. New producer-price, business-formation and payment-network data give the economic picture additional texture.",
+  "history_note": "Reviewed all 571 accessible prior coverage records supporting the public coverage index: 319 historical records across ten history_parts files (September 24–October 22, 2026), plus 252 story cards across 21 published edition files (October 23–November 13, excluding October 25). Compared underlying events, event keys and canonical source URLs over more than 30 days; reviewed sources and original announcements again. The public rendered coverage.json could not be opened by this reader, so the complete available repository inputs behind it were inspected. Known gaps: September 23, October 6 and October 25; some older historical records lack source URLs. The November 13 GitHub AI Scan API change is explicitly linked to the previously covered October 15 AI Scan GA, with its concrete new capability documented. No repeated Opus 5.5 launch coverage.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "google-github:gemini-4-hydrogen:copilot-multiclient-ga-flash:2026-11-13",
+      "status": "new",
+      "topic": "Fast coding models",
+      "title": "Gemini 4 Hydrogen becomes available across GitHub Copilot",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 24 hours",
+      "highlights": "GitHub announced general availability of Google's Gemini 4 Hydrogen, described as a Flash-class model intended for fast agentic coding, tool use and multistep tasks. The November 13 release spans VS Code, Visual Studio, Copilot CLI, the GitHub coding agent, the Copilot app, github.com, mobile applications, JetBrains, Xcode, Eclipse and the Copilot SDK. GitHub says access will roll out gradually, so absence from a model picker does not by itself indicate a configuration fault. Availability covers eligible individual and business plans. Usage-based billing follows provider list pricing rather than an assumed flat rate.",
+      "implications": "Analysis: Teams building automated development workflows gain another latency-oriented model choice, but a vendor claim of better instruction following is not an independent quality benchmark. Enterprise model policies and billing rules affect rollout more than the announcement alone suggests.",
+      "takeaway": "Takeaway: Evaluate Hydrogen against existing workloads, costs and approved-model policy before changing defaults.",
+      "development_summary": "GitHub made Google's Gemini 4 Hydrogen generally available in Copilot experiences on November 13.",
+      "sources": [
+        {
+          "label": "GitHub product announcement",
+          "url": "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot-app:github-enterprise-server-support-general-availability:2026-11-13",
+      "status": "new",
+      "topic": "Enterprise source integration",
+      "title": "GitHub Copilot app adds general support for Enterprise Server repositories",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 24 hours",
+      "highlights": "On November 13, GitHub moved GitHub Enterprise Server connectivity in the Copilot app from an opt-in preview to general availability. Users can add a GHES account and work with remote repositories, issues and pull requests from the desktop app. GitHub says this requires Copilot app version 1.2.0 or newer. An initial sign-in with a GitHub.com or GHE.com account remains necessary before adding an Enterprise Server account. Importantly, cloud sessions are not supported for GHES, so this announcement does not establish full parity with GitHub-hosted projects.",
+      "implications": "Analysis: Developers working with self-hosted source control gain a more unified interface for exploring code and change requests. Authentication requirements, instance network access, permissions and missing cloud sessions remain practical adoption boundaries.",
+      "takeaway": "Takeaway: Validate GHES connectivity and authorization paths in a controlled environment before presenting the app as feature-identical across hosting models.",
+      "development_summary": "GitHub announced generally available GHES repository, issue and pull-request integration in Copilot app version 1.2.0.",
+      "sources": [
+        {
+          "label": "GitHub changelog",
+          "url": "https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "openai:chatgpt-wallet:agentic-payments-dot-biometric-approval-card-tokenization:2026-11-13",
+      "status": "new",
+      "topic": "Agentic commerce safeguards",
+      "title": "OpenAI introduces ChatGPT Wallet with approval-gated agent payments",
+      "publisher": "OpenAI",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 24 hours",
+      "highlights": "OpenAI introduced ChatGPT Wallet on November 13, initially rolling out through dots for eligible ChatGPT Pro subscribers aged 18 or older in the United States. It says the wallet supplies a substitute payment credential so agents do not receive the user's actual card details. Before payment, the person reviews the merchant, items, amount and selected card, then authorizes the purchase using a supported biometric security check. OpenAI names American Express, Mastercard and Visa as partners and says eligible existing-card rewards and dispute protections are preserved. This is a gradual release, not universal ChatGPT checkout availability.",
+      "implications": "Analysis: The design separates autonomous shopping decisions from payment authorization, an important boundary for agents acting across untrusted merchant sites. Real-world reliability still depends on checkout compatibility, fraud controls, merchant support and the user's explicit approval.",
+      "takeaway": "Takeaway: Treat Wallet as a controlled payment handoff, not permission for agents to make unattended purchases.",
+      "development_summary": "OpenAI announced limited U.S. rollout of approval-gated tokenized payment credentials for dots on November 13.",
+      "sources": [
+        {
+          "label": "OpenAI announcement",
+          "url": "https://openai.com/index/introducing-chatgpt-wallet/"
+        },
+        {
+          "label": "OpenAI release notes",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "microsoft:365-global-service-disruption:network-upgrade-capacity-recovery:2026-11-12-13",
+      "status": "new",
+      "topic": "Cloud service resilience",
+      "title": "Microsoft 365 recovers from widespread disruption tied to a network change",
+      "publisher": "Microsoft",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-12 to 2026-11-13",
+      "freshness": "New • last 48 hours",
+      "highlights": "Microsoft 365 services experienced a widespread disruption beginning November 12 and continuing into November 13. The reported impact included Exchange Online and Outlook, Teams, SharePoint and Copilot, affecting businesses and public services in numerous countries. Microsoft tracked the incident as MO1550821 and EX1550543 and said a problem introduced during an earlier network-capacity upgrade surfaced after a later network change. Company updates described overloaded or unavailable servers and a staged restoration process. Associated Press reported that Microsoft subsequently said services had been fully restored. The company attributed the incident to a technical issue, not a cyberattack or autonomous agents.",
+      "implications": "Analysis: A disruption spanning multiple collaboration products illustrates correlated failure risk when communications, incident coordination and productivity share a provider. Recovery claims do not replace a post-incident root-cause review or customer-side validation of mail and queued transactions.",
+      "takeaway": "Takeaway: Verify tenant recovery, reconcile delayed messages and test out-of-band incident communications before the next outage.",
+      "development_summary": "Microsoft identified a network-capacity change behind a November 12–13 global Microsoft 365 interruption and reported recovery.",
+      "sources": [
+        {
+          "label": "Microsoft public service status",
+          "url": "https://status.cloud.microsoft/"
+        },
+        {
+          "label": "Associated Press reporting on Microsoft's status updates",
+          "url": "https://apnews.com/article/ca395c0f1e51af784b6d70afb6554f6a"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "nvidia-cncf:openshell:vendor-neutral-sandbox-governance-cedar-policy:2026-11-10",
+      "status": "new",
+      "topic": "Cloud-native agent isolation",
+      "title": "CNCF brings OpenShell agent-runtime governance under community stewardship",
+      "publisher": "Cloud Native Computing Foundation",
+      "publication_date": "2026-11-10",
+      "event_date": "2026-11-10",
+      "freshness": "Uncovered • last 7 days",
+      "highlights": "At KubeCon on November 10, CNCF detailed NVIDIA's contribution of OpenShell, an open-source runtime intended to enforce boundaries around autonomous agents. The project is operating within CNCF's Sandbox ecosystem with a vendor-neutral governance process, public RFCs and an independent project organization. Its planned integration with Cedar policy aims to constrain what agent processes can access, including networks, files, credentials and inference endpoints. CNCF describes involvement from NVIDIA, Red Hat, Docker and Canonical. Sandbox recognition and architectural intent should not be confused with a completed independent security certification or production deployment guarantee.",
+      "implications": "Analysis: Putting authorization and isolation outside a model's prompt is a substantive architectural pattern for agents that execute code or contact services. Governance neutrality can reduce supplier dependence, but practical security depends on policy enforcement, default egress, auditability and adversarial testing.",
+      "takeaway": "Takeaway: Pilot explicit deny-by-default rules and validate credential isolation before granting agents production access.",
+      "development_summary": "CNCF described the public community governance and policy direction for the NVIDIA-contributed OpenShell runtime on November 10.",
+      "sources": [
+        {
+          "label": "CNCF original project announcement",
+          "url": "https://www.cncf.io/blog/2026/11/10/welcoming-openshell-to-the-cncf-open-governance-to-secure-agentic-ai/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "cloudbolt:stormforge:kubernetes-gpu-optimization-ga-bill-accurate-allocation:2026-11-10",
+      "status": "new",
+      "topic": "Kubernetes infrastructure economics",
+      "title": "CloudBolt makes StormForge GPU optimization generally available",
+      "publisher": "CloudBolt",
+      "publication_date": "2026-11-10",
+      "event_date": "2026-11-10",
+      "freshness": "Uncovered • last 7 days",
+      "highlights": "CloudBolt announced general availability of GPU optimization in StormForge on November 10 at KubeCon. The vendor says the release attributes billed GPU spending to Kubernetes workloads, namespaces and labels, including shared or time-sliced accelerators, rather than estimating cost solely from public list prices. It also expands node-pool cost reporting with idle capacity and cloud purchasing coverage such as Reserved Instances and Savings Plans. Reliability-oriented rightsizing changes account for CPU contention, namespace LimitRange policies and JVM heap settings. These are product capabilities described by CloudBolt, not independently validated savings outcomes or guaranteed reductions in total cloud spend.",
+      "implications": "Analysis: Cost allocation at the workload and pool level can provide evidence for platform and FinOps decisions about GPU scheduling, commitments and chargeback. Teams still need to reconcile billed costs, shared-resource attribution and performance headroom before automatically accepting recommendations.",
+      "takeaway": "Takeaway: Trial allocation accuracy against invoices and test rightsizing under real load before automating changes.",
+      "development_summary": "CloudBolt released general GPU optimization and workload-level billed GPU cost allocation in StormForge on November 10.",
+      "sources": [
+        {
+          "label": "CloudBolt company release",
+          "url": "https://www.globenewswire.com/news-release/2026/11/10/3399584/0/en/cloudbolt-launches-gpu-optimization-and-bill-accurate-gpu-allocation-for-kubernetes-at-kubecon-cloudnativecon-north-america.html"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "cisa:kev:unrealircd-cve-2026-114713-checkpoint-cve-2026-123039:2026-11-13",
+      "status": "new",
+      "topic": "Active exploitation triage",
+      "title": "CISA flags exploited Check Point and UnrealIRCd vulnerabilities",
+      "publisher": "Cybersecurity and Infrastructure Security Agency",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 24 hours",
+      "highlights": "CISA added two vulnerabilities to its Known Exploited Vulnerabilities catalog on November 13 following evidence of exploitation: CVE-2026-123039, an incorrect permission assignment issue affecting Check Point products, and CVE-2026-114713, an improper delimiter-neutralization flaw in UnrealIRCd. The newly listed items are distinct from the November 9 and 10 catalog additions. The entries specify a November 16 remediation date for applicable federal civilian agencies under the current binding directive. CISA also emphasizes investigation for possible compromise before a fix was installed. Specific exposure depends on deployed versions, configurations and vendor guidance; presence of a CVE in a catalog does not prove every installation was breached.",
+      "implications": "Analysis: An exploited status elevates triage above severity scores alone, especially on internet-accessible infrastructure. Organizations should identify actual affected assets and preserve evidence rather than applying patches without considering potential prior intrusion.",
+      "takeaway": "Takeaway: Match vendor advisories to inventory, prioritize exposed systems and include compromise checks in remediation.",
+      "development_summary": "CISA added actively exploited Check Point and UnrealIRCd issues to KEV on November 13.",
+      "sources": [
+        {
+          "label": "CISA original alert",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/13/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+        },
+        {
+          "label": "CISA KEV catalog",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "usaf:b21-raider:conventional-weapon-release-test-edwards:announced-2026-11-13",
+      "status": "new",
+      "topic": "Defense flight-test milestones",
+      "title": "U.S. Air Force reports a B-21 Raider conventional weapons-release test",
+      "publisher": "Department of the Air Force",
+      "publication_date": "2026-11-13",
+      "event_date": "Early November 2026; disclosed 2026-11-13",
+      "freshness": "New • last 24 hours",
+      "highlights": "The Department of the Air Force disclosed on November 13 that a B-21 Raider test aircraft released a conventional weapon during a flight from Edwards Air Force Base the previous week. The Air Force says the demonstration tested predictions developed through extensive digital-twin modeling and supported the bomber's open-architecture weapons-integration approach. A service photo was distributed through the Defense Visual Information Distribution Service. The public announcements did not identify the specific weapon, exact release date, target outcome or a complete test-results package. An individual release demonstration is not equivalent to full operational weapons qualification or combat readiness. The Air Force still expects B-21 aircraft at Ellsworth in 2027.",
+      "implications": "Analysis: Moving from handling and flight demonstrations to actual weapons employment is a meaningful technical milestone for future long-range strike capability. Claims about integration speed and survivability remain largely service or contractor assessments without disclosed independent metrics.",
+      "takeaway": "Takeaway: Track subsequent weapon certifications and operational test evidence rather than equating one release with fielding.",
+      "development_summary": "The Air Force disclosed an early-November conventional B-21 weapon release during its November 13 program update.",
+      "sources": [
+        {
+          "label": "U.S. Air Force media release via DVIDS",
+          "url": "https://www.dvidshub.net/image/10091216/b-21-raider-demonstrates-weapon-release-capability-validating-foundational-role-us-deterrence-strategy"
+        },
+        {
+          "label": "Reporting citing the Air Force statement",
+          "url": "https://www.airandspaceforces.com/b-21-raider-first-weapons-release-test/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "github:ai-scan:repository-scan-rest-api-organization-policy-automation:2026-11-13",
+      "status": "material-update",
+      "topic": "Security policy automation",
+      "title": "GitHub adds REST-based organization and repository controls for AI Scan",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "Material update • last 24 hours",
+      "highlights": "GitHub's November 13 public preview extends AI Scan management APIs with a new repository_scan setting, allowing organization owners, security managers and repository administrators to automate repository-scan enablement using GET and PATCH calls. The organization setting constrains repository overrides; an enterprise-level denial returns HTTP 422. Requests changing both pull-request and repository settings fail together if either update is blocked. Enabling repository scans does not start a scan: authorized users must invoke scans on demand, consuming GitHub Code Security AI credits. Unlike the October 15 rollout of AI Scan for pull requests, this update specifically adds programmatic administration for repository backlog scanning. GitHub Enterprise Server is not supported.",
+      "implications": "Analysis: Security teams can now express scanning policy as code, enabling auditable rollout and fewer manual per-repository changes. Rollout permissions and the difference between setting a policy and actually scanning are important to avoid false coverage claims.",
+      "takeaway": "Takeaway: Manage enablement centrally, explicitly schedule authorized scans and monitor credit use and coverage.",
+      "development_summary": "November 13 added a repository_scan REST property and management policy beyond the previously covered October 15 AI Scan for pull-request availability.",
+      "sources": [
+        {
+          "label": "GitHub feature announcement",
+          "url": "https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api/"
+        }
+      ],
+      "updates_event_key": "github:ai-scan-and-agentic-autofix:ga:2026-10-15",
+      "change_summary": "October 15 coverage described AI Scan for pull requests becoming generally available; on November 13 GitHub added new public-preview REST API controls for repository backlog scan enablement with inherited organization policy and credit-bearing manual scans. This is an administrative capability not previously available in that October 15 event."
+    },
+    {
+      "category": "money",
+      "event_key": "us-bls:ppi:october-2026-final-demand-plus0p3-annual6p5:released-2026-11-13",
+      "status": "new",
+      "topic": "Producer-price inflation",
+      "title": "U.S. producer prices rise 0.3% in October and 6.5% over 12 months",
+      "publisher": "U.S. Bureau of Labor Statistics",
+      "publication_date": "2026-11-13",
+      "event_date": "October 2026; released 2026-11-13",
+      "freshness": "New • last 24 hours",
+      "highlights": "The Bureau of Labor Statistics reported on November 13 that its final-demand Producer Price Index increased 0.3% in October 2026 on a seasonally adjusted basis. The 12-month unadjusted increase was 6.5%, the largest since November 2022 in the published series. Goods prices increased 0.5% in October and services 0.2%. The index excluding food, energy and trade services also rose 0.5% for the month and 4.9% over the year. BLS revised some June-through-September figures after late reports and corrections. These are measures of prices received by domestic producers, not direct measurements of changes to a household's consumer basket.",
+      "implications": "Analysis: Producer-cost pressure can affect supplier negotiations, business margins and future consumer pricing, but any pass-through is neither automatic nor uniform. A single monthly observation cannot establish a sustained acceleration.",
+      "takeaway": "Takeaway: Evaluate the monthly, annual and underlying components together before drawing conclusions about household inflation or rates.",
+      "development_summary": "BLS released October producer-price data on November 13 showing a 0.3% monthly and 6.5% annual final-demand gain.",
+      "sources": [
+        {
+          "label": "BLS original October PPI release",
+          "url": "https://www.bls.gov/news.release/archives/ppi_11132026.htm"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-census:bfs:october-2026-applications-501609-projected-formations-27867:2026-11-12",
+      "status": "new",
+      "topic": "New-business formation",
+      "title": "U.S. business applications fall 6% in October, Census reports",
+      "publisher": "U.S. Census Bureau",
+      "publication_date": "2026-11-12",
+      "event_date": "October 2026; released 2026-11-12",
+      "freshness": "New • last 48 hours",
+      "highlights": "The Census Bureau reported 501,609 seasonally adjusted business applications for October 2026, down 6.0% from September. Its model also projected 27,867 employer businesses with payroll tax liabilities would form within four quarters from the October application cohort, a decline of 1.8% from the comparable September projection. This second figure is a forward-looking estimate rather than a count of companies actually launched in October. Census publishes the series to track entrepreneurial intent and prospective employer formation using administrative application data. Applications differ substantially in scale and likelihood of later payroll activity, so they should not be presented as new jobs created.",
+      "implications": "Analysis: Weaker filing activity may indicate softer entrepreneurial momentum, but monthly seasonality, revisions and conversion rates matter. The measure is useful alongside hiring and credit indicators rather than as a standalone recession forecast.",
+      "takeaway": "Takeaway: Track subsequent cohorts and actual employer formation before interpreting one monthly decline as lasting weakness.",
+      "development_summary": "The Census Bureau's November 12 release showed a 6% October decline in applications and a 1.8% dip in projected four-quarter formations.",
+      "sources": [
+        {
+          "label": "Census Bureau Business Formation Statistics",
+          "url": "https://www.census.gov/econ/bfs/current/index.html"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "federal-reserve:2027-bank-payment-services-pricing-average1p4-check-changes:2026-11-12",
+      "status": "new",
+      "topic": "Banking payment infrastructure",
+      "title": "Federal Reserve sets 2027 payment-network pricing and check changes",
+      "publisher": "Federal Reserve Board",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12; effective 2027-01-01",
+      "freshness": "New • last 48 hours",
+      "highlights": "The Federal Reserve Board set pricing on November 12 for payment services provided by Reserve Banks to banks and credit unions, effective January 1, 2027. The covered systems include check clearing, ACH, instant payments and wholesale settlement. Established services are expected to see an average price increase of 1.4%, while the Fed projects recovering 101.5% of actual and imputed operating expenses in 2027, consistent with its long-run cost recovery framework. The Fed also outlined changes to check-processing windows and financial-institution fees as physical check volumes decline. It explicitly says these operational adjustments do not prevent consumers or businesses from paying or receiving checks.",
+      "implications": "Analysis: Direct fee changes apply to participating financial institutions; whether banks pass any costs to customers is a separate commercial decision, not an automatic consequence of the announcement. Changing check workflows may matter operationally to payment processors.",
+      "takeaway": "Takeaway: Institutions should review 2027 service pricing and processing windows; consumers should not assume checks are being discontinued.",
+      "development_summary": "The Federal Reserve established January 2027 payment-service prices and operational adjustments to check processing on November 12.",
+      "sources": [
+        {
+          "label": "Federal Reserve original announcement",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20261112a.htm"
+        }
+      ]
+    }
+  ]
+}
