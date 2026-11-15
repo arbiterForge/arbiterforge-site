@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-15",
+  "title": "Arbiter News",
+  "intro": "Sunday, November 15, 2026: twelve verified, previously uncovered developments from November 12–13, covering agent governance, cloud operations, cybersecurity and defense resilience, and economic policy.",
+  "overview": "The AI desk looks beyond model launch headlines to enterprise agent hosting, imminent Copilot model retirements and a Python compatibility breaking change. Cloud operators gain multicloud VM onboarding, account-isolated secrets and Terraform-managed AI security policies. Cyber and defense coverage examines observed criminal agent activity, organization-wide security governance and a defense supplier incident. For households and markets, new retirement-plan limits meet proposals affecting corporate disclosures and financial-services vendor oversight.",
+  "history_note": "Inspected the public coverage.json template and all complete available repository inputs supporting its rendered index: 319 historical records in ten history_parts files (September 24–October 22, 2026) and 264 story records in 22 published editions (October 23–November 14, excluding October 25), totaling 583 prior coverage records. Compared event keys, underlying developments and canonical original-source URLs, including more than 30 days of accessible history. The public rendered coverage.json could not be opened directly by this reader, so the complete repository inputs behind it were used. Known historical gaps: September 23, October 6 and October 25; some older records have no source URLs. November 12 stories are meaningful previously uncovered releases, not filler or repeated Opus 5.5 launch coverage.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "anthropic:claude-managed-agents:self-hosted-control-plane-private-beta:2026-11-12",
+      "status": "new",
+      "topic": "Agent control planes",
+      "title": "Anthropic puts the entire Claude Managed Agents service inside customer environments",
+      "publisher": "Anthropic",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "Uncovered • last 72 hours",
+      "highlights": "Anthropic announced a private beta of self-hosted Claude Managed Agents on November 12. Customers can operate the agent harness, server, database, worker sandboxes, credential handling and session history in their own cloud or on-premises environment. Model requests still travel to a chosen inference endpoint: Anthropic, Amazon Bedrock, Google Agent Platform, Microsoft Foundry or a customer gateway. Anthropic describes sandbox-separated execution, secrets injection outside the worker, network allowlists and OpenTelemetry event records. The company distinguishes this full self-hosted option from its earlier self-hosted-sandbox offering; access currently requires contacting an account team.",
+      "implications": "Analysis: Hosting the agent control plane near internal code and enterprise services may simplify data residency and administrative ownership, but it does not automatically make model inference local or eliminate third-party processing. Organizations still have to secure the runtime, manage credentials, establish egress policies and validate retention arrangements. Private beta is not a general-availability commitment.",
+      "takeaway": "Takeaway: Evaluate the trust boundary and operational burden of the complete agent service, not merely where the sandbox runs.",
+      "development_summary": "Anthropic introduced self-hosted Claude Managed Agents in private beta, moving the agent service and stored session history into customer-controlled infrastructure.",
+      "sources": [
+        {
+          "label": "Anthropic product announcement",
+          "url": "https://claude.com/fr/resources/articles/self-hosted-claude-managed-agents"
+        },
+        {
+          "label": "Technical documentation",
+          "url": "https://platform.claude.com/docs/en/managed-agents/self-hosted"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot-model-retirement:six-models-december14-admin-policy:2026-11-13",
+      "status": "new",
+      "topic": "Model lifecycle management",
+      "title": "Six GitHub Copilot models face a December 14 retirement deadline",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 48 hours",
+      "highlights": "On November 13 GitHub set December 14, 2026 as the deprecation date for Claude Fable 5, Claude Haiku 4.5, Gemini 3.8 Flash, Gemini 4 Argon, Grok 4.6 and Kimi K3 across Copilot experiences. GitHub recommends Fable 5.2, Haiku 5.5, Gemini 4 Hydrogen, Gemini 4 Carbon and Grok 4.7 respectively; the Kimi replacement remains unannounced. An exception preserves Haiku 4.5 for individual subscribers on annual Copilot plans. Enterprise and Business customers using default model enablement generally get suggested successors automatically unless administrators have restricted those models.",
+      "implications": "Analysis: This is an operational retirement notice, not new launch coverage. Hard-coded model identifiers, agent workflows and centrally governed enterprise policies may require attention before the cutoff. Availability of replacement models in a policy does not establish equivalent latency, cost or output quality for existing tasks.",
+      "takeaway": "Takeaway: Inventory pinned Copilot model selections and run targeted regression tests before December 14.",
+      "development_summary": "GitHub published a six-model Copilot deprecation schedule for December 14, with suggested replacements, plan exceptions and enterprise policy guidance.",
+      "sources": [
+        {
+          "label": "GitHub Copilot changelog",
+          "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "langchain:langchain-openai:1.8.0-python311-decisions-classifier:2026-11-13",
+      "status": "new",
+      "topic": "Agent SDK compatibility",
+      "title": "LangChain's OpenAI integration drops Python 3.10 and adds Decisions API support",
+      "publisher": "LangChain",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 48 hours",
+      "highlights": "LangChain released langchain-openai 1.8.0 on November 13. The project's signed GitHub release identifies Python 3.11 as the new minimum runtime, with langchain-core 1.8.0 as the minimum companion dependency. The 1.7 series remains the compatible resolution path for Python 3.10 environments. Version 1.8.0 also adds OpenAIClassifier for the generally available OpenAI Decisions API, refreshes model-profile data and removes Python 3.10 support across the relevant partner package changes. PyPI independently confirms the 1.8.0 publication date and Python version metadata.",
+      "implications": "Analysis: This is a release compatibility boundary with direct consequences for pinned build images, CI matrices, dependency resolvers and agent services. A routine floating-version update could select a newer package than an older Python environment can install. The classifier integration is new framework support for an already covered API, not a second launch of that API.",
+      "takeaway": "Takeaway: Check runtime pins and dependency lockfiles before adopting langchain-openai 1.8.0.",
+      "development_summary": "LangChain released langchain-openai 1.8.0, requiring Python 3.11 and adding an OpenAI Decisions API classifier integration.",
+      "sources": [
+        {
+          "label": "Project release notes",
+          "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.8.0"
+        },
+        {
+          "label": "PyPI release metadata",
+          "url": "https://pypi.org/project/langchain-openai/1.8.0/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:ssm-cloud-connector:google-cloud-vm-automatic-agent-onboarding:2026-11-13",
+      "status": "new",
+      "topic": "Multicloud operations",
+      "title": "AWS Systems Manager adds automated onboarding for Google Cloud VMs",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 48 hours",
+      "highlights": "AWS announced on November 13 that Systems Manager Cloud Connector can now onboard Google Cloud virtual machines without manual per-instance SSM Agent installation. The connector deploys the agent and places eligible Google Cloud VMs alongside AWS EC2, on-premises and Azure systems in a common management inventory. Administrators can use Session Manager, Automation runbooks, Run Command, State Manager, Patch Manager and Inventory through Systems Manager. The rollout covers a stated set of AWS Regions; the announcement does not claim global availability in every Region or remove the need for cloud-side permissions and access configuration.",
+      "implications": "Analysis: The practical gain is one set of patching, session and automation workflows across disparate VM fleets. However, adding a management plane also creates a cross-cloud administrative trust path that teams should audit. Existing change-control processes, asset ownership and identity mapping remain necessary rather than being solved by the connector.",
+      "takeaway": "Takeaway: Pilot with limited-permission Google Cloud projects and verify inventory, credentials and patch targeting before wider rollout.",
+      "development_summary": "AWS Systems Manager Cloud Connector expanded automatic managed-node onboarding to Google Cloud VMs on November 13.",
+      "sources": [
+        {
+          "label": "AWS What's New announcement",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/systems-manager-google-cloud-support/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:secrets-manager:cross-account-secret-replica-independent-kms:2026-11-13",
+      "status": "new",
+      "topic": "Secrets and recovery",
+      "title": "AWS Secrets Manager introduces managed replication across accounts",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 48 hours",
+      "highlights": "On November 13 AWS announced cross-account replication for Secrets Manager. A centrally controlled primary secret can maintain a synchronized copy inside a second AWS account, including updates following rotation. Each replica is its own Secrets Manager resource encrypted using a customer-managed KMS key in the destination account; AWS says teams no longer need a shared cross-account KMS key or secret resource policy simply to read that local replica. The destination account can also promote its copy to a standalone secret if necessary. Service documentation places important limits on region pairing and replication semantics, so the announcement should not be read as a guarantee of instantaneous cross-region recovery.",
+      "implications": "Analysis: Separate account ownership can narrow routine permission sharing and make recovery-account architectures easier. It also introduces eventual consistency, additional KMS policy decisions, recurring replica cost and the need to test what happens during a source-account compromise or a failed rotation.",
+      "takeaway": "Takeaway: Document recovery promotion, encryption ownership and replication lag before depending on the new copies.",
+      "development_summary": "AWS Secrets Manager added managed replication of primary secrets into separate AWS accounts, with independent destination KMS encryption.",
+      "sources": [
+        {
+          "label": "AWS product announcement",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-manager-cross-account/"
+        },
+        {
+          "label": "Replication behavior and limits",
+          "url": "https://docs.aws.amazon.com/secretsmanager/latest/userguide/cross-account-replicate-secrets.html"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "cloudflare:ai-security-for-apps:terraform-provider-5.29-custom-topics:2026-11-12",
+      "status": "new",
+      "topic": "Security as code",
+      "title": "Cloudflare adds Terraform resources for AI application security controls",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "Uncovered • last 72 hours",
+      "highlights": "Cloudflare documented on November 12 that version 5.29.0 of its Terraform provider can manage AI Security for Apps without requiring dashboard-only configuration. A new cloudflare_ai_security resource enables or disables the feature for a zone, while cloudflare_ai_security_custom_topics defines the prompt subjects the application-security system should score. Those settings can be used alongside cloudflare_ruleset resources so risk signals and mitigation rules are captured in the same infrastructure-as-code workflow. The change adds declarative management capabilities; the announcement does not say that policy enforcement or model-risk classification becomes infallible.",
+      "implications": "Analysis: This closes a configuration-management gap for organizations deploying AI-enabled web endpoints through repeatable pipelines. It can improve environment parity and peer review, but rollout should preserve separate testing of false positives, rule precedence and supported plan entitlements. A checked-in configuration is not a substitute for watching production rule matches.",
+      "takeaway": "Takeaway: Treat AI-facing WAF controls as versioned infrastructure and test enforcement separately from deployment success.",
+      "development_summary": "Cloudflare Terraform provider 5.29.0 added zone enablement and custom-topic resources for AI Security for Apps.",
+      "sources": [
+        {
+          "label": "Cloudflare product changelog",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-12-ai-security-for-apps-terraform/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "aws-threat-intelligence:artex-ai-agent-campaign:madpot-log-observations-oct-nov:2026-11-13",
+      "status": "new",
+      "topic": "Agent-enabled intrusion",
+      "title": "AWS documents cybercrime workflows using ARTEX AI agents",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 48 hours",
+      "highlights": "Amazon Threat Intelligence published a November 13 analysis of ARTEX AI agent-related activity observed through its MadPot threat-sensor infrastructure from October 3 to November 5. Researchers describe agent orchestration of reconnaissance, web exploitation and cloud-credential or privilege-abuse steps, with activity directed at numerous organizations. Important evidence boundary: some apparent attack outcomes come from the agent's own recorded notes or memory, and Amazon explicitly says it could not independently verify all claimed successes. The report separates observed requests and captured artifacts from assertions produced by attacker-controlled automation, and describes notifying affected customers when corroborating telemetry was available.",
+      "implications": "Analysis: Autonomous agent tooling appears capable of coordinating familiar attack techniques, potentially lowering the operator effort per attempted target. But model-generated operation logs are not proof of hundreds of actual breaches. Defenders should prioritize exposed service hardening, rapid credential revocation, rate controls and evidence-led incident investigation.",
+      "takeaway": "Takeaway: Review the original indicators and distinguish verified intrusion evidence from attacker-agent self-reporting.",
+      "development_summary": "AWS published MadPot observations of ARTEX AI agent-assisted cybercrime activity with explicit limits on verification of claimed compromises.",
+      "sources": [
+        {
+          "label": "Amazon Threat Intelligence research",
+          "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-observes-threat-actors-running-cybercrime-campaigns-with-artex-ai-agents/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "aws-security-hub:organizations-declarative-policies-cspm-configuration:2026-11-13",
+      "status": "new",
+      "topic": "Organization security policy",
+      "title": "AWS Security Hub CSPM adopts Organizations declarative policies",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 48 hours",
+      "highlights": "AWS announced November 13 support for AWS Organizations declarative policies in Security Hub Cloud Security Posture Management. Organization administrators can select enabled security standards and controls across all accounts and Regions or define account-and-Region-specific baselines. Policies can apply as new accounts join and are intended to resist configuration drift. AWS now recommends this model while providing a migration path from the existing central configuration policy approach; it is available in commercial, GovCloud and China Regions. The user documentation warns that mixing central configuration and declarative management is not a harmless gradual toggle: enabling the first declarative policy affects organization-wide central configuration behavior.",
+      "implications": "Analysis: An organization-level control baseline is attractive for enterprises with frequent account creation and regional exceptions. The migration itself is a change-management event that can alter security-coverage settings, so it deserves a full before-and-after export and validation. Central governance cannot repair unsupported workload controls or a misconfigured baseline.",
+      "takeaway": "Takeaway: Test migration and drift detection in a representative organization before applying a first declarative policy.",
+      "development_summary": "AWS Security Hub CSPM added Organizations declarative policies for centrally managing multi-account, multi-Region security standards and controls.",
+      "sources": [
+        {
+          "label": "AWS launch announcement",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-cspm-org-policies/"
+        },
+        {
+          "label": "AWS migration cautions",
+          "url": "https://docs.aws.amazon.com/securityhub/latest/userguide/orgs-policies-and-central-config.html"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "quantum-systems:drone-maker-cyber-incident-containment-bundeswehr-flight-resumption:2026-11-13",
+      "status": "new",
+      "topic": "Defense supply-chain cyber",
+      "title": "Quantum Systems says German military drones are flying again after cyber incident",
+      "publisher": "Quantum Systems / Reuters",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 48 hours",
+      "highlights": "German defense-drone maker Quantum Systems disclosed on November 12 that it detected a cyberattack in late October and contained it while coordinating with public authorities and independent experts. The company said the incident did not endanger operators of its unmanned systems, while the investigation remained active. Quantum Systems said on November 13, as reported by Reuters, that German military drones it supplies were flying again after a precautionary grounding; the German military gave no immediate comment. These are different assertions: the vendor describes internal containment and its safety assessment, while reporting about operational resumption concerns the military fleet's service status. Neither independently establishes the attackers' identity or confirms an absence of information exposure.",
+      "implications": "Analysis: Cyberattacks on a defense supplier can translate rapidly into aircraft availability and customer assurance decisions even if vehicle software itself is not shown compromised. Incident-response planning should distinguish corporate IT compromise, build-pipeline assurance, maintenance connectivity and operational flight-safety validation.",
+      "takeaway": "Takeaway: Evaluate supplier resilience and verified return-to-service evidence, not just the speed of the company's containment statement.",
+      "development_summary": "Quantum Systems disclosed a contained late-October cyber incident; Reuters reported the company's November 13 statement that German military drone flights resumed after a precautionary grounding, without independent military confirmation.",
+      "sources": [
+        {
+          "label": "Quantum Systems official incident statement",
+          "url": "https://quantum-systems.com/news/cyberattack-defeated/"
+        },
+        {
+          "label": "Reuters November 13 operational update",
+          "url": "https://www.reuters.com/business/aerospace-defense/quantum-systems-says-grounded-german-military-drones-flying-again-after-2026-11-13/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "irs:2027-retirement-plan-contribution-limits-401k25500-ira7500:2026-11-12",
+      "status": "new",
+      "topic": "Retirement planning",
+      "title": "IRS sets 2027 401(k) limit at $25,500 and holds IRA limit at $7,500",
+      "publisher": "Internal Revenue Service",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "Uncovered • last 72 hours",
+      "highlights": "The Internal Revenue Service announced November 12 cost-of-living adjustments for tax year 2027. The regular employee deferral limit for 401(k), 403(b), most governmental 457 plans and the federal Thrift Savings Plan rises from $24,500 in 2026 to $25,500 in 2027. The traditional and Roth IRA contribution limit stays at $7,500. The standard workplace catch-up limit for participants at least age 50 is $8,500, while the enhanced catch-up for those aged 60 through 63 is $11,750, subject to plan and eligibility rules. The agency also updated income-based deduction and Roth IRA phaseout ranges, which differ by filing status.",
+      "implications": "Analysis: Higher workplace contribution capacity may help some savers, but the annual limits alone do not establish Roth eligibility, the availability of a particular employer catch-up provision or a tax advantage for every household. Retirement elections should be based on actual plan rules and contribution tracking.",
+      "takeaway": "Takeaway: Revisit 2027 payroll deferrals and eligibility before annual benefit elections; the IRA headline limit is unchanged.",
+      "development_summary": "The IRS published 2027 retirement savings contribution limits, including a $25,500 workplace deferral ceiling and an unchanged $7,500 IRA cap.",
+      "sources": [
+        {
+          "label": "IRS November 12 announcement",
+          "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-25500-for-2027-ira-limit-remains-7500"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "sec:executive-director-pay-disclosures:nov2026-proposed-item402-reform:2026-11-13",
+      "status": "new",
+      "topic": "Investor disclosures",
+      "title": "SEC proposes an overhaul of executive-pay reporting, not yet a final rule",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 48 hours",
+      "highlights": "On November 13 the Securities and Exchange Commission proposed changes to public-company executive and director compensation disclosures under Regulation S-K Item 402. The agency describes a shift toward principles-based materiality, streamlined presentation and clearer tracking of equity awards over time. Among the debated components are adjustments to which officers appear in the tables, fewer overlapping compensation tables and altered thresholds for reporting certain perquisites. The proposal follows a previous comment request and roundtable. It is a proposed regulation, not a change already in force; the public will have an opportunity to submit comments before the Commission considers a final text.",
+      "implications": "Analysis: Public companies may see reduced preparation complexity, while investors could see differences in comparability and the granularity of pay disclosures. Whether the tradeoff improves transparency depends on the final rule's specific text and investor feedback. Existing filing obligations still apply today.",
+      "takeaway": "Takeaway: Evaluate both compliance savings and investor-information loss during the comment process; do not implement draft requirements as final.",
+      "development_summary": "The SEC opened a November 13 proposal to redesign executive and director compensation disclosures under Item 402.",
+      "sources": [
+        {
+          "label": "SEC November 13 press release",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-114-sec-proposes-executive-director-compensation-disclosure-reforms"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "federal-bank-agencies:third-party-risk-guidance-comment-extension-dec16:2026-11-13",
+      "status": "new",
+      "topic": "Banking oversight",
+      "title": "Four bank regulators move third-party-risk comment deadline to December 16",
+      "publisher": "Federal Reserve, FDIC, OCC and NCUA",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "New • last 48 hours",
+      "highlights": "The Federal Reserve, FDIC, Office of the Comptroller of the Currency and National Credit Union Administration announced November 13 that comments on proposed third-party relationship risk-management guidance are now due December 16, 2026, rather than November 16. The agencies describe a principles-based, nonbinding supervisory framework intended to help banks and credit unions tailor oversight to each vendor relationship. They expect to replace existing guidance after any final adoption. Separately, the Fed extended to December 16 the comment window on a related draft aimed at traditional community banks. Nothing in the notice makes the proposed standards immediately binding or confirms they will be adopted without revisions.",
+      "implications": "Analysis: The additional month provides institutions and service providers more time to examine operational cost, vendor concentration, subcontractor visibility and outsourced technology resilience. It is a process milestone, not evidence that an existing third-party-risk incident has occurred. Firms should track comments and the final guidance rather than prematurely changing compliance assertions.",
+      "takeaway": "Takeaway: Organizations relying on financial-sector customers should monitor the December 16 consultation and subsequent final text.",
+      "development_summary": "Federal regulators extended the consultation deadline for proposed third-party risk-management guidance from November 16 to December 16.",
+      "sources": [
+        {
+          "label": "Federal Reserve joint regulator release",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20261113a.htm"
+        }
+      ]
+    }
+  ]
+}
