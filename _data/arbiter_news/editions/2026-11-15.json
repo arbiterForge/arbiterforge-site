@@ -195,15 +195,15 @@
       "event_key": "quantum-systems:drone-maker-cyber-incident-containment-bundeswehr-flight-resumption:2026-11-13",
       "status": "new",
       "topic": "Defense supply-chain cyber",
-      "title": "German military drones return to service after supplier cyber incident",
+      "title": "Quantum Systems says German military drones are flying again after cyber incident",
       "publisher": "Quantum Systems / Reuters",
       "publication_date": "2026-11-13",
       "event_date": "2026-11-13",
       "freshness": "New • last 48 hours",
-      "highlights": "German defense-drone maker Quantum Systems disclosed on November 12 that it detected a cyberattack in late October and contained it while coordinating with public authorities and independent experts. The company said the incident did not endanger operators of its unmanned systems, while the investigation remained active. Reuters reported on November 13 that German military aircraft supplied by the company were flying again after a precautionary grounding. These are different assertions: the vendor describes internal containment and its safety assessment, while reporting about operational resumption concerns the military fleet's service status. Neither independently establishes the attackers' identity or confirms an absence of information exposure.",
+      "highlights": "German defense-drone maker Quantum Systems disclosed on November 12 that it detected a cyberattack in late October and contained it while coordinating with public authorities and independent experts. The company said the incident did not endanger operators of its unmanned systems, while the investigation remained active. Quantum Systems said on November 13, as reported by Reuters, that German military drones it supplies were flying again after a precautionary grounding; the German military gave no immediate comment. These are different assertions: the vendor describes internal containment and its safety assessment, while reporting about operational resumption concerns the military fleet's service status. Neither independently establishes the attackers' identity or confirms an absence of information exposure.",
       "implications": "Analysis: Cyberattacks on a defense supplier can translate rapidly into aircraft availability and customer assurance decisions even if vehicle software itself is not shown compromised. Incident-response planning should distinguish corporate IT compromise, build-pipeline assurance, maintenance connectivity and operational flight-safety validation.",
       "takeaway": "Takeaway: Evaluate supplier resilience and verified return-to-service evidence, not just the speed of the company's containment statement.",
-      "development_summary": "Quantum Systems disclosed a contained late-October cyber incident; November 13 reporting described resumption of German military drone flights after precautionary grounding.",
+      "development_summary": "Quantum Systems disclosed a contained late-October cyber incident; Reuters reported the company's November 13 statement that German military drone flights resumed after a precautionary grounding, without independent military confirmation.",
       "sources": [
         {
           "label": "Quantum Systems official incident statement",
