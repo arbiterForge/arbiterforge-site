@@ -44,7 +44,7 @@
       "sources": [
         {
           "label": "Google Cloud release notes, November 13",
-          "url": "https://docs.cloud.google.com/release-notes"
+          "url": "https://docs.cloud.google.com/gemini/enterprise/docs/release-notes"
         },
         {
           "label": "Google identity delegation architecture",
