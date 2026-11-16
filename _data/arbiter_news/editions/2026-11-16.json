@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-16",
+  "title": "Arbiter News",
+  "intro": "Monday, November 16, 2026: twelve verified, previously uncovered developments from November 10-13, including agent identity and governance, cloud resilience, a live CI secret theft campaign, defense procurement and household financial policy.",
+  "overview": "Agent builders gain new observability, signed-in-user authorization and consulting-led enterprise operations. Cloud teams get budget guardrails, stateful streaming recovery and shorter Oracle maintenance preparation. Security desks face a GitHub Actions credential theft campaign and an Apache HTTP/2 vulnerability, while an Air Force contract funds F-16 radar work. Economic coverage examines chip-equipment earnings, newly released Census household evidence and IRS clean-energy tax-credit guidance.",
+  "history_note": "Inspected the public coverage.json endpoint but direct access was blocked in this reader. Read all complete backing repository inputs: 319 historical coverage records in ten history_parts files (September 24-October 22) plus 276 story records in 23 prior published editions (October 23-November 15, excluding October 25), totaling 595 prior records. Reviewed normalized event keys, underlying developments and available canonical source URLs over more than 30 days. No selected development or canonical original-source URL recurs in this available record set; no Opus 5.5 launch repeat. Known history gaps remain September 23, October 6 and October 25; some older historical records do not carry URLs. Limited original-source weekend news meant meaningful previously uncovered stories dated November 10-13 were included rather than recycled or fabricated filler.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "google:bigquery-looker:agent-analytics-unified-traces-prism-governance:2026-11-13",
+      "status": "new",
+      "topic": "Agent observability",
+      "title": "Google expands agent traces, evaluations and spend controls across BigQuery and Looker",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "Uncovered • 3 days",
+      "highlights": "Google's November 13 announcement introduces a way to examine first-party Conversational Analytics agents alongside custom agents built with ADK or LangGraph. Google describes exporting agent events into customer-controlled BigQuery tables, examining performance through dashboards, and connecting production telemetry with pre-deployment evaluation results from its open-source Prism tool. BigQuery conversation logging and several reporting integrations have general-availability status; some token quota and evaluation capabilities remain in preview. Per-query byte scan caps and daily token quota controls address the cost side of agent operations.",
+      "implications": "Analysis: The important change is that platform teams can compare what an agent did in production with reproducible tests instead of judging only the final response. Access to logs can itself expose sensitive prompts, tool arguments or business data, so retention, redaction, least privilege and cost boundaries still require independent review. Vendor-supported observability does not validate the accuracy of every agent decision.",
+      "takeaway": "Takeaway: Instrument a controlled pilot and compare trace completeness, evaluation quality, data exposure and per-task spending before production adoption.",
+      "development_summary": "Google announced expanded BigQuery and Looker agent telemetry, evaluations and cost controls with a mix of generally available and preview features.",
+      "sources": [
+        {
+          "label": "Google Cloud product announcement",
+          "url": "https://cloud.google.com/blog/products/data-analytics/enterprise-ai-agent-observability-with-bigquery-and-looker/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "google:gemini-enterprise:agent-identity-three-legged-oauth-a2a-ga:2026-11-13",
+      "status": "new",
+      "topic": "Agent identity delegation",
+      "title": "Gemini Enterprise makes user-delegated OAuth for A2A agents generally available",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "Uncovered • 3 days",
+      "highlights": "Google Cloud's November 13 release notes mark three-legged OAuth integration with Agent Identity auth manager as generally available for Agent2Agent agents. Agents built with Google's Agent Development Kit and deployed to Agent Runtime can request authorization to reach MCP servers, Google Cloud services and third-party APIs on behalf of the signed-in Gemini Enterprise user. The product prompts users when consent is required, validates the callback, arranges scoped delegated credentials and resumes the agent conversation. The architecture distinguishes the human identity, the agent workload identity and the combined delegated authority.",
+      "implications": "Analysis: A delegated identity is a cleaner alternative to handing every agent a broad static service credential, particularly for enterprise tools acting on behalf of employees. It does not eliminate the need to authorize individual scopes, examine downstream tool permissions, inspect audit trails and defend the consent flow. General availability applies to this supported integration, not to every imaginable agent framework or external API.",
+      "takeaway": "Takeaway: Test per-user scope boundaries and revocation behavior with real MCP tools before granting agents access to operational systems.",
+      "development_summary": "Google declared generally available signed-in-user OAuth delegation for supported Gemini Enterprise A2A agents.",
+      "sources": [
+        {
+          "label": "Google Cloud release notes, November 13",
+          "url": "https://docs.cloud.google.com/release-notes"
+        },
+        {
+          "label": "Google identity delegation architecture",
+          "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/identity-delegation-architecture"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "ibm-microsoft:imagine-enterprise:governed-industry-agent-platform-consulting:2026-11-10",
+      "status": "new",
+      "topic": "Enterprise agent platforms",
+      "title": "IBM and Microsoft combine governed agents and forward-deployed engineering in Imagine Enterprise",
+      "publisher": "IBM and Microsoft",
+      "publication_date": "2026-11-10",
+      "event_date": "2026-11-10",
+      "freshness": "Uncovered • six days",
+      "highlights": "On November 10 IBM and Microsoft announced Imagine Enterprise, an agent platform intended to build, run and govern industry-specific workflows using Microsoft cloud, data, identity and security services together with IBM Consulting delivery expertise. IBM says its consulting organization brings more than 6,000 previously built agents and reusable assets; that is an existing library, not 6,000 newly launched models. The first industry frameworks target finance, insurance and retail. Customers can engage IBM to operate the platform or pursue self-managed implementations, with forward-deployed engineering support in qualifying engagements.",
+      "implications": "Analysis: The launch reflects a shift from isolated agent demos toward responsibility for implementation, operational governance and integration with the customer's systems. The supplier announcement offers a proposed delivery model rather than independent evidence of production cost savings. Procurement evaluation should distinguish reusable assets from customer-specific integrations and determine ownership of credentials, agent logs and lifecycle management.",
+      "takeaway": "Takeaway: Demand architecture documentation, a measurable pilot and clear operational responsibilities before purchasing an agent transformation program.",
+      "development_summary": "IBM and Microsoft announced Imagine Enterprise on November 10 with industry frameworks, Microsoft infrastructure and IBM consulting assets.",
+      "sources": [
+        {
+          "label": "IBM and Microsoft announcement",
+          "url": "https://newsroom.ibm.com/2026-11-10-ibm-and-microsoft-announce-a-new-ai-agent-platform-designed-for-industry-specific-transformation"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "cloudflare:workers-durable-objects:account-period-spend-blocking-alerts-cli:2026-11-13",
+      "status": "new",
+      "topic": "Cloud spending guardrails",
+      "title": "Cloudflare adds account-level spending caps that can pause Workers and Durable Objects",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "Uncovered • 3 days",
+      "highlights": "Cloudflare introduced separate spending limits for Workers and Durable Objects on November 13. Administrators can set a product limit for the current subscription billing period, request email alerts at thresholds, or select usage blocking when a limit is reached. Controls are available through the account Billing area and the cf CLI, complementing AI Gateway budgets for model traffic. Cloudflare explicitly warns that usage recording and enforcement are not instantaneous: a bill may exceed the selected limit before blocking takes effect. Blocked usage can resume after raising or disabling a limit, or when the next period begins.",
+      "implications": "Analysis: This is a practical cost-control feature for unattended automation, experimental agents and multitenant services, but using a hard limit can become an availability decision. A system with hard-capped Workers or Durable Objects may fail requests during legitimate usage peaks. Notification-only thresholds avoid that failure mode while leaving exposure to surprise spending.",
+      "takeaway": "Takeaway: Set alerts before hard limits; then test customer-visible failure behavior and budget headroom under a burst.",
+      "development_summary": "Cloudflare launched product-specific billing-period controls for Workers and Durable Objects with alerts or usage blocking.",
+      "sources": [
+        {
+          "label": "Cloudflare changelog",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-13-spend-management/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:managed-apache-flink:enhanced-snapshots-cross-region-state-restore:2026-11-12",
+      "status": "new",
+      "topic": "Streaming data resilience",
+      "title": "AWS Managed Flink adds state snapshots for blue-green changes and regional recovery",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "Uncovered • 4 days",
+      "highlights": "AWS announced enhanced snapshots for Amazon Managed Service for Apache Flink on November 12. Operators can capture application state and use it to start another Flink application, supporting blue-green deployments and migrations from self-managed Flink using imported savepoints. AWS also describes exporting snapshots to Amazon S3 and replicating that state to another Region for recovery. This is supported for Flink 1.20 and later in the service's available Regions except the European Sovereign Cloud in Germany. Durable enhanced-snapshot storage is billed by GB-month.",
+      "implications": "Analysis: Streaming state often determines whether a restarted pipeline resumes accurately or reprocesses data. Portable snapshots create a more testable migration path, but cross-Region recovery still relies on correctly configured S3 replication, compatible application versions and coordination of inputs and downstream effects. A backup stored in another region is not proof of a measured recovery time or recovery point.",
+      "takeaway": "Takeaway: Rehearse a restore with representative state and verify offsets, downstream idempotency and recovery costs before depending on it.",
+      "development_summary": "AWS introduced Flink enhanced snapshots for application-to-application recovery, migrations and cross-Region replication.",
+      "sources": [
+        {
+          "label": "AWS What's New announcement",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/managed-flink-enhanced-snapshots/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:rds-oracle:prerender-automatic-minor-os-maintenance-resources:2026-11-13",
+      "status": "new",
+      "topic": "Database maintenance",
+      "title": "RDS for Oracle begins preparing upgrades before the maintenance window",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "Uncovered • 3 days",
+      "highlights": "Amazon RDS for Oracle now prepares certain resources up to 30 minutes before scheduled maintenance begins, AWS announced on November 13. The improvement applies to automatic minor version upgrades as well as planned minor-version and operating-system updates, for both Oracle Enterprise Edition and Standard Edition 2. Preparation runs while the database continues serving workloads, allowing less work to occur during the offline window. AWS says conflicting customer changes take priority and staged resources can be rolled back; if preparation cannot finish, maintenance still runs without the optimization. New RDS events indicate preparation progress and failure.",
+      "implications": "Analysis: This is a reduction in potential maintenance downtime, not a zero-downtime guarantee or permission to skip planned change validation. The timing matters for systems with strict maintenance windows, especially where failover and application reconnect behavior dominate outage length. Teams should compare measured interruption durations against their previous baselines rather than accept a generic performance claim.",
+      "takeaway": "Takeaway: Monitor the new preparation events and time the next staged upgrade end to end before adjusting availability commitments.",
+      "development_summary": "AWS changed RDS for Oracle maintenance preparation timing to reduce outage time during supported updates.",
+      "sources": [
+        {
+          "label": "AWS RDS announcement",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-oracle-reduces-maintenance-downtime-for-amvu-scheduled-upgrades/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "stepsecurity:wfx-phantom:github-compromised-token-ci-secret-stealing-campaign:2026-11-12",
+      "status": "new",
+      "topic": "Software supply-chain attacks",
+      "title": "Researchers expose WFX Phantom's fast GitHub Actions secret theft and log deletion",
+      "publisher": "StepSecurity",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "Uncovered • 4 days",
+      "highlights": "StepSecurity published a technical investigation on November 12 of a campaign active since November 10. Attackers used stolen GitHub credentials to create innocuous-looking audit pull requests, then pushed a secret-stealing script to repositories where those credentials permitted writes. Researchers documented scripts embedded in workflows, ordinary shell files and package installation hooks, followed by quick reverts and deletion of workflow runs. GitHub search showed more than 63,000 probe pull requests as of November 12, but a probe is not proof that the stealer executed in every repository. The researchers analyzed more than 100 payload commits and documented changes in exfiltration destinations.",
+      "implications": "Analysis: The breach path abuses legitimate write access and automation permissions rather than a new GitHub Actions vulnerability. Deleting a run can hide the attack from routine dashboard review, while cloud OIDC trust and persistent cloud credentials can outlive rotation of one secret. Repository audit history and credential provenance matter more than reassuring current branch contents.",
+      "takeaway": "Takeaway: Hunt the campaign's commit and PR indicators, inspect deleted-run evidence, and rotate all runner-reachable credentials where execution is confirmed.",
+      "development_summary": "StepSecurity documented active stolen-token CI injections, secret exfiltration and rapid removal of visible workflow evidence.",
+      "sources": [
+        {
+          "label": "StepSecurity original threat research",
+          "url": "https://www.stepsecurity.io/blog/wfx-phantom-the-github-actions-secret-stealer"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "apache:httpd-2.4.71:mod-http2-critical-heap-corruption-rce-cve-2026-119618:2026-11-11",
+      "status": "new",
+      "topic": "Web server vulnerability",
+      "title": "Apache HTTP Server 2.4.71 patches a critical HTTP/2 remote-code-execution risk",
+      "publisher": "Apache Software Foundation",
+      "publication_date": "2026-11-11",
+      "event_date": "2026-11-11",
+      "freshness": "Uncovered • five days",
+      "highlights": "The Apache HTTP Server project released version 2.4.71 on November 11 to address three vulnerabilities, including critical CVE-2026-119618. Apache describes a concurrency problem in mod_http2 header assignment capable of heap corruption and potentially remote code execution. The advisory identifies affected HTTP Server releases 2.4.55 through 2.4.70 and separately maintained mod_h2 releases 2.0.8 through 2.0.42. Two other issues fixed in the release concern mod_md request handling and mod_vhost_alias memory corruption. The advisory establishes a critical risk; it does not itself demonstrate that attacks have been observed in the wild.",
+      "implications": "Analysis: Internet-facing HTTP/2 stacks, ingress gateways and container images may carry vulnerable package versions even when the application code did not change. Exposure depends on the actual loaded module and distributor backports, not only the reported version string. Third-party scanning or exploit speculation should not replace the vendor advisory when deciding what is affected.",
+      "takeaway": "Takeaway: Inventory Apache HTTP/2 deployments, follow distributor fixes or upgrade to 2.4.71, and verify service behavior after patching.",
+      "development_summary": "Apache released HTTP Server 2.4.71 fixing a critical mod_http2 heap-corruption issue and two additional vulnerabilities.",
+      "sources": [
+        {
+          "label": "Apache original security advisory",
+          "url": "https://httpd.apache.org/security/vulnerabilities_24"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "usaf-northrop:f16-aesa-radar:79p608m-contract-modification:2026-11-13",
+      "status": "new",
+      "topic": "Defense radar modernization",
+      "title": "Air Force adds $79.6 million to Northrop Grumman's F-16 AESA radar contract",
+      "publisher": "U.S. Department of War",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "Uncovered • 3 days",
+      "highlights": "The Department of War's November 13 contracting notice lists a $79,608,480 modification to Northrop Grumman's existing F-16 Active Electronically Scanned Array radar contract, FA8615-17-C-6047. The reported cumulative contract face value grows from approximately $1.981 billion to $2.061 billion. Work is assigned to Northrop Grumman in Linthicum Heights, Maryland. This is a contract modification to an existing program, not an announcement of a newly selected aircraft or a new $2 billion award. Contract accounting and actual delivery schedules should be distinguished from the announced ceiling and obligated funding.",
+      "implications": "Analysis: AESA radar modernization has direct implications for fighter sensing, electronic protection and integration work across the sustainment fleet. However, this notice alone cannot establish how many radar sets are newly funded or when particular squadrons will receive them. Those details require a separate production or delivery disclosure, and the total face value is not spending in a single day.",
+      "takeaway": "Takeaway: Track follow-on production deliveries and field integration rather than equating the cumulative contract value with fresh procurement.",
+      "development_summary": "US defense contracting officials published a $79.6 million F-16 AESA radar modification on November 13.",
+      "sources": [
+        {
+          "label": "U.S. Department of War contract notices, Nov. 13",
+          "url": "https://www.war.gov/News/Contracts/Contract/Article/4648154/contracts-for-nov-13-2026/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "applied-materials:fy2026-q4:revenue1041b-gaap-eps340-annual3445b:2026-11-12",
+      "status": "new",
+      "topic": "Semiconductor equipment earnings",
+      "title": "Applied Materials posts $10.41 billion fourth-quarter revenue amid AI chip investment",
+      "publisher": "Applied Materials",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "Uncovered • 4 days",
+      "highlights": "Applied Materials reported fiscal fourth-quarter results on November 12 for the period ended October 25, 2026. Revenue reached $10.41 billion, up 53 percent from the prior-year quarter. The company reported GAAP earnings of $3.40 per diluted share and non-GAAP earnings of $4.16; the two measures are not interchangeable. Fiscal-year revenue reached $34.45 billion, up 21 percent, and quarterly operating cash flow was $3.30 billion. Management cited AI-related semiconductor equipment demand and highlighted expansion of its research partnerships. The figures are company-issued results, not an independent forecast of the industry's future performance.",
+      "implications": "Analysis: A strong equipment supplier quarter suggests chipmakers are continuing to fund manufacturing capacity, but investment demand can be cyclical and uneven across device categories. Investors should separate actual shipment revenue from expectations about future AI infrastructure returns, and account for currency, trade restrictions, concentration and capital spending risk. A single record quarter does not establish a durable growth rate.",
+      "takeaway": "Takeaway: Compare the reported operating cash flow, customer capex trends and future guidance rather than extrapolating one quarter's sales growth.",
+      "development_summary": "Applied Materials reported fiscal Q4 2026 revenue of $10.41 billion and full-year sales of $34.45 billion.",
+      "sources": [
+        {
+          "label": "Applied Materials investor release",
+          "url": "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-announces-fourth-quarter-and-fiscal-year-2026"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "census:htops:nov2026-release-energy-employment-social-connectedness-136k:2026-11-12",
+      "status": "new",
+      "topic": "Household conditions data",
+      "title": "Census issues new household survey tables on work, energy costs and social connections",
+      "publisher": "U.S. Census Bureau",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "Uncovered • 4 days",
+      "highlights": "On November 12 the Census Bureau released new Household Trends and Outlook Pulse Survey tables covering employment, housing energy expenses, mental health and related household conditions. The agency says the experimental survey drew on approximately 136,000 households surveyed between September 9 and October 12, 2026. Its new release includes a social-connectedness infographic for adults and public-use files that allow customized tabulations, including some subnational geographies. The agency describes HTOPS as a rotating, every-other-month instrument for monitoring timely socioeconomic changes, not as a replacement for the established monthly employment or price indexes.",
+      "implications": "Analysis: Household energy costs and changing work arrangements can affect disposable income even when headline inflation or employment measures appear stable. Analysts should use appropriate survey weights, error estimates and documentation before inferring broad trends or differences between small geographies. Experimental estimates can be valuable directional evidence without carrying the same properties as official benchmark releases.",
+      "takeaway": "Takeaway: Use the public tables to investigate local household pressures, but verify sampling uncertainty and definitions before drawing policy conclusions.",
+      "development_summary": "Census released November household pulse tables based on September-October fieldwork with employment, energy and wellbeing topics.",
+      "sources": [
+        {
+          "label": "Census Bureau press release",
+          "url": "https://www.census.gov/newsroom/press-releases/2026/htops-nov12.html"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "irs:low-income-communities-bonus-credit:fact-sheet-2026-15-new-faq:2026-11-13",
+      "status": "new",
+      "topic": "Clean energy tax guidance",
+      "title": "IRS publishes new FAQs for low-income communities clean-energy bonus credits",
+      "publisher": "Internal Revenue Service",
+      "publication_date": "2026-11-13",
+      "event_date": "2026-11-13",
+      "freshness": "Uncovered • 3 days",
+      "highlights": "The Internal Revenue Service on November 13 published Fact Sheet 2026-15 with frequently asked questions about the Low-income Communities Bonus Credit Amount Program. The agency incorporated those FAQs into its formal news release and directed readers to its guidance on reliance. This is new explanatory federal tax administration material, not a newly enacted credit, an automatic household tax refund or a change in eligibility simply because the FAQs were issued. The program involves specific qualifying clean-energy investment projects and program administration rather than every resident of a qualifying neighborhood.",
+      "implications": "Analysis: Investment tax-credit programs can be difficult to evaluate when developers, investors and the communities receiving projects have different roles. New FAQs may help clarify paperwork and interpretations, but reliance, qualifying property, allocation processes and relevant tax years still need review against the actual fact sheet and controlling rules. The IRS publication does not show that all projects will receive an allocation.",
+      "takeaway": "Takeaway: For an eligible project, read the FAQ and controlling guidance before making financial commitments; do not assume automatic credit availability.",
+      "development_summary": "The IRS issued a new November 13 fact sheet of questions and answers on its Low-income Communities Bonus Credit program.",
+      "sources": [
+        {
+          "label": "IRS November 13 announcement",
+          "url": "https://www.irs.gov/newsroom/irs-issues-frequently-asked-questions-about-the-low-income-communities-bonus-credit-amount-program"
+        }
+      ]
+    }
+  ]
+}
