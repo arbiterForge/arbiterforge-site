@@ -1,0 +1,31 @@
+/* Shared motion stays optional. Nothing is hidden while waiting for JavaScript. */
+.motion-control, .art-replay {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 44px; padding: .4rem .2rem; border: 0; background: transparent;
+  color: inherit; font: inherit; cursor: pointer; text-underline-offset: .25em;
+}
+.motion-control[hidden], .art-replay[hidden] { display: none; }
+.motion-control { font-size: .7rem; }
+.motion-control:hover, .art-replay:hover { text-decoration: underline; }
+.motion-control:disabled, .art-replay:disabled { cursor: default; opacity: .65; text-decoration: none; }
+.motion-indicator { width: 6px; height: 6px; border: 1px solid currentColor; border-radius: 50%; }
+.motion-control[aria-pressed='true'] .motion-indicator { background: currentColor; }
+.art-replay { font-size: .68rem; }
+.art-replay .icon { width: .9rem; height: .9rem; transition: transform .35s ease; }
+:root[data-motion='on'] .art-replay:hover .icon { transform: rotate(-35deg); }
+.reading-progress { position: fixed; inset: 0 0 auto; height: 3px; z-index: 60; pointer-events: none; background: var(--accent); transform-origin: left; transform: scaleX(var(--reading-progress, 0)); }
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-motion='on'] .reveal-enter { animation: section-arrive .8s cubic-bezier(.2,.75,.25,1) both; }
+  :root[data-motion='on'] .project-card:hover .art-path { stroke-dasharray: 130; animation: project-flow 1.1s ease both; }
+  :root[data-motion='on'] .project-card:hover .map-route { stroke-dasharray: 320; animation: project-flow 1.3s ease both; }
+}
+@keyframes section-arrive { from { translate: 0 18px; } to { translate: 0 0; } }
+@keyframes project-flow { from { stroke-dashoffset: 130; } to { stroke-dashoffset: 0; } }
+:root[data-motion='off'] { scroll-behavior: auto !important; }
+:root[data-motion='off'] *, :root[data-motion='off'] *::before, :root[data-motion='off'] *::after {
+  animation: none !important; transition: none !important; scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media print { .motion-control, .art-replay, .reading-progress { display: none !important; } }

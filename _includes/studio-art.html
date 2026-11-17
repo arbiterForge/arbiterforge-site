@@ -1,0 +1,135 @@
+{% assign studio_id = include.id | default: 'studio-art' | escape %}
+<div class="studio-art{% if include.compact %} studio-art--compact{% endif %}" data-studio-art aria-hidden="true">
+  <svg class="studio-art-canvas" width="520" height="430" viewBox="0 0 520 430" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="{{ studio_id }}-olive" x1="145" y1="84" x2="319" y2="270" gradientUnits="userSpaceOnUse">
+        <stop class="studio-olive-light" stop-color="#d5ddbd"/>
+        <stop class="studio-olive-mid" offset=".46" stop-color="#a9ba8e"/>
+        <stop class="studio-olive-dark" offset="1" stop-color="#627850"/>
+      </linearGradient>
+      <linearGradient id="{{ studio_id }}-blue" x1="175" y1="185" x2="368" y2="316" gradientUnits="userSpaceOnUse">
+        <stop class="studio-blue-light" stop-color="#d1e0e4"/>
+        <stop class="studio-blue-mid" offset=".48" stop-color="#9ab8c1"/>
+        <stop class="studio-blue-dark" offset="1" stop-color="#557e8f"/>
+      </linearGradient>
+      <linearGradient id="{{ studio_id }}-clay" x1="176" y1="251" x2="298" y2="350" gradientUnits="userSpaceOnUse">
+        <stop class="studio-clay-light" stop-color="#e6c5aa"/>
+        <stop class="studio-clay-mid" offset=".5" stop-color="#ce9d7d"/>
+        <stop class="studio-clay-dark" offset="1" stop-color="#a46a4b"/>
+      </linearGradient>
+      <radialGradient id="{{ studio_id }}-ground">
+        <stop stop-color="#394633" stop-opacity=".15"/>
+        <stop offset=".62" stop-color="#394633" stop-opacity=".055"/>
+        <stop offset="1" stop-color="#394633" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="{{ studio_id }}-edge" x1="143" y1="82" x2="321" y2="280" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#f8faec" stop-opacity=".85"/>
+        <stop offset="1" stop-color="#f8faec" stop-opacity=".08"/>
+      </linearGradient>
+      <filter id="{{ studio_id }}-shadow" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
+        <feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#293b2d" flood-opacity=".11"/>
+      </filter>
+      <path id="{{ studio_id }}-olive-shape" d="M130 275C96 233 96 171 124 129C153 85 202 63 251 65C301 67 343 91 361 126C383 170 370 210 330 239L303 212C329 191 339 165 325 140C310 112 282 98 247 98C212 97 180 114 160 145C140 176 140 217 160 244Z"/>
+      <path id="{{ studio_id }}-blue-shape" fill-rule="evenodd" d="M115 212C140 180 196 172 257 188L386 225C430 238 448 266 429 291C405 322 349 325 294 310L160 271C118 259 97 236 115 212ZM157 225C171 212 205 211 244 222L367 258C385 263 391 270 384 276C375 284 350 284 322 276L188 237C173 233 162 229 157 225Z"/>
+      <path id="{{ studio_id }}-clay-shape" d="M145 314C174 282 213 248 252 242C291 236 328 248 343 275C359 303 346 331 317 345C302 352 287 355 272 354L273 321C289 321 304 315 309 305C316 290 300 277 278 276C244 274 209 301 176 336Z"/>
+      <clipPath id="{{ studio_id }}-olive-clip"><use href="#{{ studio_id }}-olive-shape"/></clipPath>
+      <clipPath id="{{ studio_id }}-blue-clip"><use href="#{{ studio_id }}-blue-shape"/></clipPath>
+      <clipPath id="{{ studio_id }}-clay-clip"><use href="#{{ studio_id }}-clay-shape"/></clipPath>
+    </defs>
+
+    <g class="studio-construction studio-secondary" stroke="#a5afa0" stroke-width=".65">
+      <ellipse cx="265" cy="216" rx="202" ry="151" transform="rotate(-16 265 216)" stroke-dasharray="2 7"/>
+      <path d="M64 333L426 100M74 117L440 313" stroke-dasharray="2 8" opacity=".45"/>
+      <path d="M259 49V62M253 55H265M437 213V225M431 219H443M90 290V302M84 296H96"/>
+      <circle cx="422" cy="101" r="3.5" fill="#f7f6f2"/>
+      <circle cx="77" cy="117" r="3.5" fill="#f7f6f2"/>
+      <path d="M43 181H55M49 175V187M406 353H418M412 347V359" opacity=".65"/>
+    </g>
+    <ellipse class="studio-ground" cx="266" cy="357" rx="184" ry="34" fill="url(#{{ studio_id }}-ground)"/>
+
+    <g data-art-layer="" style="--depth:.3">
+      <g class="art-piece art-piece-blue" filter="url(#{{ studio_id }}-shadow)">
+        <g class="studio-blue-stack" fill="#6f929e" stroke="#456c7b" stroke-width=".45">
+          <use href="#{{ studio_id }}-blue-shape" transform="translate(0 10)"/>
+          <use href="#{{ studio_id }}-blue-shape" transform="translate(0 7.5)"/>
+          <use href="#{{ studio_id }}-blue-shape" transform="translate(0 5)"/>
+          <use href="#{{ studio_id }}-blue-shape" transform="translate(0 2.5)"/>
+        </g>
+        <use href="#{{ studio_id }}-blue-shape" fill="url(#{{ studio_id }}-blue)"/>
+        <g class="studio-blue-contours" clip-path="url(#{{ studio_id }}-blue-clip)" stroke="#5c8797" stroke-width=".6" opacity=".42">
+          <path d="M104 216C127 182 193 177 255 194L386 231C426 243 439 267 420 289C399 313 350 318 297 303L162 264C124 253 104 235 117 219"/>
+          <path d="M116 220C138 191 196 184 252 200L381 237C416 247 429 268 411 286C392 307 351 311 301 297L169 259C134 249 116 235 128 222"/>
+          <path d="M127 224C147 201 199 191 249 206L376 243C406 252 418 268 402 283C385 299 351 303 306 290L176 253C144 244 130 235 139 224"/>
+          <path d="M138 227C154 211 201 200 246 213L371 249C395 256 406 268 393 279C380 291 351 295 314 284L182 246C155 238 141 234 149 225"/>
+        </g>
+        <path d="M117 211C142 182 196 174 257 190L385 227" stroke="#eef6f5" stroke-opacity=".7" stroke-width="1.1"/>
+      </g>
+    </g>
+
+    <g data-art-layer="" style="--depth:.6">
+      <g class="art-piece art-piece-olive" filter="url(#{{ studio_id }}-shadow)">
+        <g class="studio-olive-stack" fill="#7e9365" stroke="#536c43" stroke-width=".5">
+          <use href="#{{ studio_id }}-olive-shape" transform="translate(0 10)"/>
+          <use href="#{{ studio_id }}-olive-shape" transform="translate(0 7.5)"/>
+          <use href="#{{ studio_id }}-olive-shape" transform="translate(0 5)"/>
+          <use href="#{{ studio_id }}-olive-shape" transform="translate(0 2.5)"/>
+        </g>
+        <use href="#{{ studio_id }}-olive-shape" fill="url(#{{ studio_id }}-olive)"/>
+        <g class="studio-olive-contours" clip-path="url(#{{ studio_id }}-olive-clip)" stroke="#5c7649" stroke-width=".65" opacity=".42">
+          <path d="M123 280C87 230 94 164 125 121C155 80 202 60 252 66C302 71 344 93 362 130C384 172 370 214 330 244"/>
+          <path d="M130 273C99 229 101 169 130 127C159 86 203 67 251 72C298 77 337 98 354 133C374 173 361 209 325 238"/>
+          <path d="M137 266C108 227 109 173 137 134C165 94 207 75 250 79C293 83 330 105 347 138C364 173 351 206 319 232"/>
+          <path d="M145 259C118 225 119 178 144 140C171 102 210 83 250 86C288 89 323 110 339 141C355 174 342 201 313 225"/>
+          <path d="M152 252C130 222 129 183 151 146C176 110 215 91 249 93C284 96 316 115 331 145C345 174 334 197 306 218"/>
+        </g>
+        <path d="M130 274C97 233 97 172 125 129C154 85 203 64 251 66C300 68 342 91 360 126" stroke="url(#{{ studio_id }}-edge)" stroke-width="1.35"/>
+        <path d="M130 275L160 244L160 254L130 285Z" fill="#5e764d"/>
+        <path d="M303 212L330 239L330 249L303 222Z" fill="#526d43"/>
+        <path d="M130 278L160 247M130 281L160 250M306 218L330 242M306 221L330 245" stroke="#a9ba8e" stroke-width=".55" opacity=".7"/>
+      </g>
+    </g>
+
+    <g data-art-layer="" style="--depth:1">
+      <g class="art-piece art-piece-clay" filter="url(#{{ studio_id }}-shadow)">
+        <g class="studio-clay-stack" fill="#b98260" stroke="#98603f" stroke-width=".45">
+          <use href="#{{ studio_id }}-clay-shape" transform="translate(0 9)"/>
+          <use href="#{{ studio_id }}-clay-shape" transform="translate(0 6.75)"/>
+          <use href="#{{ studio_id }}-clay-shape" transform="translate(0 4.5)"/>
+          <use href="#{{ studio_id }}-clay-shape" transform="translate(0 2.25)"/>
+        </g>
+        <use href="#{{ studio_id }}-clay-shape" fill="url(#{{ studio_id }}-clay)"/>
+        <g class="studio-clay-contours" clip-path="url(#{{ studio_id }}-clay-clip)" stroke="#9d6647" stroke-width=".65" opacity=".4">
+          <path d="M142 319C174 284 214 249 253 246C290 241 326 252 339 278C352 303 338 329 313 342C298 349 284 350 267 350"/>
+          <path d="M149 324C180 291 216 257 255 252C289 248 319 259 331 282C342 303 331 323 308 335C295 341 282 343 268 343"/>
+          <path d="M156 328C186 297 219 265 258 259C286 255 312 265 323 286C332 303 324 317 303 328C292 334 282 336 270 336"/>
+          <path d="M164 332C192 302 225 273 261 266C285 262 305 271 316 291C322 303 316 313 298 321C289 328 281 329 270 329"/>
+        </g>
+        <path d="M146 313C175 282 214 249 253 243C291 237 328 250 342 275" stroke="#fff0dd" stroke-opacity=".75" stroke-width="1.2"/>
+        <path d="M145 314L176 336V345L145 323Z" fill="#a87451"/>
+        <path d="M272 354L273 321V330L272 363Z" fill="#925d40"/>
+        <path d="M147 318L174 337M147 321L174 340" stroke="#e4bd9e" stroke-width=".6"/>
+      </g>
+    </g>
+
+    <g class="studio-thread" stroke="#536247" stroke-width="1.05" stroke-linecap="round">
+      <path class="art-trace" pathLength="100" d="M81 282C49 260 52 207 79 173C115 128 167 124 208 143C240 158 252 187 253 219C253 256 266 279 302 291C346 306 405 291 443 255"/>
+      <path class="art-trace art-trace-secondary" pathLength="100" d="M443 255L434 258M443 255L439 263"/>
+      <circle cx="81" cy="282" r="3" fill="#f7f6f2"/>
+      <circle cx="253" cy="219" r="3" fill="#f7f6f2"/>
+    </g>
+
+    <g class="studio-labels studio-secondary" fill="#65706a" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1.1">
+      <text x="48" y="71">BUILD</text>
+      <path d="M88 68H113L140 92" fill="none" stroke="#a5afa0" stroke-width=".65"/>
+      <text x="424" y="180">MAP</text>
+      <path d="M422 185H405L398 214" fill="none" stroke="#a5afa0" stroke-width=".65"/>
+      <text x="93" y="365">PLAY</text>
+      <path d="M132 361H148L159 344" fill="none" stroke="#a5afa0" stroke-width=".65"/>
+    </g>
+    <g class="studio-caption studio-secondary" fill="#65706a" font-family="'JetBrains Mono',monospace" font-size="8" letter-spacing="1.4">
+      <text x="48" y="409">A FEW CONNECTED IDEAS</text>
+      <path d="M393 405H471" fill="none" stroke="#a5afa0" stroke-width=".65"/>
+      <circle cx="393" cy="405" r="2" fill="#536247"/>
+    </g>
+  </svg>
+</div>

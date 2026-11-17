@@ -1,0 +1,128 @@
+/* Original paper sculpture: inline SVG, local colors, and finite optional motion. */
+.studio-art {
+  --art-olive-light: #d5ddbd;
+  --art-olive-mid: #a9ba8e;
+  --art-olive-dark: #627850;
+  --art-blue-light: #d1e0e4;
+  --art-blue-mid: #9ab8c1;
+  --art-blue-dark: #557e8f;
+  --art-clay-light: #e6c5aa;
+  --art-clay-mid: #ce9d7d;
+  --art-clay-dark: #a46a4b;
+  width: 100%;
+  max-width: 580px;
+  position: relative;
+  isolation: isolate;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.studio-art-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.studio-art [data-art-layer] {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  transform: translate(calc(var(--art-x, 0px) * var(--depth, 1)), calc(var(--art-y, 0px) * var(--depth, 1)));
+  transition: transform 500ms cubic-bezier(.2,.75,.25,1);
+}
+.studio-art .art-piece {
+  transform-box: view-box;
+  transform-origin: 50% 60%;
+}
+.studio-art .studio-olive-light { stop-color: var(--art-olive-light); }
+.studio-art .studio-olive-mid { stop-color: var(--art-olive-mid); }
+.studio-art .studio-olive-dark { stop-color: var(--art-olive-dark); }
+.studio-art .studio-blue-light { stop-color: var(--art-blue-light); }
+.studio-art .studio-blue-mid { stop-color: var(--art-blue-mid); }
+.studio-art .studio-blue-dark { stop-color: var(--art-blue-dark); }
+.studio-art .studio-clay-light { stop-color: var(--art-clay-light); }
+.studio-art .studio-clay-mid { stop-color: var(--art-clay-mid); }
+.studio-art .studio-clay-dark { stop-color: var(--art-clay-dark); }
+.studio-art .studio-labels,
+.studio-art .studio-caption { fill: var(--muted, #65706a); }
+.studio-art .studio-labels path,
+.studio-art .studio-caption path,
+.studio-art .studio-construction { stroke: var(--line, #a5afa0); }
+.studio-art .studio-thread { stroke: var(--accent, #536247); }
+.studio-art .studio-thread circle,
+.studio-art .studio-construction circle { fill: var(--paper, #f7f6f2); }
+.studio-art .art-trace {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+}
+.studio-art--compact .studio-secondary { display: none; }
+.studio-art--compact .studio-art-canvas { margin-block: -5%; }
+.topic-icon {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+}
+:root[data-theme='dark'] .studio-art {
+  --art-olive-light: #d1dcb7;
+  --art-olive-mid: #9eaf84;
+  --art-olive-dark: #6f8258;
+  --art-blue-light: #c3d7df;
+  --art-blue-mid: #89aab8;
+  --art-blue-dark: #587a8b;
+  --art-clay-light: #e5c0a3;
+  --art-clay-mid: #c49373;
+  --art-clay-dark: #a46e50;
+}
+:root[data-theme='dark'] .studio-art .studio-ground { opacity: .5; }
+:root[data-theme='dark'] .studio-art .studio-construction { opacity: .85; }
+@media (prefers-reduced-motion: no-preference) {
+  .studio-art.art-running .art-trace {
+    animation: studio-draw 2.8s cubic-bezier(.4,0,.2,1) both;
+  }
+  .studio-art.art-running .art-trace-secondary {
+    animation-delay: 2.2s;
+    animation-duration: .6s;
+  }
+  .studio-art.art-running .art-piece-blue {
+    animation: studio-paper-arrive 1.8s cubic-bezier(.2,.75,.25,1) both;
+  }
+  .studio-art.art-running .art-piece-olive {
+    animation: studio-paper-arrive 2s .12s cubic-bezier(.2,.75,.25,1) both;
+  }
+  .studio-art.art-running .art-piece-clay {
+    animation: studio-paper-arrive 2.2s .22s cubic-bezier(.2,.75,.25,1) both;
+  }
+}
+@keyframes studio-draw {
+  from { stroke-dashoffset: 100; opacity: .2; }
+  to { stroke-dashoffset: 0; opacity: 1; }
+}
+@keyframes studio-paper-arrive {
+  from { transform: translateY(12px) rotate(-1.5deg); opacity: .45; }
+  to { transform: translateY(0) rotate(0); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-art *, .studio-art *::before, .studio-art *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .studio-art [data-art-layer], .studio-art .art-piece { transform: none !important; }
+  .studio-art .art-trace { stroke-dashoffset: 0 !important; opacity: 1 !important; }
+}
+@media (forced-colors: active) {
+  .studio-art .studio-construction,
+  .studio-art .studio-thread,
+  .studio-art .studio-labels path,
+  .studio-art .studio-caption path { stroke: CanvasText; }
+  .studio-art .studio-labels,
+  .studio-art .studio-caption { fill: CanvasText; }
+}
+
+:root[data-motion='off'] .studio-art *,
+:root[data-motion='off'] .studio-art *::before,
+:root[data-motion='off'] .studio-art *::after {
+  animation: none !important;
+  transition: none !important;
+}
+:root[data-motion='off'] .studio-art [data-art-layer],
+:root[data-motion='off'] .studio-art .art-piece { transform: none !important; }
+:root[data-motion='off'] .studio-art .art-trace { stroke-dashoffset: 0 !important; opacity: 1 !important; }

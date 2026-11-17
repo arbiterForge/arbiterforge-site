@@ -16,56 +16,83 @@
   <link rel="stylesheet" href="/news/assets/news.css">
   <script defer src="/news/assets/news.js"></script>
 </head>
-<body>
+<body{% unless page.archive %} data-reading-progress{% endunless %}>
   <a class="skip" href="#main">Skip to briefing</a>
   {% include news-header.html %}
   <main id="main" class="shell" tabindex="-1">
     {% if page.archive %}
+    {% assign historical = site.data.arbiter_news.backfill.dates | sort: 'edition_date' %}
     <section class="mast">
-      <p class="eyebrow">Arbiter News / The edition archive</p>
-      <div class="mast-copy">
-        <h1>The archive.</h1>
-        <p>Every published edition keeps its own address. Dates below are edition dates, not a claim that every story happened that day.</p>
+      <div class="mast-grid">
+        <div class="mast-reading">
+          <p class="eyebrow">Arbiter News / The edition archive</p>
+          <div class="mast-copy">
+            <h1>The archive.</h1>
+            <p>Every published edition keeps its own address. Dates below are edition dates, not a claim that every story happened that day.</p>
+          </div>
+          <nav class="edition-links archive-jump" aria-label="Archive sections">
+            <a href="#daily-editions">Daily editions <span>{{ editions | size }}</span></a>
+            <a href="#historical-records">Historical records <span>{{ historical | size }}</span></a>
+            <a href="/news/feed.xml">RSS</a>
+          </nav>
+        </div>
+        <div class="mast-art" aria-hidden="true" data-reveal>{% include studio-art.html id='news-studio' compact=true %}</div>
       </div>
     </section>
-    {% assign historical = site.data.arbiter_news.backfill.dates | sort: 'edition_date' %}
-    <aside class="signal">
-      <b>Archive recovery</b>
-      <p>{{ site.data.arbiter_news.backfill.restored_text_count }} original story texts recovered across eight dates. Other cards are clearly labeled coverage-only records, not reconstructed briefings. October 6 has no available edition. <a href="/news/archive/status.json">Recovery details</a>.</p>
-    </aside>
-    <section class="archive-grid" aria-label="Published editions and historical records">
-      {% for entry in editions reversed %}
-      {% assign current_edition = entry[1] %}
-      {% include arbiter-news-archive-card.html edition=current_edition %}
-      {% endfor %}
-      {% for entry in historical reversed %}
-      {% assign old_edition = site.data.arbiter_news.archive[entry.edition_date] %}
-      {% include arbiter-news-archive-card.html edition=old_edition %}
-      {% endfor %}
+    <section class="archive-section" aria-labelledby="daily-editions">
+      <header class="archive-section-head" data-reveal>
+        <div><p class="eyebrow"><span aria-hidden="true">01 / </span>The reading record</p><h2 id="daily-editions">Daily editions</h2></div>
+        <span class="total">{{ editions | size }} <small>editions</small></span>
+      </header>
+      <div class="archive-grid">
+        {% for entry in editions reversed %}
+        {% assign current_edition = entry[1] %}
+        {% include arbiter-news-archive-card.html edition=current_edition %}
+        {% endfor %}
+      </div>
     </section>
-    <p class="note">Historical dates identify the original edition, not the backfill date or a new verification of its claims. Some early repeat stories were not retained by the coverage ledger; same-day editions may be combined. Only available text is shown. The latest page and daily RSS continue to use published daily editions, not these historical records.</p>
+    <section class="archive-section archive-section--history" aria-labelledby="historical-records">
+      <header class="archive-section-head" data-reveal>
+        <div><p class="eyebrow"><span aria-hidden="true">02 / </span>From the original files</p><h2 id="historical-records">Historical records</h2></div>
+        <span class="total">{{ historical | size }} <small>dates</small></span>
+      </header>
+      <aside class="signal signal--recovery">
+        <b>Archive recovery</b>
+        <p>{{ site.data.arbiter_news.backfill.restored_text_count }} original story texts recovered across eight dates. Other cards are clearly labeled coverage-only records, not reconstructed briefings. October 6 has no available edition. <a href="/news/archive/status.json">Recovery details</a>.</p>
+      </aside>
+      <div class="archive-grid">
+        {% for entry in historical reversed %}
+        {% assign old_edition = site.data.arbiter_news.archive[entry.edition_date] %}
+        {% include arbiter-news-archive-card.html edition=old_edition %}
+        {% endfor %}
+      </div>
+      <p class="note archive-note">Historical dates identify the original edition, not the backfill date or a new verification of its claims. Some early repeat stories were not retained by the coverage ledger; same-day editions may be combined. Only available text is shown. The latest page and daily RSS continue to use published daily editions, not these historical records.</p>
+    </section>
     {% else %}
     <section class="mast">
-      <p class="eyebrow">Arbiter News / The reading habit</p>
       <div class="mast-grid">
-        <div class="mast-copy">
-          <h1>The daily read.</h1>
-          <p>{{ edition.intro | escape }}</p>
+        <div class="mast-reading">
+          <p class="eyebrow">Arbiter News / The reading habit</p>
+          <div class="mast-copy">
+            <h1>The daily read.</h1>
+            <p>{{ edition.intro | escape }}</p>
+          </div>
+          <div class="edition-meta">
+            <time datetime="{{ edition.edition_date }}">{{ edition.edition_date | date: '%A · %B %-d, %Y' }}</time>
+            <p class="edition-count">{{ edition.stories | size }} stories · {{ site.data.arbiter_news.categories | size }} topics</p>
+            <p class="edition-context">AI-assisted. Source-linked.</p>
+          </div>
+          <nav class="edition-links" aria-label="This edition">
+            <a href="/news/{{ edition.edition_date }}/">Permanent link</a>
+            <a href="/news/archive/">Archive</a>
+            <a href="/news/feed.xml">RSS</a>
+          </nav>
         </div>
-        <div class="edition-meta">
-          <time datetime="{{ edition.edition_date }}">{{ edition.edition_date | date: '%A · %B %-d, %Y' }}</time>
-          <p class="edition-count">{{ edition.stories | size }} stories · {{ site.data.arbiter_news.categories | size }} topics</p>
-          <p class="edition-context">AI-assisted. Source-linked.</p>
-        </div>
+        <div class="mast-art" aria-hidden="true" data-reveal>{% include studio-art.html id='news-studio' compact=true %}</div>
       </div>
-      <nav class="edition-links" aria-label="This edition">
-        <a href="/news/{{ edition.edition_date }}/">Permanent link</a>
-        <a href="/news/archive/">Archive</a>
-        <a href="/news/feed.xml">RSS</a>
-      </nav>
     </section>
     <aside class="signal">
-      <b>In this edition</b>
+      <b><span class="signal-rule" aria-hidden="true"></span>In this edition</b>
       <p>{{ edition.overview | escape }}</p>
     </aside>
     {% if edition.migration_note %}<p class="migration">{{ edition.migration_note | escape }}</p>{% endif %}
@@ -73,18 +100,21 @@
       <nav class="tabs" aria-label="Briefing categories">
         {% for cat in site.data.arbiter_news.categories %}
         {% assign items = edition.stories | where: 'category', cat.id %}
-        <a class="tab" id="tab-{{ cat.id }}" data-tab="{{ cat.id }}" href="#panel-{{ cat.id }}"><span>{{ cat.short | escape }}</span><b>{{ items | size }}</b></a>
+        <a class="tab topic--{{ cat.id }}" id="tab-{{ cat.id }}" data-tab="{{ cat.id }}" href="#panel-{{ cat.id }}"><span class="tab-topic"><span class="tab-icon" aria-hidden="true">{% include topic-icon.html name=cat.id %}</span><span>{{ cat.short | escape }}</span></span><b>{{ items | size }}</b></a>
         {% endfor %}
       </nav>
     </div>
     <div class="panels">
       {% for cat in site.data.arbiter_news.categories %}
       {% assign items = edition.stories | where: 'category', cat.id %}
-      <section class="panel" id="panel-{{ cat.id }}" data-panel="{{ cat.id }}" aria-labelledby="heading-{{ cat.id }}">
+      <section class="panel topic--{{ cat.id }}" id="panel-{{ cat.id }}" data-panel="{{ cat.id }}" aria-labelledby="heading-{{ cat.id }}">
         <header class="section-head">
-          <div>
-            <span class="eyebrow">{{ cat.label | escape }}</span>
-            <h2 id="heading-{{ cat.id }}">{{ cat.name | escape }}</h2>
+          <div class="section-heading" data-reveal>
+            <span class="section-symbol" aria-hidden="true">{% include topic-icon.html name=cat.id %}</span>
+            <div>
+              <span class="eyebrow"><span class="topic-number" aria-hidden="true">0{{ forloop.index }} / </span>{{ cat.label | escape }}</span>
+              <h2 id="heading-{{ cat.id }}">{{ cat.name | escape }}</h2>
+            </div>
           </div>
           <span class="total">{{ items | size }} <small>stories</small></span>
         </header>
@@ -98,10 +128,12 @@
       {% endfor %}
     </div>
     <aside class="notes">
-      <h2>Sources &amp; editorial notes</h2>
-      <p>{{ edition.history_note | escape }}</p>
-      <p>This is an AI-assisted briefing, not a live feed. Publication dates and source links remain visible; implications and takeaways are editorial analysis. Vendor claims are not independent benchmarks. Financial coverage is general information, not personalized advice.</p>
-      <p><a href="/news/coverage.json">Machine-readable coverage history</a> · <a href="https://github.com/arbiterForge/arbiterforge-site/tree/main/news">Source &amp; publishing guide</a></p>
+      <div class="notes-heading" data-reveal><p class="eyebrow">On the record</p><h2>Sources &amp; editorial notes</h2></div>
+      <div class="notes-copy">
+        <p>{{ edition.history_note | escape }}</p>
+        <p>This is an AI-assisted briefing, not a live feed. Publication dates and source links remain visible; implications and takeaways are editorial analysis. Vendor claims are not independent benchmarks. Financial coverage is general information, not personalized advice.</p>
+        <p><a href="/news/coverage.json">Machine-readable coverage history</a> · <a href="https://github.com/arbiterForge/arbiterforge-site/tree/main/news">Source &amp; publishing guide</a></p>
+      </div>
     </aside>
     <script type="application/json" id="arbiter-coverage-ledger">{"edition_date":{{ edition.edition_date | jsonify }},"history_url":"https://arbiterforge.com/news/coverage.json","stories":{{ edition.stories | jsonify | replace: '<', '\u003c' }}}</script>
     {% endif %}

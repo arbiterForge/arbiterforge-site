@@ -1,5 +1,5 @@
 {% assign project = include.project %}
-<article class="project-card" data-project="{{ project.id | escape }}" data-accent="{{ project.accent | escape }}">
+<article class="project-card" id="project-{{ project.id | escape }}" data-reveal data-project="{{ project.id | escape }}" data-accent="{{ project.accent | escape }}">
   <a class="project-visual" href="{{ project.href | escape }}" tabindex="-1" aria-hidden="true">
     {% case project.visual %}
     {% when 'codearbiter' %}
