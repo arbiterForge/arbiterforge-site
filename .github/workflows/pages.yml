@@ -45,9 +45,11 @@ jobs:
         if: steps.sim.outputs.changed == 'true'
         run: |
           set -euo pipefail
-          mkdir -p _site/SIM
-          cp "$RUNNER_TEMP/sim/index.html" _site/SIM/index.html
-          cp "$RUNNER_TEMP/sim/publication.json" _site/SIM/publication.json
+          # Jekyll's Docker action creates root-owned output on Linux runners.
+          # Install only these generated paths; do not recursively change owners.
+          sudo install -d -m 755 _site/SIM
+          sudo install -m 644 "$RUNNER_TEMP/sim/index.html" _site/SIM/index.html
+          sudo install -m 644 "$RUNNER_TEMP/sim/publication.json" _site/SIM/publication.json
           cmp CNAME _site/CNAME
           python tests/check_news_build.py _site
       - name: Retain the complete preview
