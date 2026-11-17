@@ -144,6 +144,7 @@ h3 { font-size: clamp(1.4rem, 2.2vw, 1.85rem); font-weight: 650; line-height: 1.
 .sources a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-size: .77rem; font-weight: 650; overflow-wrap: anywhere; }
 .sources a:hover { color: var(--ink); }
 .sources span { margin-left: .45rem; }
+.sources .icon { display: block; width: .85rem; height: .85rem; }
 
 .notes { margin: 2.75rem 0 2rem; padding: 1.6rem 1.8rem; border-radius: 5px; background: var(--notebook); }
 .notes h2 { margin: 0 0 .7rem; font-size: 1rem; letter-spacing: -.02em; }
@@ -162,7 +163,8 @@ h3 { font-size: clamp(1.4rem, 2.2vw, 1.85rem); font-weight: 650; line-height: 1.
 .archive-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3.5rem; margin-top: 2.5rem; }
 .archive-card { min-width: 0; padding: 1.65rem 0; border-top: 1px solid var(--line); text-decoration: none; }
 .archive-card-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-.archive-arrow { color: var(--accent); }
+.archive-arrow { color: var(--accent); flex: none; }
+.archive-arrow .icon { display: block; width: 1rem; height: 1rem; }
 .archive-card time { display: block; font-size: 1.15rem; font-weight: 650; color: var(--ink); letter-spacing: -.03em; }
 .archive-card:hover time { text-decoration: underline; text-underline-offset: .2em; }
 .archive-card strong { display: flex; justify-content: space-between; gap: 1rem; font-size: .76rem; font-weight: 550; color: var(--accent); margin-top: .4rem; }

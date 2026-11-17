@@ -2,7 +2,7 @@
 <a class="archive-card" href="/news/{{ e.edition_date }}/">
   <div class="archive-card-heading">
     <time datetime="{{ e.edition_date }}">{{ e.edition_date | date: '%B %-d, %Y' }}</time>
-    <span class="archive-arrow" aria-hidden="true">→</span>
+    <span class="archive-arrow" aria-hidden="true">{% include icon.html name="arrow-right" %}</span>
   </div>
   <strong>{% if e.archive_kind %}{{ e.record_count }} retained records{% else %}{{ e.stories | size }} developments{% endif %}</strong>
   <p>{{ e.overview | truncate: 230 | escape }}</p>

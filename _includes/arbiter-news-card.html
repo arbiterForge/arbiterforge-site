@@ -23,7 +23,7 @@
     {% endif %}
     <div class="sources">
       {% for source in s.sources %}
-      <a href="{{ source.url | escape }}" target="_blank" rel="noopener noreferrer">{{ source.label | escape }} <span aria-hidden="true">↗</span></a>
+      <a href="{{ source.url | escape }}" target="_blank" rel="noopener noreferrer">{{ source.label | escape }} <span aria-hidden="true">{% include icon.html name="arrow-up-right" %}</span></a>
       {% endfor %}
     </div>
   </div>

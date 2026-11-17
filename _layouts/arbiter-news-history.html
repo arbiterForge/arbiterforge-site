@@ -32,7 +32,7 @@
         </div>
       </div>
       <nav class="edition-links" aria-label="Historical edition">
-        <a href="/news/archive/">← All archive dates</a>
+        <a href="/news/archive/">All archive dates</a>
         <a href="/news/">Read the latest edition</a>
         <a href="/news/archive/status.json">Recovery status</a>
       </nav>
@@ -85,7 +85,7 @@
               </div>
               <div class="sources">
                 {% for url in item.restored.sources %}
-                <a href="{{ url | escape }}" target="_blank" rel="noopener noreferrer">Original source {{ forloop.index }} · {{ url | split: '://' | last | split: '/' | first | escape }} <span aria-hidden="true">↗</span></a>
+                <a href="{{ url | escape }}" target="_blank" rel="noopener noreferrer">Original source {{ forloop.index }} · {{ url | split: '://' | last | split: '/' | first | escape }} <span aria-hidden="true">{% include icon.html name="arrow-up-right" %}</span></a>
                 {% endfor %}
               </div>
               <details class="history-provenance">
@@ -97,7 +97,7 @@
               {% if r.canonical_source_urls.size > 0 %}
               <div class="sources">
                 {% for url in r.canonical_source_urls %}
-                <a href="{{ url | escape }}" target="_blank" rel="noopener noreferrer">Retained source {{ forloop.index }} · {{ url | split: '://' | last | split: '/' | first | escape }} <span aria-hidden="true">↗</span></a>
+                <a href="{{ url | escape }}" target="_blank" rel="noopener noreferrer">Retained source {{ forloop.index }} · {{ url | split: '://' | last | split: '/' | first | escape }} <span aria-hidden="true">{% include icon.html name="arrow-up-right" %}</span></a>
                 {% endfor %}
               </div>
               {% else %}<p class="note">No source link was retained for this record.</p>{% endif %}
