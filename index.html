@@ -8,8 +8,6 @@
   <title>suadtl · Things I'm building</title>
   <meta name="description" content="The personal project space of suadtl. Developer tools, infrastructure maps, browser games, and a daily reading habit.">
   <link rel="canonical" href="https://arbiterforge.com/">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#f7f6f2">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="suadtl">
   <meta property="og:title" content="suadtl · Things I'm building">
@@ -24,15 +22,8 @@
   <meta name="twitter:image" content="https://arbiterforge.com/assets/social-card.png">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="Arbiter News" href="/news/feed.xml">
-  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <script>
-    try {
-      const theme = localStorage.getItem('suadtl-theme');
-      if (theme === 'dark' || theme === 'light') document.documentElement.dataset.theme = theme;
-    } catch (_) { /* The page also works when storage is unavailable. */ }
-  </script>
+  {% include theme-head.html %}
   <link rel="stylesheet" href="/assets/site.css">
-  <script defer src="/assets/site.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
