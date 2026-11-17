@@ -1,0 +1,8 @@
+title: arbiterForge
+url: https://arbiterforge.com
+exclude:
+  - .codearbiter
+  - scripts
+  - tests
+  - README.md
+  - PREMIUM-ASSETS.md
