@@ -5,5 +5,6 @@ exclude:
   - .codearbiter
   - scripts
   - tests
+  - docs/review
   - README.md
   - PREMIUM-ASSETS.md
