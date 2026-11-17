@@ -1,0 +1,13 @@
+/* Shared appearance for suadtl and the daily reading pages. */
+@font-face{font-family:Manrope;src:url('/assets/fonts/manrope-latin-wght-normal.woff2') format('woff2');font-style:normal;font-weight:200 800;font-display:swap}
+@font-face{font-family:'JetBrains Mono';src:url('/assets/fonts/jetbrains-mono-latin-wght-normal.woff2') format('woff2');font-style:normal;font-weight:100 800;font-display:swap}
+
+:root{color-scheme:light;--paper:#f7f6f2;--surface:#fcfbf8;--ink:#242b2a;--body:#505754;--muted:#65706a;--line:#d8dcd3;--accent:#536247;--accent-soft:#e7ebde;--blue:#355e74;--clay:#a45134;--notebook:#efeee7;--reading:#252f2b;--reading-ink:#f1f2ea;--reading-muted:#c0c9bf;--sans:Manrope,system-ui,-apple-system,'Segoe UI',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+:root[data-theme='dark']{color-scheme:dark;--paper:#181e1b;--surface:#202722;--ink:#edf0e9;--body:#c0c9bf;--muted:#a4b0a2;--line:#394239;--accent:#bdcba6;--accent-soft:#303c2c;--blue:#a9cadd;--clay:#e7b49b;--notebook:#262e27;--reading:#101713;--reading-ink:#edf0e9;--reading-muted:#c0c9bf}
+.theme-toggle{width:44px;height:44px;display:grid;place-items:center;background:transparent;border:1px solid var(--line);border-radius:50%;color:var(--ink);cursor:pointer}
+.theme-toggle:hover{background:var(--accent-soft);border-color:var(--accent)}
+.theme-sun,:root[data-theme='dark'] .theme-moon{display:none}
+:root[data-theme='dark'] .theme-sun{display:block}
+
+.theme-toggle[hidden]{display:none}
+.theme-toggle .icon{display:block;width:1.15rem;height:1.15rem}
