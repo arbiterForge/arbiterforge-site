@@ -2,39 +2,18 @@
 <article class="project-card" id="project-{{ project.id | escape }}" data-reveal data-project="{{ project.id | escape }}" data-accent="{{ project.accent | escape }}">
   <a class="project-visual" href="{{ project.href | escape }}" tabindex="-1" aria-hidden="true">
     {% case project.visual %}
-    {% when 'codearbiter' %}
-      <div class="arbiter-art">
-        <span class="art-caption">REPOSITORY-OWNED WORKFLOWS</span>
-        <svg class="gate-art" viewBox="0 0 340 152" fill="none" aria-hidden="true" focusable="false">
-          <path class="art-grid" d="M10 112h320M10 136h320M10 88h320M10 64h320M10 40h320M34 20v132m48-132v132m48-132v132m48-132v132m48-132v132m48-132v132m48-132v132"/>
-          <path class="art-track" d="M24 112h292" stroke-width="2"/>
-          <path class="art-path" d="M24 112h126" stroke-width="3"/>
-          <circle class="art-node" cx="42" cy="112" r="5"/><circle class="art-node" cx="91" cy="112" r="5"/>
-          <path class="art-gate" d="M143 51h15v63h-15zm39 0h15v63h-15zM132 39h76v15h-76z"/>
-          <path class="art-gate-cap" d="m157 22 13 10 13-10" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle class="art-end" cx="249" cy="112" r="7"/><circle class="art-end" cx="301" cy="112" r="7"/>
-        </svg>
-        <div class="art-stages"><span>Context</span><span>Work</span><span>Review</span></div>
-      </div>
-    {% when 'sim' %}
-      <div class="sim-art">
-        <span class="art-caption">MAKING THE CONNECTIONS VISIBLE</span>
-        <svg viewBox="0 0 340 182" fill="none" aria-hidden="true" focusable="false">
-          <rect class="map-network" x="15" y="22" width="139" height="141" rx="8"/><rect class="map-network" x="212" y="51" width="113" height="112" rx="8"/>
-          <text class="map-label" x="29" y="43">NETWORK A</text><text class="map-label" x="226" y="73">NETWORK B</text>
-          <path class="map-route" d="M87 76h91a12 12 0 0 1 12 12v22a12 12 0 0 0 12 12h39M87 76v53m0 0h44" stroke-width="2"/>
-          <path class="map-arrow" d="m234 117 7 5-7 5" stroke-width="2"/>
-          <rect class="map-node" x="39" y="62" width="65" height="28" rx="5"/><text class="map-service" x="52" y="80">Identity</text>
-          <rect class="map-node" x="61" y="116" width="69" height="28" rx="5"/><text class="map-service" x="73" y="134">Services</text>
-          <rect class="map-node" x="241" y="108" width="60" height="28" rx="5"/><text class="map-service" x="257" y="126">Apps</text>
-          <circle class="map-junction" cx="190" cy="100" r="4"/>
-        </svg>
-      </div>
     {% when 'singedterra' %}
       <img class="game-art" src="/assets/singedterra-game.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
       <span class="game-label">A LITTLE FRIENDLY DESTRUCTION</span>
+    {% when 'codearbiter' %}
+      <span class="material-study material-study--codearbiter"></span>
+      <span class="material-caption">codeArbiter / developer tooling</span>
+    {% when 'sim' %}
+      <span class="material-study material-study--sim"></span>
+      <span class="material-caption">SIM / connected systems</span>
     {% else %}
-      <div class="generic-art"><span>{{ project.name | slice: 0 | escape }}</span><span class="art-caption">{{ project.kind | escape }}</span></div>
+      <span class="material-study material-study--generic"></span>
+      <span class="material-caption">{{ project.kind | escape }}</span>
     {% endcase %}
   </a>
   <div class="project-copy">
