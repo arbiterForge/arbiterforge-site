@@ -5,7 +5,7 @@ Archive: **https://arbiterforge.com/news/archive/**
 Coverage index: **https://arbiterforge.com/news/coverage.json**
 Feed: **https://arbiterforge.com/news/feed.xml**
 
-This feature is additive to the ArbiterForge landing site. It uses the existing GitHub Pages/Jekyll branch build; no new hosting account, DNS change, external database, paid service, API credential, or browser runtime dependency is needed. The root homepage and CNAME remain untouched.
+Arbiter News lives alongside suadtl's personal homepage at arbiterforge.com. The `ArbiterForge Pages` workflow builds the homepage and News with Jekyll, then composes the separately published SIM application into the same deployment. The domain, News routes, edition data, and publication process remain stable as the homepage evolves. No new hosting account, DNS change, external database, paid service, API credential, or browser runtime dependency is needed.
 
 ## Publish an edition
 

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "codearbiter",
+    "name": "codeArbiter",
+    "kind": "Developer tooling",
+    "description": "Repository-owned workflows, context, and review for AI coding agents.",
+    "href": "https://codearbiter.dev/",
+    "action": "Explore codeArbiter",
+    "source": "https://github.com/arbiterForge/codeArbiter",
+    "accent": "olive",
+    "visual": "codearbiter"
+  },
+  {
+    "id": "sim",
+    "name": "Service Integration Map",
+    "kind": "Infrastructure",
+    "description": "Map services, the networks they live in, and the connections between them. Explore an environment and save your work locally.",
+    "href": "/SIM/",
+    "action": "Open SIM",
+    "source": "https://github.com/SUaDtL/SIM",
+    "accent": "blue",
+    "visual": "sim"
+  },
+  {
+    "id": "singedterra",
+    "name": "singedTerra",
+    "kind": "Browser game",
+    "description": "A browser artillery game. Judge the wind, aim your shot, and reshape the terrain.",
+    "href": "https://suadtl.github.io/singedTerra/",
+    "action": "Play singedTerra",
+    "source": "https://github.com/SUaDtL/singedTerra",
+    "accent": "clay",
+    "visual": "singedterra"
+  }
+]

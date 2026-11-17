@@ -1,4 +1,9 @@
-# Premium asset slots
+# Historical brand asset notes
+
+> Archived with the November 2026 personal-site redesign. The notes below describe
+> the former organization landing page. They are not instructions for the current
+> homepage, and the old assets are no longer its active visual identity. Current
+> assets and project artwork are documented in `README.md`.
 
 > **Status 2026-08-03: all four assets generated (by Sol / GPT-5.6) and wired in.**
 > `og-image.png`, `hero-forge.webp`, `gate-phases.webp`, and `logomark.svg` are live;

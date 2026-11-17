@@ -4,16 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.documentElement.classList.add('js')</script>
-  <title>Why hard gates · arbiterForge</title>
-  <meta name="description" content="Prompt-level rules are probabilities. An essay on why governing AI coding agents requires deterministic enforcement at the tool-call boundary, with the receipts.">
+  <title>Why hard gates · suadtl</title>
+  <meta name="description" content="An archived August 2026 essay by suadtl on AI coding agents, process gates, and their limits.">
   <link rel="canonical" href="https://arbiterforge.com/why-hard-gates.html">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="arbiterForge">
+  <meta property="og:site_name" content="suadtl">
   <meta property="og:title" content="Why hard gates">
-  <meta property="og:description" content="A rule that lives in a prompt is a probability, not a control. The evidence, including the evidence against us.">
+  <meta property="og:description" content="An archived August 2026 essay by suadtl on AI coding agents, process gates, and their limits.">
   <meta property="og:url" content="https://arbiterforge.com/why-hard-gates.html">
-  <meta property="og:image" content="https://arbiterforge.com/assets/og-image.jpg">
+  <meta property="og:image" content="https://arbiterforge.com/assets/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="suadtl">
   <meta name="theme-color" content="#06080c">
   <meta name="color-scheme" content="dark">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -84,6 +85,10 @@
     .byline{font-family:var(--font-mono);font-size:.78rem;color:var(--ink-muted)}
     .byline a{color:var(--ink-soft)}
     .byline a:hover{color:var(--gold-bright)}
+    .archive-note{padding:1.15rem 1.3rem;border:1px solid var(--hairline-strong);border-radius:.75rem;background:var(--bg-raised);font-size:.9rem;line-height:1.6}
+    .archive-note strong{display:block;color:var(--ink);margin-bottom:.35rem}
+    .archive-note p{margin:0}
+    .archive-note a{color:var(--gold-bright)}
     .lede{font-size:clamp(1.1rem,1.7vw,1.25rem);color:var(--ink-soft);max-width:38rem}
 
     h2{
@@ -140,7 +145,8 @@
 
     .js .reveal{opacity:0;transform:translateY(2.5rem);transition:opacity var(--dur-slow) var(--ease-glide),transform var(--dur-slow) var(--ease-glide);transition-delay:var(--reveal-delay,0ms)}
     .js .reveal.is-in{opacity:1;transform:none}
-    @media (width < 48rem){.nav-links{gap:1rem}.nav-links a{font-size:.82rem}}
+    @media (width < 48rem){.nav-pill{gap:1rem}.nav-links{gap:1rem}.nav-links a{font-size:.82rem}}
+    @media (width < 24rem){.nav-pill{gap:.75rem;padding-inline:.85rem}.nav-links{gap:.75rem}.nav-links a{font-size:.75rem}}
     @media (prefers-reduced-motion:reduce){
       *,*::before,*::after{transition:none !important;animation:none !important}
       .js .reveal{opacity:1;transform:none}
@@ -152,24 +158,14 @@
 
   <header class="site-nav">
     <nav class="nav-pill" aria-label="Primary">
-      <a class="nav-brand" href="index.html" aria-label="arbiterForge home">
-        <svg width="24" height="24" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
-          <defs><linearGradient id="nav-gold" x1="38" y1="28" x2="91" y2="104" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#f3c958"/><stop offset=".48" stop-color="#f0b92f"/><stop offset="1" stop-color="#d89920"/>
-          </linearGradient></defs>
-          <path d="M10 91H118" fill="none" stroke="#465565" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="19" cy="91" r="6" fill="#06080c" stroke="#91a0b2" stroke-width="3"/>
-          <g fill="url(#nav-gold)"><path d="M42 48h12v38l5 9H37l5-9V48Z"/><path d="M74 48h12v38l5 9H69l5-9V48Z"/></g>
-          <path d="M32 36h64l-4 12H36l-4-12Z" fill="url(#nav-gold)"/>
-          <path d="m55 22 9 10 9-10" fill="none" stroke="#ffd568" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="108" cy="91" r="8" fill="#f0b92f" stroke="#ffd568" stroke-width="2"/>
-        </svg>
-        <span>arbiter<i>Forge</i></span>
+      <a class="nav-brand" href="/" aria-label="suadtl home">
+        <img src="/assets/favicon.svg" width="24" height="24" alt="">
+        <span>suadtl</span>
       </a>
       <div class="nav-links">
-        <a href="index.html#evidence">Evidence</a>
-        <a href="index.html#system">System</a>
-        <a href="https://github.com/arbiterForge" target="_blank" rel="noopener">GitHub</a>
+        <a href="/#projects">Projects</a>
+        <a href="/news/">News</a>
+        <a href="https://github.com/SUaDtL" target="_blank" rel="noopener">GitHub</a>
       </div>
     </nav>
   </header>
@@ -177,9 +173,13 @@
   <main id="main">
     <article>
       <div class="essay-head">
-        <p class="eyebrow reveal" data-hero-reveal>Essay</p>
+        <p class="eyebrow reveal" data-hero-reveal>Archived essay</p>
         <h1 class="reveal" data-hero-reveal style="--reveal-delay:100ms">Why hard gates</h1>
-        <p class="byline reveal" data-hero-reveal style="--reveal-delay:200ms"><a href="https://github.com/SUaDtL" target="_blank" rel="noopener">SUaDtL</a> &middot; arbiterForge &middot; August 2026</p>
+        <p class="byline reveal" data-hero-reveal style="--reveal-delay:200ms"><a href="https://github.com/SUaDtL" target="_blank" rel="noopener">suadtl</a> &middot; August 2026</p>
+        <aside class="archive-note" aria-label="Archive note">
+          <strong>From the archive</strong>
+          <p>This essay was published in August 2026 and describes the project at that time. For current installation instructions and product behavior, visit the <a href="https://codearbiter.dev/">codeArbiter documentation</a>.</p>
+        </aside>
         <p class="lede reveal" data-hero-reveal style="--reveal-delay:300ms">Every coding agent ships with instructions. Instructions are wishes. The industry keeps rediscovering the same fact from different directions: a rule that lives in a prompt is a probability, not a control. codeArbiter exists because we stopped being willing to bet a repository on a probability.</p>
       </div>
 
@@ -197,7 +197,7 @@
       <h2 class="reveal"><span class="no">03</span>The old answer still holds</h2>
       <p class="reveal">Security engineering solved this class of problem fifty years ago and wrote it down. Saltzer and Schroeder's 1975 principle of <a href="https://www.cs.virginia.edu/~evans/cs551/saltzer/" target="_blank" rel="noopener">complete mediation</a>: every access to every object must be checked for authority, by a mechanism the requesting party cannot bypass. A system prompt is not that mechanism. A reference monitor is. The request either passes the check or the action does not happen, and the requester's eloquence is irrelevant.</p>
       <p class="reveal">Current research keeps arriving at the same place. <a href="https://arxiv.org/abs/2406.13352" target="_blank" rel="noopener">AgentDojo</a>, the standard benchmark for attacks on tool-using agents, found that prompt-based defenses do not close the gap; the defenses that approach zero attack success are system-level, enforced outside the model. DeepMind's <a href="https://arxiv.org/abs/2503.18813" target="_blank" rel="noopener">CaMeL</a> makes the design principle explicit: policies checked before each tool call, in a layer that "does not rely on model behavior modification." <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener">OWASP's LLM Top 10</a> has ranked prompt injection the number one risk two editions running, and every recommended mitigation lives outside the model. Anthropic's own hardening of Claude Code is <a href="https://claude.com/blog/beyond-permission-prompts-making-claude-code-more-secure-and-autonomous" target="_blank" rel="noopener">OS-level sandboxing</a>, not better prose.</p>
-      <p class="reveal">codeArbiter is that principle applied to the development process. A hook at the tool-call boundary reads the command the agent is about to run. If the command violates an invariant, the hook exits non-zero and the command never executes. The front page of this site shows a <a href="index.html#evidence">real capture</a>: <code>git push origin main</code> refused with exit code 2 by the shipped hook, pinned to a source digest you can verify yourself. The agent cannot charm an exit code.</p>
+      <p class="reveal">codeArbiter is that principle applied to the development process. A hook at the tool-call boundary reads the command the agent is about to run. If the command violates an invariant, the hook exits non-zero and the command never executes. The retained <a href="/assets/proof/push-block.json">historical capture</a> records the result: <code>git push origin main</code> refused with exit code 2 by the shipped hook, pinned to a source digest you can verify yourself. The agent cannot charm an exit code.</p>
 
       <h2 class="reveal"><span class="no">04</span>What the gates protect</h2>
       <p class="reveal">Which invariants deserve that treatment? We chose five refusals, and the reasoning matters more than the list.</p>
@@ -212,7 +212,7 @@
       <p class="reveal">But notice the trap. "Load the card before acting" is itself an instruction, and section one of this essay just told you what instructions are worth. The dilution research applies to our own routing discipline with full force. That is not an argument against the architecture; it is the argument of this essay repeated one level down. The habits get you efficiency. The invariants that must hold are not habits: they are hooks, and the hook fires whether or not the model remembered the rule.</p>
 
       <h2 class="reveal"><span class="no">06</span>Where the evidence pushes back</h2>
-      <p class="reveal">A company whose slogan is proof before promise does not get to hide the counter-evidence. Here is what the research says against us, plainly.</p>
+      <p class="reveal">Proof before promise also means taking counter-evidence seriously. Here is where the research challenges the approach.</p>
       <p class="reveal"><strong>Hooks are not a sandbox.</strong> Anthropic classifies hooks as processes that <a href="https://code.claude.com/docs/en/sandbox-environments" target="_blank" rel="noopener">"run unconstrained on the host"</a>, and locates true containment in OS-level sandboxes and virtual machines. They are right. Our hooks live in an environment the agent, and you, can write to. Our threat model is honest about this: codeArbiter keeps a well-intentioned agent on process rails and keeps the record; it does not contain a hostile one. A human with shell access can strip the hooks, deliberately, and the removal lands in the audit trail. For containment, run your agent in a sandbox; the sandbox constrains what can be touched, codeArbiter governs how work becomes a commit. And the ceiling of what hooks can promise is precisely why arbiterIDE is being built at the layer below, where enforcement lives in the tool dispatcher rather than beside it.</p>
       <p class="reveal"><strong>Same-model review is less independent than it looks.</strong> Recent work on judge panels found that <a href="https://arxiv.org/html/2605.29800" target="_blank" rel="noopener">nine frontier judges collapse to about two effective votes</a> because their errors correlate, and models <a href="https://arxiv.org/abs/2410.21819" target="_blank" rel="noopener">prefer their own outputs</a>. A fleet of same-model reviewers buys differentiated lenses, not independent judgment. We treat the fleet as a structured hedge, not a proof, which is why acceptance rests on deterministic gates and fresh-run verification rather than on a reviewer's word, and why cross-model review is where this design should go next.</p>
       <p class="reveal"><strong>A test gate is a reward-hacking target.</strong> Section two cuts against us too: agents game the very signal we gate on. Separate verification contexts and protected pre-existing tests narrow the channel. They do not close it, and we will not pretend otherwise.</p>
@@ -222,8 +222,8 @@
       <div class="essay-close reveal">
         <p class="principle">You decide. <em>The gates enforce.</em></p>
         <p>And when the evidence says a gate is standing in the wrong place, the gate moves. That is what the record is for.</p>
-        <a class="btn" href="index.html#evidence">
-          See a gate hold
+        <a class="btn" href="/assets/proof/push-block.json">
+          View the original capture
           <span class="btn__orb" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
@@ -234,11 +234,11 @@
 
   <footer>
     <div class="foot">
-      <span class="wordmark">arbiter<i>Forge</i></span>
-      <a href="index.html">Home</a>
-      <a href="https://github.com/arbiterForge" target="_blank" rel="noopener">GitHub</a>
+      <span class="wordmark">suadtl</span>
+      <a href="/">Home</a>
+      <a href="https://github.com/SUaDtL" target="_blank" rel="noopener">GitHub</a>
       <a href="https://codearbiter.dev/" target="_blank" rel="noopener">codeArbiter</a>
-      <span>&copy; 2026 arbiterForge</span>
+      <span>&copy; 2026 suadtl</span>
     </div>
   </footer>
 
