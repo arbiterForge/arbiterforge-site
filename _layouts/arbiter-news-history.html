@@ -14,30 +14,33 @@
   <link rel="stylesheet" href="/news/assets/news.css">
   <script defer src="/news/assets/news.js"></script>
 </head>
-<body>
+<body data-reading-progress>
   <a class="skip" href="#main">Skip to historical records</a>
   {% include news-header.html %}
   <main id="main" class="shell" tabindex="-1">
     <section class="mast">
-      <p class="eyebrow">Arbiter News / Historical archive</p>
       <div class="mast-grid">
-        <div class="mast-copy">
-          <h1>From the archive.</h1>
-          <p>{% case e.archive_kind %}{% when 'restored' %}Original story text recovered from the saved briefing, presented in the site's shared layout.{% when 'partial' %}Part of this date's original story text was recovered. The rest survives only as coverage records.{% else %}The original full briefing is unavailable. This page preserves the coverage records that remain; it is not a reconstructed edition.{% endcase %}</p>
+        <div class="mast-reading">
+          <p class="eyebrow">Arbiter News / Historical archive</p>
+          <div class="mast-copy">
+            <h1>From the archive.</h1>
+            <p>{% case e.archive_kind %}{% when 'restored' %}Original story text recovered from the saved briefing, presented in the site's shared layout.{% when 'partial' %}Part of this date's original story text was recovered. The rest survives only as coverage records.{% else %}The original full briefing is unavailable. This page preserves the coverage records that remain; it is not a reconstructed edition.{% endcase %}</p>
+          </div>
+          <div class="edition-meta">
+            <time datetime="{{ e.edition_date }}">{{ e.edition_date | date: '%A · %B %-d, %Y' }}</time>
+            <p class="edition-count">{{ e.record_count }} retained records</p>
+            <p class="edition-context">{{ e.restored_count }} full texts recovered</p>
+          </div>
+          <nav class="edition-links" aria-label="Historical edition">
+            <a href="/news/archive/">All archive dates</a>
+            <a href="/news/">Read the latest edition</a>
+            <a href="/news/archive/status.json">Recovery status</a>
+          </nav>
         </div>
-        <div class="edition-meta">
-          <time datetime="{{ e.edition_date }}">{{ e.edition_date | date: '%A · %B %-d, %Y' }}</time>
-          <p class="edition-count">{{ e.record_count }} retained records</p>
-          <p class="edition-context">{{ e.restored_count }} full texts recovered</p>
-        </div>
+        <div class="mast-art" aria-hidden="true" data-reveal>{% include studio-art.html id='news-studio' compact=true %}</div>
       </div>
-      <nav class="edition-links" aria-label="Historical edition">
-        <a href="/news/archive/">All archive dates</a>
-        <a href="/news/">Read the latest edition</a>
-        <a href="/news/archive/status.json">Recovery status</a>
-      </nav>
     </section>
-    <aside class="signal">
+    <aside class="signal signal--recovery">
       <b>Historical material · not new reporting</b>
       <p>Imported October 23, 2026. Original wording and available source links are retained, including any errors in the original briefing. Historical claims, source availability, prices, advisories and rollout status have not been independently reverified during this migration. Source dates and missing information are identified below.</p>
     </aside>
@@ -46,18 +49,21 @@
       <nav class="tabs" aria-label="Historical categories">
         {% for cat in site.data.arbiter_news.categories %}
         {% assign items = e.entries | where: 'category', cat.id %}
-        <a class="tab" id="tab-{{ cat.id }}" data-tab="{{ cat.id }}" href="#panel-{{ cat.id }}"><span>{{ cat.short | escape }}</span><b>{{ items | size }}</b></a>
+        <a class="tab topic--{{ cat.id }}" id="tab-{{ cat.id }}" data-tab="{{ cat.id }}" href="#panel-{{ cat.id }}"><span class="tab-topic"><span class="tab-icon" aria-hidden="true">{% include topic-icon.html name=cat.id %}</span><span>{{ cat.short | escape }}</span></span><b>{{ items | size }}</b></a>
         {% endfor %}
       </nav>
     </div>
     <div class="panels">
       {% for cat in site.data.arbiter_news.categories %}
       {% assign items = e.entries | where: 'category', cat.id %}
-      <section class="panel" id="panel-{{ cat.id }}" data-panel="{{ cat.id }}" aria-labelledby="heading-{{ cat.id }}">
+      <section class="panel topic--{{ cat.id }}" id="panel-{{ cat.id }}" data-panel="{{ cat.id }}" aria-labelledby="heading-{{ cat.id }}">
         <header class="section-head">
-          <div>
-            <span class="eyebrow">{{ cat.label | escape }}</span>
-            <h2 id="heading-{{ cat.id }}">{{ cat.name | escape }}</h2>
+          <div class="section-heading" data-reveal>
+            <span class="section-symbol" aria-hidden="true">{% include topic-icon.html name=cat.id %}</span>
+            <div>
+              <span class="eyebrow"><span class="topic-number" aria-hidden="true">0{{ forloop.index }} / </span>{{ cat.label | escape }}</span>
+              <h2 id="heading-{{ cat.id }}">{{ cat.name | escape }}</h2>
+            </div>
           </div>
           <span class="total">{{ items | size }} <small>records</small></span>
         </header>
@@ -68,6 +74,7 @@
           <article class="story history-story" data-event-key="{{ r.normalized_event_key | escape }}" data-recovery="{% if item.restored %}restored{% else %}coverage-only{% endif %}">
             <span class="story-number" aria-hidden="true">{% if item.ordinal < 10 %}0{% endif %}{{ item.ordinal }}</span>
             <div class="copy">
+              <header class="story-header">
               <div class="kicker">
                 <span>{{ cat.label | escape }}</span>
                 <span class="badge{% unless item.restored %} coverage-badge{% endunless %}">{% if item.restored %}Original story text recovered{% else %}Coverage record only{% endif %}</span>
@@ -79,6 +86,8 @@
                 {% if pub %}<span>Source publication: {{ pub | escape }}</span>{% else %}<span>Source publication date not retained</span>{% endif %}
                 {% if r.underlying_event_date %}<span>Event: {{ r.underlying_event_date | escape }}</span>{% endif %}
               </div>
+              </header>
+              <div class="story-body">
               {% if item.restored %}
               <div class="original-text" aria-label="Original briefing text">
                 {% for paragraph in item.restored.paragraphs %}<p>{{ paragraph | escape }}</p>{% endfor %}
@@ -102,6 +111,7 @@
               </div>
               {% else %}<p class="note">No source link was retained for this record.</p>{% endif %}
               {% endif %}
+              </div>
             </div>
           </article>
           {% endfor %}
@@ -110,10 +120,12 @@
       {% endfor %}
     </div>
     <aside class="notes">
-      <h2>Archive integrity</h2>
-      <p>This page distinguishes original full story text from ledger-only summaries. The historical record stays unchanged in the <a href="/news/coverage.json">coverage index</a>. The backfill is excluded from the daily RSS feed and never replaces the latest briefing.</p>
-      <p>September 29 combines two recorded issues; only the early issue's full text was recoverable. October 6 has no available edition. Original source links may have moved or changed since publication.</p>
-      <p><a href="/news/archive/">Back to the archive</a> · <a href="https://github.com/arbiterForge/arbiterforge-site/blob/main/news/BACKFILL.md">Recovery method and limitations</a></p>
+      <div class="notes-heading" data-reveal><p class="eyebrow">On the record</p><h2>Archive integrity</h2></div>
+      <div class="notes-copy">
+        <p>This page distinguishes original full story text from ledger-only summaries. The historical record stays unchanged in the <a href="/news/coverage.json">coverage index</a>. The backfill is excluded from the daily RSS feed and never replaces the latest briefing.</p>
+        <p>September 29 combines two recorded issues; only the early issue's full text was recoverable. October 6 has no available edition. Original source links may have moved or changed since publication.</p>
+        <p><a href="/news/archive/">Back to the archive</a> · <a href="https://github.com/arbiterForge/arbiterforge-site/blob/main/news/BACKFILL.md">Recovery method and limitations</a></p>
+      </div>
     </aside>
   </main>
   {% include news-footer.html %}

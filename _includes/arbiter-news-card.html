@@ -2,29 +2,33 @@
 <article class="story" data-event-key="{{ s.event_key | escape }}">
   <span class="story-number" aria-hidden="true">{% if include.number < 10 %}0{% endif %}{{ include.number }}</span>
   <div class="copy">
-    <div class="kicker">
-      <span>{{ s.topic | escape }}</span>
-      <span class="badge">{{ s.freshness | escape }}</span>
-    </div>
-    <h3>{{ s.title | escape }}</h3>
-    <div class="byline">
-      <strong>{{ s.publisher | escape }}</strong>
-      <time datetime="{{ s.publication_date | escape }}">Published {{ s.publication_date | escape }}</time>
-      {% if s.event_date and s.event_date != s.publication_date %}<span>Event: {{ s.event_date | escape }}</span>{% endif %}
-    </div>
-    <p class="highlights">{{ s.highlights | escape }}</p>
-    <p class="implications"><b>Implications · analysis</b> {{ s.implications | escape }}</p>
-    <div class="takeaway">
-      <b>Why it matters / what to watch</b>
-      <p>{{ s.takeaway | escape }}</p>
-    </div>
-    {% if s.status == 'material-update' %}
-    <p class="change"><b>What changed:</b> {{ s.change_summary | escape }}</p>
-    {% endif %}
-    <div class="sources">
-      {% for source in s.sources %}
-      <a href="{{ source.url | escape }}" target="_blank" rel="noopener noreferrer">{{ source.label | escape }} <span aria-hidden="true">{% include icon.html name="arrow-up-right" %}</span></a>
-      {% endfor %}
+    <header class="story-header">
+      <div class="kicker">
+        <span>{{ s.topic | escape }}</span>
+        <span class="badge">{{ s.freshness | escape }}</span>
+      </div>
+      <h3>{{ s.title | escape }}</h3>
+      <div class="byline">
+        <strong>{{ s.publisher | escape }}</strong>
+        <time datetime="{{ s.publication_date | escape }}">Published {{ s.publication_date | escape }}</time>
+        {% if s.event_date and s.event_date != s.publication_date %}<span>Event: {{ s.event_date | escape }}</span>{% endif %}
+      </div>
+    </header>
+    <div class="story-body">
+      <p class="highlights">{{ s.highlights | escape }}</p>
+      <p class="implications"><b>Implications · analysis</b> {{ s.implications | escape }}</p>
+      <div class="takeaway">
+        <b>Why it matters / what to watch</b>
+        <p>{{ s.takeaway | escape }}</p>
+      </div>
+      {% if s.status == 'material-update' %}
+      <p class="change"><b>What changed:</b> {{ s.change_summary | escape }}</p>
+      {% endif %}
+      <div class="sources">
+        {% for source in s.sources %}
+        <a href="{{ source.url | escape }}" target="_blank" rel="noopener noreferrer">{{ source.label | escape }} <span aria-hidden="true">{% include icon.html name="arrow-up-right" %}</span></a>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </article>
