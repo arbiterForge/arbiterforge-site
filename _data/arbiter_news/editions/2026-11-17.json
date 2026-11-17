@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-17",
+  "title": "Arbiter News",
+  "intro": "Twelve verified developments across agents, cloud infrastructure, cybersecurity and defense, and the economy, primarily announced November 16, 2026.",
+  "overview": "New healthcare workflows, outside AI evaluations and governed agent customization lead the AI desk. Cloud coverage examines local Artifacts development, regulated cloud policy and delegated OAuth. Security focuses on network beaconing, scaled code scans and national-security space launch contracting. Economy coverage tracks New York manufacturing, AI debt-risk analysis and practical federal tax preparation.",
+  "history_note": "The public coverage.json endpoint could not be opened in the reader; deduplication instead inspected the complete backing repository coverage inputs: all 319 historical coverage records from ten history_parts files (September 24-October 22) plus 288 stories from 24 published editions (October 23-November 16; October 25 is absent), 607 total. Normalized underlying events and available canonical original URLs were compared across more than 30 days. None of the new sources or event keys duplicates a covered item. Two substantive updates explicitly reference prior event keys and dated factual changes. Known missing historical records remain September 23, October 6 and October 25; older records sometimes lack source URLs. One primary defense contract page returned a reader-side 403, but its November 16 original notice text was corroborated by independent reproductions. No Opus 5.5 launch material is repeated.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "openai:chatgpt-healthcare:computer-use-clinical-search-20-plugins:2026-11-16",
+      "status": "new",
+      "topic": "Healthcare agents",
+      "title": "OpenAI expands healthcare agents, evidence search and more than 20 clinical plugins",
+      "publisher": "OpenAI",
+      "publication_date": "2026-11-16",
+      "event_date": "2026-11-16",
+      "freshness": "New • 1 day",
+      "highlights": "OpenAI's November 16 healthcare announcement adds computer-use workflows that can move across existing electronic health records, scheduling systems and payer applications by interacting with their interfaces. It also reports improvements to clinical evidence search and makes more than 20 healthcare plugins available to ChatGPT for Healthcare customers, including tools for eligibility, records, provider coordination and terminology. OpenAI says physicians preferred updated clinical answers across eight evaluated dimensions in a blind review exceeding 1,300 judgments; that is a company-reported evaluation, not independent proof of clinical outcomes.",
+      "implications": "Analysis: These integrations could reduce retyping and fragmented handoffs, but cross-application agents concentrate access to sensitive patient data. OpenAI says protected-health-information workflows require eligible services under a business associate agreement, appropriate security and retention settings, and protection across connected systems. Administrative review and clinician approval remain important around orders and patient communications.",
+      "takeaway": "Takeaway: Pilot a narrow nonclinical task first, verify the BAA and plugin access boundary, and require human review for high-impact steps.",
+      "development_summary": "OpenAI expanded healthcare computer-use workflows, evidence search and the available healthcare plugin catalog on November 16.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "openai:embedded-independent-assessments:apollo-metr-transluce-goodfire-agreements:2026-11-16",
+      "status": "new",
+      "topic": "Model assurance",
+      "title": "OpenAI signs embedded model-assessment agreements with four outside groups",
+      "publisher": "OpenAI",
+      "publication_date": "2026-11-16",
+      "event_date": "2026-11-16",
+      "freshness": "New • 1 day",
+      "highlights": "On November 16 OpenAI disclosed agreements for embedded assessments with Apollo Research, METR, Transluce and Goodfire. The pilot groups have distinct assignments: Apollo will examine subversion and monitoring claims, METR will scrutinize a major reinforcement-learning run and monitoring, Transluce will assess post-training alignment evaluations, and Goodfire will study model internals and training-run monitoring. Depending on scope, the assessors may gain access to unreleased checkpoints, evaluation records, monitoring systems and technical staff. These are planned or initial engagements, not findings that models passed an outside audit.",
+      "implications": "Analysis: Deep technical access can produce stronger evidence than public benchmark claims. The publication protocol permits confidential redactions and responsible-disclosure delays; that tradeoff may matter when interpreting eventual reports. The most useful outcome will be specific independently documented test failures, limitations and corrective actions rather than the existence of agreements alone.",
+      "takeaway": "Takeaway: Track public assessment results and their scopes before treating the program as independent verification of any model.",
+      "development_summary": "OpenAI announced signed arrangements for four external groups to conduct deep-access model alignment and monitoring assessments.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://openai.com/index/our-first-phase-of-embedded-assessments/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot:strict-plugin-only-customization-enterprise-managed-policies:2026-11-16",
+      "status": "new",
+      "topic": "Agent governance",
+      "title": "GitHub adds enterprise provenance controls for Copilot skills and MCP tools",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-16",
+      "event_date": "2026-11-16",
+      "freshness": "New • 1 day",
+      "highlights": "GitHub's November 16 changelog introduces the `strictPluginOnlyCustomization` managed setting for GitHub Enterprise Cloud organizations using enterprise-issued Copilot Business or Enterprise seats. Administrators can require selected customization types to originate in plugins or managed settings instead of unmanaged user or project configuration. The five covered categories are skills, custom agents, hooks, MCP servers and executable Copilot extensions, with independent toggles. GitHub explicitly warns that plugin-only enforcement is not by itself a trusted marketplace allowlist; `strictKnownMarketplaces` and related policies address permitted plugin sources.",
+      "implications": "Analysis: Organizations can now distinguish approved agent extensions from ad hoc local configuration without disabling extensibility altogether. However, a permitted plugin can still contain an overprivileged hook or unsafe MCP endpoint. Marketplace controls, change review, sandboxing and runtime auditing remain separate tasks. This setting also does not describe protections for unrelated agent harnesses.",
+      "takeaway": "Takeaway: Test policy inheritance and failure cases with nonproduction teams before requiring plugin-only MCP servers or hooks across an enterprise.",
+      "development_summary": "GitHub introduced enterprise-managed plugin provenance controls for five types of Copilot customization.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-16-control-where-github-copilot-customizations-come-from/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "cloudflare:artifacts:local-repository-git-workflows-simulator:2026-11-16",
+      "status": "material-update",
+      "topic": "Developer platform",
+      "title": "Cloudflare Artifacts adds local Git repositories and workflow simulation",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-16",
+      "event_date": "2026-11-16",
+      "freshness": "New • 1 day",
+      "highlights": "Cloudflare's November 16 update makes its Artifacts Git platform usable in local development. A Worker configured with an Artifacts binding can create or import repositories, issue repository tokens and offer local remotes that standard Git clients can clone and push. The simulator emits repository and token lifecycle events for local testing of Workers Workflows. Local repositories are isolated from deployed ones, and the normal local development path uses Wrangler, Vite or the Workers Vitest integration. Cloudflare lists current Wrangler and Git 2.32 or later as prerequisites.",
+      "implications": "Analysis: Local emulation is a meaningful expansion of the Artifacts open beta covered October 4, rather than a second launch of that beta. Teams can now exercise repository event handlers and token revocation paths without modifying production data. They should still validate concurrency, authentication boundaries, platform quotas and remote deployment differences before relying on parity.",
+      "takeaway": "Takeaway: Add a disposable local repository integration test to CI, and run an additional deployment test against the real service.",
+      "development_summary": "Cloudflare added local Artifacts Git remotes and event simulation on November 16, expanding its previously covered hosted beta.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-16-local-artifacts-development/"
+        }
+      ],
+      "updates_event_key": "cloudflare:artifacts:open-beta-agent-git-platform:2026-10-01",
+      "change_summary": "The October 1 open beta introduced the hosted Artifacts repository platform; Cloudflare's November 16 update newly adds isolated local Git repositories, token operations and Workflows event simulation for development."
+    },
+    {
+      "category": "cloud",
+      "event_key": "google-cloud:data-boundary:sovereign-controls-frameworks-dryrun-evidence:2026-11-16",
+      "status": "new",
+      "topic": "Sovereign cloud",
+      "title": "Google Cloud expands Data Boundary with dry-run enforcement and audit evidence",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-16",
+      "event_date": "2026-11-16",
+      "freshness": "New • 1 day",
+      "highlights": "Google's November 16 announcement describes a revised Data Boundary console experience for data residency, access and encryption governance. It supports preconfigured sovereignty and industry control frameworks, prevention guardrails at organization, folder and project levels, and monitor-only dry runs on existing workloads before enforcement. Google says users can browse over 40 public-sector, industry and sovereign AI control packages, designate regions within 29 supported commercial regions, and export machine-readable evidence for audits. It also describes Gemini-assisted customization and remediation logic. These are vendor-described capabilities, not certifications issued by regulators.",
+      "implications": "Analysis: Dry-run checks matter when existing cloud projects cannot tolerate an abrupt policy rollout. But a geographic configuration is not an automatic demonstration of legal compliance, and AI-generated remediation suggestions require review. The architecture must still account for backups, cross-region service dependencies, privileged support access and approved encryption key management.",
+      "takeaway": "Takeaway: Compare a real regulated workload against its requirements in monitor mode, then enforce only verified controls with recorded exceptions.",
+      "development_summary": "Google Cloud announced an updated Data Boundary experience with policy dry runs, hierarchy enforcement and exportable compliance evidence.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://cloud.google.com/blog/products/identity-security/inside-the-new-data-boundary-experience"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:cognito:oauth2-rfc8693-token-exchange-actor-claim-downstream-agents:2026-11-12",
+      "status": "new",
+      "topic": "Delegated identity",
+      "title": "Amazon Cognito adds OAuth token exchange for agent-to-service delegation",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-12",
+      "event_date": "2026-11-12",
+      "freshness": "Uncovered • 5 days",
+      "highlights": "AWS announced November 12 that Amazon Cognito supports OAuth 2.0 token exchange under RFC 8693. A service or AI agent can trade a user token for a new token targeted at a specific downstream audience with narrower permissions and no refresh token. When an actor token is included, Cognito adds an `act` claim identifying the intermediary. AWS cites a Model Context Protocol server calling a backend API for a signed-in user as one example. The feature works through the OAuth token endpoint or the GetDerivedToken API on Cognito Essentials and Plus plans in supported regions.",
+      "implications": "Analysis: This addresses a common design problem: intermediaries previously had to forward the original bearer token, sometimes carrying rights irrelevant to the downstream API, or implement their own token service. Token exchange reduces exposure but cannot replace downstream authorization checks or prevent a compromised agent using a legitimately scoped credential. Audience, expiry, actor and subject claims still need validation.",
+      "takeaway": "Takeaway: Prototype a two-service delegation chain and test replay, token confusion, revocation and privilege boundaries before adoption.",
+      "development_summary": "AWS launched RFC 8693 token exchange for Cognito, enabling narrower delegated access tokens with optional intermediary attribution.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/cognito-token-exchange/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "cloudflare-one:gateway-ueba:periodic-beaconing-http-risk-behavior:2026-11-16",
+      "status": "new",
+      "topic": "Network threat detection",
+      "title": "Cloudflare One introduces periodic HTTP beaconing as an endpoint risk signal",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-16",
+      "event_date": "2026-11-16",
+      "freshness": "New • 1 day",
+      "highlights": "Cloudflare's November 16 update adds a Periodic Beaconing Traffic behavior to Cloudflare One Gateway risk analysis. It looks for more than 30 regularly spaced requests from a user to one destination during six hours, with intervals from ten seconds to roughly twelve minutes and comparatively little traffic from coworkers. It relies on timing and rarity rather than IP reputation or threat intelligence. The enterprise-plan behavior is off by default, carries Info severity and generally reports events three to six hours after the observation window.",
+      "implications": "Analysis: Regular polling can reflect legitimate application behavior just as easily as malware command-and-control contact. This is a hypothesis-generating signal, not confirmation of compromise. Correlation with DNS, process execution, identity context, destination ownership and packet or proxy logs is needed before escalation. The reporting delay means it is not a real-time blocking mechanism.",
+      "takeaway": "Takeaway: Enable on a monitored pilot population, baseline expected polling and score alert precision before raising the risk weight.",
+      "development_summary": "Cloudflare introduced an opt-in enterprise behavioral signal for periodic HTTP contacts suggestive of beaconing.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-16-periodic-beaconing-traffic-ueba/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "github:ai-scan:org-bulk-start-20-repositories-preview:2026-11-16",
+      "status": "material-update",
+      "topic": "Code scanning",
+      "title": "GitHub enables bulk starting AI security scans across up to 20 repositories",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-16",
+      "event_date": "2026-11-16",
+      "freshness": "New • 1 day",
+      "highlights": "On November 16 GitHub added the ability to start AI Scan for repositories on as many as 20 repositories in one operation. Organization administrators can launch these scans when enabling the organization setting or from their code-scanning organization alerts page, while single-repository scans remain available. GitHub says findings appear in the existing code-scanning backlog alongside CodeQL and that AI Scan covers some languages outside CodeQL's support as well as additional issues in supported languages. The bulk-start experience remains a public preview and does not require a GitHub Copilot license.",
+      "implications": "Analysis: This is an operational addition to the November 13 API and organization-policy support already covered, not a fresh launch of the scanning product. Bulk execution makes initial exposure assessment faster, but volume and novel scanner semantics can complicate triage. Review coverage, alert quality and billable usage policies; no feature announcement establishes its false-positive rate.",
+      "takeaway": "Takeaway: Run a representative batch, manually verify high-severity findings and compare results against existing SAST rather than replacing it outright.",
+      "development_summary": "GitHub added one-click, up-to-20-repository bulk initiation for AI Scan on November 16 after its earlier policy API update.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-16-bulk-start-ai-scan-for-repositories/"
+        }
+      ],
+      "updates_event_key": "github:ai-scan:repository-scan-rest-api-organization-policy-automation:2026-11-13",
+      "change_summary": "The November 13 release added REST-based AI Scan configuration and organization policy controls; on November 16 GitHub separately added bulk scan initiation of up to 20 repositories from the organization UI."
+    },
+    {
+      "category": "security",
+      "event_key": "us-space-force:nssl-phase-three-lane-two:985m-combined-max-contract-modifications:2026-11-16",
+      "status": "new",
+      "topic": "Defense acquisition",
+      "title": "Space Force modifies three national-security launch contracts with $985 million combined ceiling",
+      "publisher": "U.S. Department of War",
+      "publication_date": "2026-11-16",
+      "event_date": "2026-11-16",
+      "freshness": "New • 1 day",
+      "highlights": "The November 16 federal contracts announcement reports modifications for SpaceX, United Launch Services and Blue Origin under National Security Space Launch Phase Three, Lane Two. The three modifications have a combined maximum ceiling value of $985 million; the release does not attribute that full amount to one provider. Space Systems Command is the contracting activity, and work is scheduled across contractor sites and launch facilities at Cape Canaveral, Kennedy Space Center and Vandenberg through April 2033. Crucially, the department says no funds are obligated at the time of these awards.",
+      "implications": "Analysis: The distinction between a contract ceiling and money obligated today is central to understanding defense acquisition announcements. The change extends potential procurement capacity and competition among launch providers, but does not prove a specific mission assignment, actual launch count or immediate revenue. Program execution will depend on later tasking, readiness and government funding decisions.",
+      "takeaway": "Takeaway: Track subsequent orders and obligations before treating this $985 million ceiling as spend or a booked launch manifest.",
+      "development_summary": "The U.S. defense contract notice announced a combined $985 million maximum ceiling modification for three national-security space launch contractors, with no initial obligation.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.war.gov/News/Contracts/Contract/Article/4649088/contracts-for-nov-16-2026/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "nyfed:empire-manufacturing-nov2026:conditions7p8-employment18p1:2026-11-16",
+      "status": "new",
+      "topic": "Regional manufacturing",
+      "title": "New York manufacturing still grows, but its November index drops to 7.8",
+      "publisher": "Federal Reserve Bank of New York",
+      "publication_date": "2026-11-16",
+      "event_date": "2026-11-16",
+      "freshness": "New • 1 day",
+      "highlights": "The New York Fed's November Empire State Manufacturing Survey, released November 16 from responses gathered November 2–9, shows the general business conditions diffusion index at positive 7.8 after 25.5 in October. New orders registered 3.0 and shipments 8.8, indicating modest reported improvement rather than a collapse. The employment index reached 18.1, its strongest since June 2022, while prices paid eased to 45.9 and prices received to 27.2. The figures measure shares of respondents reporting improvement or deterioration; they are not percentages of output or price inflation.",
+      "implications": "Analysis: New York-area manufacturers are reporting continued expansion and stronger staffing despite slower headline momentum and elevated price pressure. A one-region business survey can be an early signal but cannot establish national manufacturing activity, aggregate employment or the Federal Reserve's next rate decision. Small samples and diffusion-index volatility require caution.",
+      "takeaway": "Takeaway: Watch subsequent national manufacturing, jobs and inflation releases before extrapolating this regional reading into a broad economic trend.",
+      "development_summary": "The November Empire State survey showed activity still positive at 7.8 with improved labor indicators and cooler but elevated input prices.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.newyorkfed.org/survey/empire/empiresurvey_overview"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "federal-reserve:barr:ai-investment-debt-financial-stability-risks:2026-11-16",
+      "status": "new",
+      "topic": "Financial stability",
+      "title": "Fed governor warns about opaque obligations in AI data-center financing",
+      "publisher": "Federal Reserve Board",
+      "publication_date": "2026-11-16",
+      "event_date": "2026-11-16",
+      "freshness": "New • 1 day",
+      "highlights": "In a November 16 speech, Federal Reserve Governor Michael Barr examined financial-stability risks from the AI investment boom and referenced the Fed's latest Financial Stability Report. He said on-balance-sheet debt at the seven largest AI firms was expected to exceed $800 billion by year-end and cited estimates of off-balance-sheet commitments above $3 trillion, including long-term leases, energy contracts and guarantees. Barr also discussed circular financing, in which chipmakers and cloud providers invest in customers that then purchase their compute, along with leverage in trading markets. These were his analysis and cited estimates, not a new regulatory finding or rule.",
+      "implications": "Analysis: The main risk is opacity: commitments may pass through separate companies, collateral guarantees and funding vehicles, making exposures hard to price during an abrupt AI-demand slowdown. Barr also acknowledged that strong banks and productive long-lived infrastructure could mitigate damage, and did not forecast a crash. Revenue, utilization and contract accounting matter more than hype when assessing issuers.",
+      "takeaway": "Takeaway: Treat leverage, lease commitments and customer concentration as due-diligence questions, not a standalone prediction about markets.",
+      "development_summary": "Governor Barr outlined potential financial stability exposure to rapid AI data-center debt growth, complex guarantees and circular financing.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.federalreserve.gov/newsevents/speech/barr20261116a.htm"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "irs:tax-year2026:2027-filing-preparation-online-account-identity-pin-guidance:2026-11-16",
+      "status": "new",
+      "topic": "Household tax planning",
+      "title": "IRS opens its 2027 filing-preparation guidance with updated record and account steps",
+      "publisher": "Internal Revenue Service",
+      "publication_date": "2026-11-16",
+      "event_date": "2026-11-16",
+      "freshness": "New • 1 day",
+      "highlights": "The IRS issued its first 2027 tax-filing preparation reminder on November 16 for tax-year 2026 returns. It recommends collecting W-2s, relevant 1099s, digital-asset transaction records and other documentation before filing, and checking year-end transactions and new law provisions that may affect eligibility. The agency highlights existing online-account functions for tax transcripts, payments, identity-protection PINs and authorization of tax professionals. It also directs taxpayers to guidance on provisions involving certain qualified tips, overtime compensation, eligible vehicle loan interest and senior deductions. The release is a preparation notice, not an announcement of new filing deadlines or a blanket entitlement.",
+      "implications": "Analysis: Households with multiple employers, contractor income or investments can avoid mismatched forms and delayed refunds by maintaining records through December. Eligibility for tax-law provisions is fact-specific and may depend on income, documentation and statutory definitions. A reminder to check deductions is not evidence that a household can claim them, and private account access is not necessary for this general guidance.",
+      "takeaway": "Takeaway: Build a document checklist now and verify applicable 2026 rules against official IRS instructions before claiming deductions.",
+      "development_summary": "The IRS's November 16 filing-season reminder outlined record collection, account services and tax-law guidance for 2026 returns filed in 2027.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.irs.gov/newsroom/irs-reminder-take-steps-now-to-make-tax-filing-in-2027-easier"
+        }
+      ]
+    }
+  ]
+}
