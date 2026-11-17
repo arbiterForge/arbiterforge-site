@@ -1,0 +1,96 @@
+name: ArbiterForge Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '7,27,47 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-pages-${{ github.event_name == 'pull_request' && github.ref || 'main' }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      changed: ${{ steps.sim.outputs.changed }}
+      html_sha256: ${{ steps.sim.outputs.html_sha256 }}
+      source_commit: ${{ steps.sim.outputs.source_commit }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Site and publication contracts
+        run: python -m unittest discover -s tests -v
+      - name: Receive the successful SIM main publication
+        id: sim
+        env:
+          GH_TOKEN: ${{ github.token }}
+          POLL: ${{ github.event_name == 'schedule' && '--poll' || '' }}
+        run: python scripts/stage_sim.py "$RUNNER_TEMP/sim" "$GITHUB_SHA" $POLL
+      - name: Build the existing Jekyll site
+        if: steps.sim.outputs.changed == 'true'
+        uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697
+        with:
+          source: ./
+          destination: ./_site
+      - name: Compose SIM and verify rendered news
+        if: steps.sim.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          # Jekyll's Docker action creates root-owned output on Linux runners.
+          # Install only these generated paths; do not recursively change owners.
+          sudo install -d -m 755 _site/SIM
+          sudo install -m 644 "$RUNNER_TEMP/sim/index.html" _site/SIM/index.html
+          sudo install -m 644 "$RUNNER_TEMP/sim/publication.json" _site/SIM/publication.json
+          cmp CNAME _site/CNAME
+          python tests/check_news_build.py _site
+      - name: Retain the complete preview
+        if: steps.sim.outputs.changed == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: site-preview-${{ github.sha }}
+          path: _site/
+          retention-days: 7
+          if-no-files-found: error
+      - name: Upload the Pages artifact
+        if: steps.sim.outputs.changed == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.changed == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346
+
+  receive:
+    needs: [build, deploy]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Receive the actual custom-domain SIM bytes and directory redirect
+        env:
+          EXPECTED_DIGEST: ${{ needs.build.outputs.html_sha256 }}
+          EXPECTED_SOURCE: ${{ needs.build.outputs.source_commit }}
+        run: python scripts/check_sim_live.py "$GITHUB_SHA" "$EXPECTED_SOURCE" "$EXPECTED_DIGEST"

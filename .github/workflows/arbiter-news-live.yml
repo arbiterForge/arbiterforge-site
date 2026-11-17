@@ -1,8 +1,9 @@
 name: Arbiter News live publication
 on:
-  push:
+  workflow_run:
+    workflows: [ArbiterForge Pages]
+    types: [completed]
     branches: [main]
-    paths: ['_data/arbiter_news/**', '_layouts/arbiter-news.html', '_includes/arbiter-news-card.html', 'news/**', 'tests/check_news_live.py', '.github/workflows/arbiter-news-live.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -11,14 +12,17 @@ concurrency:
   cancel-in-progress: true
 jobs:
   verify-public-pages:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event != 'pull_request')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
           persist-credentials: false
       - name: Verify latest, dated archive, coverage, RSS and assets over public HTTPS
         env:
-          REVISION: ${{ github.sha }}
+          REVISION: ${{ github.event.workflow_run.head_sha || github.sha }}
         run: python tests/check_news_live.py "$REVISION"
