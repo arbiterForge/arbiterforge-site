@@ -51,6 +51,7 @@ jobs:
           sudo install -m 644 "$RUNNER_TEMP/sim/index.html" _site/SIM/index.html
           sudo install -m 644 "$RUNNER_TEMP/sim/publication.json" _site/SIM/publication.json
           cmp CNAME _site/CNAME
+          python scripts/check_home_build.py _site
           python tests/check_news_build.py _site
       - name: Retain the complete preview
         if: steps.sim.outputs.changed == 'true'

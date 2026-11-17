@@ -149,7 +149,8 @@ class SimPublicationTest(unittest.TestCase):
 
     def test_home_links_and_single_read_only_build(self):
         home = (ROOT / 'index.html').read_text(encoding='utf-8')
-        self.assertGreaterEqual(home.count('href="/SIM/"'), 2)
+        projects = json.loads((ROOT / '_data/projects.json').read_text(encoding='utf-8'))
+        self.assertEqual(next(p for p in projects if p['id'] == 'sim')['href'], '/SIM/')
         self.assertIn('href="/news/"', home)
         workflow = (ROOT / '.github/workflows/pages.yml').read_text()
         self.assertIn("cron: '7,27,47 * * * *'", workflow)
