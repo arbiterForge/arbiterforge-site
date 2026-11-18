@@ -69,3 +69,6 @@
 
 /* The HTML width/height attributes are intrinsic hints; force responsive height. */
 .case-hero-media img{height:auto}
+
+/* Crop index thumbnails intentionally; preserve originals on detail pages. */
+.case-index-visual img{height:auto;object-fit:cover;object-position:center center}
