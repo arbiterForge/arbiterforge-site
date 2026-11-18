@@ -72,3 +72,6 @@
 
 /* Crop index thumbnails intentionally; preserve originals on detail pages. */
 .case-index-visual img{height:auto;object-fit:cover;object-position:center center}
+
+/* The official codeArbiter artwork has text, which must not be cropped. */
+.case-index-visual img{object-fit:contain}
