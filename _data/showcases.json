@@ -1,0 +1,149 @@
+{
+  "codearbiter": {
+    "name": "codeArbiter",
+    "kind": "Developer tooling",
+    "number": "01",
+    "eyebrow": "A governance layer for AI coding agents",
+    "title": "Let agents build. Keep the evidence.",
+    "summary": "A repository-owned workflow for specs, decisions, tests, reviews, and durable project context. Coding agents can move fast without quietly skipping the work that makes a change trustworthy.",
+    "image": "/assets/codearbiter-project.webp",
+    "image_alt": "Official codeArbiter project artwork showing its hard-gate concept",
+    "image_note": "Project artwork from the codeArbiter repository. This is not a screenshot of a live review.",
+    "source": "https://github.com/arbiterForge/codeArbiter",
+    "open": "https://codearbiter.dev/",
+    "open_label": "Visit codeArbiter",
+    "guide": "https://codearbiter.dev/getting-started/choose-your-host/",
+    "guide_label": "Find your host",
+    "intro_title": "The problem isn't generating code.",
+    "intro": "It's knowing what happened before that code reached a branch. An agent can report success without preserving the failure it fixed, the test it ran, or the human decision it needed. codeArbiter puts those checkpoints beside the repository instead of leaving them in a transient conversation.",
+    "features": [
+      {
+        "title": "Work has a lane",
+        "text": "A docs change, a regression and a security-sensitive feature follow proportionate paths, each with named evidence requirements."
+      },
+      {
+        "title": "The repository remembers",
+        "text": "Specs, plans, architecture decisions, reviews and audit history live in a shared .codearbiter/ project store."
+      },
+      {
+        "title": "Different hosts, one record",
+        "text": "Claude Code, Codex CLI and the Pi preview use adapters around the same repository-owned state. Host-specific support and maturity are documented separately."
+      }
+    ],
+    "decisions": [
+      {
+        "label": "Tradeoff 01",
+        "title": "More friction where it matters",
+        "text": "A hard gate can interrupt an agent. That's deliberate for missing tests, unresolved decisions and unsafe commits. Smaller changes use narrower lanes."
+      },
+      {
+        "label": "Tradeoff 02",
+        "title": "Human authority stays explicit",
+        "text": "The harness blocks or requests evidence; it doesn't silently approve its own exceptions, merge to the default branch, or invent an answer to a confirmation question."
+      }
+    ],
+    "demo_title": "See how a gate changes the path",
+    "demo_description": "Choose a kind of change. This is an explanatory simulation of workflow rules, not an invocation of a codeArbiter hook.",
+    "note": "For a source-backed guard demonstration, see the real hook replay on the codeArbiter site.",
+    "proof": "https://codearbiter.dev/#proof",
+    "proof_label": "Inspect the real guard replay"
+  },
+  "sim": {
+    "name": "Service Integration Map",
+    "kind": "Infrastructure",
+    "number": "02",
+    "eyebrow": "Make an environment understandable before changing it",
+    "title": "See the services. Follow the dependencies.",
+    "summary": "A browser-based map for building a clearer picture of multiple networks, the services inside them, and the relationships that cross boundaries. Keep the working dataset in a local SQLite file.",
+    "image": "",
+    "image_alt": "",
+    "image_note": "Fictional network illustration. The real SIM interface and demo are available through Open SIM.",
+    "source": "https://github.com/SUaDtL/SIM",
+    "open": "/SIM/",
+    "open_label": "Open SIM",
+    "guide": "https://github.com/SUaDtL/SIM/blob/main/docs/user-guide.md",
+    "guide_label": "Read the user guide",
+    "intro_title": "Before modernization, understand what exists.",
+    "intro": "Service inventories rarely tell the whole story. A network might provide identity, consume a shared application, or depend on an external provider. SIM makes those relationships inspectable while keeping the dataset under the person's control.",
+    "features": [
+      {
+        "title": "Network-aware inventory",
+        "text": "Record networks, services, organizations, consumers, support assignments and explicit dependencies. Routes can include cross-domain solutions where recorded."
+      },
+      {
+        "title": "Questions become views",
+        "text": "Trace Depends on and Used by relationships, save assessment views and capture scoped maps as PNG or SVG."
+      },
+      {
+        "title": "The file stays yours",
+        "text": "The app runs without an account or backend. You open and save a local SQLite dataset; browser support determines whether saving is in place or via download."
+      }
+    ],
+    "decisions": [
+      {
+        "label": "Tradeoff 01",
+        "title": "No invisible discovery",
+        "text": "The map represents what someone has recorded. It doesn't claim unverified connections have been automatically found or validated."
+      },
+      {
+        "label": "Tradeoff 02",
+        "title": "A local file is the source of truth",
+        "text": "The data isn't kept in browser storage or sent to a central service. The user owns backup, handling and distribution decisions."
+      }
+    ],
+    "demo_title": "Follow a service relationship",
+    "demo_description": "Select a fictional service to highlight the connections it depends on or provides. This small diagram explains how to read the relationships; the real SIM app has the editor and saved data.",
+    "note": "SIM is not a classification-aware system. Avoid putting sensitive or controlled information into datasets without approved handling processes.",
+    "proof": "/SIM/",
+    "proof_label": "Try the real fictional demo inside SIM"
+  },
+  "singedterra": {
+    "name": "singedTerra",
+    "kind": "Browser game",
+    "number": "03",
+    "eyebrow": "Classic artillery, a modern browser",
+    "title": "The wind changes everything.",
+    "summary": "An artillery game with terrain that remembers your shots. Aim, choose power, manage resources, and survive the consequences in local battles or supported online rooms.",
+    "image": "/assets/singedterra-game.jpg",
+    "image_alt": "Actual singedTerra battle HUD on the Glassstorm Expanse battlefield",
+    "image_note": "Gameplay screenshot from the project's published README.",
+    "source": "https://github.com/SUaDtL/singedTerra",
+    "open": "https://suadtl.github.io/singedTerra/",
+    "open_label": "Play singedTerra",
+    "guide": "https://github.com/SUaDtL/singedTerra/blob/main/docs/PLAYING.md",
+    "guide_label": "How to play",
+    "intro_title": "Small decisions, dramatic consequences.",
+    "intro": "A tribute to the turn-based artillery games where angle, wind and ammunition matter. Shots carve craters, unsupported ground falls, and the battlefield changes as the match goes on. The visual console has evolved, but the tension comes from making the shot count.",
+    "features": [
+      {
+        "title": "Destructible terrain",
+        "text": "Explosions change a per-pixel terrain bitmap; craters, collapses and dirt weapons influence subsequent turns."
+      },
+      {
+        "title": "More than one way to play",
+        "text": "First Salvo, CPU practice and local 2–4-seat battles are available without an account. Online rooms use a separate service."
+      },
+      {
+        "title": "Shared rules, reproducible outcomes",
+        "text": "A deterministic TypeScript engine powers both hot-seat and online lockstep play; online rooms synchronize committed actions rather than streaming the whole state."
+      }
+    ],
+    "decisions": [
+      {
+        "label": "Tradeoff 01",
+        "title": "Simulation belongs to the shared engine",
+        "text": "A single engine defines physics and turns. The Canvas renderer is presentation and can't change a match result."
+      },
+      {
+        "label": "Tradeoff 02",
+        "title": "Keep verification honest",
+        "text": "Online verified achievements require actual backend verification; local and unavailable trials never invent a verified result."
+      }
+    ],
+    "demo_title": "Try a ranging thought experiment",
+    "demo_description": "Adjust elevation, power and crosswind to see an approximate trajectory change. This is a teaching illustration, not the singedTerra engine or a guaranteed shot predictor.",
+    "note": "The game runs in your browser. Casual local play needs no sign-in; online rooms use Supabase.",
+    "proof": "https://github.com/SUaDtL/singedTerra/blob/main/docs/ARCHITECTURE.md",
+    "proof_label": "Read how the deterministic engine works"
+  }
+}

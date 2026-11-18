@@ -1,6 +1,6 @@
 {% assign project = include.project %}
 <article class="project-card" id="project-{{ project.id | escape }}" data-reveal data-project="{{ project.id | escape }}" data-accent="{{ project.accent | escape }}">
-  <a class="project-visual" href="{{ project.href | escape }}" tabindex="-1" aria-hidden="true">
+  <a class="project-visual" href="/projects/{{ project.id | escape }}/" tabindex="-1" aria-hidden="true">
     {% case project.visual %}
     {% when 'singedterra' %}
       <img class="game-art" src="/assets/singedterra-game.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
@@ -18,11 +18,12 @@
   </a>
   <div class="project-copy">
     <div class="project-kicker"><span>{{ project.kind | escape }}</span><span class="project-number">{{ include.number | prepend: '0' | slice: -2, 2 }}</span></div>
-    <h3><a href="{{ project.href | escape }}">{{ project.name | escape }}</a></h3>
+    <h3><a href="/projects/{{ project.id | escape }}/">{{ project.name | escape }}</a></h3>
     <p>{{ project.description | escape }}</p>
     <div class="project-actions">
       <a class="project-open" href="{{ project.href | escape }}">{{ project.action | escape }} {% if project.href contains '://' %}{% include icon.html name="arrow-up-right" %}{% else %}{% include icon.html name="arrow-right" %}{% endif %}</a>
       {% if project.source %}<a class="project-source" href="{{ project.source | escape }}" aria-label="{{ project.name | escape }} source on GitHub">{% include icon.html name="github" %}<span>Source</span></a>{% endif %}
     </div>
+    <a class="project-more" href="/projects/{{ project.id | escape }}/">Inside the build {% include icon.html name="arrow-right" %}</a>
   </div>
 </article>
