@@ -1,0 +1,82 @@
+---
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Generative Studio · suadtl</title>
+  <meta name="description" content="An interactive kinetic sculpture. Explore living geometry, flowing filaments and impossible machines in suadtl's generative studio.">
+  <link rel="canonical" href="https://arbiterforge.com/lab/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Generative Studio · suadtl">
+  <meta property="og:description" content="A kinetic sculpture you can shape, remix and make your own.">
+  <meta property="og:image" content="https://arbiterforge.com/assets/social-card.png">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  {% include theme-head.html %}
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/atelier.css">
+  <link rel="stylesheet" href="/assets/generative-studio.css">
+  <script defer src="/assets/generative-studio.js"></script>
+</head>
+<body class="lab-page">
+  <a class="skip-link" href="#studio-controls">Skip to controls</a>
+  <header class="studio-nav">
+    <a class="wordmark" href="/" aria-label="suadtl home">suadtl<span aria-hidden="true">.</span></a>
+    <nav class="studio-nav-links" aria-label="Main navigation">
+      <a href="/#projects">Projects</a><a href="/lab/" aria-current="page">Playground</a><a href="/news/">News</a><a href="/#about">About</a>
+    </nav>
+    <div class="studio-nav-right"><button class="theme-toggle" type="button" aria-label="Dark appearance" aria-pressed="false" hidden><span class="theme-moon">{% include icon.html name="moon" %}</span><span class="theme-sun">{% include icon.html name="sun" %}</span></button></div>
+  </header>
+  <main id="main">
+    <section class="lab-stage" data-generative="lab" aria-labelledby="studio-title">
+      <canvas data-generative-scene tabindex="0" role="img" aria-label="Interactive kinetic sculpture; use left and right arrow keys to rotate, space to pause, R to regenerate"></canvas>
+      <div class="lab-stage-copy">
+        <span class="eyebrow">An experiment in endless assembly</span>
+        <h1 id="studio-title">The impossible <em>machine.</em></h1>
+        <p>Every shape is computed. Nothing is prerecorded. Change the rules and watch a new world take form.</p>
+      </div>
+      <div class="lab-stage-caption">Generative system / live</div>
+      <p class="lab-stage-hint">Drag to orbit · Tap to send a pulse</p>
+      <span class="lab-stage-number">STUDIO / 001</span>
+    </section>
+    <div class="studio-deck" id="studio-controls">
+      <div class="studio-deck-head">
+        <h2>Make it yours.</h2>
+        <p>One seed gives you the same structure every time. Each visual mode rearranges the system's geometry. Drag the sculpture, send it a pulse, or let it build indefinitely. No account, downloads, or remote rendering required.</p>
+      </div>
+      <div class="studio-panel">
+        <section aria-labelledby="studio-modes-title">
+          <h3 id="studio-modes-title">01 / Choose a system</h3>
+          <div class="studio-modes" role="group" aria-label="Visual mode">
+            <button type="button" data-studio-mode="foundry" aria-pressed="true">Foundry</button>
+            <button type="button" data-studio-mode="filaments" aria-pressed="false">Filaments</button>
+            <button type="button" data-studio-mode="bloom" aria-pressed="false">Bloom</button>
+            <button type="button" data-studio-mode="orbit" aria-pressed="false">Orbit</button>
+          </div>
+          <div class="studio-control-grid">
+            <label class="studio-field">Movement <input data-studio-speed type="range" min="0.25" max="2" step="0.05" value="1"></label>
+            <label class="studio-field">Complexity <input data-studio-density type="range" min="0.5" max="1.5" step="0.1" value="1"></label>
+            <label class="studio-field">Seed <input data-studio-seed type="number" min="0" max="4294967295" step="1" value="2026" inputmode="numeric"></label>
+          </div>
+        </section>
+        <section aria-labelledby="studio-actions-title">
+          <h3 id="studio-actions-title">02 / Interact and share</h3>
+          <div class="studio-actions">
+            <button type="button" data-studio-reroll>Generate another</button>
+            <button type="button" data-studio-impulse>Send a pulse</button>
+            <button type="button" data-studio-pause aria-pressed="false">Pause sculpture</button>
+            <button type="button" data-studio-capture>Save a still</button>
+            <button type="button" data-studio-share>Copy a seed link</button>
+          </div>
+          <p class="studio-status" role="status" aria-live="polite" data-studio-status></p>
+          <p class="studio-support">Performance-minded: capped frame rate and resolution, and motion stops offscreen or when the tab is hidden. Your global motion preference and system reduced-motion setting always take priority.</p>
+          <p class="studio-support"><small>Keyboard: focus the sculpture, use ← → to orbit, space to pause, R to regenerate.</small></p>
+          <noscript><p class="studio-support">The interactive sculpture requires JavaScript. The rest of the site stays usable without it.</p></noscript>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="studio-foot"><span>suadtl · A little structure, a little play.</span>{% include motion-control.html %}<a href="/">Back to the workbench</a></footer>
+</body>
+</html>
