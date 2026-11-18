@@ -141,6 +141,8 @@ html body .topic-panel { border-radius:12px; }
 html body .essay-mast { position:relative; isolation:isolate; padding:3rem; margin-block:2rem 3rem; border:1px solid #766a4840; border-radius:14px; background:#111811; color:#cbd1bf; gap:2rem; }
 html body .essay-mast h1 { font-size:clamp(3.7rem,6vw,5.5rem); font-weight:400; color:#f3f0e3; }
 html body .essay-mast .eyebrow, html body .essay-mast .byline { color:#c4cbb3; }
+html body .essay-mast .byline a { color:#e2e6d1; text-decoration:underline; text-decoration-thickness:1px; }
+html body .essay-mast :focus-visible { outline-color:#d8deb8; }
 html body .essay-title h1 span::after { background:#d1b97544; }
 html body .essay-motif { margin:0; min-height:290px; align-self:stretch; padding:0; position:relative; background:#111811 url('hero-forge.webp') 66% 50%/cover no-repeat; border-radius:9px; }
 html body .essay-motif svg { visibility:hidden; max-height:290px; }

@@ -53,7 +53,7 @@ test('skip navigation, theme persistence and hero keyboard controls', async ({ p
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   await page.goto('/');
   await expect(page.locator('[data-living-hero]')).toHaveAttribute('data-hero-ready', 'true');
-  const orbit = page.locator('[data-hero-mode="orbit"]');
+  const orbit = page.locator('button[data-hero-mode="orbit"]');
   await orbit.focus();
   await page.keyboard.press('Enter');
   await expect(orbit).toHaveAttribute('aria-pressed', 'true');
@@ -72,8 +72,8 @@ test('reduced motion and no-script homepage retain the reading path', async ({ b
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
   await expect(page.locator('[data-hero-pulse]')).toBeDisabled();
-  await page.locator('[data-hero-mode="bloom"]').click();
-  await expect(page.locator('[data-hero-mode="bloom"]')).toHaveAttribute('aria-pressed', 'true');
+  await page.locator('button[data-hero-mode="bloom"]').click();
+  await expect(page.locator('button[data-hero-mode="bloom"]')).toHaveAttribute('aria-pressed', 'true');
   await reduced.close();
   const noScript = await browser.newContext({ baseURL, javaScriptEnabled: false, viewport: { width: 320, height: 740 } });
   const staticPage = await noScript.newPage();

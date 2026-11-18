@@ -84,6 +84,9 @@
     const intensityInput=document.querySelector('[data-studio-speed]');
     const densityInput=document.querySelector('[data-studio-density]');
     const pauseButton=document.querySelector('[data-studio-pause]');
+    const pulseButton=document.querySelector('[data-studio-impulse]');
+    const stateLabel=host.querySelector('[data-studio-state]');
+    const hint=host.querySelector('[data-studio-hint]');
     const modeButtons=[...document.querySelectorAll('[data-studio-mode]')];
     if(seedInput) seedInput.value=String(seed);
     const syncing=(updateUrl=true)=>{
@@ -103,15 +106,33 @@
       draw();
       announce(`${modeNames[mode]} sculpture, seed ${seed}`);
     };
-    function allowed(){return visible && !holding && !document.hidden && !prefersReduced.matches && root.dataset.motion==='on' && !connection?.saveData;}
+    function motionBlock(){
+      if(prefersReduced.matches)return 'Reduced motion';
+      if(connection?.saveData)return 'Data saving';
+      if(root.dataset.motion!=='on')return 'Motion off';
+      return '';
+    }
+    function allowed(){return visible && !holding && !document.hidden && !motionBlock();}
     function sync(){
+      const blocked=motionBlock(), running=allowed();
       if(pauseButton){
-        pauseButton.disabled=prefersReduced.matches || root.dataset.motion==='off' || !!connection?.saveData;
-        pauseButton.setAttribute('aria-pressed',String(holding));
-        pauseButton.textContent=holding?'Resume sculpture':'Pause sculpture';
+        pauseButton.disabled=!!blocked;
+        pauseButton.setAttribute('aria-pressed',String(holding || !!blocked));
+        pauseButton.textContent=blocked || (holding?'Resume sculpture':'Pause sculpture');
       }
-      if(allowed()) { if(!frame){last=0;frame=requestAnimationFrame(tick);} }
+      if(pulseButton)pulseButton.disabled=!running;
+      if(stateLabel)stateLabel.textContent=blocked || (holding?'Paused':running?'Live':'Resting');
+      if(hint)hint.textContent=running?'Drag to orbit · Tap to send a pulse':'Drag to orbit · Still view';
+      if(lab)canvas.setAttribute('aria-label','Interactive sculpture; use left and right arrow keys to rotate, R to regenerate'+(blocked?'':', space to '+(holding?'resume':'pause')));
+      // A paused pulse cannot progress. Clear it instead of storing an invisible
+      // impulse that unexpectedly returns when motion is enabled later.
+      if(!running && energy){energy=0;needsDraw=true;}
+      if(running) { if(!frame){last=0;frame=requestAnimationFrame(tick);} }
       else { if(frame)cancelAnimationFrame(frame);frame=0;last=0; if(needsDraw)draw(); }
+    }
+    function togglePause(){
+      if(motionBlock())return;
+      holding=!holding;sync();
     }
     function resize(){
       const bounds=host.getBoundingClientRect();
@@ -284,6 +305,7 @@
       frame=requestAnimationFrame(tick);
     }
     function impulse(ev){
+      if(!allowed())return;
       energy=1;
       if(ev&&ev.clientX!=null){
         const r=host.getBoundingClientRect();
@@ -298,8 +320,8 @@
         if(idx<0)return;mode=idx;syncing();
       }));
       document.querySelector('[data-studio-reroll]')?.addEventListener('click',()=>{seed=randomSeed();syncing();});
-      document.querySelector('[data-studio-impulse]')?.addEventListener('click',()=>impulse());
-      pauseButton?.addEventListener('click',()=>{holding=!holding;sync();if(holding)draw();});
+      pulseButton?.addEventListener('click',()=>impulse());
+      pauseButton?.addEventListener('click',togglePause);
       seedInput?.addEventListener('change',()=>{
         const n=Number(seedInput.value);
         if(!Number.isSafeInteger(n)||n<0||n>4294967295){seedInput.value=String(seed);announce('Use a seed between 0 and 4294967295');return;}
@@ -341,7 +363,7 @@
       host.addEventListener('pointerup',end);host.addEventListener('pointercancel',()=>{drag=null;});
       document.addEventListener('keydown',e=>{
         if(document.activeElement!==canvas)return;
-        if(e.key===' '){e.preventDefault();holding=!holding;sync();}
+        if(e.key===' '){e.preventDefault();togglePause();}
         if(e.key.toLowerCase()==='r'){seed=randomSeed();syncing();}
         if(e.key==='ArrowLeft'){e.preventDefault();targetX=clamp(targetX-.07,-.7,.7);draw();}
         if(e.key==='ArrowRight'){e.preventDefault();targetX=clamp(targetX+.07,-.7,.7);draw();}

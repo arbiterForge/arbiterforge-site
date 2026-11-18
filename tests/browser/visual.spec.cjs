@@ -1,5 +1,17 @@
 const { test, expect } = require('@playwright/test');
 const { stablePage, noOverflow } = require('./helpers.cjs');
+const { existsSync } = require('node:fs');
+
+async function compare(target, name, testInfo) {
+  // Missing expectations fail, but still produce a correctly clipped review candidate.
+  // Candidate files are evidence only; this never writes the snapshots directory.
+  if (!existsSync(testInfo.snapshotPath(name))) {
+    const path = testInfo.outputPath('candidate-' + name);
+    await target.screenshot({ path, animations: 'disabled', caret: 'hide', scale: 'css' });
+    await testInfo.attach('candidate-' + name, { path, contentType: 'image/png' });
+  }
+  await expect(target).toHaveScreenshot(name);
+}
 
 // Daily publishing must not rewrite a visual baseline: use a fixed dated edition.
 // Missing snapshots fail normal CI. Only explicit visual:update records replacements.
@@ -19,22 +31,22 @@ const views = [
   ['not-found-light-390', '/this-page-does-not-exist/', 390, 844, 'light'],
 ];
 for (const [name, path, width, height, theme] of views) {
-  test(name, async ({ page }) => {
+  test(name, async ({ page }, testInfo) => {
     await page.setViewportSize({ width, height });
     await stablePage(page, path, theme);
     await noOverflow(page);
-    await expect(page).toHaveScreenshot(name + '.png');
+    await compare(page, name + '.png', testInfo);
   });
 }
 
 // A focused section snapshot protects all project cards without daily-edition text.
 for (const width of [390, 1440]) {
-  test(`home-projects-light-${width}`, async ({ page }) => {
+  test(`home-projects-light-${width}`, async ({ page }, testInfo) => {
     await page.setViewportSize({ width, height: 900 });
     await stablePage(page, '/');
     const section = page.locator('#projects');
     await section.scrollIntoViewIfNeeded();
     await section.locator('img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
-    await expect(section).toHaveScreenshot(`home-projects-light-${width}.png`);
+    await compare(section, `home-projects-light-${width}.png`, testInfo);
   });
 }

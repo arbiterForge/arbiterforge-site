@@ -39,6 +39,8 @@ excluded from indexing and offers direct links back to the site. Metadata and
 sharing-image checks run on the actual composed build, not only the templates.
 SIM retains its independently verified upstream HTML and metadata.
 
+![The new recovery page in the rendered production preview](production-polish-404.jpg)
+
 ## Interaction and runtime
 
 - Identical contour geometry with shared angle samples instead of repeated
