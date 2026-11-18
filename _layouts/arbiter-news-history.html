@@ -10,7 +10,7 @@
   {% include page-meta.html title=history_meta_title description=history_meta_description image='/assets/social-news.png' image_alt='Arbiter News: The daily read, with an editorial list of AI and developer tools, cloud and infrastructure, security and defense tech, and markets and money.' schema_type='CollectionPage' %}
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="Arbiter News" href="/news/feed.xml">
-  {% include theme-head.html %}
+  {% include theme-head.html newspaper=true %}
   <link rel="stylesheet" href="/news/assets/news.css">
   <script defer src="/news/assets/news.js"></script>
 </head>
@@ -18,27 +18,12 @@
   <a class="skip" href="#main">Skip to historical records</a>
   {% include news-header.html %}
   <main id="main" class="shell" tabindex="-1">
-    <section class="mast">
-      <div class="mast-grid">
-        <div class="mast-reading">
-          <p class="eyebrow">Arbiter News / Historical archive</p>
-          <div class="mast-copy">
-            <h1>From the archive.</h1>
-            <p>{% case e.archive_kind %}{% when 'restored' %}Original story text recovered from the saved briefing, presented in the site's shared layout.{% when 'partial' %}Part of this date's original story text was recovered. The rest survives only as coverage records.{% else %}The original full briefing is unavailable. This page preserves the coverage records that remain; it is not a reconstructed edition.{% endcase %}</p>
-          </div>
-          <div class="edition-meta">
-            <time datetime="{{ e.edition_date }}">{{ e.edition_date | date: '%A · %B %-d, %Y' }}</time>
-            <p class="edition-count">{{ e.record_count }} retained records</p>
-            <p class="edition-context">{{ e.restored_count }} full texts recovered</p>
-          </div>
-          <nav class="edition-links" aria-label="Historical edition">
-            <a href="/news/archive/">All archive dates</a>
-            <a href="/news/">Read the latest edition</a>
-            <a href="/news/archive/status.json">Recovery status</a>
-          </nav>
-        </div>
-        <div class="mast-art" aria-hidden="true" data-reveal>{% include studio-art.html id='news-studio' compact=true %}</div>
-      </div>
+    <section class="index-mast">
+      <p class="desk-label">Historical archive</p>
+      <h1><time datetime="{{ e.edition_date }}">{{ e.edition_date | date: '%B %-d, %Y' }}</time></h1>
+      <p>{% case e.archive_kind %}{% when 'restored' %}Original story text recovered from the saved briefing.{% when 'partial' %}Part of this date’s original story text was recovered. The rest survives as coverage records.{% else %}The full briefing is unavailable. This edition preserves the coverage records that remain.{% endcase %}</p>
+      <p class="history-count">{{ e.record_count }} retained records · {{ e.restored_count }} full texts recovered</p>
+      <nav class="edition-links" aria-label="Historical edition"><a href="/news/archive/">All archive dates</a><a href="/news/">Latest edition</a><a href="/news/archive/status.json">Recovery status</a></nav>
     </section>
     <aside class="signal signal--recovery">
       <b>Historical material · not new reporting</b>

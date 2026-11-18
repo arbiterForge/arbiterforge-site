@@ -1,42 +1,77 @@
-/* SPDX-License-Identifier: MIT. Progressive enhancement: all panels work without JS. */
+/* SPDX-License-Identifier: MIT. The server renders every desk and story as ordinary fragment links. */
 (() => {
   'use strict';
   const list = document.querySelector('.tabs');
   if (!list) return;
   const tabs = [...list.querySelectorAll('[data-tab]')];
-  const panels = [...document.querySelectorAll('[data-panel]')];
-  const keys = new Set(panels.map(p => p.dataset.panel));
-  if (!tabs.length || tabs.some(t => !keys.has(t.dataset.tab))) return;
+  const panels = tabs.map(tab => document.getElementById('panel-' + tab.dataset.tab));
+  if (!tabs.length || panels.some(panel => !panel)) return;
+
   list.setAttribute('role', 'tablist');
-  function activate(tab, focus = false, writeHash = false) {
-    for (const t of tabs) {
-      t.setAttribute('role', 'tab');
-      t.setAttribute('aria-controls', 'panel-' + t.dataset.tab);
-      t.setAttribute('aria-selected', String(t === tab));
-      t.tabIndex = t === tab ? 0 : -1;
-    }
-    for (const p of panels) {
-      p.setAttribute('role', 'tabpanel');
-      p.setAttribute('aria-labelledby', 'tab-' + p.dataset.panel);
-      p.tabIndex = 0;
-      p.hidden = p.dataset.panel !== tab.dataset.tab;
-    }
-    if (focus) tab.focus({preventScroll: true});
-    if (writeHash) {
-      try { history.replaceState(null, '', '#panel-' + tab.dataset.tab); } catch (_) { /* file:// or restricted browser */ }
-      // Reveal the active tab horizontally without jumping the page vertically.
-      const left = tab.offsetLeft - list.offsetLeft;
-      list.scrollLeft = Math.max(0, left - (list.clientWidth - tab.offsetWidth) / 2);
-    }
+  tabs.forEach((tab, index) => {
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-controls', panels[index].id);
+    panels[index].setAttribute('role', 'tabpanel');
+    panels[index].setAttribute('aria-labelledby', tab.id);
+    panels[index].tabIndex = 0;
+  });
+
+  function select(index) {
+    tabs.forEach((tab, i) => {
+      tab.setAttribute('aria-selected', String(i === index));
+      tab.tabIndex = i === index ? 0 : -1;
+      panels[i].hidden = i !== index;
+    });
   }
+
+  function selectTab(index, focus = false) {
+    select(index);
+    if (focus) tabs[index].focus({ preventScroll: true });
+    try { history.replaceState(null, '', '#' + panels[index].id); }
+    catch (_) { /* Tabs remain usable when the browser restricts history. */ }
+  }
+
   tabs.forEach((tab, i) => {
-    tab.addEventListener('click', e => { e.preventDefault(); activate(tab, false, true); });
-    tab.addEventListener('keydown', e => {
-      const next = {ArrowRight: (i+1)%tabs.length, ArrowLeft: (i-1+tabs.length)%tabs.length, Home: 0, End: tabs.length-1}[e.key];
-      if (next !== undefined) { e.preventDefault(); activate(tabs[next], true, true); }
+    tab.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      selectTab(i);
+    });
+    tab.addEventListener('keydown', event => {
+      const next = { ArrowRight: (i + 1) % tabs.length, ArrowLeft: (i - 1 + tabs.length) % tabs.length, Home: 0, End: tabs.length - 1 }[event.key];
+      if (next !== undefined) {
+        event.preventDefault();
+        selectTab(next, true);
+      }
     });
   });
-  const fromHash = () => tabs.find(t => '#panel-' + t.dataset.tab === location.hash) || tabs[0];
-  activate(fromHash());
-  window.addEventListener('hashchange', () => activate(fromHash()));
+
+  function followFragment() {
+    const target = document.getElementById(location.hash.slice(1));
+    const index = panels.indexOf(target?.closest('[data-panel]'));
+    if (index === -1) {
+      if (!location.hash) select(0);
+      return;
+    }
+    select(index);
+    if (target.matches('article[id], [data-panel]')) {
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ block: 'start' });
+    }
+  }
+
+  select(0);
+  followFragment();
+  window.addEventListener('hashchange', followFragment);
+
+  let closedForScreen = [];
+  window.addEventListener('beforeprint', () => {
+    if (closedForScreen.length) return;
+    closedForScreen = [...document.querySelectorAll('details:not([open])')];
+    closedForScreen.forEach(details => { details.open = true; });
+  });
+  window.addEventListener('afterprint', () => {
+    closedForScreen.forEach(details => { details.open = false; });
+    closedForScreen = [];
+  });
 })();

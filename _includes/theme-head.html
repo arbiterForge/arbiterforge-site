@@ -8,8 +8,8 @@
   } catch (_) { /* Reading also works without browser storage. */ }
 </script>
 <link rel="stylesheet" href="/assets/theme.css">
-<link rel="stylesheet" href="/assets/studio-art.css">
+{% unless include.newspaper %}<link rel="stylesheet" href="/assets/studio-art.css">{% endunless %}
 <link rel="stylesheet" href="/assets/motion.css">
-<link rel="stylesheet" href="/assets/atelier.css">
+{% unless include.newspaper %}<link rel="stylesheet" href="/assets/atelier.css">{% endunless %}
 <script defer src="/assets/site.js"></script>
 <script defer src="/assets/motion.js"></script>

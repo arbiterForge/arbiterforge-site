@@ -23,7 +23,7 @@
   {% include page-meta.html title=news_meta_title description=news_meta_description canonical=news_meta_url image='/assets/social-news.png' image_alt='Arbiter News: The daily read, with an editorial list of AI and developer tools, cloud and infrastructure, security and defense tech, and markets and money.' schema_type='CollectionPage' %}
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="Arbiter News" href="/news/feed.xml">
-  {% include theme-head.html %}
+  {% include theme-head.html newspaper=true %}
   <link rel="stylesheet" href="/news/assets/news.css">
   <script defer src="/news/assets/news.js"></script>
 </head>
@@ -33,26 +33,17 @@
   <main id="main" class="shell" tabindex="-1">
     {% if page.archive %}
     {% assign historical = site.data.arbiter_news.backfill.dates | sort: 'edition_date' %}
-    <section class="mast">
-      <div class="mast-grid">
-        <div class="mast-reading">
-          <p class="eyebrow">Arbiter News / The edition archive</p>
-          <div class="mast-copy">
-            <h1>The archive.</h1>
-            <p>Every published edition keeps its own address. Dates below are edition dates, not a claim that every story happened that day.</p>
-          </div>
-          <nav class="edition-links archive-jump" aria-label="Archive sections">
-            <a href="#daily-editions">Daily editions <span>{{ editions | size }}</span></a>
-            <a href="#historical-records">Historical records <span>{{ historical | size }}</span></a>
-            <a href="/news/feed.xml">RSS</a>
-          </nav>
-        </div>
-        <div class="mast-art" aria-hidden="true" data-reveal>{% include studio-art.html id='news-studio' compact=true %}</div>
-      </div>
+    <section class="index-mast">
+      <h1>The edition archive</h1>
+      <p>Browse the daily briefings by edition date.</p>
+      <nav class="edition-links" aria-label="Archive sections">
+        <a href="#daily-editions">Daily editions ({{ editions | size }})</a>
+        <a href="#historical-records">Historical records ({{ historical | size }})</a>
+      </nav>
     </section>
     <section class="archive-section" aria-labelledby="daily-editions">
       <header class="archive-section-head" data-reveal>
-        <div><p class="eyebrow"><span aria-hidden="true">01 / </span>The reading record</p><h2 id="daily-editions">Daily editions</h2></div>
+        <h2 id="daily-editions">Daily editions</h2>
         <span class="total">{{ editions | size }} <small>editions</small></span>
       </header>
       <div class="archive-grid">
@@ -64,7 +55,7 @@
     </section>
     <section class="archive-section archive-section--history" aria-labelledby="historical-records">
       <header class="archive-section-head" data-reveal>
-        <div><p class="eyebrow"><span aria-hidden="true">02 / </span>From the original files</p><h2 id="historical-records">Historical records</h2></div>
+        <h2 id="historical-records">Historical records</h2>
         <span class="total">{{ historical | size }} <small>dates</small></span>
       </header>
       <aside class="signal signal--recovery">
@@ -80,33 +71,44 @@
       <p class="note archive-note">Historical dates identify the original edition, not the backfill date or a new verification of its claims. Some early repeat stories were not retained by the coverage ledger; same-day editions may be combined. Only available text is shown. The latest page and daily RSS continue to use published daily editions, not these historical records.</p>
     </section>
     {% else %}
-    <section class="mast">
-      <div class="mast-grid">
-        <div class="mast-reading">
-          <p class="eyebrow">Arbiter News / The reading habit</p>
-          <div class="mast-copy">
-            <h1>The daily read.</h1>
-            <p>{{ edition.intro | escape }}</p>
-          </div>
-          <div class="edition-meta">
-            <time datetime="{{ edition.edition_date }}">{{ edition.edition_date | date: '%A · %B %-d, %Y' }}</time>
-            <p class="edition-count">{{ edition.stories | size }} stories · {{ site.data.arbiter_news.categories | size }} topics</p>
-            <p class="edition-context">AI-assisted. Source-linked.</p>
-          </div>
-          <nav class="edition-links" aria-label="This edition">
-            <a href="/news/{{ edition.edition_date }}/">Permanent link</a>
-            <a href="/news/archive/">Archive</a>
-            <a href="/news/feed.xml">RSS</a>
-          </nav>
+    {% assign lead = edition.stories | first %}
+    {% assign lead_desk = site.data.arbiter_news.categories | where: 'id', lead.category | first %}
+    <div class="issue-line" id="front-page">
+      <time datetime="{{ edition.edition_date }}">{{ edition.edition_date | date: '%A, %B %-d, %Y' }}</time>
+      <span>Daily edition <span aria-hidden="true">/</span> {{ edition.stories | size }} stories</span>
+    </div>
+    {% if lead %}
+    <section class="lead-story" aria-labelledby="lead-title">
+      <div class="lead-copy">
+        <p class="lead-kicker"><span>Lead story</span><span>{{ lead_desk.short | escape }}</span></p>
+        <h1 id="lead-title"><a href="#story-{{ lead.category }}-1">{{ lead.title | escape }}</a></h1>
+        <p class="deck">{{ lead.development_summary | escape }}</p>
+        <div class="lead-foot">
+          <a class="read-story" href="#story-{{ lead.category }}-1">Read the story {% include icon.html name="arrow-right" %}</a>
+          <span>{{ lead.publisher | escape }}</span>
         </div>
-        <div class="mast-art" aria-hidden="true" data-reveal>{% include studio-art.html id='news-studio' compact=true %}</div>
       </div>
+      <figure class="edition-art">
+        <img src="/news/assets/edition-airwaves.webp" width="1200" height="800" alt="" fetchpriority="high">
+        <figcaption><i>Airwaves</i><span>Edition illustration</span></figcaption>
+      </figure>
     </section>
-    <aside class="signal">
-      <b><span class="signal-rule" aria-hidden="true"></span>In this edition</b>
-      <p>{{ edition.overview | escape }}</p>
-    </aside>
+    <nav class="desk-previews" aria-label="Headlines from the other desks">
+      {% for cat in site.data.arbiter_news.categories %}
+      {% assign first_story = edition.stories | where: 'category', cat.id | first %}
+      {% if first_story and cat.id != lead.category %}
+      <a class="desk-preview" href="#story-{{ cat.id }}-1">
+        <span class="desk-label">{% include topic-icon.html name=cat.id %}{{ cat.short | escape }}</span>
+        <span class="teaser-title">{{ first_story.title | escape }}</span>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </nav>
+    {% else %}
+    <h1>Daily edition</h1><p>{{ edition.intro | escape }}</p>
+    {% endif %}
     {% if edition.migration_note %}<p class="migration">{{ edition.migration_note | escape }}</p>{% endif %}
+    <div class="briefing-title"><h2>The briefing</h2><a href="/news/{{ edition.edition_date }}/">Edition permalink {% include icon.html name="arrow-up-right" %}</a></div>
     <div class="tabbar">
       <nav class="tabs" aria-label="Briefing categories">
         {% for cat in site.data.arbiter_news.categories %}
@@ -120,32 +122,49 @@
       {% assign items = edition.stories | where: 'category', cat.id %}
       <section class="panel topic--{{ cat.id }}" id="panel-{{ cat.id }}" data-panel="{{ cat.id }}" aria-labelledby="heading-{{ cat.id }}">
         <header class="section-head">
-          <div class="section-heading" data-reveal>
-            <span class="section-symbol" aria-hidden="true">{% include topic-icon.html name=cat.id %}</span>
-            <div>
-              <span class="eyebrow"><span class="topic-number" aria-hidden="true">0{{ forloop.index }} / </span>{{ cat.label | escape }}</span>
-              <h2 id="heading-{{ cat.id }}">{{ cat.name | escape }}</h2>
-            </div>
+          <div class="section-heading">
+            <h2 id="heading-{{ cat.id }}">{{ cat.name | escape }}</h2>
           </div>
           <span class="total">{{ items | size }} <small>stories</small></span>
         </header>
         {% if items.size < 3 %}<p class="note">Coverage shortfall: {{ edition.shortfalls[cat.id] | escape }}</p>{% endif %}
-        <div class="stories">
-          {% for story in items %}
-          {% include arbiter-news-card.html story=story category=cat number=forloop.index %}
-          {% endfor %}
+        <div class="desk-layout">
+          {% if items.size > 0 %}
+          <nav class="desk-index" aria-label="{{ cat.short | escape }} story index">
+            <p class="desk-label">In this desk</p>
+            <ol>
+              {% for story in items %}
+              <li><a href="#story-{{ cat.id }}-{{ forloop.index }}">{{ story.topic | escape }}</a></li>
+              {% endfor %}
+            </ol>
+          </nav>
+          {% endif %}
+          <div class="stories">
+            {% for story in items %}
+            {% include arbiter-news-card.html story=story category=cat number=forloop.index %}
+            {% endfor %}
+          </div>
         </div>
+        <nav class="desk-end" aria-label="Continue reading after {{ cat.short | escape }}">
+          <a href="#front-page">Back to headlines <span aria-hidden="true">↑</span></a>
+          {% unless forloop.last %}
+          {% assign next_desk = site.data.arbiter_news.categories[forloop.index] %}
+          <a href="#panel-{{ next_desk.id }}">Next desk <strong>{{ next_desk.short | escape }}</strong> {% include icon.html name="arrow-right" %}</a>
+          {% endunless %}
+        </nav>
       </section>
       {% endfor %}
     </div>
-    <aside class="notes">
-      <div class="notes-heading" data-reveal><p class="eyebrow">On the record</p><h2>Sources &amp; editorial notes</h2></div>
-      <div class="notes-copy">
+    <details class="edition-notes">
+      <summary>Edition overview &amp; editorial notes</summary>
+      <div class="note-text">
+        <p>{{ edition.intro | escape }}</p>
+        <p>{{ edition.overview | escape }}</p>
+        <p>This AI-assisted briefing links to original sources. Implications and takeaways are editorial analysis. Vendor claims reflect the publisher’s findings. Financial coverage is general information.</p>
         <p>{{ edition.history_note | escape }}</p>
-        <p>This is an AI-assisted briefing, not a live feed. Publication dates and source links remain visible; implications and takeaways are editorial analysis. Vendor claims are not independent benchmarks. Financial coverage is general information, not personalized advice.</p>
-        <p><a href="/news/coverage.json">Machine-readable coverage history</a> · <a href="https://github.com/arbiterForge/arbiterforge-site/tree/main/news">Source &amp; publishing guide</a></p>
+        <nav class="edition-links" aria-label="Edition references"><a href="/news/{{ edition.edition_date }}/">Permanent edition link</a><a href="/news/coverage.json">Coverage history</a><a href="https://github.com/arbiterForge/arbiterforge-site/tree/main/news">Publishing guide</a></nav>
       </div>
-    </aside>
+    </details>
     <script type="application/json" id="arbiter-coverage-ledger">{"edition_date":{{ edition.edition_date | jsonify }},"history_url":"https://arbiterforge.com/news/coverage.json","stories":{{ edition.stories | jsonify | replace: '<', '\u003c' }}}</script>
     {% endif %}
   </main>
