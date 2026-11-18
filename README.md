@@ -57,7 +57,7 @@ from a seed, with Foundry, Filaments, Bloom, and Orbit systems. Visitors can
 adjust movement and density, regenerate, pause, export a still, and share a seed
 via URL. No external rendering service or third-party JavaScript is required.
 
-The same motion preference applies across pages. System reduced-motion, Save-Data, hidden tabs, and offscreen observation suspend animation. Canvas resolution and frame rate are bounded. Keep the base artwork and semantic links available if JavaScript or Canvas is unavailable. Run `tests/test_generative_studio.py` alongside the existing tests.
+The same motion preference applies across pages. System reduced-motion, Save-Data, hidden tabs, and offscreen observation suspend animation. Canvas resolution and frame rate are bounded. The homepage samples fewer curve points, then fewer contours, when consecutive frames show sustained rendering pressure; paused artwork always uses full detail. Form and pulse controls briefly yield the canvas so their feedback can paint promptly. Keep the base artwork and semantic links available if JavaScript or Canvas is unavailable. Run `tests/test_generative_studio.py` alongside the existing tests.
 
 ## Add or update a project
 

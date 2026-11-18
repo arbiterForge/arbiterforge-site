@@ -2,6 +2,7 @@
    Three continuous parametric surfaces, drawn as projected contour threads.
    Geometry is cached; a frame projects at most 104 × 145 points. Canvas drawing
    is capped at 30 fps, DPR 1.65 (1.4 compact), and 1.15 million backing pixels.
+   Slow animated frames sample fewer points; paused artwork keeps full detail.
    Pointer attraction and expanding waves deform the projected silk, while a
    small camera tilt makes depth tangible. No dependencies, requests, or storage. */
 (() => {
@@ -39,6 +40,7 @@
     let waveA, waveB, lineCos, lineSin, glow;
     let mode = 'weave', morph = 1, playTime = 0;
     let frame = 0, lastPaint = 0, nextPaintAt = 0, dirty = true, failed = false;
+    let detail = 0, slowFrames = 0, frameSample = null, feedbackUntil = 0;
     let inViewport = false, intersecting = true, pageActive = true, wasAnimating = false;
     let down = null;
     const pointer = { active: false, pending: false, clientX: 0, clientY: 0,
@@ -184,8 +186,26 @@
     function stop() {
       if (frame) cancelAnimationFrame(frame);
       frame = 0; lastPaint = 0; nextPaintAt = 0;
+      detail = 0; slowFrames = 0; frameSample = null; feedbackUntil = 0;
     }
     function schedule() { if (animate() && !frame) frame = requestAnimationFrame(tick); }
+    function yieldForFeedback() {
+      if (!animate()) return;
+      // Let pressed/focused controls reach the screen before the next canvas
+      // frame. This does not delay their DOM updates or start another loop.
+      feedbackUntil = performance.now() + 50;
+    }
+    function measureFrame(now) {
+      if (!frameSample) return;
+      // Canvas may rasterize after paint() returns. Include the gap to the next
+      // RAF so command-submission timing cannot hide a busy renderer.
+      const slow = frameSample.duration > FRAME_MS * .75 || now - frameSample.finished > FRAME_MS * 1.5;
+      slowFrames = slow ? slowFrames + 1 : Math.max(0, slowFrames - 1);
+      if (slowFrames >= 2 && detail < 2) {
+        detail++; slowFrames = 0;
+      }
+      frameSample = null;
+    }
     function sync() {
       const running = animate();
       if (!running) {
@@ -202,18 +222,18 @@
       schedule();
     }
 
-    function pathForLine(index, onlyFront = false) {
+    function pathForLine(index, onlyFront = false, sampleStep = 1) {
       const offset = index * stride;
       ctx.beginPath();
       let open = false;
-      for (let j = 0; j <= segments; j++) {
+      for (let j = 0; j <= segments; j += sampleStep) {
         const k = offset + j * 3;
         if (onlyFront && projected[k + 2] > -.06) { open = false; continue; }
         if (!open) { ctx.moveTo(projected[k], projected[k + 1]); open = true; }
         else ctx.lineTo(projected[k], projected[k + 1]);
       }
     }
-    function project() {
+    function project(sampleStep, contourStep) {
       // Input can arrive far faster than the 30fps drawing budget. Read layout
       // only for the latest position, once per painted frame.
       if (pointer.pending) {
@@ -233,15 +253,16 @@
       const fieldRadius = Math.min(width, height) * .54;
       const pullX = pointer.x * width, pullY = pointer.y * height;
       const pulseScale = Math.min(width, height);
-      for (let j = 0; j <= segments; j++) {
+      for (let j = 0; j <= segments; j += sampleStep) {
         const u = TAU * j / segments;
         waveA[j] = (Math.sin(2 * u + playTime * .55) - Math.sin(2 * u)) * .021;
         waveB[j] = (Math.cos(3 * u - playTime * .43) - Math.cos(3 * u)) * .018;
       }
       for (const line of lineOrder) {
         const i = line.index;
+        if (i % contourStep) continue;
         let depth = 0;
-        for (let j = 0; j <= segments; j++) {
+        for (let j = 0; j <= segments; j += sampleStep) {
           const k = i * stride + j * 3;
           const x = source[k] + (target[k] - source[k]) * blend + waveA[j] * lineCos[i];
           const y = source[k + 1] + (target[k + 1] - source[k + 1]) * blend + waveB[j];
@@ -271,15 +292,18 @@
           projected[k] = px; projected[k + 1] = py; projected[k + 2] = z2;
           depth += z2;
         }
-        line.depth = depth / (segments + 1);
+        line.depth = depth / (segments / sampleStep + 1);
       }
       lineOrder.sort((a, b) => b.depth - a.depth);
     }
     function paint() {
       if (!permitted() || !target || failed) return;
       const started = performance.now();
+      const liveDetail = animate() ? detail : 0;
+      const sampleStep = liveDetail ? 2 : 1, contourStep = liveDetail > 1 ? 2 : 1;
+      const brightness = contourStep === 1 ? 1 : 1.6;
       try {
-        project();
+        project(sampleStep, contourStep);
         ctx.clearRect(0, 0, width, height);
         if (!glow) {
           glow = ctx.createRadialGradient(width * .5, height * .5, 0, width * .5, height * .5, scale * 1.8);
@@ -292,19 +316,20 @@
         ctx.lineCap = 'round'; ctx.lineJoin = 'round';
         for (const line of lineOrder) {
           const i = line.index;
+          if (i % contourStep) continue;
           if (i % 9 === 0) {
-            pathForLine(i);
-            ctx.strokeStyle = `rgba(${colors[i]},.035)`; ctx.lineWidth = 4; ctx.stroke();
+            pathForLine(i, false, sampleStep);
+            ctx.strokeStyle = `rgba(${colors[i]},${.035 * brightness})`; ctx.lineWidth = 4; ctx.stroke();
           }
-          pathForLine(i);
-          const opacity = clamp(.29 - line.depth * .11, .19, .42);
+          pathForLine(i, false, sampleStep);
+          const opacity = clamp(.29 - line.depth * .11, .19, .42) * brightness;
           ctx.strokeStyle = `rgba(${colors[i]},${opacity})`;
           ctx.lineWidth = lines < 100 ? .75 : .65;
           ctx.stroke();
         }
-        for (let i = 1; i < lines; i += 5) {
-          pathForLine(i, true);
-          ctx.strokeStyle = 'rgba(243,242,220,.58)'; ctx.lineWidth = .85; ctx.stroke();
+        for (let i = contourStep; i < lines; i += 5 * contourStep) {
+          pathForLine(i, true, sampleStep);
+          ctx.strokeStyle = `rgba(243,242,220,${contourStep === 1 ? .58 : .74})`; ctx.lineWidth = .85; ctx.stroke();
         }
         ctx.globalCompositeOperation = 'source-over';
         dirty = false;
@@ -322,14 +347,16 @@
         // the existing 30fps interval remains the limiting factor.
         const finished = performance.now();
         nextPaintAt = finished + Math.max(0, finished - started);
+        frameSample = animate() ? { finished, duration: finished - started } : null;
       }
     }
     function tick(timestamp) {
       frame = 0;
       if (!animate()) { sync(); return; }
+      measureFrame(performance.now());
       if (!lastPaint) lastPaint = timestamp - FRAME_MS;
       const elapsed = timestamp - lastPaint;
-      if (elapsed >= FRAME_MS - .01 && timestamp >= nextPaintAt) {
+      if (elapsed >= FRAME_MS - .01 && timestamp >= Math.max(nextPaintAt, feedbackUntil)) {
         const delta = Math.min(elapsed / 1000, .08);
         playTime += delta;
         morph = Math.min(1, morph + delta / 1.25);
@@ -348,8 +375,11 @@
     function selectMode(next) {
       if (!(next in NAMES) || next === mode || failed || !target) return;
       if (animate()) {
+        yieldForFeedback();
         const blend = ease(morph);
-        source = Float32Array.from(target, (value, i) => source[i] + (value - source[i]) * blend);
+        const blended = new Float32Array(target.length);
+        for (let i = 0; i < target.length; i++) blended[i] = source[i] + (target[i] - source[i]) * blend;
+        source = blended;
         morph = 0;
       } else { source = shapes[next]; morph = 1; }
       mode = next; target = shapes[next]; dirty = true;
@@ -360,6 +390,7 @@
     }
     function sendPulse(x = .5, y = .5) {
       if (!animate()) return;
+      yieldForFeedback();
       if (pulses.length === 3) pulses.shift();
       pulses.push({ x: clamp(x, 0, 1), y: clamp(y, 0, 1), age: 0 });
       schedule();
@@ -399,6 +430,8 @@
 
     modes.forEach(button => button.addEventListener('click', () => selectMode(button.dataset.heroMode)));
     if (pulseButton) pulseButton.addEventListener('click', () => sendPulse());
+    controls?.addEventListener('pointerdown', yieldForFeedback, { passive: true });
+    controls?.addEventListener('keydown', yieldForFeedback);
     stage.addEventListener('pointermove', pointerMove, { passive: true });
     stage.addEventListener('pointerdown', pointerDown, { passive: true });
     stage.addEventListener('pointerup', pointerUp, { passive: true });

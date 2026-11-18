@@ -80,7 +80,7 @@ test('reduced motion and no-script homepage retain the reading path', async ({ b
   await staticPage.goto('/');
   await expect(staticPage.locator('[data-hero-fallback]')).toBeVisible();
   await expect(staticPage.locator('[data-hero-controls]')).toBeHidden();
-  await expect(staticPage.getByRole('link', { name: 'View projects', exact: true })).toBeVisible();
+  await expect(staticPage.getByRole('link', { name: 'View projects', exact: true })).toBeInViewport({ ratio: 1 });
   await noOverflow(staticPage);
   await noScript.close();
 });

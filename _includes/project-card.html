@@ -12,6 +12,7 @@
     {% else %}
       <span class="project-preview-fallback">{{ project.kind | escape }}</span>
     {% endcase %}
+    <span class="project-preview-cue">Inside the build {% include icon.html name="arrow-right" %}</span>
   </a>
   <div class="project-copy">
     <div class="project-kicker"><span>{{ project.kind | escape }}</span><span class="project-number">{{ include.number | prepend: '0' | slice: -2, 2 }}</span></div>

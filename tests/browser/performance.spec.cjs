@@ -57,6 +57,7 @@ test('mobile loading, layout stability and hero response stay within budgets', a
           const result = window.__siteLab = {
             lcpMs: 0, cls: 0, longestTaskMs: 0, blockingTimeMs: 0,
             observedInteractionMs: 0, observedInteractionCount: 0, observedInputCount: 0,
+            observedInteractions: [],
             eventTimingSupported: PerformanceObserver.supportedEntryTypes.includes('event'),
           };
           let lastReport = -Infinity, reportCount = 0, lastTick = performance.now();
@@ -106,10 +107,22 @@ test('mobile loading, layout stability and hero response stay within budgets', a
           if (result.eventTimingSupported) new PerformanceObserver(list => {
             for (const entry of list.getEntries()) {
               if (!entry.interactionId) continue;
-              interactions.set(entry.interactionId, Math.max(interactions.get(entry.interactionId) || 0, entry.duration));
+              const previous = interactions.get(entry.interactionId);
+              if (previous && previous.durationMs >= entry.duration) continue;
+              const action = entry.target?.closest?.('[data-hero-mode],[data-hero-pulse]');
+              interactions.set(entry.interactionId, {
+                id: entry.interactionId, event: entry.name, startMs: Math.round(entry.startTime),
+                target: action?.hasAttribute('data-hero-pulse') ? 'hero-pulse'
+                  : action?.getAttribute('data-hero-mode') || entry.target?.id || entry.target?.tagName?.toLowerCase() || 'detached',
+                durationMs: entry.duration,
+                inputDelayMs: Math.round(entry.processingStart - entry.startTime),
+                processingMs: Math.round(entry.processingEnd - entry.processingStart),
+                presentationMs: Math.max(0, Math.round(entry.startTime + entry.duration - entry.processingEnd)),
+              });
             }
             result.observedInteractionCount = interactions.size;
-            result.observedInteractionMs = Math.max(0, ...interactions.values());
+            result.observedInteractions = [...interactions.values()];
+            result.observedInteractionMs = Math.max(0, ...result.observedInteractions.map(entry => entry.durationMs));
             report('interaction');
           }).observe({ type: 'event', buffered: true, durationThreshold: 16 });
         });

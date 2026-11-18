@@ -199,6 +199,7 @@ function setup(options = {}) {
     get paints() { return paints; },
     get boundsReads() { return boundsReads; },
     get gradients() { return gradients; },
+    get vertices() { return commands.filter(command => command[0] === 'moveTo' || command[0] === 'lineTo').length; },
     get picture() { return JSON.stringify(commands); },
     get text() { return [...nodes.values()].map(node => node.textContent).join('|'); },
     step(time = clock + 50) {
@@ -381,6 +382,54 @@ test('Slow canvas frames leave an equal idle interval for other work', () => {
   assert.equal(fast.paints, fastPaints, 'Fast frames retain the 30fps ceiling');
   fast.step(134);
   assert.equal(fast.paints, fastPaints + 1, 'A fast canvas keeps the existing cadence');
+});
+
+test('Sustained slow drawing reduces work and pausing restores full detail', () => {
+  const scene = setup({paintCostMs: 30});
+  const fullDetail = scene.vertices;
+  for (const time of [60, 90, 120]) scene.step(time);
+  assert.ok(scene.vertices < fullDetail * .6, 'Slow drawing first reduces points along each contour');
+  assert.ok(scene.vertices > fullDetail * .4, 'The first reduction retains every contour');
+  for (const time of [150, 180, 210, 240]) scene.step(time);
+  assert.ok(scene.vertices < fullDetail * .3, 'Persistently slow drawing also reduces contour density');
+  assert.ok(scene.vertices > fullDetail * .2, 'Adaptive drawing remains bounded at one quarter of the original work');
+  scene.motion('off');
+  assert.ok(scene.vertices > fullDetail * .95, 'A paused still restores the full cached geometry');
+  assertPaused(scene, 'Adaptive scene paused');
+});
+
+test('Deferred rasterization is measured after command submission', () => {
+  const scene = setup();
+  const fullDetail = scene.vertices;
+  // Canvas commands themselves are cheap in this environment, but the browser
+  // cannot deliver its next RAF until the deferred frame work completes.
+  scene.step(80); scene.step(160);
+  assert.ok(scene.vertices < fullDetail * .6, 'Repeated delayed frames reduce work even with cheap JavaScript paints');
+  scene.reduce(true);
+  assert.ok(scene.vertices > fullDetail * .95, 'Reduced-motion artwork retains full detail');
+  assertPaused(scene, 'Reduced motion after adaptive rendering');
+
+  const isolated = setup(), original = isolated.vertices;
+  isolated.step(80); isolated.step(96); isolated.step(114); isolated.step(148);
+  assert.ok(isolated.vertices > original * .95, 'An isolated delay does not lower rendering detail');
+});
+
+test('Control feedback paints before another animated canvas frame', () => {
+  const scene = setup();
+  scene.step(100);
+  const painted = scene.paints;
+  scene.modes[1].dispatch('click');
+  assert.equal(scene.modes[1].getAttribute('aria-pressed'), 'true', 'The selected form updates immediately');
+  for (const time of [116.7, 133.4, 149.9]) scene.step(time);
+  assert.equal(scene.paints, painted, 'The next browser frames can present the control feedback without redrawing the canvas');
+  assert.equal(scene.frames.size, 1, 'Feedback yielding keeps one animation loop');
+  scene.step(150);
+  assert.equal(scene.paints, painted + 1, 'Animation resumes after the short feedback interval');
+  scene.pulse.dispatch('click');
+  scene.step(166.7); scene.step(183.4);
+  assert.equal(scene.paints, painted + 1, 'Pulse input also lets feedback through before rendering');
+  scene.step(200);
+  assert.equal(scene.paints, painted + 2);
 });
 
 test('Mode buttons change a paused still without starting animation', () => {
