@@ -66,3 +66,6 @@
 .case--singedterra .case-hero-media img{aspect-ratio:16/9;object-fit:contain}
 .case--sim .case-hero-media .sim-study{aspect-ratio:70/43}
 @media(max-width:760px){.case--codearbiter .case-hero-media img{aspect-ratio:5/2}.case--singedterra .case-hero-media img{aspect-ratio:16/9}.case--sim .case-hero-media .sim-study{aspect-ratio:70/43}}
+
+/* The HTML width/height attributes are intrinsic hints; force responsive height. */
+.case-hero-media img{height:auto}
