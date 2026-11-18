@@ -200,19 +200,19 @@
       "event_key": "us-census:advance-retail-food-service-sales:october-2026-released-2026-11-17",
       "status": "new",
       "topic": "Consumer spending",
-      "title": "U.S. advance retail sales rise just 0.2% in October to $748.2 billion",
+      "title": "U.S. retail sales estimated 0.2% higher in October at $748.2 billion",
       "publisher": "U.S. Census Bureau",
       "publication_date": "2026-11-17",
       "event_date": "2026-11-17",
       "freshness": "New • 1 day",
-      "highlights": "On November 17 the U.S. Census Bureau released advance October 2026 retail and food-services sales of approximately $748.2 billion, up 0.2 percent from September. The earlier September release had reported stronger month-over-month growth, illustrating the slower headline pace in October. These figures are sales receipts, not a measure of real consumption adjusted for changing prices, and the newest month is based on a preliminary subsample subject to revision. The report is a national retail indicator and does not establish that all stores or household income groups experienced the same pattern.",
+      "highlights": "The Census Bureau's November 17 advance estimate put October 2026 retail and food-services sales at $748.2 billion, up 0.2 percent from September. Crucially, the month-over-month change has a 90 percent confidence margin of error of ±0.4 percentage points; the interval includes zero and a possible decline, so the data do not establish an actual increase. The September gain was 0.8 percent. These figures cover nominal sales receipts, not inflation-adjusted consumption, and the latest month is a preliminary subsample subject to revision. The national indicator does not establish that every store or household group followed the same pattern.",
       "implications": "Analysis: A modest nominal increase can coexist with weaker inflation-adjusted purchasing if prices rose faster than receipts. The data matter for holiday-season demand, retail inventories, consumer-focused earnings and the Federal Reserve's assessment of spending conditions. One monthly reading is not enough to diagnose a recession or predict a rate decision; category detail, wages and price changes need to be assessed together.",
       "takeaway": "Takeaway: Interpret October's softer spending with inflation and subsequent revisions, not as a stand-alone verdict on household health.",
-      "development_summary": "Census reported $748.2 billion in October 2026 advance retail and food-services sales, a 0.2 percent monthly increase.",
+      "development_summary": "Census estimated October 2026 retail and food-services sales at $748.2 billion, a statistically uncertain 0.2 percent month-over-month increase with a ±0.4 percentage-point margin of error.",
       "sources": [
         {
-          "label": "Original source",
-          "url": "https://www.census.gov/econwidget"
+          "label": "Original Census Bureau November 17, 2026 retail release",
+          "url": "https://www.census.gov/retail/sales.html"
         }
       ]
     },
@@ -232,8 +232,8 @@
       "development_summary": "The Fed reported October industrial production down 0.4 percent and capacity utilization at 76.4 percent.",
       "sources": [
         {
-          "label": "Original source",
-          "url": "https://www.federalreserve.gov/feeds/G17.html"
+          "label": "Federal Reserve November 17, 2026 G.17 release",
+          "url": "https://www.federalreserve.gov/releases/g17/20261117/default.htm"
         }
       ]
     },
