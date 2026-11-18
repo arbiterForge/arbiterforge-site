@@ -53,6 +53,7 @@ jobs:
           cmp CNAME _site/CNAME
           python scripts/check_home_build.py _site
           python tests/check_news_build.py _site
+          python tests/check_metadata_build.py _site
       - name: Retain the complete preview
         if: steps.sim.outputs.changed == 'true'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
@@ -67,9 +68,44 @@ jobs:
         with:
           path: _site
 
-  deploy:
+  browser:
     needs: build
-    if: needs.build.outputs.changed == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    if: needs.build.outputs.changed == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      options: --ipc=host
+    defaults:
+      run:
+        working-directory: tests/browser
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Receive the exact composed site
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: site-preview-${{ github.sha }}
+          path: _site
+      - name: Install pinned browser checks
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Check behavior, accessibility, visuals and mobile performance
+        run: npm test
+      - name: Retain browser evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: browser-quality-${{ github.sha }}
+          path: |
+            tests/browser/playwright-report/
+            tests/browser/test-results/
+          retention-days: 14
+          if-no-files-found: warn
+
+  deploy:
+    needs: [build, browser]
+    if: ${{ !cancelled() && needs.build.result == 'success' && needs.build.outputs.changed == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && needs.browser.result == 'success' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:

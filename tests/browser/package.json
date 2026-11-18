@@ -1,0 +1,15 @@
+{
+  "name": "suadtl-site-browser-checks",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test",
+    "visual:update": "playwright test visual.spec.cjs --update-snapshots",
+    "serve": "node serve.cjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "playwright-core": "1.64.1"
+  }
+}

@@ -22,10 +22,10 @@ class AtelierTests(unittest.TestCase):
         self.assertIn('motion-control.html', hero)
         self.assertIn('aria-hidden="true"', hero)
 
-    def test_shared_head_loads_enhancement_after_preferences(self):
+    def test_shared_head_keeps_art_styles_without_unused_hero_runtime(self):
         head = (ROOT / '_includes/theme-head.html').read_text()
-        self.assertLess(head.index('/assets/motion.js'), head.index('/assets/atelier.js'))
-        self.assertEqual(head.count('/assets/atelier.js'), 1)
+        self.assertNotIn('/assets/atelier.js', head)
+        self.assertEqual(head.count('/assets/motion.js'), 1)
         self.assertEqual(head.count('/assets/atelier.css'), 1)
 
     @unittest.skipUnless(shutil.which('node'), 'Node is needed for renderer lifecycle tests')

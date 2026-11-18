@@ -9,7 +9,10 @@
     document.documentElement.dataset.theme = dark ? 'dark' : 'light';
     toggle.setAttribute('aria-pressed', String(dark));
     toggle.title = dark ? 'Switch to light appearance' : 'Switch to dark appearance';
-    if (meta) meta.content = dark ? '#181e1b' : '#f7f6f2';
+    // Match the actual shared palette, including the homepage's dark hero.
+    if (meta) meta.content = document.body.classList.contains('home-cinematic')
+      ? '#0c1715'
+      : getComputedStyle(document.documentElement).getPropertyValue('--paper').trim();
   }
 
   applyTheme(document.documentElement.dataset.theme);

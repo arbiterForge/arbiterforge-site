@@ -1,21 +1,19 @@
 ---
+title: "The Generative Studio · suadtl"
+description: "An interactive kinetic sculpture. Explore living geometry, flowing filaments and impossible machines in suadtl's generative studio."
+social_image: "/assets/social-lab.png"
+social_image_alt: "A bloom-shaped contour sculpture beside A little structure. A little play. The Generative Studio by suadtl."
+sitemap: true
 ---
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Generative Studio · suadtl</title>
-  <meta name="description" content="An interactive kinetic sculpture. Explore living geometry, flowing filaments and impossible machines in suadtl's generative studio.">
-  <link rel="canonical" href="https://arbiterforge.com/lab/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="The Generative Studio · suadtl">
-  <meta property="og:description" content="A kinetic sculpture you can shape, remix and make your own.">
-  <meta property="og:image" content="https://arbiterforge.com/assets/social-card.png">
+  {% include page-meta.html %}
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   {% include theme-head.html %}
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="/assets/atelier.css">
   <link rel="stylesheet" href="/assets/generative-studio.css">
   <script defer src="/assets/generative-studio.js"></script>
 </head>
@@ -30,14 +28,14 @@
   </header>
   <main id="main">
     <section class="lab-stage" data-generative="lab" aria-labelledby="studio-title">
-      <canvas data-generative-scene tabindex="0" role="img" aria-label="Interactive kinetic sculpture; use left and right arrow keys to rotate, space to pause, R to regenerate"></canvas>
+      <canvas data-generative-scene tabindex="0" role="img" aria-label="Interactive sculpture; use left and right arrow keys to rotate, R to regenerate"></canvas>
       <div class="lab-stage-copy">
         <span class="eyebrow">An experiment in endless assembly</span>
         <h1 id="studio-title">The impossible <em>machine.</em></h1>
         <p>Every shape is computed. Nothing is prerecorded. Change the rules and watch a new world take form.</p>
       </div>
-      <div class="lab-stage-caption">Generative system / live</div>
-      <p class="lab-stage-hint">Drag to orbit · Tap to send a pulse</p>
+      <div class="lab-stage-caption" data-studio-state>Studio</div>
+      <p class="lab-stage-hint" data-studio-hint>Enable JavaScript to interact</p>
       <span class="lab-stage-number">STUDIO / 001</span>
     </section>
     <div class="studio-deck" id="studio-controls">
@@ -64,14 +62,14 @@
           <h3 id="studio-actions-title">02 / Interact and share</h3>
           <div class="studio-actions">
             <button type="button" data-studio-reroll>Generate another</button>
-            <button type="button" data-studio-impulse>Send a pulse</button>
-            <button type="button" data-studio-pause aria-pressed="false">Pause sculpture</button>
+            <button type="button" data-studio-impulse disabled>Send a pulse</button>
+            <button type="button" data-studio-pause aria-pressed="true" disabled>Motion unavailable</button>
             <button type="button" data-studio-capture>Save a still</button>
             <button type="button" data-studio-share>Copy a seed link</button>
           </div>
           <p class="studio-status" role="status" aria-live="polite" data-studio-status></p>
           <p class="studio-support">Performance-minded: capped frame rate and resolution, and motion stops offscreen or when the tab is hidden. Your global motion preference and system reduced-motion setting always take priority.</p>
-          <p class="studio-support"><small>Keyboard: focus the sculpture, use ← → to orbit, space to pause, R to regenerate.</small></p>
+          <p class="studio-support"><small>Keyboard: focus the sculpture, use ← → to orbit and R to regenerate. Space pauses or resumes when motion is on.</small></p>
           <noscript><p class="studio-support">The interactive sculpture requires JavaScript. The rest of the site stays usable without it.</p></noscript>
         </section>
       </div>

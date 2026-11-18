@@ -8,3 +8,9 @@ exclude:
   - docs/review
   - README.md
   - PREMIUM-ASSETS.md
+  # Publishing and recovery documentation is linked at its canonical GitHub
+  # source. Do not expose duplicate default-theme pages through Jekyll.
+  - news/README.md
+  - news/BACKFILL.md
+  - news/EDITORIAL.md
+  - news/PUBLISHING.md

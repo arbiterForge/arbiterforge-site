@@ -23,6 +23,9 @@ with patch.dict(sys.modules, {'stage_sim': sim}):
     live_spec.loader.exec_module(live)
 COMMIT = 'a' * 40
 SITE_COMMIT = 'b' * 40
+DEPLOY_GUARD = ("${{ !cancelled() && needs.build.result == 'success' && needs.build.outputs.changed == 'true' "
+                "&& github.ref == 'refs/heads/main' && github.event_name != 'pull_request' "
+                "&& needs.browser.result == 'success' }}")
 HTML = ('''<!doctype html><title>SIM - Service Integration Map</title>
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'">
 <script>var build={version:`0.1.0`,commit:`''' + COMMIT + '''`,builtAt:`2026-11-17`,modified:!1};</script>
@@ -43,12 +46,14 @@ def deployment_boundary(workflow):
         match = re.search(r'(?ms)^  ' + name + r':\n(.*?)(?=^  [a-z][a-z0-9_-]*:|\Z)', workflow)
         assert match, f'Missing {name} job'
         return match[1]
-    build, deploy = job('build'), job('deploy')
+    build, browser, deploy = job('build'), job('browser'), job('deploy')
     global_permissions = re.search(r'(?m)^permissions:\n((?:  [^\n]+\n)+)', workflow)
     assert global_permissions and global_permissions[1].strip() == 'contents: read'
     assert not re.search(r'(?m)^    permissions:', build), 'Build cannot widen permissions'
-    guard = "needs.build.outputs.changed == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'"
-    assert f'    if: {guard}\n' in deploy, 'Missing isolated deploy guard'
+    assert not re.search(r'(?m)^    permissions:', browser), 'Browser checks cannot widen permissions'
+    assert "    if: needs.build.outputs.changed == 'true'\n" in browser
+    assert '    needs: [build, browser]\n' in deploy, 'Deploy must depend on the checked artifact'
+    assert f'    if: {DEPLOY_GUARD}\n' in deploy, 'Missing isolated deploy and quality guard'
     assert '      pages: write\n      id-token: write\n' in deploy
     assert 'contents:' not in deploy and not re.search(r'(?m)^\s+run:', deploy)
     assert 'actions/checkout@' not in deploy
@@ -160,10 +165,14 @@ class SimPublicationTest(unittest.TestCase):
 
     def test_each_privileged_owner_rejects_guard_or_permission_mutations(self):
         workflow = (ROOT / '.github/workflows/pages.yml').read_text()
-        guard = "    if: needs.build.outputs.changed == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'\n"
+        guard = f'    if: {DEPLOY_GUARD}\n'
         mutations = [workflow.replace(guard, ''),
                      workflow.replace(guard, "    if: needs.build.outputs.changed == 'true'\n"),
                      workflow.replace(guard, guard.replace(" && github.event_name != 'pull_request'", '')),
+                     workflow.replace('    needs: [build, browser]\n', '    needs: build\n'),
+                     workflow.replace("needs.browser.result == 'success'", 'true'),
+                     workflow.replace("needs.browser.result == 'success'", "(needs.browser.result == 'success' || github.event_name == 'schedule')"),
+                     workflow.replace('  browser:\n', '  browser:\n    permissions:\n      contents: write\n'),
                      workflow.replace('  build:\n', '  build:\n    permissions:\n      contents: write\n'),
                      workflow.replace('      pages: write\n', '      contents: write\n      pages: write\n'),
                      workflow.replace("        if: steps.sim.outputs.changed == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'\n", '')]

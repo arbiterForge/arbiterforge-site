@@ -84,10 +84,13 @@ function element(tag = 'div', dataset = {}) {
 
 function setup(options = {}) {
   const frames = new Map(), mutations = [], intersections = [], resizes = [];
-  let frameId = 0, clock = 0, paints = 0, commands = [];
+  let frameId = 0, clock = 0, paints = 0, commands = [], boundsReads = 0, gradients = 0;
   let bounds = {width: 1200, height: 680, top: 0, left: 0, ...options.bounds};
-  const rect = () => ({...bounds, right: bounds.left + bounds.width,
-    bottom: bounds.top + bounds.height});
+  const rect = () => {
+    boundsReads++;
+    return {...bounds, right: bounds.left + bounds.width,
+      bottom: bounds.top + bounds.height};
+  };
   const root = element('html', {motion: options.motion ?? 'on', theme: 'light'});
   const host = element('section', {livingHero: ''});
   const stage = element('div', {heroStage: ''});
@@ -126,10 +129,12 @@ function setup(options = {}) {
   }
   context.clearRect = (...args) => {
     if (options.paintThrows) throw new Error('Canvas painting failed');
+    clock += options.paintCostMs || 0;
     paints++; commands = []; record('clearRect', args);
   };
   for (const name of ['createLinearGradient', 'createRadialGradient']) {
     context[name] = (...args) => {
+      gradients++;
       record(name, args);
       return {addColorStop: (...stop) => record('addColorStop', stop)};
     };
@@ -192,6 +197,9 @@ function setup(options = {}) {
   const environment = {
     host, stage, canvas, fallback, controls, modes, pulse, document, root, connection, frames,
     get paints() { return paints; },
+    get boundsReads() { return boundsReads; },
+    get gradients() { return gradients; },
+    get vertices() { return commands.filter(command => command[0] === 'moveTo' || command[0] === 'lineTo').length; },
     get picture() { return JSON.stringify(commands); },
     get text() { return [...nodes.values()].map(node => node.textContent).join('|'); },
     step(time = clock + 50) {
@@ -354,6 +362,76 @@ test('Painting respects its frame-rate and elapsed-time budgets', () => {
   assert.equal(longGap.picture, shortGap.picture, 'A long stall advances the scene by at most 80ms');
 });
 
+test('Slow canvas frames leave an equal idle interval for other work', () => {
+  const scene = setup({paintCostMs: 50});
+  scene.step(100); // This paint finishes at 150ms and yields until 200ms.
+  const painted = scene.paints;
+  for (const time of [150, 166.7, 183.4, 199.9]) scene.step(time);
+  assert.equal(scene.paints, painted, 'An over-budget draw cannot repaint immediately on the next RAF');
+  assert.equal(scene.frames.size, 1, 'The idle interval retains just one lightweight RAF');
+  scene.step(200);
+  assert.equal(scene.paints, painted + 1, 'The next frame draws after its full idle interval');
+  scene.motion('off'); assertPaused(scene, 'Pausing during adaptive frame pacing');
+  scene.motion('on');
+  assert.equal(scene.frames.size, 1, 'Resume still owns one loop');
+
+  const fast = setup({paintCostMs: 5});
+  fast.step(100);
+  const fastPaints = fast.paints;
+  fast.step(130);
+  assert.equal(fast.paints, fastPaints, 'Fast frames retain the 30fps ceiling');
+  fast.step(134);
+  assert.equal(fast.paints, fastPaints + 1, 'A fast canvas keeps the existing cadence');
+});
+
+test('Sustained slow drawing reduces work and pausing restores full detail', () => {
+  const scene = setup({paintCostMs: 30});
+  const fullDetail = scene.vertices;
+  for (const time of [60, 90, 120]) scene.step(time);
+  assert.ok(scene.vertices < fullDetail * .6, 'Slow drawing first reduces points along each contour');
+  assert.ok(scene.vertices > fullDetail * .4, 'The first reduction retains every contour');
+  for (const time of [150, 180, 210, 240]) scene.step(time);
+  assert.ok(scene.vertices < fullDetail * .3, 'Persistently slow drawing also reduces contour density');
+  assert.ok(scene.vertices > fullDetail * .2, 'Adaptive drawing remains bounded at one quarter of the original work');
+  scene.motion('off');
+  assert.ok(scene.vertices > fullDetail * .95, 'A paused still restores the full cached geometry');
+  assertPaused(scene, 'Adaptive scene paused');
+});
+
+test('Deferred rasterization is measured after command submission', () => {
+  const scene = setup();
+  const fullDetail = scene.vertices;
+  // Canvas commands themselves are cheap in this environment, but the browser
+  // cannot deliver its next RAF until the deferred frame work completes.
+  scene.step(80); scene.step(160);
+  assert.ok(scene.vertices < fullDetail * .6, 'Repeated delayed frames reduce work even with cheap JavaScript paints');
+  scene.reduce(true);
+  assert.ok(scene.vertices > fullDetail * .95, 'Reduced-motion artwork retains full detail');
+  assertPaused(scene, 'Reduced motion after adaptive rendering');
+
+  const isolated = setup(), original = isolated.vertices;
+  isolated.step(80); isolated.step(96); isolated.step(114); isolated.step(148);
+  assert.ok(isolated.vertices > original * .95, 'An isolated delay does not lower rendering detail');
+});
+
+test('Control feedback paints before another animated canvas frame', () => {
+  const scene = setup();
+  scene.step(100);
+  const painted = scene.paints;
+  scene.modes[1].dispatch('click');
+  assert.equal(scene.modes[1].getAttribute('aria-pressed'), 'true', 'The selected form updates immediately');
+  for (const time of [116.7, 133.4, 149.9]) scene.step(time);
+  assert.equal(scene.paints, painted, 'The next browser frames can present the control feedback without redrawing the canvas');
+  assert.equal(scene.frames.size, 1, 'Feedback yielding keeps one animation loop');
+  scene.step(150);
+  assert.equal(scene.paints, painted + 1, 'Animation resumes after the short feedback interval');
+  scene.pulse.dispatch('click');
+  scene.step(166.7); scene.step(183.4);
+  assert.equal(scene.paints, painted + 1, 'Pulse input also lets feedback through before rendering');
+  scene.step(200);
+  assert.equal(scene.paints, painted + 2);
+});
+
 test('Mode buttons change a paused still without starting animation', () => {
   for (const options of [{motion: 'off'}, {reduced: true}, {saveData: true}]) {
     const scene = setup(options);
@@ -414,6 +492,76 @@ test('Enabled pointer, pulse button, and touch tap change the artwork', () => {
     scene.motion('off'); control.motion('off');
     assert.equal(scene.picture, control.picture, 'Pausing clears the existing interaction');
   }
+});
+
+test('High-frequency pointer input coalesces layout reads into one paint', () => {
+  const scene = setup(), finalInput = setup();
+  scene.step(100); finalInput.step(100);
+  const reads = scene.boundsReads, paints = scene.paints;
+  for (let i = 0; i < 100; i++) scene.stage.dispatch('pointermove', {
+    clientX: 600 + i * 4, clientY: 250 - i, pointerType: 'mouse', pointerId: 1,
+  });
+  finalInput.stage.dispatch('pointermove', {
+    clientX: 996, clientY: 151, pointerType: 'mouse', pointerId: 1,
+  });
+  assert.equal(scene.boundsReads, reads, 'Pointer callbacks do not force layout');
+  assert.equal(scene.paints, paints, 'Pointer callbacks do not paint synchronously');
+  assert.equal(scene.frames.size, 1, 'Burst input retains one scheduled paint');
+  scene.step(150); finalInput.step(150);
+  assert.equal(scene.boundsReads, reads + 1, 'One frame reads the latest position once');
+  assert.equal(scene.picture, finalInput.picture, 'Intermediate pointer positions are discarded');
+  scene.step(200);
+  assert.equal(scene.boundsReads, reads + 1, 'A frame without new input does not read layout');
+
+  // A queued point must not reappear after leaving the form or pausing it.
+  scene.stage.dispatch('pointermove', {clientX: 1100, clientY: 20, pointerType: 'mouse'});
+  scene.stage.dispatch('pointerleave');
+  scene.step(250);
+  assert.equal(scene.boundsReads, reads + 1, 'Pointer exit clears pending input');
+  scene.stage.dispatch('pointermove', {clientX: 1100, clientY: 20, pointerType: 'mouse'});
+  scene.motion('off');
+  assert.equal(scene.boundsReads, reads + 1, 'Pausing clears pending input before its still redraw');
+});
+
+test('Queued pointer input uses fresh bounds and respects touch cancellation', () => {
+  const scene = setup(), moved = setup();
+  const input = {clientX: 620, clientY: 240, pointerType: 'mouse', pointerId: 1};
+  scene.stage.dispatch('pointermove', input);
+  scene.setBounds({left: 100, top: 20});
+  moved.setBounds({left: 100, top: 20});
+  moved.stage.dispatch('pointermove', input);
+  scene.step(100); moved.step(100);
+  assert.equal(scene.picture, moved.picture, 'A move queued before a scroll uses the current rectangle');
+
+  const resizing = setup(), resized = setup();
+  const nextBounds = {left: 80, width: 800, height: 600};
+  resizing.stage.dispatch('pointermove', input);
+  resized.setBounds(nextBounds);
+  resized.stage.dispatch('pointermove', input);
+  resizing.resize(nextBounds); resized.resize(nextBounds);
+  assert.equal(resizing.picture, resized.picture, 'A resize maps pending input into the new dimensions');
+
+  for (const cancel of ['pointercancel', 'vertical-scroll']) {
+    const touchScene = setup(), untouched = setup();
+    const touch = {clientX: 600, clientY: 200, pointerType: 'touch', pointerId: 2, button: 0};
+    touchScene.stage.dispatch('pointerdown', touch);
+    touchScene.stage.dispatch('pointermove', {...touch, clientX: 620});
+    if (cancel === 'pointercancel') touchScene.stage.dispatch('pointercancel', touch);
+    else touchScene.stage.dispatch('pointermove', {...touch, clientX: 620, clientY: 280});
+    touchScene.step(100); untouched.step(100);
+    assert.equal(touchScene.picture, untouched.picture, `${cancel} clears queued touch attraction`);
+  }
+});
+
+test('The unchanged canvas glow is reused until its dimensions change', () => {
+  const scene = setup();
+  assert.equal(scene.gradients, 1);
+  for (let frame = 1; frame <= 10; frame++) scene.step(frame * 50);
+  scene.pulse.dispatch('click'); scene.step(600);
+  scene.modes[1].dispatch('click'); scene.step(650);
+  assert.equal(scene.gradients, 1, 'Animation and interactions reuse the same gradient');
+  scene.resize({width: 390, height: 600});
+  assert.equal(scene.gradients, 2, 'Resizing recreates the gradient for the new canvas');
 });
 
 test('Fallback remains available after canvas failure', () => {

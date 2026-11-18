@@ -2,6 +2,8 @@
 from html.parser import HTMLParser
 from pathlib import Path
 import unittest
+import shutil
+import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -89,13 +91,20 @@ class GenerativeStudioContracts(unittest.TestCase):
                          "document.addEventListener('visibilitychange'",
                          'IntersectionObserver', 'ResizeObserver',
                          'prefersReduced.matches', "connection?.saveData",
-                         "root.dataset.motion==='on'", 'cancelAnimationFrame',
+                         "root.dataset.motion!=='on'", 'cancelAnimationFrame',
                          'data-studio-seed', 'data-studio-capture',
                          "history.replaceState(null,'',u)", 'randomGen(seed'):
             self.assertIn(required, text)
         for unwanted in ('fetch(', 'XMLHttpRequest', 'WebSocket(', 'eval(', 'new Function(', 'innerHTML ='):
             self.assertNotIn(unwanted, text)
         self.assertLess(len(text.encode()), 30000)
+
+    @unittest.skipUnless(shutil.which('node'), 'Node is needed for studio state checks')
+    def test_motion_controls_match_effective_animation_state(self):
+        result = subprocess.run(['node', str(ROOT / 'tests/generative-studio-state.cjs')],
+                                cwd=ROOT, capture_output=True, text=True, timeout=20)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn('Generative Studio state checks passed', result.stdout)
 
     def test_source_is_lightweight_and_site_assets_are_local(self):
         source = (ROOT / 'lab/index.html').read_text()

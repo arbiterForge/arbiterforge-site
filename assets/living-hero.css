@@ -23,22 +23,23 @@ html body.home-cinematic .site-header { min-height:92px; }
   background:radial-gradient(ellipse at 79% 45%,#34594936,transparent 49%),
     radial-gradient(ellipse at 46% 83%,#28444d20,transparent 40%);
 }
-.living-layout { display:grid; grid-template-columns:1fr 1.08fr; grid-template-areas:"intro study" "details study"; grid-template-rows:1fr 1fr; align-items:center; gap:0 1.4rem; padding-block:6px 44px; }
+/* Empty outer rows center the copy beside the sculpture without stretching its
+   individual sections. The same links move ahead of the art on small screens. */
+.living-layout { display:grid; grid-template-columns:1fr 1.08fr; grid-template-areas:". study" "intro study" "description study" "actions study" "lablink study" ". study"; grid-template-rows:1fr auto auto auto auto 1fr; align-items:center; gap:0 1.4rem; padding-block:6px 44px; }
 .living-copy { position:relative; z-index:1; min-width:0; }
 .living-intro { grid-area:intro; align-self:end; }
-.living-details { grid-area:details; align-self:start; min-width:0; }
 .living-copy .eyebrow { display:flex; align-items:center; gap:.75rem; color:#bbcaaf; letter-spacing:.12em; font-size:.62rem; margin-bottom:1.7rem; }
 .living-mark { display:block; width:24px; height:14px; border:1px solid #b9cca1; border-radius:50%; transform:rotate(-28deg); position:relative; }
 .living-mark::after { content:''; position:absolute; inset:-1px; border:1px solid #b9cca1; border-radius:50%; transform:rotate(56deg); }
 html body .living-copy h1 { color:var(--hero-ink); font-size:clamp(3.2rem,5.3vw,5rem); line-height:1.04; letter-spacing:-.052em; }
 .living-copy h1 em { color:#cedcad; font-weight:400; }
-.living-description { font-size:.93rem; line-height:1.95; color:#b9c8bc; max-width:440px; margin-top:1.75rem; text-wrap:pretty; }
-.living-actions { display:flex; align-items:center; flex-wrap:wrap; gap:1.65rem; margin-top:1.85rem; }
+.living-description { grid-area:description; min-width:0; font-size:.93rem; line-height:1.95; color:#b9c8bc; max-width:440px; margin-top:1.75rem; text-wrap:pretty; }
+.living-actions { grid-area:actions; display:flex; align-items:center; flex-wrap:wrap; gap:1.65rem; margin-top:1.85rem; }
 html body .living-actions .button { display:inline-flex; align-items:center; justify-content:center; gap:1.5rem; min-height:50px; padding:.7rem 1.4rem; border:1px solid #cfdda9; background:#cfdda9; color:#14251b; font-size:.78rem; font-weight:750; text-decoration:none; }
 html body .living-actions .button:hover { background:#e1edc1; border-color:#e1edc1; }
 .living-news { display:inline-flex; align-items:center; gap:.6rem; min-height:46px; font-size:.8rem; font-weight:600; color:#e1e7d8; }
 .living-news .icon { width:1rem; height:1rem; }
-.living-lab-link { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; max-width:max-content; margin-top:1.6rem; color:#9eafa1; font:400 .61rem/1.8 var(--mono); min-height:44px; }
+.living-lab-link { grid-area:lablink; align-self:start; display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; max-width:max-content; margin-top:1.6rem; color:#9eafa1; font:400 .61rem/1.8 var(--mono); min-height:44px; }
 .living-lab-link > span:first-child { color:#cbd9af; font-size:1.05rem; }
 .living-lab-link > span:last-child { display:inline-flex; align-items:center; gap:.35rem; margin-left:.15rem; color:#ced8bc; text-decoration:underline; text-underline-offset:.35em; text-decoration-color:#ced8bc66; }
 .living-lab-link .icon { width:.9rem; height:.9rem; }
@@ -60,7 +61,7 @@ html body .living-actions .button:hover { background:#e1edc1; border-color:#e1ed
 .living-registration--se { right:5%; bottom:12%; border-right:1px solid #8ea79b; border-bottom:1px solid #8ea79b; }
 .living-caption { display:flex; flex-direction:column; gap:.35rem; align-items:center; text-align:center; margin:-4px 0 19px; }
 .living-caption-title { color:#d5dec7; font:italic 1.1rem/1.4 var(--serif); letter-spacing:-.01em; }
-.living-hint { color:#9caf9f; font:400 .59rem/1.7 var(--mono); min-height:1.7em; }
+.living-hint { color:#9caf9f; font:400 .68rem/1.65 var(--mono); min-height:3.3em; max-width:52ch; text-wrap:pretty; }
 .living-control-space { min-height:54px; }
 .living-controls { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:.8rem; }
 .living-controls[hidden] { display:none; }
@@ -71,9 +72,10 @@ html body .living-actions .button:hover { background:#e1edc1; border-color:#e1ed
 .living-modes button[aria-pressed='true'] { background:#d3dfb4; color:#192a20; }
 .living-pulse { display:inline-flex; align-items:center; justify-content:center; gap:.4rem; border:1px solid #b9cca136; border-radius:50%; width:45px; height:45px; padding:0; color:#d4dfc1; background:transparent; cursor:pointer; position:relative; }
 .living-pulse svg { width:20px; height:20px; }
-.living-pulse > span { position:absolute; left:50%; top:calc(100% + 8px); transform:translateX(-50%); padding:.3rem .5rem; border-radius:4px; background:#25372d; color:#edf0df; font:400 .55rem/1.6 var(--mono); white-space:nowrap; opacity:0; pointer-events:none; }
+.living-pulse-label { display:none; font:500 .66rem/1.4 var(--mono); }
+.living-pulse-tooltip { position:absolute; left:50%; top:calc(100% + 8px); transform:translateX(-50%); padding:.3rem .5rem; border-radius:4px; background:#25372d; color:#edf0df; font:400 .62rem/1.6 var(--mono); white-space:nowrap; opacity:0; pointer-events:none; }
 .living-pulse:hover { background:#cbd8ae15; border-color:#cbd8ae88; }
-.living-pulse:hover > span,.living-pulse:focus-visible > span { opacity:1; }
+.living-pulse:hover .living-pulse-tooltip,.living-pulse:focus-visible .living-pulse-tooltip { opacity:1; }
 .living-pulse:disabled { cursor:default; opacity:.4; }
 .living-footer { position:relative; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; min-height:79px; border-top:1px solid var(--hero-line); color:#b1c0ac; }
 .living-scroll { display:inline-flex; align-items:center; gap:.9rem; min-height:44px; font:400 .61rem/1.5 var(--mono); }
@@ -97,14 +99,13 @@ html body .living-hero :focus-visible,html body.home-cinematic .site-header :foc
 }
 @media (max-width:900px) {
   .living-hero { padding-top:135px; }
-  .living-layout { grid-template-columns:1fr; grid-template-areas:"intro" "study" "details"; grid-template-rows:auto; padding-bottom:34px; gap:1.7rem; }
+  .living-layout { grid-template-columns:1fr; grid-template-areas:"intro" "actions" "study" "description" "lablink"; grid-template-rows:none; padding-bottom:34px; gap:1.7rem; }
   .living-copy { padding-block:0; max-width:650px; }
   html body .living-copy h1 { font-size:clamp(3.3rem,7.3vw,4.5rem); }
   .living-copy h1 br:nth-of-type(2) { display:none; }
   .living-description { max-width:500px; font-size:.91rem; margin-top:0; }
-  .living-details { justify-self:center; width:min(100%,640px); }
-  .living-actions { margin-top:1.4rem; }
-  .living-lab-link { margin-top:.9rem; font-size:.6rem; }
+  .living-actions { margin-top:0; }
+  .living-lab-link { margin-top:0; font-size:.6rem; }
   .living-study { width:min(100%,640px); justify-self:center; }
   .living-stage { height:430px; margin:0 -20px; }
   .living-caption { margin-top:-10px; }
@@ -120,13 +121,13 @@ html body .living-hero :focus-visible,html body.home-cinematic .site-header :foc
   .living-actions { gap:1.35rem; }
   html body .living-actions .button { min-height:48px; font-size:.74rem; padding:.6rem 1.15rem; gap:1rem; }
   .living-news { font-size:.76rem; }
-  .living-lab-link { font-size:.54rem; gap:.35rem; margin-top:1rem; }
+  .living-lab-link { font-size:.54rem; gap:.35rem; margin-top:0; }
   .living-lab-link > span:last-child { margin-left:0; }
   .living-study-heading { font-size:.5rem; padding:0; letter-spacing:.065em; }
   .living-stage { height:clamp(290px,86vw,410px); margin:0 -18px; }
   .living-caption { margin:-5px 0 16px; }
   .living-caption-title { font-size:1.04rem; }
-  .living-hint { font-size:.51rem; }
+  .living-hint { font-size:.68rem; }
   .living-controls { gap:.6rem; }
   .living-modes { padding:3px; }
   .living-modes button { min-height:44px; padding-inline:.75rem; font-size:.61rem; }
@@ -134,6 +135,11 @@ html body .living-hero :focus-visible,html body.home-cinematic .site-header :foc
   .living-footer { min-height:74px; gap:.6rem; }
   .living-footer-note { display:none; }
   .living-scroll,html body .living-footer .motion-control { font-size:.56rem; }
+}
+@media (pointer:coarse), (max-width:580px) {
+  .living-pulse { width:auto; min-width:78px; border-radius:24px; padding:0 .7rem; }
+  .living-pulse-label { display:inline; }
+  .living-pulse-tooltip { display:none; }
 }
 @media (max-width:360px) {
   .living-hero { padding-top:145px; }

@@ -17,6 +17,7 @@ html body .wordmark { font-family:var(--serif); font-weight:500; letter-spacing:
 html body .wordmark span { color:#9da77c; }
 html body .button { border-radius:50px; }
 html body :focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
+html body .main-nav a[aria-current='page'] { text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.55rem; }
 
 /* Full-bleed cinematic home. All foreground elements are real HTML. */
 html body.home-cinematic #main { width:100%; margin:0; }
@@ -89,6 +90,22 @@ html body .project-actions { margin-top:auto; padding-top:1.5rem; }
 .project-preview-fallback { display:grid; place-items:center; width:100%; height:100%; background:#20312a; color:#e9ebdd; font:700 1rem var(--mono); text-align:center; padding:1rem; }
 html body .game-label { background:#1e1c17df; color:#f0e5c9; border-color:#9c865e66; font-size:.55rem; }
 html body .project-visual .game-art { filter:saturate(.75); }
+/* Destination cues give the artwork a clear purpose without covering it at rest. */
+.project-preview-cue { position:absolute; z-index:1; top:1rem; right:1rem; display:inline-flex; align-items:center; gap:.6rem; padding:.55rem .8rem; border:1px solid #dce5c43d; border-radius:50px; background:#14231def; color:#edf1e1; font:600 .67rem/1.5 var(--sans); opacity:0; pointer-events:none; }
+.project-preview-cue .icon { width:.85rem; height:.85rem; }
+html body .project-card:focus-within { border-color:var(--accent); box-shadow:0 12px 28px -18px #26322245; }
+.project-card:focus-within .project-preview-cue { opacity:1; }
+@media (hover:hover) and (pointer:fine) {
+  html body .project-card:hover { border-color:var(--accent); }
+  .project-card:hover .project-preview-cue { opacity:1; }
+}
+@media (prefers-reduced-motion:no-preference) {
+  :root[data-motion='on'] .project-preview-cue { transform:translateY(5px); transition:opacity .2s ease,transform .25s ease; }
+  :root[data-motion='on'] .project-card:focus-within .project-preview-cue { transform:none; }
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  :root[data-motion='on'] .project-card:hover .project-preview-cue { transform:none; }
+}
 :root[data-motion='on'] .project-preview { transition:transform .75s cubic-bezier(.2,.65,.3,1); }
 :root[data-motion='on'] .project-card:hover .project-preview { transform:scale(1.025); }
 
@@ -141,6 +158,8 @@ html body .topic-panel { border-radius:12px; }
 html body .essay-mast { position:relative; isolation:isolate; padding:3rem; margin-block:2rem 3rem; border:1px solid #766a4840; border-radius:14px; background:#111811; color:#cbd1bf; gap:2rem; }
 html body .essay-mast h1 { font-size:clamp(3.7rem,6vw,5.5rem); font-weight:400; color:#f3f0e3; }
 html body .essay-mast .eyebrow, html body .essay-mast .byline { color:#c4cbb3; }
+html body .essay-mast .byline a { color:#e2e6d1; text-decoration:underline; text-decoration-thickness:1px; }
+html body .essay-mast :focus-visible { outline-color:#d8deb8; }
 html body .essay-title h1 span::after { background:#d1b97544; }
 html body .essay-motif { margin:0; min-height:290px; align-self:stretch; padding:0; position:relative; background:#111811 url('hero-forge.webp') 66% 50%/cover no-repeat; border-radius:9px; }
 html body .essay-motif svg { visibility:hidden; max-height:290px; }

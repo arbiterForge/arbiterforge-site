@@ -3,3 +3,6 @@ __pycache__/
 .codearbiter/.markers/
 .codearbiter/views/
 _site/
+tests/browser/node_modules/
+tests/browser/test-results/
+tests/browser/playwright-report/
