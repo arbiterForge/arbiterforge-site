@@ -135,6 +135,11 @@ html body .living-hero :focus-visible,html body.home-cinematic .site-header :foc
   .living-footer-note { display:none; }
   .living-scroll,html body .living-footer .motion-control { font-size:.56rem; }
 }
+@media (max-width:360px) {
+  .living-hero { padding-top:145px; }
+  html body .living-copy h1 { font-size:2.2rem; }
+  .living-stage { height:280px; }
+}
 @media (prefers-reduced-motion:reduce) { .living-hero * { scroll-behavior:auto; } }
 @media (forced-colors:active) {
   .living-hero { background:Canvas; color:CanvasText; }

@@ -124,7 +124,10 @@ function setup(options = {}) {
     'fill', 'fillRect', 'strokeRect', 'setLineDash']) {
     context[name] = (...args) => record(name, args);
   }
-  context.clearRect = (...args) => { paints++; commands = []; record('clearRect', args); };
+  context.clearRect = (...args) => {
+    if (options.paintThrows) throw new Error('Canvas painting failed');
+    paints++; commands = []; record('clearRect', args);
+  };
   for (const name of ['createLinearGradient', 'createRadialGradient']) {
     context[name] = (...args) => {
       record(name, args);
@@ -413,14 +416,23 @@ test('Enabled pointer, pulse button, and touch tap change the artwork', () => {
   }
 });
 
-test('Fallback remains available when canvas cannot initialize', () => {
-  for (const options of [{noContext: true}, {contextThrows: true}, {noHero: true}]) {
+test('Fallback remains available after canvas failure', () => {
+  for (const options of [{noContext: true}, {contextThrows: true}, {paintThrows: true}, {noHero: true}]) {
     const scene = setup(options);
     assert.equal(scene.paints, 0);
     assert.equal(scene.frames.size, 0);
     assert.notEqual(scene.host.dataset.heroReady, 'true');
     assert.equal(scene.controls.hidden, true);
     assert.equal(scene.fallback.hidden, false);
+    const fallbackText = scene.text;
+    for (const update of [() => scene.motion('off'), () => scene.motion('on'),
+      () => scene.hide(true), () => scene.hide(false), () => scene.pageshow()]) {
+      update();
+      assert.equal(scene.frames.size, 0);
+      assert.equal(scene.controls.hidden, true);
+      assert.notEqual(scene.host.dataset.heroReady, 'true');
+      assert.equal(scene.text, fallbackText, 'Lifecycle events preserve the failed renderer fallback state');
+    }
   }
 });
 
