@@ -117,6 +117,8 @@ test('news category keyboard navigation and hash links select the same panel', a
 });
 
 test('playground preserves seed links and keyboard controls', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
   await stablePage(page, '/lab/?mode=orbit&seed=2026');
   await expect(page.locator('[data-studio-mode="orbit"]')).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('[data-studio-seed]')).toHaveValue('2026');
@@ -124,6 +126,21 @@ test('playground preserves seed links and keyboard controls', async ({ page }) =
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/mode=bloom&seed=2026/);
   await expect(page.locator('[data-studio-mode="bloom"]')).toHaveAttribute('aria-pressed', 'true');
+  await page.locator('[data-motion-toggle]').first().click();
+  await expect(page.locator('html')).toHaveAttribute('data-motion', 'on');
+  const stage = page.locator('[data-generative="lab"]');
+  const pulse = page.locator('[data-studio-impulse]');
+  await pulse.scrollIntoViewIfNeeded();
+  await expect(stage).not.toBeInViewport();
+  await expect(pulse).toBeEnabled();
+  await pulse.focus();
+  await page.keyboard.press('Enter');
+  await expect(stage).toBeInViewport();
+  await expect(pulse).toBeFocused();
+  await page.locator('[data-studio-pause]').focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('[data-studio-state]')).toHaveText('Paused');
+  await expect(pulse).toBeDisabled();
 });
 
 test('missing pages return a real 404 and a route home', async ({ page }) => {

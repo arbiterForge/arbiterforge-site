@@ -49,11 +49,19 @@ SIM retains its independently verified upstream HTML and metadata.
   current layout once. Exiting, pausing and vertical touch scrolling discard
   pending attraction.
 - The fixed canvas glow is cached until a resize.
+- The hero leaves an idle interval after expensive frames, so slower canvases
+  do not repaint on every available callback. The 30 fps ceiling stays in place.
 - The obsolete machinery-hero JavaScript is no longer requested by shared pages.
 - The theme button reserves its space before its deferred controller starts.
   Browser theme color matches the current visual surface.
 - Icon-only GitHub links keep an accessible name when narrow layouts hide text.
 - The Playground's motion control stays hidden when JavaScript is unavailable.
+- The Playground reports its actual motion state and disables pulse actions
+  during a pause. An explicit pulse from the lower mobile controls returns to
+  the sculpture without moving keyboard focus. Restoring a page at those lower
+  controls keeps offscreen animation asleep.
+- The essay author link has readable contrast and an underline in both themes;
+  the SIM illustration's relationship arrow remains visible beside its target.
 
 Existing animation limits, reduced motion, Save-Data, hidden-tab/offscreen
 suspension, keyboard controls and the static fallback remain in place.

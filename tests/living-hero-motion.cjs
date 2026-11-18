@@ -129,6 +129,7 @@ function setup(options = {}) {
   }
   context.clearRect = (...args) => {
     if (options.paintThrows) throw new Error('Canvas painting failed');
+    clock += options.paintCostMs || 0;
     paints++; commands = []; record('clearRect', args);
   };
   for (const name of ['createLinearGradient', 'createRadialGradient']) {
@@ -358,6 +359,28 @@ test('Painting respects its frame-rate and elapsed-time budgets', () => {
   shortGap.step(100); longGap.step(100);
   shortGap.step(180); longGap.step(1_000_000);
   assert.equal(longGap.picture, shortGap.picture, 'A long stall advances the scene by at most 80ms');
+});
+
+test('Slow canvas frames leave an equal idle interval for other work', () => {
+  const scene = setup({paintCostMs: 50});
+  scene.step(100); // This paint finishes at 150ms and yields until 200ms.
+  const painted = scene.paints;
+  for (const time of [150, 166.7, 183.4, 199.9]) scene.step(time);
+  assert.equal(scene.paints, painted, 'An over-budget draw cannot repaint immediately on the next RAF');
+  assert.equal(scene.frames.size, 1, 'The idle interval retains just one lightweight RAF');
+  scene.step(200);
+  assert.equal(scene.paints, painted + 1, 'The next frame draws after its full idle interval');
+  scene.motion('off'); assertPaused(scene, 'Pausing during adaptive frame pacing');
+  scene.motion('on');
+  assert.equal(scene.frames.size, 1, 'Resume still owns one loop');
+
+  const fast = setup({paintCostMs: 5});
+  fast.step(100);
+  const fastPaints = fast.paints;
+  fast.step(130);
+  assert.equal(fast.paints, fastPaints, 'Fast frames retain the 30fps ceiling');
+  fast.step(134);
+  assert.equal(fast.paints, fastPaints + 1, 'A fast canvas keeps the existing cadence');
 });
 
 test('Mode buttons change a paused still without starting animation', () => {

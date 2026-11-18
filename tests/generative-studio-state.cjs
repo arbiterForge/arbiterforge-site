@@ -21,7 +21,10 @@ function element(dataset = {}) {
 function setup(options = {}) {
   const root = element({ motion: options.motion || 'on' });
   const host = element({ generative: 'lab' }), canvas = element();
-  host.getBoundingClientRect = () => ({ width: 390, height: 660, left: 0, top: 0 });
+  let top = options.offscreen ? 1000 : 0;
+  const scrollRequests = [];
+  host.getBoundingClientRect = () => ({ width: 390, height: 660, left: 0, top, bottom: top + 660 });
+  host.scrollIntoView = settings => scrollRequests.push(settings);
   canvas.closest = () => host;
   const nodes = Object.fromEntries(['seed', 'speed', 'density', 'pause', 'impulse', 'status',
     'state', 'hint', 'reroll', 'capture', 'share'].map(name => [name, element()]));
@@ -42,7 +45,7 @@ function setup(options = {}) {
     createElement() { return { click() { download = this.download; } }; },
   };
   host.querySelector = document.querySelector;
-  const window = element();
+  const window = { ...element(), innerHeight: 900 };
   const mutations = [], intersections = [], frames = new Map();
   let nextFrame = 0;
   class IntersectionObserver {
@@ -63,15 +66,20 @@ function setup(options = {}) {
     cancelAnimationFrame(id) { frames.delete(id); }, IntersectionObserver,
     MutationObserver: class { constructor(callback) { mutations.push(callback); } observe() {} },
   });
-  intersections.forEach(callback => callback([{ isIntersecting: true }]));
+  intersections.forEach(callback => callback([{ isIntersecting: !options.offscreen, intersectionRatio: options.offscreen ? 0 : 1 }]));
   return {
-    root, host, canvas, document, nodes, modes, frames, location,
+    root, host, canvas, document, nodes, modes, frames, location, scrollRequests,
+    pagehide() { return window.dispatch('pagehide', { persisted: true }); },
+    pageshow() { return window.dispatch('pageshow', { persisted: true }); },
     get paints() { return paints; }, get picture() { return fingerprint; },
     get download() { return download; }, get copied() { return copied; },
     motion(value) { root.dataset.motion = value; mutations.forEach(callback => callback()); },
     reduce(value) { reduced.matches = value; reduced.dispatch('change'); },
     saveData(value) { connection.saveData = value; connection.dispatch('change'); },
-    visible(value) { intersections.forEach(callback => callback([{ isIntersecting: value }])); },
+    visible(value, ratio = value ? 1 : 0) {
+      top = value ? 0 : 1000;
+      intersections.forEach(callback => callback([{ isIntersecting: value, intersectionRatio: ratio }]));
+    },
   };
 }
 async function check() {
@@ -126,8 +134,59 @@ async function check() {
   assert.equal(scene.frames.size, 1);
   scene.visible(false);
   assert.equal(scene.nodes.state.textContent, 'Resting');
-  assert.equal(scene.nodes.impulse.disabled, true);
+  assert.equal(scene.nodes.impulse.disabled, false, 'An offscreen sculpture can receive an explicit pulse request');
   assert.equal(scene.frames.size, 0);
+  const offscreen = setup({ offscreen: true });
+  const beforePulse = offscreen.picture, beforePaints = offscreen.paints;
+  offscreen.document.activeElement = offscreen.nodes.impulse;
+  await offscreen.nodes.impulse.dispatch('click');
+  assert.equal(offscreen.scrollRequests.length, 1, 'An explicit offscreen pulse brings its stage into view');
+  assert.equal(offscreen.scrollRequests[0].behavior, 'instant');
+  assert.equal(offscreen.document.activeElement, offscreen.nodes.impulse, 'Returning to the stage does not steal focus');
+  assert.equal(offscreen.paints, beforePaints, 'The request does not draw an offscreen pulse');
+  assert.equal(offscreen.frames.size, 0, 'A queued pulse does not animate offscreen');
+  offscreen.visible(true, 0);
+  assert.equal(offscreen.paints, beforePaints, 'An edge contact without visible area cannot consume the pulse');
+  offscreen.visible(true);
+  assert.notEqual(offscreen.picture, beforePulse, 'The requested pulse is delivered when the stage becomes visible');
+  assert.equal(offscreen.frames.size, 1);
+  const pulsePaints = offscreen.paints;
+  offscreen.visible(true);
+  assert.equal(offscreen.paints, pulsePaints, 'Repeated visibility signals do not replay the requested pulse');
+
+  for (const block of ['motion', 'reduce', 'data', 'pause', 'hidden']) {
+    const cancelled = setup({ offscreen: true });
+    const still = cancelled.picture;
+    await cancelled.nodes.impulse.dispatch('click');
+    if (block === 'motion') cancelled.motion('off');
+    if (block === 'reduce') cancelled.reduce(true);
+    if (block === 'data') cancelled.saveData(true);
+    if (block === 'pause') await cancelled.nodes.pause.dispatch('click');
+    if (block === 'hidden') { cancelled.document.hidden = true; await cancelled.document.dispatch('visibilitychange'); }
+    assert.equal(cancelled.nodes.impulse.disabled, true);
+    const requests = cancelled.scrollRequests.length;
+    await cancelled.nodes.impulse.dispatch('click');
+    assert.equal(cancelled.scrollRequests.length, requests, `${block} prevents a new scroll request`);
+    cancelled.visible(true);
+    if (block === 'motion') cancelled.motion('on');
+    if (block === 'reduce') cancelled.reduce(false);
+    if (block === 'data') cancelled.saveData(false);
+    if (block === 'pause') await cancelled.nodes.pause.dispatch('click');
+    if (block === 'hidden') { cancelled.document.hidden = false; await cancelled.document.dispatch('visibilitychange'); }
+    assert.equal(cancelled.picture, still, `${block} cancels the pending pulse before motion resumes`);
+    assert.equal(cancelled.frames.size, 1);
+  }
+  const restored = setup({ offscreen: true });
+  await restored.nodes.impulse.dispatch('click');
+  await restored.pagehide();
+  const restoredPaints = restored.paints, restoredStill = restored.picture;
+  await restored.pageshow();
+  assert.equal(restored.frames.size, 0, 'A BFcache restore at lower controls keeps the offscreen stage at rest');
+  assert.equal(restored.paints, restoredPaints, 'Offscreen restoration does not redraw the stage');
+  assert.equal(restored.nodes.state.textContent, 'Resting');
+  restored.visible(true);
+  assert.equal(restored.picture, restoredStill, 'Navigation cancels the pending pulse before restoration');
+  assert.equal(restored.frames.size, 1, 'Returning the restored sculpture to view restarts one loop');
   console.log('Generative Studio state checks passed');
 }
 check().catch(error => { console.error(error); process.exitCode = 1; });

@@ -71,7 +71,7 @@
     let data=sceneData(seed,mode), width=0,height=0,scale=1,dpr=1;
     let playTime=0,frame=0,last=0,visible=false,holding=false;
     let cameraX=-.18,cameraY=.22,targetX=0,targetY=0,energy=0;
-    let drag=null,needsDraw=true,snapshotRequested=false;
+    let drag=null,needsDraw=true,snapshotRequested=false,pendingPulse=false;
     let touchDown=0;
     let lastPointer={x:0,y:0};
     const mobile=()=>width<700;
@@ -112,7 +112,8 @@
       if(root.dataset.motion!=='on')return 'Motion off';
       return '';
     }
-    function allowed(){return visible && !holding && !document.hidden && !motionBlock();}
+    function motionEnabled(){return !holding && !document.hidden && !motionBlock();}
+    function allowed(){return visible && motionEnabled();}
     function sync(){
       const blocked=motionBlock(), running=allowed();
       if(pauseButton){
@@ -120,14 +121,18 @@
         pauseButton.setAttribute('aria-pressed',String(holding || !!blocked));
         pauseButton.textContent=blocked || (holding?'Resume sculpture':'Pause sculpture');
       }
-      if(pulseButton)pulseButton.disabled=!running;
+      if(pulseButton)pulseButton.disabled=!motionEnabled();
+      if(!motionEnabled())pendingPulse=false;
       if(stateLabel)stateLabel.textContent=blocked || (holding?'Paused':running?'Live':'Resting');
       if(hint)hint.textContent=running?'Drag to orbit · Tap to send a pulse':'Drag to orbit · Still view';
       if(lab)canvas.setAttribute('aria-label','Interactive sculpture; use left and right arrow keys to rotate, R to regenerate'+(blocked?'':', space to '+(holding?'resume':'pause')));
       // A paused pulse cannot progress. Clear it instead of storing an invisible
       // impulse that unexpectedly returns when motion is enabled later.
       if(!running && energy){energy=0;needsDraw=true;}
-      if(running) { if(!frame){last=0;frame=requestAnimationFrame(tick);} }
+      if(running) {
+        if(pendingPulse){pendingPulse=false;impulse();}
+        if(!frame){last=0;frame=requestAnimationFrame(tick);}
+      }
       else { if(frame)cancelAnimationFrame(frame);frame=0;last=0; if(needsDraw)draw(); }
     }
     function togglePause(){
@@ -314,13 +319,27 @@
       }
       draw();
     }
+    function stageInView(){
+      const box=host.getBoundingClientRect();
+      return box.width>0 && box.height>0 && box.bottom>0 && box.top<window.innerHeight;
+    }
+    function requestPulse(){
+      if(!motionEnabled())return;
+      if(stageInView()){visible=true;impulse();sync();return;}
+      // The mobile action panel sits below the sculpture. An explicit request
+      // returns to the artwork without moving keyboard focus. Observation then
+      // delivers the pulse once its drawing surface is visible.
+      pendingPulse=true;
+      host.scrollIntoView({behavior:'instant',block:'center',inline:'nearest'});
+      if(!('IntersectionObserver' in window)){visible=stageInView();sync();}
+    }
     if(lab){
       modeButtons.forEach(el=>el.addEventListener('click',()=>{
         const idx=modeNames.findIndex(name=>name.toLowerCase()===el.dataset.studioMode);
         if(idx<0)return;mode=idx;syncing();
       }));
       document.querySelector('[data-studio-reroll]')?.addEventListener('click',()=>{seed=randomSeed();syncing();});
-      pulseButton?.addEventListener('click',()=>impulse());
+      pulseButton?.addEventListener('click',requestPulse);
       pauseButton?.addEventListener('click',togglePause);
       seedInput?.addEventListener('change',()=>{
         const n=Number(seedInput.value);
@@ -382,10 +401,10 @@
     prefersReduced.addEventListener('change',()=>{needsDraw=true;sync();});
     connection?.addEventListener?.('change',sync);
     document.addEventListener('visibilitychange',sync);
-    window.addEventListener('pagehide',()=>{visible=false;sync();});
-    window.addEventListener('pageshow',()=>{visible=true;sync();});
+    window.addEventListener('pagehide',()=>{pendingPulse=false;visible=false;sync();});
+    window.addEventListener('pageshow',()=>{visible=stageInView();sync();});
     if('IntersectionObserver' in window){
-      new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();},{threshold:0}).observe(host);
+      new IntersectionObserver(entries=>{visible=entries[0].isIntersecting && entries[0].intersectionRatio>0;sync();},{threshold:[0,.001]}).observe(host);
     }else visible=true;
     if('ResizeObserver' in window)new ResizeObserver(resize).observe(host);
     else window.addEventListener('resize',resize,{passive:true});

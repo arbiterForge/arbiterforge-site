@@ -38,7 +38,7 @@
     let shapes = {}, source, target, projected, lineOrder = [], colors = [];
     let waveA, waveB, lineCos, lineSin, glow;
     let mode = 'weave', morph = 1, playTime = 0;
-    let frame = 0, lastPaint = 0, dirty = true, failed = false;
+    let frame = 0, lastPaint = 0, nextPaintAt = 0, dirty = true, failed = false;
     let inViewport = false, intersecting = true, pageActive = true, wasAnimating = false;
     let down = null;
     const pointer = { active: false, pending: false, clientX: 0, clientY: 0,
@@ -183,7 +183,7 @@
     }
     function stop() {
       if (frame) cancelAnimationFrame(frame);
-      frame = 0; lastPaint = 0;
+      frame = 0; lastPaint = 0; nextPaintAt = 0;
     }
     function schedule() { if (animate() && !frame) frame = requestAnimationFrame(tick); }
     function sync() {
@@ -277,6 +277,7 @@
     }
     function paint() {
       if (!permitted() || !target || failed) return;
+      const started = performance.now();
       try {
         project();
         ctx.clearRect(0, 0, width, height);
@@ -315,6 +316,12 @@
         failed = true; stop();
         delete host.dataset.heroReady;
         updateControls();
+      } finally {
+        // A frame-rate ceiling alone can repaint continuously on a slow canvas.
+        // Leave as much time for other work as this draw used. On fast devices
+        // the existing 30fps interval remains the limiting factor.
+        const finished = performance.now();
+        nextPaintAt = finished + Math.max(0, finished - started);
       }
     }
     function tick(timestamp) {
@@ -322,7 +329,7 @@
       if (!animate()) { sync(); return; }
       if (!lastPaint) lastPaint = timestamp - FRAME_MS;
       const elapsed = timestamp - lastPaint;
-      if (elapsed >= FRAME_MS - .01) {
+      if (elapsed >= FRAME_MS - .01 && timestamp >= nextPaintAt) {
         const delta = Math.min(elapsed / 1000, .08);
         playTime += delta;
         morph = Math.min(1, morph + delta / 1.25);

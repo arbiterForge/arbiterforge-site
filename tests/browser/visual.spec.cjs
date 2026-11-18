@@ -47,6 +47,14 @@ for (const width of [390, 1440]) {
     const section = page.locator('#projects');
     await section.scrollIntoViewIfNeeded();
     await section.locator('img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
+    const box = await section.boundingBox();
+    if (box.height > page.viewportSize().height) {
+      // Keep the entire section in one viewport. Beyond-viewport element captures
+      // can composite translated fixed elements into the middle of the result.
+      await page.setViewportSize({ width, height: Math.ceil(box.height) + 2 });
+      await section.scrollIntoViewIfNeeded();
+    }
+    await expect(page.locator('.skip-link')).not.toBeFocused();
     await compare(section, `home-projects-light-${width}.png`, testInfo);
   });
 }

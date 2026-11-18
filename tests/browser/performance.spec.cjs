@@ -1,4 +1,5 @@
 const { test, expect, devices } = require('@playwright/test');
+const { writeFileSync } = require('node:fs');
 
 // A repeatable browser laboratory, not CrUX, field INP, or a physical-phone benchmark.
 // Chromium's four-times CPU slowdown is relative to the runner, not a named handset.
@@ -22,7 +23,8 @@ test('mobile loading, layout stability and hero response stay within budgets', a
         screen: PROFILE.viewport, reducedMotion: 'no-preference', colorScheme: 'light',
       });
       const started = Date.now();
-      const diagnostic = { trial: trial + 1, phase: 'create-page', responses: [], errors: [] };
+      const diagnostic = { trial: trial + 1, phase: 'create-page', responses: [], errors: [], updates: [] };
+      const progressPath = testInfo.outputPath(`mobile-trial-${trial + 1}-progress.json`);
       diagnostics.push(diagnostic);
       let page;
       try {
@@ -32,6 +34,16 @@ test('mobile loading, layout stability and hero response stay within budgets', a
           path: new URL(response.url()).pathname, status: response.status(), atMs: Date.now() - started,
         }));
         const cdp = await context.newCDPSession(page);
+        await cdp.send('Runtime.enable');
+        await cdp.send('Runtime.addBinding', { name: '__siteLabReport' });
+        cdp.on('Runtime.bindingCalled', event => {
+          if (event.name !== '__siteLabReport' || event.payload.length > 8192 || diagnostic.updates.length >= 150) return;
+          try {
+            diagnostic.updates.push({ receivedAtMs: Date.now() - started, ...JSON.parse(event.payload) });
+            // This small Node-side journal survives even if a later DOM call stalls.
+            writeFileSync(progressPath, JSON.stringify(diagnostic, null, 2));
+          } catch (error) { diagnostic.errors.push('Diagnostic report: ' + error.message); }
+        });
         await cdp.send('Network.enable');
         await cdp.send('Network.setCacheDisabled', { cacheDisabled: true });
         await cdp.send('Network.emulateNetworkConditions', {
@@ -47,8 +59,29 @@ test('mobile loading, layout stability and hero response stay within budgets', a
             observedInteractionMs: 0, observedInteractionCount: 0, observedInputCount: 0,
             eventTimingSupported: PerformanceObserver.supportedEntryTypes.includes('event'),
           };
+          let lastReport = -Infinity, reportCount = 0, lastTick = performance.now();
+          function report(reason, force = false) {
+            const now = performance.now();
+            if (reportCount >= 150 || (!force && now - lastReport < 1000)) return;
+            if (typeof window.__siteLabReport !== 'function') return;
+            lastReport = now; reportCount++;
+            window.__siteLabReport(JSON.stringify({
+              reason, atMs: Math.round(now), ...result,
+              readyState: document.readyState, motion: document.documentElement?.dataset.motion || null,
+              heroReady: document.querySelector('[data-living-hero]')?.dataset.heroReady || null,
+              timerDelayMs: Math.max(0, Math.round(now - lastTick - 1000)),
+            }));
+          }
+          report('init', true);
+          document.addEventListener('DOMContentLoaded', () => report('domcontentloaded', true), { once: true });
+          window.addEventListener('load', () => report('load', true), { once: true });
+          const heartbeat = setInterval(() => {
+            report('timer'); lastTick = performance.now();
+            if (reportCount >= 150) clearInterval(heartbeat);
+          }, 1000);
           new PerformanceObserver(list => {
             for (const entry of list.getEntries()) result.lcpMs = entry.startTime;
+            report('lcp');
           }).observe({ type: 'largest-contentful-paint', buffered: true });
           let sessionStart = 0, sessionLast = 0, sessionValue = 0;
           new PerformanceObserver(list => {
@@ -59,12 +92,14 @@ test('mobile loading, layout stability and hero response stay within budgets', a
               sessionLast = entry.startTime;
               result.cls = Math.max(result.cls, sessionValue);
             }
+            report('cls');
           }).observe({ type: 'layout-shift', buffered: true });
           new PerformanceObserver(list => {
             for (const entry of list.getEntries()) {
               result.longestTaskMs = Math.max(result.longestTaskMs, entry.duration);
               result.blockingTimeMs += Math.max(0, entry.duration - 50);
             }
+            report('longtask');
           }).observe({ type: 'longtask', buffered: true });
           document.addEventListener('pointerup', () => { result.observedInputCount++; }, { passive: true });
           const interactions = new Map();
@@ -75,6 +110,7 @@ test('mobile loading, layout stability and hero response stay within budgets', a
             }
             result.observedInteractionCount = interactions.size;
             result.observedInteractionMs = Math.max(0, ...interactions.values());
+            report('interaction');
           }).observe({ type: 'event', buffered: true, durationThreshold: 16 });
         });
         diagnostic.phase = 'navigation';
@@ -123,7 +159,12 @@ test('mobile loading, layout stability and hero response stay within budgets', a
           } finally { clearTimeout(timer); }
         }
         diagnostic.elapsedMs = Date.now() - started;
-        await context.close();
+        writeFileSync(progressPath, JSON.stringify(diagnostic, null, 2));
+        try { await context.close(); }
+        catch (error) {
+          diagnostic.closeError = error.message;
+          if (diagnostic.phase === 'complete') throw error;
+        }
       }
     }
   } finally {
