@@ -1,34 +1,28 @@
 {% assign s = include.story %}
-<article class="story" data-event-key="{{ s.event_key | escape }}">
-  <span class="story-number" aria-hidden="true">{% if include.number < 10 %}0{% endif %}{{ include.number }}</span>
-  <div class="copy">
-    <header class="story-header">
-      <div class="kicker">
-        <span>{{ s.topic | escape }}</span>
-        <span class="badge">{{ s.freshness | escape }}</span>
-      </div>
-      <h3>{{ s.title | escape }}</h3>
-      <div class="byline">
-        <strong>{{ s.publisher | escape }}</strong>
-        <time datetime="{{ s.publication_date | escape }}">Published {{ s.publication_date | escape }}</time>
-        {% if s.event_date and s.event_date != s.publication_date %}<span>Event: {{ s.event_date | escape }}</span>{% endif %}
-      </div>
-    </header>
-    <div class="story-body">
-      <p class="highlights">{{ s.highlights | escape }}</p>
-      <p class="implications"><b>Implications · analysis</b> {{ s.implications | escape }}</p>
-      <div class="takeaway">
-        <b>Why it matters / what to watch</b>
-        <p>{{ s.takeaway | escape }}</p>
-      </div>
-      {% if s.status == 'material-update' %}
-      <p class="change"><b>What changed:</b> {{ s.change_summary | escape }}</p>
-      {% endif %}
-      <div class="sources">
-        {% for source in s.sources %}
-        <a href="{{ source.url | escape }}" target="_blank" rel="noopener noreferrer">{{ source.label | escape }} <span aria-hidden="true">{% include icon.html name="arrow-up-right" %}</span></a>
-        {% endfor %}
-      </div>
+<article class="story report" id="story-{{ s.category }}-{{ include.number }}" tabindex="-1" data-event-key="{{ s.event_key | escape }}">
+  <header>
+    <p class="story-kicker"><span>{{ s.topic | escape }}</span><span>{{ s.freshness | escape }}</span></p>
+    <h3>{{ s.title | escape }}</h3>
+    <div class="byline">
+      <strong>{{ s.publisher | escape }}</strong>
+      <time datetime="{{ s.publication_date | escape }}">Published {{ s.publication_date | escape }}</time>
+      {% if s.event_date and s.event_date != s.publication_date %}<span>Event date {{ s.event_date | escape }}</span>{% endif %}
     </div>
+  </header>
+  <p class="highlights">{{ s.highlights | escape }}</p>
+  {% if s.status == 'material-update' %}<p class="change"><b>What changed</b> {{ s.change_summary | escape }}</p>{% endif %}
+  <details class="analysis">
+    <summary>Analysis &amp; takeaway</summary>
+    <div class="analysis-copy">
+      {% assign analysis_prefix = s.implications | slice: 0, 9 %}
+      {% assign takeaway_prefix = s.takeaway | slice: 0, 9 %}
+      <p>{% unless analysis_prefix == 'Analysis:' %}<strong>Analysis. </strong>{% endunless %}{{ s.implications | escape }}</p>
+      <p>{% unless takeaway_prefix == 'Takeaway:' %}<strong>Takeaway. </strong>{% endunless %}{{ s.takeaway | escape }}</p>
+    </div>
+  </details>
+  <div class="sources">
+    {% for source in s.sources %}
+    <a href="{{ source.url | escape }}" target="_blank" rel="noopener noreferrer">{{ source.label | escape }} {% include icon.html name="arrow-up-right" %}</a>
+    {% endfor %}
   </div>
 </article>

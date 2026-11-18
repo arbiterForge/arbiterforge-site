@@ -1,13 +1,14 @@
 {% assign e = include.edition %}
-<a class="archive-card{% if e.archive_kind %} archive-card--history{% endif %}" href="/news/{{ e.edition_date }}/">
+<a class="archive-card" href="/news/{{ e.edition_date }}/">
   <span class="archive-date" aria-hidden="true"><span>{{ e.edition_date | date: '%b' }}</span><b>{{ e.edition_date | date: '%d' }}</b></span>
   <div class="archive-entry">
-    <div class="archive-card-heading">
-      <time datetime="{{ e.edition_date }}">{{ e.edition_date | date: '%B %-d, %Y' }}</time>
-      <span class="archive-arrow" aria-hidden="true">{% include icon.html name="arrow-right" %}</span>
-    </div>
-    <strong>{% if e.archive_kind %}{{ e.record_count }} retained records{% else %}{{ e.stories | size }} developments{% endif %}</strong>
-    <p>{{ e.overview | truncate: 230 | escape }}</p>
-    <small>{% case e.archive_kind %}{% when 'restored' %}Restored story text{% when 'partial' %}Partial text recovery · {{ e.restored_count }} full texts{% when 'coverage-only' %}Coverage records only{% else %}{% if e.publication_kind == 'migrated' %}Imported briefing{% else %}Daily edition{% endif %}{% endcase %}</small>
+    <time datetime="{{ e.edition_date }}">{{ e.edition_date | date: '%A, %B %-d, %Y' }}</time>
+    {% if e.archive_kind %}
+    <strong>{% case e.archive_kind %}{% when 'restored' %}Restored story text{% when 'partial' %}Partial text recovery{% else %}Coverage records only{% endcase %}</strong>
+    <small>{{ e.record_count }} retained records · {{ e.restored_count }} full texts recovered</small>
+    {% else %}
+    <strong>{{ e.stories.first.title | escape }}</strong>
+    <small>{{ e.stories | size }} stories{% if e.publication_kind == 'migrated' %} · Imported briefing{% endif %}</small>
+    {% endif %}
   </div>
 </a>

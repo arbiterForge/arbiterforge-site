@@ -1,0 +1,5 @@
+# codeArbiter override log - append-only audit artifact. Never edit or delete prior lines.
+# Format: [ISO-8601] | BY: <name> <<email>> | GATE: <gate bypassed> | REASON: <reason>
+# Written only by /override. The statusline counts non-comment lines after the
+# last-checkpoint marker as "overrides since last checkpoint."
+[2026-11-18T15:42:59Z] | BY: SUaDtL@users.noreply.github.com | SECURITY-OVERRIDE | FINDING: H-09b cannot text-review news/assets/edition-airwaves.webp, tests/browser/snapshots/news-dark-390.png, or tests/browser/snapshots/news-light-1440.png. | REASON: The operator explicitly approved these three reviewed editorial and visual-test images for this news redesign. All three decoded as images and the staged secret scan passed.

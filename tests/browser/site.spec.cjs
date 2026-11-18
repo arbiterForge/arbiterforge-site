@@ -116,6 +116,44 @@ test('news category keyboard navigation and hash links select the same panel', a
   await expect(page.locator('#panel-ai')).toBeVisible();
 });
 
+test('front-page headlines reach the right story and desk on click and reload', async ({ page }) => {
+  await stablePage(page, '/news/2026-11-18/');
+  const coverTitle = await page.locator('.lead-story h1').innerText();
+  await page.getByRole('link', { name: 'Read the story' }).click();
+  await expect(page.locator('article:target h3')).toHaveText(coverTitle);
+  const desk = page.locator('[data-panel]:visible');
+  const nextDesk = desk.locator('.desk-end a[href^="#panel-"]');
+  const nextTarget = await nextDesk.getAttribute('href');
+  await nextDesk.click();
+  await expect(page.locator(nextTarget)).toBeFocused();
+  await expect(page.locator(nextTarget + ' h2')).toBeInViewport();
+  const teaser = page.locator('.desk-preview').last();
+  const target = await teaser.getAttribute('href');
+  await teaser.click();
+  await expect(page.locator(target)).toBeFocused();
+  await expect(page.locator(target)).toBeInViewport();
+  await page.reload();
+  await expect(page.locator(target)).toBeInViewport();
+  const report = page.locator(target);
+  await report.locator('summary').click();
+  await expect(report.locator('.analysis-copy')).toBeVisible();
+  await expect(report.locator('.sources a').first()).toBeVisible();
+});
+
+test('front-page links and disclosures work without scripts', async ({ browser, baseURL }) => {
+  const context = await browser.newContext({ baseURL, javaScriptEnabled: false, viewport: { width: 320, height: 740 } });
+  const page = await context.newPage();
+  await page.goto('/news/2026-11-17/');
+  const teaser = page.locator('.desk-preview').last();
+  const target = await teaser.getAttribute('href');
+  await teaser.click();
+  await expect(page.locator(target)).toBeInViewport();
+  await page.locator(target + ' summary').click();
+  await expect(page.locator(target + ' .analysis-copy')).toBeVisible();
+  await noOverflow(page);
+  await context.close();
+});
+
 test('playground preserves seed links and keyboard controls', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: 'no-preference' });

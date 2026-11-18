@@ -1,13 +1,13 @@
-<header class="topbar">
-  <div class="shell top-inner">
-    <div class="news-home">
-      <a class="wordmark" href="/" aria-label="suadtl home">suadtl<span aria-hidden="true">.</span></a>
-      <span class="news-home-divider" aria-hidden="true">/</span>
-      <a class="news-label" href="/news/">News</a>
+<header class="press-header">
+  <div class="shell press-bar">
+    <div class="imprint">
+      <a class="paper-name" href="/news/"><span class="press-mark" aria-hidden="true">✳</span>Arbiter News</a>
+      <a class="publisher-home" href="/" aria-label="suadtl home">by suadtl</a>
     </div>
-    <nav class="site-nav" aria-label="News navigation">
+    <nav class="press-nav" aria-label="News navigation">
       <a href="/news/" {% unless page.archive or page.edition or page.archive_date %}aria-current="page"{% endunless %}>Latest</a>
       <a href="/news/archive/" {% if page.archive %}aria-current="page"{% endif %}>Archive</a>
+      <a class="feed-link" href="/news/feed.xml">RSS</a>
       <button class="theme-toggle" type="button" aria-label="Dark appearance" aria-pressed="false" hidden>
         <span class="theme-moon">{% include icon.html name="moon" %}</span>
         <span class="theme-sun">{% include icon.html name="sun" %}</span>
