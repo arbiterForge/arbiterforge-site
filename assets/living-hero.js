@@ -1,0 +1,414 @@
+/* suadtl / Living forms.
+   Three continuous parametric surfaces, drawn as projected contour threads.
+   Geometry is cached; a frame projects at most 104 × 145 points. Canvas drawing
+   is capped at 30 fps, DPR 1.65 (1.4 compact), and 1.15 million backing pixels.
+   Pointer attraction and expanding waves deform the projected silk, while a
+   small camera tilt makes depth tangible. No dependencies, requests, or storage. */
+(() => {
+  'use strict';
+  const TAU = Math.PI * 2;
+  const FRAME_MS = 1000 / 30;
+  const PIXEL_BUDGET = 1150000;
+  const NAMES = { weave: 'Weave', orbit: 'Orbit', bloom: 'Bloom' };
+  const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
+  const ease = value => value * value * (3 - 2 * value);
+  const palette = [[232, 235, 214], [150, 184, 157], [165, 204, 221], [210, 153, 114], [239, 226, 195]];
+
+  function create(host) {
+    const stage = host.querySelector('[data-hero-stage]');
+    const canvas = host.querySelector('[data-hero-canvas]');
+    if (!stage || !canvas) return;
+    let ctx;
+    try { ctx = canvas.getContext('2d', { alpha: true, desynchronized: true }); } catch (_) { return; }
+    if (!ctx) return;
+
+    const root = document.documentElement;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const coarse = window.matchMedia('(pointer: coarse)');
+    const connection = navigator.connection;
+    const controls = host.querySelector('[data-hero-controls]');
+    const modes = [...host.querySelectorAll('[data-hero-mode]')];
+    const pulseButton = host.querySelector('[data-hero-pulse]');
+    const hint = host.querySelector('[data-hero-hint]');
+    const formLabel = host.querySelector('[data-hero-form]');
+    const stateLabel = host.querySelector('[data-hero-state]');
+    const status = host.querySelector('[data-hero-status]');
+    let width = 0, height = 0, dpr = 1, scale = 1, bounds;
+    let lines = 0, segments = 0, stride = 0;
+    let shapes = {}, source, target, projected, lineOrder = [], colors = [];
+    let waveA, waveB, lineCos, lineSin;
+    let mode = 'weave', morph = 1, playTime = 0;
+    let frame = 0, lastPaint = 0, dirty = true, failed = false;
+    let inViewport = false, intersecting = true, pageActive = true, wasAnimating = false;
+    let down = null;
+    const pointer = { active: false, x: .5, y: .5, strength: 0, tiltX: 0, tiltY: 0 };
+    const pulses = [];
+
+    function permitted() {
+      return !failed && pageActive && !document.hidden && width > 0 && height > 0 && inViewport && intersecting;
+    }
+    function motionPermitted() {
+      return root.dataset.motion === 'on' && !reduced.matches && !connection?.saveData;
+    }
+    function animate() { return permitted() && motionPermitted(); }
+    function announce(message) { if (status) status.textContent = message; }
+    function setText(element, value) {
+      if (element && element.textContent !== value) element.textContent = value;
+    }
+    function updateControls() {
+      if (failed) {
+        if (controls) controls.hidden = true;
+        if (pulseButton) pulseButton.disabled = true;
+        setText(formLabel, NAMES.weave);
+        setText(stateLabel, 'Still artwork');
+        setText(hint, 'The static sculpture is shown.');
+        host.dataset.heroMode = 'weave';
+        return;
+      }
+      modes.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.heroMode === mode)));
+      if (pulseButton) pulseButton.disabled = !animate();
+      setText(formLabel, NAMES[mode]);
+      let state = 'Live · interactive';
+      let instruction = coarse.matches ? 'Drag sideways to bend the threads. Tap to send a pulse.' : 'Move across the form to pull the threads. Click to send a pulse.';
+      if (reduced.matches) {
+        state = 'Still · reduced motion';
+        instruction = 'Reduced motion is on. Choose a form to explore its still shape.';
+      } else if (connection?.saveData) {
+        state = 'Still · data saving';
+        instruction = 'Data saving is on. All three forms are available as still artwork.';
+      } else if (root.dataset.motion !== 'on') {
+        state = 'Motion paused';
+        instruction = 'Motion is paused. Choose a form, or turn motion on to interact.';
+      } else if (!permitted()) {
+        state = 'Motion resting';
+        instruction = 'Motion resumes when this sculpture is in view.';
+      }
+      setText(stateLabel, state);
+      setText(hint, instruction);
+      host.dataset.heroMode = mode;
+    }
+
+    function buildGeometry(compact) {
+      lines = compact ? 76 : 104;
+      segments = compact ? 112 : 144;
+      stride = (segments + 1) * 3;
+      shapes = {};
+      projected = new Float32Array(lines * stride);
+      waveA = new Float32Array(segments + 1);
+      waveB = new Float32Array(segments + 1);
+      lineCos = new Float32Array(lines);
+      lineSin = new Float32Array(lines);
+      lineOrder = Array.from({ length: lines }, (_, index) => ({ index, depth: 0 }));
+      colors = [];
+      for (let i = 0; i < lines; i++) {
+        const v = TAU * (i + .5) / lines;
+        lineCos[i] = Math.cos(v); lineSin[i] = Math.sin(v);
+        const position = i / (lines - 1) * (palette.length - 1);
+        const colorIndex = Math.min(palette.length - 2, Math.floor(position));
+        const fraction = position - colorIndex;
+        colors.push(palette[colorIndex].map((value, channel) => Math.round(value + (palette[colorIndex + 1][channel] - value) * fraction)).join(','));
+      }
+      for (const name of Object.keys(NAMES)) {
+        const points = new Float32Array(lines * stride);
+        for (let i = 0; i < lines; i++) {
+          const v = TAU * (i + .5) / lines;
+          for (let j = 0; j <= segments; j++) {
+            const u = TAU * j / segments;
+            let x, y, z;
+            if (name === 'weave') {
+              const tube = .19 + .035 * Math.cos(3 * u);
+              const r = .94 + .33 * Math.cos(3 * u) + tube * Math.cos(v);
+              x = 1.07 * r * Math.cos(2 * u);
+              y = r * Math.sin(2 * u);
+              z = .42 * Math.sin(3 * u) + tube * Math.sin(v);
+            } else if (name === 'orbit') {
+              const twist = v + .5 * Math.sin(2 * u);
+              const r = 1.02 + .3 * Math.cos(twist);
+              x = 1.08 * r * Math.cos(u);
+              y = .94 * r * Math.sin(u);
+              z = .31 * Math.sin(twist) + .18 * Math.sin(2 * u);
+            } else {
+              const petals = .91 + .3 * Math.cos(5 * u);
+              const r = petals + .18 * Math.cos(v);
+              x = r * Math.cos(u);
+              y = r * Math.sin(u);
+              z = .29 * Math.sin(v) + .23 * Math.sin(5 * u) + .12 * Math.cos(2 * u);
+            }
+            const k = i * stride + j * 3;
+            points[k] = x; points[k + 1] = y; points[k + 2] = z;
+          }
+        }
+        shapes[name] = points;
+      }
+      target = shapes[mode]; source = target; morph = 1;
+    }
+
+    function readBounds() {
+      bounds = stage.getBoundingClientRect();
+      inViewport = bounds.width > 0 && bounds.height > 0 && bounds.bottom > 0 && bounds.right > 0 && bounds.top < window.innerHeight && bounds.left < window.innerWidth;
+      return bounds;
+    }
+    function resize() {
+      if (failed) return;
+      const box = readBounds();
+      const nextWidth = Math.max(0, Math.round(box.width));
+      const nextHeight = Math.max(0, Math.round(box.height));
+      const compact = nextWidth < 480 || coarse.matches;
+      const nextDpr = nextWidth && nextHeight ? Math.min(window.devicePixelRatio || 1, compact ? 1.4 : 1.65, Math.sqrt(PIXEL_BUDGET / (nextWidth * nextHeight))) : 1;
+      if (nextWidth !== width || nextHeight !== height || nextDpr !== dpr || !target || lines !== (compact ? 76 : 104)) {
+        width = nextWidth; height = nextHeight; dpr = nextDpr;
+        if (width && height) {
+          canvas.width = Math.max(1, Math.floor(width * dpr));
+          canvas.height = Math.max(1, Math.floor(height * dpr));
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          scale = Math.min(width, height) * .30;
+          if (!target || lines !== (compact ? 76 : 104)) buildGeometry(compact);
+        }
+        dirty = true;
+      }
+      sync();
+    }
+
+    function resetInteraction() {
+      pointer.active = false; pointer.strength = 0; pointer.tiltX = 0; pointer.tiltY = 0;
+      down = null; pulses.length = 0;
+    }
+    function stop() {
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0; lastPaint = 0;
+    }
+    function schedule() { if (animate() && !frame) frame = requestAnimationFrame(tick); }
+    function sync() {
+      const running = animate();
+      if (!running) {
+        stop();
+        if (wasAnimating || pointer.active || pulses.length) {
+          resetInteraction();
+          morph = 1;
+          dirty = true;
+        }
+      }
+      wasAnimating = running;
+      updateControls();
+      if (dirty && permitted()) paint();
+      schedule();
+    }
+
+    function pathForLine(index, onlyFront = false) {
+      const offset = index * stride;
+      ctx.beginPath();
+      let open = false;
+      for (let j = 0; j <= segments; j++) {
+        const k = offset + j * 3;
+        if (onlyFront && projected[k + 2] > -.06) { open = false; continue; }
+        if (!open) { ctx.moveTo(projected[k], projected[k + 1]); open = true; }
+        else ctx.lineTo(projected[k], projected[k + 1]);
+      }
+    }
+    function project() {
+      const blend = ease(morph);
+      const follow = .14;
+      pointer.strength += ((pointer.active ? 1 : 0) - pointer.strength) * follow;
+      pointer.tiltX += ((pointer.active ? (pointer.x - .5) * .65 : 0) - pointer.tiltX) * follow;
+      pointer.tiltY += ((pointer.active ? (pointer.y - .5) * .42 : 0) - pointer.tiltY) * follow;
+      const rx = -.56 + pointer.tiltY + .055 * Math.sin(playTime * .23);
+      const ry = .42 + pointer.tiltX + .11 * Math.sin(playTime * .17);
+      const rz = .22 + .035 * Math.sin(playTime * .19);
+      const sx = Math.sin(rx), cx = Math.cos(rx), sy = Math.sin(ry), cy = Math.cos(ry), sz = Math.sin(rz), cz = Math.cos(rz);
+      const centerX = width * .5, centerY = height * .5;
+      const fieldRadius = Math.min(width, height) * .54;
+      const pullX = pointer.x * width, pullY = pointer.y * height;
+      const pulseScale = Math.min(width, height);
+      for (let j = 0; j <= segments; j++) {
+        const u = TAU * j / segments;
+        waveA[j] = (Math.sin(2 * u + playTime * .55) - Math.sin(2 * u)) * .021;
+        waveB[j] = (Math.cos(3 * u - playTime * .43) - Math.cos(3 * u)) * .018;
+      }
+      for (const line of lineOrder) {
+        const i = line.index;
+        let depth = 0;
+        for (let j = 0; j <= segments; j++) {
+          const k = i * stride + j * 3;
+          const x = source[k] + (target[k] - source[k]) * blend + waveA[j] * lineCos[i];
+          const y = source[k + 1] + (target[k + 1] - source[k + 1]) * blend + waveB[j];
+          const z = source[k + 2] + (target[k + 2] - source[k + 2]) * blend + waveA[j] * lineSin[i];
+          const y1 = y * cx - z * sx, z1 = y * sx + z * cx;
+          const x2 = x * cy + z1 * sy, z2 = -x * sy + z1 * cy;
+          const x3 = x2 * cz - y1 * sz, y3 = x2 * sz + y1 * cz;
+          const perspective = 5.5 / (5.5 + z2);
+          let px = centerX + x3 * scale * perspective;
+          let py = centerY + y3 * scale * perspective;
+          if (pointer.strength > .002) {
+            const dx = pullX - px, dy = pullY - py;
+            const field = Math.exp(-(dx * dx + dy * dy) / (fieldRadius * fieldRadius)) * pointer.strength;
+            px += (dx * .34 - dy * .075) * field;
+            py += (dy * .34 + dx * .075) * field;
+          }
+          for (const pulse of pulses) {
+            const dx = px - pulse.x * width, dy = py - pulse.y * height;
+            const distance = Math.sqrt(dx * dx + dy * dy) || .001;
+            const front = pulse.age * pulseScale * .62;
+            const band = pulseScale * .075;
+            const separation = (distance - front) / band;
+            const amplitude = Math.exp(-separation * separation) * (1 - pulse.age / 1.8) * pulseScale * .075;
+            px += dx / distance * amplitude;
+            py += dy / distance * amplitude;
+          }
+          projected[k] = px; projected[k + 1] = py; projected[k + 2] = z2;
+          depth += z2;
+        }
+        line.depth = depth / (segments + 1);
+      }
+      lineOrder.sort((a, b) => b.depth - a.depth);
+    }
+    function paint() {
+      if (!permitted() || !target || failed) return;
+      try {
+        project();
+        ctx.clearRect(0, 0, width, height);
+        const glow = ctx.createRadialGradient(width * .5, height * .5, 0, width * .5, height * .5, scale * 1.8);
+        glow.addColorStop(0, 'rgba(137,176,153,.08)');
+        glow.addColorStop(.55, 'rgba(114,147,145,.035)');
+        glow.addColorStop(1, 'rgba(114,147,145,0)');
+        ctx.fillStyle = glow; ctx.fillRect(0, 0, width, height);
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        for (const line of lineOrder) {
+          const i = line.index;
+          if (i % 9 === 0) {
+            pathForLine(i);
+            ctx.strokeStyle = `rgba(${colors[i]},.035)`; ctx.lineWidth = 4; ctx.stroke();
+          }
+          pathForLine(i);
+          const opacity = clamp(.29 - line.depth * .11, .19, .42);
+          ctx.strokeStyle = `rgba(${colors[i]},${opacity})`;
+          ctx.lineWidth = lines < 100 ? .75 : .65;
+          ctx.stroke();
+        }
+        for (let i = 1; i < lines; i += 5) {
+          pathForLine(i, true);
+          ctx.strokeStyle = 'rgba(243,242,220,.58)'; ctx.lineWidth = .85; ctx.stroke();
+        }
+        ctx.globalCompositeOperation = 'source-over';
+        dirty = false;
+        if (host.dataset.heroReady !== 'true') {
+          host.dataset.heroReady = 'true';
+          if (controls) controls.hidden = false;
+        }
+      } catch (_) {
+        failed = true; stop();
+        delete host.dataset.heroReady;
+        updateControls();
+      }
+    }
+    function tick(timestamp) {
+      frame = 0;
+      if (!animate()) { sync(); return; }
+      if (!lastPaint) lastPaint = timestamp - FRAME_MS;
+      const elapsed = timestamp - lastPaint;
+      if (elapsed >= FRAME_MS - .01) {
+        const delta = Math.min(elapsed / 1000, .08);
+        playTime += delta;
+        morph = Math.min(1, morph + delta / 1.25);
+        for (let i = pulses.length - 1; i >= 0; i--) {
+          pulses[i].age += delta;
+          if (pulses[i].age >= 1.8) pulses.splice(i, 1);
+        }
+        paint();
+        // Start the next interval at this actual paint. Retaining a nearly-full
+        // modulo remainder after a slightly early frame can cause a 60 Hz pair.
+        lastPaint = timestamp;
+      }
+      schedule();
+    }
+
+    function selectMode(next) {
+      if (!(next in NAMES) || next === mode || failed || !target) return;
+      if (animate()) {
+        const blend = ease(morph);
+        source = Float32Array.from(target, (value, i) => source[i] + (value - source[i]) * blend);
+        morph = 0;
+      } else { source = shapes[next]; morph = 1; }
+      mode = next; target = shapes[next]; dirty = true;
+      updateControls();
+      if (!animate() && permitted()) paint();
+      schedule();
+      announce(`${NAMES[mode]} form selected.${motionPermitted() ? '' : ' Motion is paused.'}`);
+    }
+    function sendPulse(x = .5, y = .5) {
+      if (!animate()) return;
+      if (pulses.length === 3) pulses.shift();
+      pulses.push({ x: clamp(x, 0, 1), y: clamp(y, 0, 1), age: 0 });
+      schedule();
+      announce(`Pulse sent through the ${NAMES[mode]} form.`);
+    }
+    function point(event) {
+      const box = stage.getBoundingClientRect();
+      return { x: clamp((event.clientX - box.left) / box.width, 0, 1), y: clamp((event.clientY - box.top) / box.height, 0, 1) };
+    }
+    function pointerMove(event) {
+      if (!animate()) return;
+      const touch = event.pointerType === 'touch';
+      if (touch) {
+        if (!down || down.id !== event.pointerId) return;
+        const dx = event.clientX - down.x, dy = event.clientY - down.y;
+        if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 8) { pointer.active = false; return; }
+        if (Math.abs(dx) < 8) return;
+        down.dragged = true;
+      }
+      const position = point(event);
+      pointer.x = position.x; pointer.y = position.y; pointer.active = true;
+      schedule();
+    }
+    function pointerDown(event) {
+      if (!animate() || event.button > 0) return;
+      down = { id: event.pointerId, x: event.clientX, y: event.clientY, time: performance.now(), dragged: false };
+      if (event.pointerType !== 'touch') pointerMove(event);
+    }
+    function pointerUp(event) {
+      if (!down || down.id !== event.pointerId) return;
+      const tap = !down.dragged && Math.hypot(event.clientX - down.x, event.clientY - down.y) < 12 && performance.now() - down.time < 700;
+      down = null;
+      if (tap && animate()) { const position = point(event); sendPulse(position.x, position.y); }
+      if (event.pointerType === 'touch') pointer.active = false;
+    }
+    function pointerCancel() { down = null; pointer.active = false; }
+
+    modes.forEach(button => button.addEventListener('click', () => selectMode(button.dataset.heroMode)));
+    if (pulseButton) pulseButton.addEventListener('click', () => sendPulse());
+    stage.addEventListener('pointermove', pointerMove, { passive: true });
+    stage.addEventListener('pointerdown', pointerDown, { passive: true });
+    stage.addEventListener('pointerup', pointerUp, { passive: true });
+    stage.addEventListener('pointercancel', pointerCancel, { passive: true });
+    stage.addEventListener('pointerleave', pointerCancel, { passive: true });
+    window.addEventListener('pointerup', pointerUp, { passive: true });
+    window.addEventListener('pointercancel', pointerCancel, { passive: true });
+    document.addEventListener('visibilitychange', () => { readBounds(); sync(); });
+    window.addEventListener('pagehide', () => { pageActive = false; dirty = true; sync(); });
+    window.addEventListener('pageshow', () => {
+      pageActive = true;
+      intersecting = readBounds().width > 0 && inViewport;
+      dirty = true; resize();
+    });
+    window.addEventListener('resize', resize, { passive: true });
+    reduced.addEventListener('change', sync);
+    coarse.addEventListener('change', resize);
+    connection?.addEventListener?.('change', sync);
+    new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['data-motion'] });
+    if ('ResizeObserver' in window) new ResizeObserver(resize).observe(stage);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.target !== stage) return;
+          intersecting = entry.isIntersecting && entry.intersectionRatio > 0;
+          readBounds(); sync();
+        });
+      }, { threshold: [0, .001] }).observe(stage);
+    } else {
+      window.addEventListener('scroll', () => { readBounds(); sync(); }, { passive: true });
+    }
+    resize();
+  }
+
+  document.querySelectorAll('[data-living-hero]').forEach(create);
+})();
