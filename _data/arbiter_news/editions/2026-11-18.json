@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-18",
+  "title": "Arbiter News",
+  "intro": "Twelve verified November 17 developments spanning agents, multicloud operations, cyber defense, military space and the U.S. economy.",
+  "overview": "Adaptive code reviews, enterprise agent telemetry and long-lived memory lead AI; managed intercloud links, context-aware firewalls and recoverable VM images anchor cloud. Security covers IAM diagnostics, bot defense and NATO's responsive launch initiative. The economy tracks cooling retail receipts, uneven industrial output and weak homebuilder confidence.",
+  "history_note": "The live coverage.json endpoint was unavailable to the web reader. Deduplication instead inspected its complete repository backing data: all 319 legacy records across ten history_parts files and all 300 story records from 25 dated editions (October 23-November 17, except October 25), 619 accessible records in total. Compared normalized event keys, underlying developments and available original-source URLs across the complete accessible interval, including more than 30 days. Known historical record gaps remain September 23, October 6 and October 25; some legacy records do not contain source URLs. Older coverage is not evidence of factual correctness. No routine Opus 5.5 launch story was repeated.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "github:copilot-code-review:adaptive-effort-cross-repository-secret-detection:2026-11-17",
+      "status": "new",
+      "topic": "Agentic code review",
+      "title": "GitHub adds adaptive review effort, cross-repository context and secret detection",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 1 day",
+      "highlights": "GitHub announced several distinct changes to Copilot code review on November 17. Adaptive review effort, in public preview, selects Lite, Balanced or Max based on the pull request's apparent complexity and risk, while honoring the organization or repository's maximum review setting. Cross-repository context can examine related public repositories when reviewing a change, also in preview. Copilot review now flags recognized credential formats and potential secrets without standard patterns. Separately, Copilot code review for Azure Repos reached general availability. GitHub describes these capabilities as automated review assistance, not as a substitute for required human review.",
+      "implications": "Analysis: Adaptive depth may help teams spend fewer review resources on trivial changes and more on authorization, networking or data-handling code. Cross-repository analysis is especially valuable for shared libraries, but it does not guarantee complete dependency discovery. AI secret identification also creates false-positive and false-negative risk; existing deterministic secret scanning and rotation procedures should remain in place.",
+      "takeaway": "Takeaway: Pilot on mixed-risk PRs, inspect effort selection and findings, and keep human security approval and established secret scanning intact.",
+      "development_summary": "GitHub introduced adaptive code-review effort, public-repository context and experimental secrets detection, while making Azure Repos reviews generally available.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-17-copilot-code-review-adaptive-effort-secret-detection-and-more/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot-agent-activity:microsoft-agent-365-enterprise-stream:2026-11-17",
+      "status": "new",
+      "topic": "Agent observability",
+      "title": "GitHub streams Copilot agent sessions and tool activity into Microsoft Agent 365",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 1 day",
+      "highlights": "On November 17 GitHub released a way for enterprises to stream Copilot agent activity into Microsoft Agent 365. The integration collects activity from GitHub.com cloud agents, Copilot CLI, Visual Studio Code, Visual Studio and partner IDEs, including JetBrains and Eclipse. Administrators can review user sessions, prompts, responses, tool calls and usage trends alongside other agent workloads. GitHub also points to related risk investigation through Microsoft Purview and Defender. Availability is limited to GitHub Enterprise Cloud organizations using Enterprise Managed Users, not all Copilot customers or independent coding harnesses.",
+      "implications": "Analysis: Unifying agent execution records can help incident responders reconstruct when a tool acted, which user initiated a workflow and which data crossed boundaries. But rich session telemetry can itself contain proprietary code, confidential prompts or secrets. Retention, permissions, redaction and residency should be reviewed before connecting logs to another control plane. Integration should not be confused with automatic enforcement of tool permissions.",
+      "takeaway": "Takeaway: Evaluate an opt-in pilot with sanitized agent sessions and verify who can access prompts, responses and tool-call history.",
+      "development_summary": "GitHub added an Enterprise Managed Users integration for streaming Copilot agent activity to Microsoft Agent 365.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-17-monitor-github-copilot-activity-through-microsoft-agent-365/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "aws:bedrock-agentcore-memory:short-term-events-ten-year-retention:2026-11-17",
+      "status": "new",
+      "topic": "Agent memory governance",
+      "title": "Bedrock AgentCore Memory expands short-term event retention to ten years",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced November 17 that Amazon Bedrock AgentCore Memory can retain short-term memory events for as long as ten years, compared with the previous one-year maximum. The retention period is configured on the memory resource and is applied when each new event is created, meaning existing records retain their original settings rather than being retroactively extended. AWS positions the change for agent conversations, long-returning users, regulatory records and audit history. Standard short-term memory storage charges apply throughout the chosen retention period. The capability is available wherever AgentCore Memory is offered.",
+      "implications": "Analysis: Long retention helps investigations and continuity but materially changes the privacy and data-governance profile of an agent. A raw conversation archive is not the same as curated, reliable semantic memory; extended storage increases exposure from sensitive data, mistaken outputs and access-control failures. Organizations should establish legal retention purposes, deletion processes, encryption, least privilege and data-minimization policies before extending lifetimes.",
+      "takeaway": "Takeaway: Treat ten years as a maximum capability, not a default: set retention by data class, audit need and approved policy.",
+      "development_summary": "AWS increased AgentCore Memory's configurable short-term event retention ceiling from one year to ten years.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-bedrock-agentcore-memory-10-year-retention/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:interconnect-multicloud:azure-general-availability-three-regions:2026-11-17",
+      "status": "new",
+      "topic": "Multicloud networking",
+      "title": "AWS Interconnect for Microsoft Azure reaches general availability",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced on November 17 that AWS Interconnect - multicloud with Microsoft Azure is generally available. The service provisions private, managed connections between cloud environments instead of requiring customers to assemble and maintain every layer of a bespoke intercloud network. Azure had joined the open-specification approach in public preview in August. With this launch, AWS says its Interconnect experience spans Azure, Google Cloud and Oracle Cloud Infrastructure. The Azure option is initially available from AWS regions us-east-1 in Northern Virginia, ap-southeast-2 in Sydney and eu-central-1 in Frankfurt, through the console, CLI or API.",
+      "implications": "Analysis: A managed private path can simplify integration between cloud-hosted identity, data and applications, particularly where public-internet routing is undesirable. Availability in three AWS regions does not imply universal region pairing, zero egress costs or automatic end-to-end resiliency. Customers must verify supported connectivity topology, throughput, failover, encryption boundaries, costs and organizational ownership.",
+      "takeaway": "Takeaway: Compare the managed connection against existing direct-connect designs in a realistic failure and cost model before migration.",
+      "development_summary": "AWS moved managed AWS-to-Azure private multicloud interconnection from preview to GA in three AWS regions.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-announces-AWS-interconnect-multicloud-azure-ga/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:transit-gateway:firewall-resource-context-segmentation-first-packet:2026-11-17",
+      "status": "new",
+      "topic": "Network segmentation",
+      "title": "AWS Transit Gateway carries resource identity into firewall policy decisions",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 1 day",
+      "highlights": "On November 17 AWS introduced Transit Gateway context sharing with attached security services. Instead of relying only on changing IP addresses or periodically synchronized tags, supported firewalls can evaluate VPCs, subnets, security groups and transit gateway attachments as policy context. AWS says the metadata accompanies traffic so the firewall can apply the intended segmentation policy from the first packet, including for short-lived workloads. AWS Network Firewall and Palo Alto Networks Software Firewalls are initially supported. Customers create a context store using AWS Network Manager and associate their transit gateways. The feature is offered in most commercial regions and both GovCloud US regions, with stated Middle East exclusions.",
+      "implications": "Analysis: This reduces the operational mismatch between ephemeral cloud resources and static network rules, especially at shared inspection points. The model still depends on correct resource classification, route tables, firewall support and consistent policy ownership. It is not a substitute for service identity, east-west visibility or validation of bypass paths.",
+      "takeaway": "Takeaway: Prototype development-to-production isolation and first-packet policy enforcement before converting existing IP-based controls.",
+      "development_summary": "AWS launched resource-context sharing from Transit Gateway to supported firewalls for identity-aware network segmentation.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/transit-gateway-firewall-context-sharing/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "azure:compute-gallery:soft-delete-ga-image-version-recovery:2026-11-17",
+      "status": "new",
+      "topic": "Infrastructure recovery",
+      "title": "Azure Compute Gallery image soft delete becomes generally available",
+      "publisher": "Microsoft Azure",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 1 day",
+      "highlights": "Microsoft announced general availability of soft delete for Azure Compute Gallery on November 17 at Ignite. Previously, deleting a gallery image version could permanently remove an input needed for repeatable virtual-machine deployment. With the feature enabled, deleted image versions enter a recoverable state for a configurable retention period, rather than disappearing immediately. Microsoft describes expanded retention and grace-period controls and visibility into image lifecycle states since the public preview. These protections concern image versions in Azure Compute Gallery; the announcement does not establish backup or disaster-recovery coverage for running virtual machines, disks or external configuration systems.",
+      "implications": "Analysis: Recoverable image artifacts can prevent an accidental pipeline cleanup from cascading into deployment failures or delayed scaling, provided retention is long enough to detect mistakes. Teams still need immutable provenance, role restrictions, tests of actual recovery and secure eventual deletion. A soft-delete window may also introduce compliance decisions around how long vulnerable or sensitive images remain recoverable.",
+      "takeaway": "Takeaway: Enable recovery for production image galleries, document expiration rules and exercise a restoration in a nonproduction deployment.",
+      "development_summary": "Microsoft made Azure Compute Gallery soft-delete recovery generally available, adding configurable retention for deleted image versions.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://techcommunity.microsoft.com/blog/azurecompute/soft-delete-in-azure-compute-gallery-is-now-generally-available/4568500"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "aws:iam:access-troubleshooter-request-authorization-context:2026-11-17",
+      "status": "new",
+      "topic": "Identity and access",
+      "title": "AWS IAM Access Troubleshooter exposes the policies behind access-denied decisions",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced IAM Access Troubleshooter on November 17. For supported services and API requests, access-denied messages can now include a unique identifier for retrieving details of the associated authorization evaluation. Rather than relying solely on the name or ARN of a policy mentioned in an error, engineers can inspect which policies were considered, the request's authorization context and evaluation results. AWS positions the capability as a way to investigate permissions failures without repeatedly editing roles or guessing which layer denied an operation. The announcement explicitly scopes the experience to supported services and APIs; it does not promise universal coverage.",
+      "implications": "Analysis: Richer denial diagnostics should help resolve complex IAM, boundary and organization-policy interactions. The security advantage depends on fixing the actual decision path rather than granting broad permissions just to clear a test failure. Diagnostic detail should also be access-controlled because policy structure can reveal security architecture to unauthorized observers.",
+      "takeaway": "Takeaway: Integrate the troubleshooter into incident runbooks, and use least-privilege policy corrections instead of blanket permission expansion.",
+      "development_summary": "AWS introduced IAM Access Troubleshooter with per-request authorization evaluation diagnostics for supported denied calls.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-access-troubleshooter/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "aws:waf:bot-control:targeted-confidence-levels-console-onboarding:2026-11-17",
+      "status": "new",
+      "topic": "Application defense",
+      "title": "AWS WAF simplifies targeted bot protection with confidence-based controls",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 1 day",
+      "highlights": "On November 17 AWS introduced a streamlined console configuration for its WAF Bot Control targeted inspection level on CloudFront. The new Targeted bot control setting enables AWS-recommended protection configuration, with confidence levels of High, Medium and Low that summarize several bot signals on each request. The managed rule group also gains a LATEST version setting for updated detections and automatic client-side SDK integration for CloudFront-protected pages. Administrators can customize actions or begin in Count mode. AWS says standard targeted-inspection pricing still applies; the simplified setting and SDK automation carry no additional charge.",
+      "implications": "Analysis: This lowers integration friction for sites confronting scripted abuse and AI-powered bot traffic, but a confidence score is not proof that a customer is malicious. Automatic rules can affect accessibility tools, legitimate crawlers, automated testing and mobile clients. Keeping version changes automatic can also alter behavior over time. Measuring false positives and business impact is essential before enforcement.",
+      "takeaway": "Takeaway: Start in Count mode, examine bot-score distributions and legitimate traffic, then stage blocking rules with rollback plans.",
+      "development_summary": "AWS launched streamlined CloudFront bot-control onboarding with confidence levels and automatic SDK integration.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-waf-bot-control-onboarding/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "nato:starlift:multinational-responsive-military-satellite-launch-initiative:2026-11-17",
+      "status": "new",
+      "topic": "Defense space access",
+      "title": "NATO launches STARLIFT initiative to secure responsive military satellite launches",
+      "publisher": "NATO",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 1 day",
+      "highlights": "NATO announced the STARLIFT multinational space initiative at NATO EDGE 26 in İzmir on November 17. Ten NATO Allies and the Republic of Korea committed funding through the NATO Support and Procurement Agency at an October 29 signing ceremony. STARLIFT is intended to coordinate access to commercial rockets and launch sites for military satellites, including urgent missions, by aggregating demand and improving logistics and traffic coordination across participating spaceports. NATO says the program has been under development since 2024 and will also support experimentation with responsive space operations. The statement does not provide a deployed launch cadence or guaranteed response time.",
+      "implications": "Analysis: Military communications, navigation, intelligence and early warning increasingly depend on survivable access to orbital assets. Shared commercial launch arrangements could reduce procurement fragmentation, but resilient space capability also requires spacecraft readiness, range availability, secure ground control and on-orbit operations. The funding commitment predates the November announcement and should not be presented as a new November 17 financing decision.",
+      "takeaway": "Takeaway: Track concrete contracts, launch rehearsals and measured turnaround rather than treating program initiation as operational readiness.",
+      "development_summary": "NATO publicly launched the STARLIFT responsive military-space-launch initiative on November 17 following an October 29 funding commitment.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.nato.int/en/news-and-events/articles/news/2026/11/17/natos-multinational-space-initiative-starlift-begins"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-census:advance-retail-food-service-sales:october-2026-released-2026-11-17",
+      "status": "new",
+      "topic": "Consumer spending",
+      "title": "U.S. advance retail sales rise just 0.2% in October to $748.2 billion",
+      "publisher": "U.S. Census Bureau",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 1 day",
+      "highlights": "On November 17 the U.S. Census Bureau released advance October 2026 retail and food-services sales of approximately $748.2 billion, up 0.2 percent from September. The earlier September release had reported stronger month-over-month growth, illustrating the slower headline pace in October. These figures are sales receipts, not a measure of real consumption adjusted for changing prices, and the newest month is based on a preliminary subsample subject to revision. The report is a national retail indicator and does not establish that all stores or household income groups experienced the same pattern.",
+      "implications": "Analysis: A modest nominal increase can coexist with weaker inflation-adjusted purchasing if prices rose faster than receipts. The data matter for holiday-season demand, retail inventories, consumer-focused earnings and the Federal Reserve's assessment of spending conditions. One monthly reading is not enough to diagnose a recession or predict a rate decision; category detail, wages and price changes need to be assessed together.",
+      "takeaway": "Takeaway: Interpret October's softer spending with inflation and subsequent revisions, not as a stand-alone verdict on household health.",
+      "development_summary": "Census reported $748.2 billion in October 2026 advance retail and food-services sales, a 0.2 percent monthly increase.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.census.gov/econwidget"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "federal-reserve:industrial-production-capacity:october-2026-released-2026-11-17",
+      "status": "new",
+      "topic": "Industrial economy",
+      "title": "U.S. industrial output falls 0.4% in October as utilities contract",
+      "publisher": "Federal Reserve Board",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 1 day",
+      "highlights": "The Federal Reserve's November 17 G.17 update reports that total industrial production decreased 0.4 percent in October 2026 following a 0.7 percent September increase. Manufacturing production rose 0.3 percent, but mining fell 0.8 percent and utilities output dropped 4.3 percent. Manufacturing excluding motor vehicles and parts edged down 0.1 percent, indicating that the headline manufacturing gain was not evenly distributed. Total industrial production remained 2.1 percent above October 2025, while capacity utilization fell to 76.4 percent, three percentage points below its 1972–2025 average. These estimates are seasonally adjusted and may be revised.",
+      "implications": "Analysis: The large utilities drop materially affected the headline index, so treating the 0.4 percent decline as a uniform manufacturing collapse would be misleading. Capacity utilization remains a useful signal of production slack and potential inflation pressure but does not directly measure jobs or consumer demand. Analysts should compare subsequent factory orders, inventories and investment trends.",
+      "takeaway": "Takeaway: Distinguish utilities volatility from manufacturing conditions and monitor revisions before inferring a broader industrial trend.",
+      "development_summary": "The Fed reported October industrial production down 0.4 percent and capacity utilization at 76.4 percent.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.federalreserve.gov/feeds/G17.html"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "nahb:wells-fargo-housing-market-index:november-2026-confidence-25:2026-11-17",
+      "status": "new",
+      "topic": "Housing affordability",
+      "title": "U.S. homebuilder confidence slides to 25, its lowest reading since 2012",
+      "publisher": "National Association of Home Builders",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 1 day",
+      "highlights": "On November 17 the National Association of Home Builders released its November NAHB/Wells Fargo Housing Market Index at 25, a four-point drop and the lowest score since April 2012. An index below 50 indicates more builders view conditions as poor than good. NAHB reported that 46 percent of surveyed builders cut home prices, a post-pandemic high, while 68 percent offered sales incentives; the average reported price reduction remained 6 percent. The current-sales subindex dropped to 28, future-sales expectations to 30 and prospective-buyer traffic to 16. NAHB cited mortgage rates, construction input costs and buyer hesitancy as headwinds.",
+      "implications": "Analysis: Widespread discounts and incentives reveal pressure on new-home demand, but builders' sentiment is survey evidence rather than a direct count of completed sales. Local housing markets and resale supply differ sharply. Incentives can also take the form of rate buydowns or closing-cost support, changing effective affordability without a matching list-price reduction.",
+      "takeaway": "Takeaway: Compare actual new-home prices, mortgage-rate incentives and local inventory before drawing buying or investment conclusions.",
+      "development_summary": "NAHB reported a November 2026 builder-confidence reading of 25, with a record post-pandemic share of price cutters.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.nahb.org/news-and-economics/press-releases/2026/11/builder-sentiment-continues-to-fall-on-affordability-concerns"
+        }
+      ]
+    }
+  ]
+}
