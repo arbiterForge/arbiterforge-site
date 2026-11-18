@@ -21,16 +21,17 @@ for (const width of [320, 768, 1440]) {
     expect(errors).toEqual([]);
   });
 }
-for (const theme of ['light', 'dark']) {
-  test(`WCAG A/AA browser audit in ${theme} appearance`, async ({ page }, testInfo) => {
+for (const width of [320, 1440]) for (const theme of ['light', 'dark']) {
+  test(`WCAG A/AA browser audit at ${width}px in ${theme} appearance`, async ({ page }, testInfo) => {
     test.setTimeout(120_000);
+    await page.setViewportSize({ width, height: 900 });
     const reports = [];
     for (const path of routes) {
       await stablePage(page, path, theme);
       const report = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
       reports.push({ path, violations: report.violations });
     }
-    await testInfo.attach('accessibility-' + theme, { body: JSON.stringify(reports, null, 2), contentType: 'application/json' });
+    await testInfo.attach(`accessibility-${width}-${theme}`, { body: JSON.stringify(reports, null, 2), contentType: 'application/json' });
     const violations = reports.flatMap(report => report.violations.map(violation => ({
       path: report.path, rule: violation.id, impact: violation.impact,
       nodes: violation.nodes.map(node => ({ target: node.target, summary: node.failureSummary })),

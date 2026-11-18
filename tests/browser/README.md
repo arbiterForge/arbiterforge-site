@@ -5,7 +5,7 @@ These checks run against the complete Jekyll artifact, after the existing SIM pu
 ## What is checked
 
 - Nine core routes at 320, 768 and 1440 CSS pixels: successful loads, one main heading, canonical addresses, no horizontal overflow or script/asset errors.
-- axe-core WCAG A/AA checks, including detectable text contrast, for both appearances on every core route. Automated checks do not replace keyboard, screen-reader or visual review.
+- axe-core WCAG A/AA checks, including detectable text contrast, for both appearances at 320 and 1440 pixels on every core route. Automated checks do not replace keyboard, screen-reader or visual review.
 - Actual keyboard navigation for the skip link, sculpture controls, project examples and News tabs; theme persistence, reduced motion, no-script fallback, seed links and a real 404 response.
 - Fifteen reviewed viewport and project-section screenshots, rendered by pinned Chromium. Motion is disabled through the site's own preference, local fonts are loaded, and the News screenshots use an immutable edition address. The newest edition still gets functional and accessibility checks.
 - Three cold 390×844 mobile browser laboratory runs with touch input, 4× CPU slowdown relative to the CI runner, 150 ms network latency and 1.6 Mbps download. The report records LCP, CLS, observed interaction duration, long tasks and resource sizes. The animated hero stays enabled while changing its form and sending a pulse.
