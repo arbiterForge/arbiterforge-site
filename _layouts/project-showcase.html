@@ -2,13 +2,19 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{ item.name | escape }} · Inside the build · suadtl</title>
-<meta name="description" content="{{ item.summary | escape }}">
-<link rel="canonical" href="https://arbiterforge.com{{ page.url | escape }}">
-<meta property="og:type" content="article"><meta property="og:site_name" content="suadtl">
-<meta property="og:title" content="Inside the build: {{ item.name | escape }}">
-<meta property="og:description" content="{{ item.summary | escape }}">
-<meta property="og:image" content="https://arbiterforge.com/assets/social-card.png">
+{%- capture project_meta_title -%}{{ item.name }} · Inside the build · suadtl{%- endcapture -%}
+{%- assign project_meta_image = '/assets/social-' | append: page.project | append: '.png' -%}
+{%- case page.project -%}
+  {%- when 'codearbiter' -%}
+    {%- assign project_meta_alt = 'codeArbiter: Let agents build. Keep the evidence. An illustrative workflow of Route, Evidence, Review, and Decision.' -%}
+  {%- when 'sim' -%}
+    {%- assign project_meta_alt = 'Service Integration Map. A fictional diagram of App portal consuming Identity and Monitoring across network boundaries.' -%}
+  {%- when 'singedterra' -%}
+    {%- assign project_meta_alt = 'singedTerra: A little aim. A lot of impact. An original illustration of artillery, a shot trajectory, and rolling terrain, not a gameplay screenshot.' -%}
+  {%- else -%}
+    {%- capture project_meta_alt -%}{{ item.name }}. A project by suadtl.{%- endcapture -%}
+{%- endcase -%}
+{% include page-meta.html title=project_meta_title description=item.summary image=project_meta_image image_alt=project_meta_alt %}
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 {% include theme-head.html %}
 <link rel="stylesheet" href="/assets/site.css">

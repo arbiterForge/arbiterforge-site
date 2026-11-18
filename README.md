@@ -34,15 +34,28 @@ The homepage defaults to a light appearance. Its appearance button offers a dark
 option and remembers the choice locally when browser storage is available.
 Project navigation and content remain available with JavaScript disabled.
 
-`assets/social-card.svg` is the editable social preview; `assets/social-card.png`
-is its 1200×630 raster companion. Both use the bundled Manrope and JetBrains Mono
-fonts. The singedTerra project image comes from its public repository's
-`docs/assets/current-battle-hud.jpg`. Other project previews are decorative SVG
-illustrations, not screenshots or test evidence.
+Each section has its own 1200×630 sharing image at `assets/social-*.png`, with
+editable vector compositions under `assets/social/`. The native vector artwork
+uses the same palette, typography, and contour forms as the site. It is not a
+set of application screenshots. `scripts/generate_social_cards.py` regenerates
+all eight cards offline with FontTools (including Brotli), Pillow, Inkscape,
+the bundled Manrope/JetBrains Mono fonts, and Debian's `fonts-liberation` serif.
+Text is outlined in the SVG output so the files render without installed fonts.
+The build checks their dimensions, local URLs, alt descriptions, and size.
+
+The singedTerra homepage project image comes from its public repository's
+`docs/assets/current-battle-hud.jpg`. codeArbiter and SIM homepage previews are
+source-grounded workflow and fictional network illustrations. Sharing artwork
+and explanatory diagrams are not live application screenshots or test evidence.
 
 ## Generative Studio
 
-The homepage uses a generative Canvas2D enhancement on top of its original static artwork. The separate [playground](/lab/) renders all of its kinetic geometry locally from a seed, with Foundry, Filaments, Bloom, and Orbit systems. Visitors can adjust movement and density, regenerate, pause, export a still, and share a seed via URL. No external rendering service or third-party JavaScript is required.
+The homepage draws three interactive contour sculptures (Weave, Orbit, and
+Bloom) in Canvas2D, with matching static vector artwork when scripting or Canvas
+is unavailable. The separate [playground](/lab/) renders kinetic geometry locally
+from a seed, with Foundry, Filaments, Bloom, and Orbit systems. Visitors can
+adjust movement and density, regenerate, pause, export a still, and share a seed
+via URL. No external rendering service or third-party JavaScript is required.
 
 The same motion preference applies across pages. System reduced-motion, Save-Data, hidden tabs, and offscreen observation suspend animation. Canvas resolution and frame rate are bounded. Keep the base artwork and semantic links available if JavaScript or Canvas is unavailable. Run `tests/test_generative_studio.py` alongside the existing tests.
 
@@ -101,6 +114,7 @@ validate the complete output:
 ```sh
 python scripts/check_home_build.py _site
 python tests/check_news_build.py _site
+python tests/check_metadata_build.py _site
 ```
 
 The homepage check validates project titles and destinations, personal metadata,
@@ -108,6 +122,29 @@ internal anchors, and local assets in the actual HTML. The News check verifies
 latest and dated editions, the archive, coverage records, and RSS. Check the
 homepage on mobile and desktop and use its links before publishing. Do not commit
 generated `_site/` output.
+
+## Sharing and discovery
+
+`_includes/page-meta.html` owns canonical URLs, descriptions, Open Graph,
+Twitter cards, and structured data. Standalone pages set their title,
+description, `social_image`, and `social_image_alt` in front matter; shared
+layouts pass the equivalent values. The structured identity is a person and a
+personal website. News editions and historical records do not invent newsroom
+or publication-time claims.
+
+The generated `sitemap.xml` lists the canonical site pages, including `/news/`
+and each dated edition. New standalone pages opt in with `sitemap: true`;
+News and showcase layouts are included automatically. `robots.txt` advertises
+the sitemap. The custom 404 provides useful destinations and is marked
+`noindex`. SIM keeps the metadata delivered by its independent publication.
+
+Browser regression and mobile laboratory checks are documented in
+[`tests/browser/README.md`](tests/browser/README.md). The browser job uses the
+exact composed preview and gates every changed deployment, including scheduled
+SIM refreshes. An unchanged polling run skips the build and browser suite.
+Baselines are reviewed assets, not automatically accepted screenshots. These
+checks measure a throttled Chromium mobile profile; they do not replace a
+physical-phone run or field Core Web Vitals collected from real visitors.
 
 ## SIM publication
 

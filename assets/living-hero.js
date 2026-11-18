@@ -36,12 +36,13 @@
     let width = 0, height = 0, dpr = 1, scale = 1, bounds;
     let lines = 0, segments = 0, stride = 0;
     let shapes = {}, source, target, projected, lineOrder = [], colors = [];
-    let waveA, waveB, lineCos, lineSin;
+    let waveA, waveB, lineCos, lineSin, glow;
     let mode = 'weave', morph = 1, playTime = 0;
     let frame = 0, lastPaint = 0, dirty = true, failed = false;
     let inViewport = false, intersecting = true, pageActive = true, wasAnimating = false;
     let down = null;
-    const pointer = { active: false, x: .5, y: .5, strength: 0, tiltX: 0, tiltY: 0 };
+    const pointer = { active: false, pending: false, clientX: 0, clientY: 0,
+      x: .5, y: .5, strength: 0, tiltX: 0, tiltY: 0 };
     const pulses = [];
 
     function permitted() {
@@ -108,37 +109,43 @@
         const fraction = position - colorIndex;
         colors.push(palette[colorIndex].map((value, channel) => Math.round(value + (palette[colorIndex + 1][channel] - value) * fraction)).join(','));
       }
-      for (const name of Object.keys(NAMES)) {
-        const points = new Float32Array(lines * stride);
-        for (let i = 0; i < lines; i++) {
-          const v = TAU * (i + .5) / lines;
-          for (let j = 0; j <= segments; j++) {
-            const u = TAU * j / segments;
-            let x, y, z;
-            if (name === 'weave') {
-              const tube = .19 + .035 * Math.cos(3 * u);
-              const r = .94 + .33 * Math.cos(3 * u) + tube * Math.cos(v);
-              x = 1.07 * r * Math.cos(2 * u);
-              y = r * Math.sin(2 * u);
-              z = .42 * Math.sin(3 * u) + tube * Math.sin(v);
-            } else if (name === 'orbit') {
-              const twist = v + .5 * Math.sin(2 * u);
-              const r = 1.02 + .3 * Math.cos(twist);
-              x = 1.08 * r * Math.cos(u);
-              y = .94 * r * Math.sin(u);
-              z = .31 * Math.sin(twist) + .18 * Math.sin(2 * u);
-            } else {
-              const petals = .91 + .3 * Math.cos(5 * u);
-              const r = petals + .18 * Math.cos(v);
-              x = r * Math.cos(u);
-              y = r * Math.sin(u);
-              z = .29 * Math.sin(v) + .23 * Math.sin(5 * u) + .12 * Math.cos(2 * u);
-            }
-            const k = i * stride + j * 3;
-            points[k] = x; points[k + 1] = y; points[k + 2] = z;
-          }
+      // Every thread shares the same samples around the form. Cache those
+      // angles once rather than evaluating trigonometry for every 3D point.
+      const samples = Array.from({ length: segments + 1 }, (_, j) => {
+        const u = TAU * j / segments;
+        const sin2 = Math.sin(2 * u), cos3 = Math.cos(3 * u);
+        return {
+          cos: Math.cos(u), sin: Math.sin(u), cos2: Math.cos(2 * u), sin2,
+          tube: .19 + .035 * cos3, weaveRadius: .94 + .33 * cos3,
+          weaveZ: .42 * Math.sin(3 * u),
+          twistCos: Math.cos(.5 * sin2), twistSin: Math.sin(.5 * sin2),
+          petals: .91 + .3 * Math.cos(5 * u),
+          bloomZ: .23 * Math.sin(5 * u) + .12 * Math.cos(2 * u),
+        };
+      });
+      const weave = shapes.weave = new Float32Array(lines * stride);
+      const orbit = shapes.orbit = new Float32Array(lines * stride);
+      const bloom = shapes.bloom = new Float32Array(lines * stride);
+      for (let i = 0; i < lines; i++) {
+        const v = TAU * (i + .5) / lines;
+        const cos = Math.cos(v), sin = Math.sin(v);
+        for (let j = 0; j <= segments; j++) {
+          const sample = samples[j], k = i * stride + j * 3;
+          const weaveRadius = sample.weaveRadius + sample.tube * cos;
+          weave[k] = 1.07 * weaveRadius * sample.cos2;
+          weave[k + 1] = weaveRadius * sample.sin2;
+          weave[k + 2] = sample.weaveZ + sample.tube * sin;
+          const twistCos = cos * sample.twistCos - sin * sample.twistSin;
+          const twistSin = sin * sample.twistCos + cos * sample.twistSin;
+          const orbitRadius = 1.02 + .3 * twistCos;
+          orbit[k] = 1.08 * orbitRadius * sample.cos;
+          orbit[k + 1] = .94 * orbitRadius * sample.sin;
+          orbit[k + 2] = .31 * twistSin + .18 * sample.sin2;
+          const bloomRadius = sample.petals + .18 * cos;
+          bloom[k] = bloomRadius * sample.cos;
+          bloom[k + 1] = bloomRadius * sample.sin;
+          bloom[k + 2] = .29 * sin + sample.bloomZ;
         }
-        shapes[name] = points;
       }
       target = shapes[mode]; source = target; morph = 1;
     }
@@ -162,6 +169,7 @@
           canvas.height = Math.max(1, Math.floor(height * dpr));
           ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
           scale = Math.min(width, height) * .30;
+          glow = null;
           if (!target || lines !== (compact ? 76 : 104)) buildGeometry(compact);
         }
         dirty = true;
@@ -170,7 +178,7 @@
     }
 
     function resetInteraction() {
-      pointer.active = false; pointer.strength = 0; pointer.tiltX = 0; pointer.tiltY = 0;
+      pointer.active = false; pointer.pending = false; pointer.strength = 0; pointer.tiltX = 0; pointer.tiltY = 0;
       down = null; pulses.length = 0;
     }
     function stop() {
@@ -206,6 +214,12 @@
       }
     }
     function project() {
+      // Input can arrive far faster than the 30fps drawing budget. Read layout
+      // only for the latest position, once per painted frame.
+      if (pointer.pending) {
+        const position = point(pointer);
+        pointer.x = position.x; pointer.y = position.y; pointer.pending = false;
+      }
       const blend = ease(morph);
       const follow = .14;
       pointer.strength += ((pointer.active ? 1 : 0) - pointer.strength) * follow;
@@ -266,10 +280,12 @@
       try {
         project();
         ctx.clearRect(0, 0, width, height);
-        const glow = ctx.createRadialGradient(width * .5, height * .5, 0, width * .5, height * .5, scale * 1.8);
-        glow.addColorStop(0, 'rgba(137,176,153,.08)');
-        glow.addColorStop(.55, 'rgba(114,147,145,.035)');
-        glow.addColorStop(1, 'rgba(114,147,145,0)');
+        if (!glow) {
+          glow = ctx.createRadialGradient(width * .5, height * .5, 0, width * .5, height * .5, scale * 1.8);
+          glow.addColorStop(0, 'rgba(137,176,153,.08)');
+          glow.addColorStop(.55, 'rgba(114,147,145,.035)');
+          glow.addColorStop(1, 'rgba(114,147,145,0)');
+        }
         ctx.fillStyle = glow; ctx.fillRect(0, 0, width, height);
         ctx.globalCompositeOperation = 'lighter';
         ctx.lineCap = 'round'; ctx.lineJoin = 'round';
@@ -344,7 +360,7 @@
     }
     function point(event) {
       const box = stage.getBoundingClientRect();
-      return { x: clamp((event.clientX - box.left) / box.width, 0, 1), y: clamp((event.clientY - box.top) / box.height, 0, 1) };
+      return { x: clamp((event.clientX - box.left) / (box.width || 1), 0, 1), y: clamp((event.clientY - box.top) / (box.height || 1), 0, 1) };
     }
     function pointerMove(event) {
       if (!animate()) return;
@@ -352,12 +368,12 @@
       if (touch) {
         if (!down || down.id !== event.pointerId) return;
         const dx = event.clientX - down.x, dy = event.clientY - down.y;
-        if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 8) { pointer.active = false; return; }
+        if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 8) { pointer.active = false; pointer.pending = false; return; }
         if (Math.abs(dx) < 8) return;
         down.dragged = true;
       }
-      const position = point(event);
-      pointer.x = position.x; pointer.y = position.y; pointer.active = true;
+      pointer.clientX = event.clientX; pointer.clientY = event.clientY;
+      pointer.active = true; pointer.pending = true;
       schedule();
     }
     function pointerDown(event) {
@@ -370,9 +386,9 @@
       const tap = !down.dragged && Math.hypot(event.clientX - down.x, event.clientY - down.y) < 12 && performance.now() - down.time < 700;
       down = null;
       if (tap && animate()) { const position = point(event); sendPulse(position.x, position.y); }
-      if (event.pointerType === 'touch') pointer.active = false;
+      if (event.pointerType === 'touch') { pointer.active = false; pointer.pending = false; }
     }
-    function pointerCancel() { down = null; pointer.active = false; }
+    function pointerCancel() { down = null; pointer.active = false; pointer.pending = false; }
 
     modes.forEach(button => button.addEventListener('click', () => selectMode(button.dataset.heroMode)));
     if (pulseButton) pulseButton.addEventListener('click', () => sendPulse());

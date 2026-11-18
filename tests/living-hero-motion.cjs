@@ -84,10 +84,13 @@ function element(tag = 'div', dataset = {}) {
 
 function setup(options = {}) {
   const frames = new Map(), mutations = [], intersections = [], resizes = [];
-  let frameId = 0, clock = 0, paints = 0, commands = [];
+  let frameId = 0, clock = 0, paints = 0, commands = [], boundsReads = 0, gradients = 0;
   let bounds = {width: 1200, height: 680, top: 0, left: 0, ...options.bounds};
-  const rect = () => ({...bounds, right: bounds.left + bounds.width,
-    bottom: bounds.top + bounds.height});
+  const rect = () => {
+    boundsReads++;
+    return {...bounds, right: bounds.left + bounds.width,
+      bottom: bounds.top + bounds.height};
+  };
   const root = element('html', {motion: options.motion ?? 'on', theme: 'light'});
   const host = element('section', {livingHero: ''});
   const stage = element('div', {heroStage: ''});
@@ -130,6 +133,7 @@ function setup(options = {}) {
   };
   for (const name of ['createLinearGradient', 'createRadialGradient']) {
     context[name] = (...args) => {
+      gradients++;
       record(name, args);
       return {addColorStop: (...stop) => record('addColorStop', stop)};
     };
@@ -192,6 +196,8 @@ function setup(options = {}) {
   const environment = {
     host, stage, canvas, fallback, controls, modes, pulse, document, root, connection, frames,
     get paints() { return paints; },
+    get boundsReads() { return boundsReads; },
+    get gradients() { return gradients; },
     get picture() { return JSON.stringify(commands); },
     get text() { return [...nodes.values()].map(node => node.textContent).join('|'); },
     step(time = clock + 50) {
@@ -414,6 +420,76 @@ test('Enabled pointer, pulse button, and touch tap change the artwork', () => {
     scene.motion('off'); control.motion('off');
     assert.equal(scene.picture, control.picture, 'Pausing clears the existing interaction');
   }
+});
+
+test('High-frequency pointer input coalesces layout reads into one paint', () => {
+  const scene = setup(), finalInput = setup();
+  scene.step(100); finalInput.step(100);
+  const reads = scene.boundsReads, paints = scene.paints;
+  for (let i = 0; i < 100; i++) scene.stage.dispatch('pointermove', {
+    clientX: 600 + i * 4, clientY: 250 - i, pointerType: 'mouse', pointerId: 1,
+  });
+  finalInput.stage.dispatch('pointermove', {
+    clientX: 996, clientY: 151, pointerType: 'mouse', pointerId: 1,
+  });
+  assert.equal(scene.boundsReads, reads, 'Pointer callbacks do not force layout');
+  assert.equal(scene.paints, paints, 'Pointer callbacks do not paint synchronously');
+  assert.equal(scene.frames.size, 1, 'Burst input retains one scheduled paint');
+  scene.step(150); finalInput.step(150);
+  assert.equal(scene.boundsReads, reads + 1, 'One frame reads the latest position once');
+  assert.equal(scene.picture, finalInput.picture, 'Intermediate pointer positions are discarded');
+  scene.step(200);
+  assert.equal(scene.boundsReads, reads + 1, 'A frame without new input does not read layout');
+
+  // A queued point must not reappear after leaving the form or pausing it.
+  scene.stage.dispatch('pointermove', {clientX: 1100, clientY: 20, pointerType: 'mouse'});
+  scene.stage.dispatch('pointerleave');
+  scene.step(250);
+  assert.equal(scene.boundsReads, reads + 1, 'Pointer exit clears pending input');
+  scene.stage.dispatch('pointermove', {clientX: 1100, clientY: 20, pointerType: 'mouse'});
+  scene.motion('off');
+  assert.equal(scene.boundsReads, reads + 1, 'Pausing clears pending input before its still redraw');
+});
+
+test('Queued pointer input uses fresh bounds and respects touch cancellation', () => {
+  const scene = setup(), moved = setup();
+  const input = {clientX: 620, clientY: 240, pointerType: 'mouse', pointerId: 1};
+  scene.stage.dispatch('pointermove', input);
+  scene.setBounds({left: 100, top: 20});
+  moved.setBounds({left: 100, top: 20});
+  moved.stage.dispatch('pointermove', input);
+  scene.step(100); moved.step(100);
+  assert.equal(scene.picture, moved.picture, 'A move queued before a scroll uses the current rectangle');
+
+  const resizing = setup(), resized = setup();
+  const nextBounds = {left: 80, width: 800, height: 600};
+  resizing.stage.dispatch('pointermove', input);
+  resized.setBounds(nextBounds);
+  resized.stage.dispatch('pointermove', input);
+  resizing.resize(nextBounds); resized.resize(nextBounds);
+  assert.equal(resizing.picture, resized.picture, 'A resize maps pending input into the new dimensions');
+
+  for (const cancel of ['pointercancel', 'vertical-scroll']) {
+    const touchScene = setup(), untouched = setup();
+    const touch = {clientX: 600, clientY: 200, pointerType: 'touch', pointerId: 2, button: 0};
+    touchScene.stage.dispatch('pointerdown', touch);
+    touchScene.stage.dispatch('pointermove', {...touch, clientX: 620});
+    if (cancel === 'pointercancel') touchScene.stage.dispatch('pointercancel', touch);
+    else touchScene.stage.dispatch('pointermove', {...touch, clientX: 620, clientY: 280});
+    touchScene.step(100); untouched.step(100);
+    assert.equal(touchScene.picture, untouched.picture, `${cancel} clears queued touch attraction`);
+  }
+});
+
+test('The unchanged canvas glow is reused until its dimensions change', () => {
+  const scene = setup();
+  assert.equal(scene.gradients, 1);
+  for (let frame = 1; frame <= 10; frame++) scene.step(frame * 50);
+  scene.pulse.dispatch('click'); scene.step(600);
+  scene.modes[1].dispatch('click'); scene.step(650);
+  assert.equal(scene.gradients, 1, 'Animation and interactions reuse the same gradient');
+  scene.resize({width: 390, height: 600});
+  assert.equal(scene.gradients, 2, 'Resizing recreates the gradient for the new canvas');
 });
 
 test('Fallback remains available after canvas failure', () => {

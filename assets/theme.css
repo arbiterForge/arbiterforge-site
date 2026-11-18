@@ -9,5 +9,7 @@
 .theme-sun,:root[data-theme='dark'] .theme-moon{display:none}
 :root[data-theme='dark'] .theme-sun{display:block}
 
-.theme-toggle[hidden]{display:none}
+/* Reserve the button's footprint before the deferred controller is ready.
+   It remains invisible and unfocusable without JavaScript. */
+.theme-toggle[hidden]{display:grid;visibility:hidden;pointer-events:none}
 .theme-toggle .icon{display:block;width:1.15rem;height:1.15rem}

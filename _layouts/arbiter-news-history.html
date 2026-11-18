@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <title>Arbiter News · {{ e.edition_date | escape }} · Archive</title>
-  <meta name="description" content="Historical Arbiter News. Recovered original story text is distinguished from coverage-only records. Not new reporting.">
-  <link rel="canonical" href="https://arbiterforge.com{{ page.url }}">
+  {%- capture history_meta_title -%}Arbiter News · {{ e.edition_date }} · Historical archive{%- endcapture -%}
+  {%- capture history_meta_description -%}Historical Arbiter News for {{ e.edition_date }}. {{ e.overview }}{%- endcapture -%}
+  {% include page-meta.html title=history_meta_title description=history_meta_description image='/assets/social-news.png' image_alt='Arbiter News: The daily read, with an editorial list of AI and developer tools, cloud and infrastructure, security and defense tech, and markets and money.' schema_type='CollectionPage' %}
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="Arbiter News" href="/news/feed.xml">
   {% include theme-head.html %}

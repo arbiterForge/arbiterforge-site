@@ -1,0 +1,43 @@
+---
+title: "Page not found · suadtl"
+description: "That page is missing. Find your way back to suadtl's projects, playground, and daily reading."
+permalink: /404.html
+noindex: true
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include page-meta.html %}
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  {% include theme-head.html %}
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="/" aria-label="suadtl home">suadtl<span aria-hidden="true">.</span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="/projects/">Projects</a><a href="/lab/">Playground</a><a href="/news/">News</a></nav>
+    <button class="theme-toggle" type="button" aria-label="Dark appearance" aria-pressed="false" hidden><span class="theme-moon">{% include icon.html name="moon" %}</span><span class="theme-sun">{% include icon.html name="sun" %}</span></button>
+  </header>
+  <main id="main" class="wrap" tabindex="-1">
+    <section class="about section" aria-labelledby="missing-title">
+      <div class="about-copy">
+        <p class="eyebrow">404 / A loose end</p>
+        <h1 id="missing-title">Nothing here.<br>Plenty to explore.</h1>
+        <p>This address doesn't lead to a page. It may have moved, or there may be a typo in the link.</p>
+        <div class="reading-actions"><a class="button" href="/">Back to home {% include icon.html name="arrow-right" %}</a><a class="text-link" href="/projects/">Explore the projects</a></div>
+      </div>
+      <aside class="notebook" aria-labelledby="missing-links-title">
+        <p class="eyebrow">A few good starting points</p>
+        <h2 id="missing-links-title">Pick a direction.</h2>
+        <p><a class="text-link" href="/lab/">The Generative Studio {% include icon.html name="arrow-up-right" %}</a></p>
+        <p><a class="text-link" href="/news/">The daily read {% include icon.html name="arrow-up-right" %}</a></p>
+        <p><a class="text-link" href="/news/archive/">The reading archive {% include icon.html name="arrow-up-right" %}</a></p>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer wrap"><div><a class="wordmark" href="/">suadtl<span aria-hidden="true">.</span></a><p>Personal projects. Always something to tinker with.</p></div><div class="footer-meta"><span>arbiterforge.com</span>{% include motion-control.html %}<span>© {{ site.time | date: '%Y' }} suadtl</span></div></footer>
+</body>
+</html>

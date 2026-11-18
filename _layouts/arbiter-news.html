@@ -7,9 +7,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <title>{% if page.archive %}Archive · {% endif %}Arbiter News{% if page.edition %} · {{ edition.edition_date | escape }}{% endif %}</title>
-  <meta name="description" content="Daily intelligence across AI, cloud operations, cybersecurity, defense, markets and money. Source-linked reporting with practical implications.">
-  <link rel="canonical" href="https://arbiterforge.com{{ page.url }}">
+  {%- if page.archive -%}
+    {%- assign news_meta_title = 'Archive · Arbiter News · suadtl' -%}
+    {%- assign news_meta_description = 'The Arbiter News reading record: published daily editions and clearly labeled historical coverage records, with original sources and recovery notes.' -%}
+    {%- assign news_meta_url = page.url -%}
+  {%- else -%}
+    {%- if page.edition -%}
+      {%- capture news_meta_title -%}Arbiter News · {{ edition.edition_date }} · suadtl{%- endcapture -%}
+    {%- else -%}
+      {%- assign news_meta_title = 'Arbiter News · The daily read · suadtl' -%}
+    {%- endif -%}
+    {%- assign news_meta_description = edition.intro -%}
+    {%- assign news_meta_url = page.url -%}
+  {%- endif -%}
+  {% include page-meta.html title=news_meta_title description=news_meta_description canonical=news_meta_url image='/assets/social-news.png' image_alt='Arbiter News: The daily read, with an editorial list of AI and developer tools, cloud and infrastructure, security and defense tech, and markets and money.' schema_type='CollectionPage' %}
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="Arbiter News" href="/news/feed.xml">
   {% include theme-head.html %}

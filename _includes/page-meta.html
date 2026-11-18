@@ -1,0 +1,73 @@
+{%- comment -%}
+Shared, server-rendered metadata. Layouts may pass title, description, canonical,
+image, image_alt, schema_type and og_type; standalone pages use front matter.
+All JSON strings are escaped for both JSON and an HTML script context.
+{%- endcomment -%}
+{%- assign meta_title = include.title | default: page.title | default: site.title -%}
+{%- assign meta_description = include.description | default: page.description | default: site.description -%}
+{%- assign meta_path = include.canonical | default: page.canonical_url | default: page.url -%}
+{%- assign meta_url = meta_path | absolute_url -%}
+{%- assign meta_image = include.image | default: page.social_image | default: '/assets/social-home.png' | absolute_url -%}
+{%- assign meta_image_alt = include.image_alt | default: page.social_image_alt | default: 'A flowing contour sculpture beside Building systems, tools, and experiments. The personal site of suadtl.' -%}
+{%- assign meta_type = include.schema_type | default: page.schema_type | default: 'WebPage' -%}
+{%- assign meta_og_type = include.og_type | default: page.og_type | default: 'website' -%}
+{%- assign site_home = '/' | absolute_url -%}
+{%- assign person_id = site_home | append: '#suadtl' -%}
+{%- assign website_id = site_home | append: '#website' -%}
+<title>{{ meta_title | escape }}</title>
+<meta name="description" content="{{ meta_description | escape }}">
+<link rel="canonical" href="{{ meta_url | escape }}">
+<meta name="author" content="suadtl">
+<meta name="robots" content="{% if page.noindex %}noindex, follow{% else %}max-image-preview:large{% endif %}">
+<meta property="og:type" content="{{ meta_og_type | escape }}">
+<meta property="og:site_name" content="suadtl">
+<meta property="og:title" content="{{ meta_title | escape }}">
+<meta property="og:description" content="{{ meta_description | escape }}">
+<meta property="og:url" content="{{ meta_url | escape }}">
+<meta property="og:image" content="{{ meta_image | escape }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="{{ meta_image_alt | escape }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ meta_title | escape }}">
+<meta name="twitter:description" content="{{ meta_description | escape }}">
+<meta name="twitter:image" content="{{ meta_image | escape }}">
+<meta name="twitter:image:alt" content="{{ meta_image_alt | escape }}">
+{% unless page.noindex %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": {{ person_id | jsonify | replace: '<', '\u003c' }},
+      "name": "suadtl",
+      "url": {{ site_home | jsonify | replace: '<', '\u003c' }},
+      "sameAs": ["https://github.com/SUaDtL"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ website_id | jsonify | replace: '<', '\u003c' }},
+      "url": {{ site_home | jsonify | replace: '<', '\u003c' }},
+      "name": "suadtl",
+      "description": {{ site.description | jsonify | replace: '<', '\u003c' }},
+      "inLanguage": "en",
+      "publisher": {"@id": {{ person_id | jsonify | replace: '<', '\u003c' }}}
+    },
+    {
+      "@type": {{ meta_type | jsonify | replace: '<', '\u003c' }},
+      "@id": {{ meta_url | append: '#page' | jsonify | replace: '<', '\u003c' }},
+      "url": {{ meta_url | jsonify | replace: '<', '\u003c' }},
+      "name": {{ meta_title | jsonify | replace: '<', '\u003c' }},
+      "description": {{ meta_description | jsonify | replace: '<', '\u003c' }},
+      "inLanguage": "en",
+      "isPartOf": {"@id": {{ website_id | jsonify | replace: '<', '\u003c' }}},
+      "author": {"@id": {{ person_id | jsonify | replace: '<', '\u003c' }}}
+      {% if meta_type == 'ProfilePage' %}, "mainEntity": {"@id": {{ person_id | jsonify | replace: '<', '\u003c' }}}{% endif %}
+      {% if meta_type == 'Article' %}, "headline": {{ meta_title | jsonify | replace: '<', '\u003c' }}{% endif %}
+    }
+  ]
+}
+</script>
+{% endunless %}
