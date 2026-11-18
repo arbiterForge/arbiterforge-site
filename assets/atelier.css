@@ -84,16 +84,13 @@ html body .project-card .project-copy, html body .project-card[data-project='cod
 html body .project-card h3, html body .project-card[data-project='codearbiter'] h3 { font-family:var(--serif); font-size:1.85rem; font-weight:400; letter-spacing:-.04em; }
 html body .project-card .project-copy > p { font-size:.85rem; line-height:1.8; }
 html body .project-actions { margin-top:auto; padding-top:1.5rem; }
-.material-study { display:block; width:100%; height:100%; position:absolute; inset:0; background:#182117 url('atelier-machine.avif') center/cover no-repeat; }
-.material-study::after { content:''; position:absolute; inset:0; background:linear-gradient(0deg,#111710ab,transparent 60%); }
-.material-study--codearbiter { background-size:160%; background-position:14% 12%; }
-.material-study--sim { background-size:190%; background-position:100% 12%; }
-.material-study--generic { background-position:70% 90%; }
-.material-caption { position:absolute; z-index:1; bottom:1.1rem; left:1.3rem; right:1rem; font: .57rem var(--mono); letter-spacing:.1em; text-transform:uppercase; color:#f0e5c9; }
+/* These previews illustrate each project's actual workflow or fictional demo, not machine concept art. */
+.project-preview { display:block; width:100%; height:100%; object-fit:cover; object-position:center; background:#12211f; }
+.project-preview-fallback { display:grid; place-items:center; width:100%; height:100%; background:#20312a; color:#e9ebdd; font:700 1rem var(--mono); text-align:center; padding:1rem; }
 html body .game-label { background:#1e1c17df; color:#f0e5c9; border-color:#9c865e66; font-size:.55rem; }
 html body .project-visual .game-art { filter:saturate(.75); }
-:root[data-motion='on'] .material-study { transition:transform 1s cubic-bezier(.2,.65,.3,1); }
-:root[data-motion='on'] .project-card:hover .material-study { transform:scale(1.045); }
+:root[data-motion='on'] .project-preview { transition:transform .75s cubic-bezier(.2,.65,.3,1); }
+:root[data-motion='on'] .project-card:hover .project-preview { transform:scale(1.025); }
 
 /* The same materials recur; ambient animation stays in the main hero only. */
 html body .reading.section { position:relative; isolation:isolate; overflow:hidden; border-radius:14px; padding:2.6rem 3rem 1.6rem; background:#131b15; }

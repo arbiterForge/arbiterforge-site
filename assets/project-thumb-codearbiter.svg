@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">codeArbiter: governed coding workflow</title>
+<desc id="desc">An explanatory preview of the real project workflow: Route, Evidence, Review, Decision. A regression-test-first change requires a failing test, minimal change, focused proof, and review.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0c1715"/><stop offset="1" stop-color="#243229"/></linearGradient>
+<linearGradient id="card" x2="1" y2="1"><stop stop-color="#283b30"/><stop offset="1" stop-color="#192922"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#9ca965" stop-opacity=".18"/><stop offset="1" stop-color="#9ca965" stop-opacity="0"/></radialGradient>
+<pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#adc1a0" opacity=".12"/></pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#c7d69f" stroke-width="1.9"/></marker>
+</defs>
+<rect width="1200" height="800" fill="url(#bg)"/>
+<rect width="1200" height="800" fill="url(#dots)"/>
+<circle cx="815" cy="130" r="440" fill="url(#glow)"/>
+<path d="M-70 744C195 612 375 764 651 609S1025 487 1257 563" stroke="#ccac76" stroke-width="2" opacity=".2" fill="none"/>
+<path d="M-60 760C195 622 375 772 651 616S1025 495 1257 573" stroke="#ccac76" stroke-width="2" opacity=".1" fill="none"/>
+<g font-family="ui-sans-serif,system-ui,Arial" fill="#eae9da">
+<text x="62" y="90" font-size="31" font-weight="700" letter-spacing="-.4">codeArbiter</text>
+<text x="1136" y="86" text-anchor="end" fill="#d0d9bd" font-size="20" letter-spacing="3">WORKFLOW EXAMPLE</text>
+<path d="M62 114H1138" stroke="#9aa98d" opacity=".35"/>
+<text x="62" y="161" fill="#b9c99e" font-size="19" font-weight="600" letter-spacing="2">A CHANGE MOVES THROUGH FOUR CHECKPOINTS</text>
+</g>
+<g font-family="ui-sans-serif,system-ui,Arial">
+<g>
+<rect x="62" y="200" width="246" height="220" rx="19" fill="url(#card)" stroke="#719581" stroke-width="2"/>
+<text x="87" y="248" fill="#c9d7a6" font-size="20" font-weight="700" letter-spacing="1">01 / ROUTE</text>
+<text x="87" y="303" fill="#f6f2de" font-size="36" font-weight="650">Choose</text>
+<text x="87" y="345" fill="#f6f2de" font-size="36" font-weight="650">the lane</text>
+<path d="M88 378H279" stroke="#8ca48d" opacity=".46"/>
+<circle cx="275" cy="237" r="9" fill="#c5d99b"/>
+</g>
+<g>
+<rect x="337" y="200" width="246" height="220" rx="19" fill="url(#card)" stroke="#719581" stroke-width="2"/>
+<text x="362" y="248" fill="#c9d7a6" font-size="20" font-weight="700" letter-spacing="1">02 / EVIDENCE</text>
+<text x="362" y="303" fill="#f6f2de" font-size="36" font-weight="650">Run the</text>
+<text x="362" y="345" fill="#f6f2de" font-size="36" font-weight="650">checks</text>
+<path d="M362 378H553" stroke="#8ca48d" opacity=".46"/>
+<circle cx="551" cy="237" r="9" fill="#c5d99b"/>
+</g>
+<g>
+<rect x="612" y="200" width="246" height="220" rx="19" fill="#3e462d" stroke="#ebc781" stroke-width="3"/>
+<text x="637" y="248" fill="#f0cd91" font-size="20" font-weight="700" letter-spacing="1">03 / REVIEW</text>
+<text x="637" y="303" fill="#fbf0d9" font-size="36" font-weight="650">Challenge</text>
+<text x="637" y="345" fill="#fbf0d9" font-size="36" font-weight="650">the diff</text>
+<path d="M637 378H828" stroke="#e8bf79" opacity=".7"/>
+<circle cx="826" cy="237" r="9" fill="none" stroke="#f2cd82" stroke-width="3"/>
+</g>
+<g>
+<rect x="887" y="200" width="246" height="220" rx="19" fill="url(#card)" stroke="#719581" stroke-width="2"/>
+<text x="912" y="248" fill="#c9d7a6" font-size="20" font-weight="700" letter-spacing="1">04 / DECISION</text>
+<text x="912" y="303" fill="#f6f2de" font-size="36" font-weight="650">Human</text>
+<text x="912" y="345" fill="#f6f2de" font-size="36" font-weight="650">control</text>
+<path d="M912 378H1103" stroke="#8ca48d" opacity=".46"/>
+</g>
+<g stroke="#c7d69f" stroke-width="3" fill="none" marker-end="url(#arrow)">
+<path d="M309 308H329"/><path d="M584 308H604"/><path d="M859 308H879"/>
+</g>
+</g>
+<rect x="62" y="452" width="1071" height="268" rx="22" fill="#111e19" stroke="#68806f" stroke-width="2"/>
+<g font-family="ui-sans-serif,system-ui,Arial">
+<text x="92" y="502" fill="#b7c9ae" font-size="19" letter-spacing="2.5">SELECTED WORKFLOW</text>
+<text x="92" y="559" fill="#f7f2db" font-size="39" font-weight="650">Regression-test-first feature</text>
+<rect x="890" y="482" width="214" height="44" rx="22" fill="#353b2c" stroke="#b5a36d"/>
+<text x="997" y="511" fill="#eacb8e" font-size="18" font-weight="600" text-anchor="middle">Requires evidence</text>
+<path d="M92 592H1102" stroke="#627968" opacity=".6"/>
+<text x="92" y="630" fill="#e2e9d4" font-size="23" font-weight="600">Failing test</text>
+<text x="327" y="630" fill="#d9c089" font-size="22">→</text>
+<text x="375" y="630" fill="#e2e9d4" font-size="23" font-weight="600">Minimal change</text>
+<text x="613" y="630" fill="#d9c089" font-size="22">→</text>
+<text x="658" y="630" fill="#e2e9d4" font-size="23" font-weight="600">Focused proof</text>
+<text x="856" y="630" fill="#d9c089" font-size="22">→</text>
+<text x="901" y="630" fill="#e2e9d4" font-size="23" font-weight="600">Review</text>
+<text x="92" y="688" fill="#a5b7ac" font-size="17" letter-spacing=".3">Illustrative workflow from the project showcase; not a live hook result.</text>
+</g>
+<path d="M62 760H1138" stroke="#a7bd9a" opacity=".22"/>
+<text x="62" y="784" fill="#9bb2a2" font-size="16" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" letter-spacing="1">SPECS  /  TESTS  /  REVIEWS  /  DURABLE DECISIONS</text>
+</svg>

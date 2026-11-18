@@ -6,14 +6,11 @@
       <img class="game-art" src="/assets/singedterra-game.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">
       <span class="game-label">A LITTLE FRIENDLY DESTRUCTION</span>
     {% when 'codearbiter' %}
-      <span class="material-study material-study--codearbiter"></span>
-      <span class="material-caption">codeArbiter / developer tooling</span>
+      <img class="project-preview" src="/assets/project-thumb-codearbiter.svg" width="1200" height="800" alt="" loading="lazy" decoding="async">
     {% when 'sim' %}
-      <span class="material-study material-study--sim"></span>
-      <span class="material-caption">SIM / connected systems</span>
+      <img class="project-preview" src="/assets/project-thumb-sim.svg" width="1200" height="800" alt="" loading="lazy" decoding="async">
     {% else %}
-      <span class="material-study material-study--generic"></span>
-      <span class="material-caption">{{ project.kind | escape }}</span>
+      <span class="project-preview-fallback">{{ project.kind | escape }}</span>
     {% endcase %}
   </a>
   <div class="project-copy">
