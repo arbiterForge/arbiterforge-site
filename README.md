@@ -14,6 +14,8 @@ The domain and repository name remain `arbiterforge.com` and
 | Path | Purpose |
 | --- | --- |
 | `index.html` | Personal homepage; Jekyll renders its project list |
+| `lab/index.html` | Generative Studio, a seeded interactive sculpture at `/lab/` |
+| `assets/generative-studio.*` | Shared procedural animation and studio controls |
 | `_data/projects.json` | Project names, descriptions, links, and display choices |
 | `_includes/project-card.html` | Shared project card markup |
 | `assets/` | Locally served styles, artwork, icons, and fonts |
@@ -37,6 +39,12 @@ is its 1200×630 raster companion. Both use the bundled Manrope and JetBrains Mo
 fonts. The singedTerra project image comes from its public repository's
 `docs/assets/current-battle-hud.jpg`. Other project previews are decorative SVG
 illustrations, not screenshots or test evidence.
+
+## Generative Studio
+
+The homepage uses a generative Canvas2D enhancement on top of its original static artwork. The separate [playground](/lab/) renders all of its kinetic geometry locally from a seed, with Foundry, Filaments, Bloom, and Orbit systems. Visitors can adjust movement and density, regenerate, pause, export a still, and share a seed via URL. No external rendering service or third-party JavaScript is required.
+
+The same motion preference applies across pages. System reduced-motion, Save-Data, hidden tabs, and offscreen observation suspend animation. Canvas resolution and frame rate are bounded. Keep the base artwork and semantic links available if JavaScript or Canvas is unavailable. Run `tests/test_generative_studio.py` alongside the existing tests.
 
 ## Add or update a project
 
