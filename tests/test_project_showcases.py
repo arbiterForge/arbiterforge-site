@@ -43,8 +43,9 @@ class ShowcaseTests(unittest.TestCase):
         self.assertIn("not an invocation", self.studies["codearbiter"]["demo_description"])
         self.assertIn("fictional", self.studies["sim"]["demo_description"].lower())
         self.assertIn("not the singedTerra engine", self.studies["singedterra"]["demo_description"])
-        for ident in ("codearbiter", "sim", "singedterra"):
+        for ident in ("codearbiter", "sim"):
             self.assertIn(f"page.project == '{ident}'", layout)
+        self.assertIn("{% else %}", layout)
         for selector in ("[data-gate-demo]", "[data-sim-demo]", "[data-trajectory-demo]"):
             self.assertIn(selector, script)
         self.assertIn('{% include theme-head.html %}', layout)
