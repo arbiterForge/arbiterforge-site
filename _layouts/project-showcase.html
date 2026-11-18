@@ -1,0 +1,66 @@
+{% assign item = site.data.showcases[page.project] %}
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ item.name | escape }} · Inside the build · suadtl</title>
+<meta name="description" content="{{ item.summary | escape }}">
+<link rel="canonical" href="https://arbiterforge.com{{ page.url | escape }}">
+<meta property="og:type" content="article"><meta property="og:site_name" content="suadtl">
+<meta property="og:title" content="Inside the build: {{ item.name | escape }}">
+<meta property="og:description" content="{{ item.summary | escape }}">
+<meta property="og:image" content="https://arbiterforge.com/assets/social-card.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+{% include theme-head.html %}
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/project-showcases.css">
+<script defer src="/assets/project-showcases.js"></script>
+</head><body class="case-page case--{{ page.project | escape }}">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header wrap"><a class="wordmark" href="/" aria-label="suadtl home">suadtl<span aria-hidden="true">.</span></a>
+<nav class="main-nav" aria-label="Main navigation"><a href="/projects/" aria-current="page">Projects</a><a href="/lab/">Playground</a><a href="/news/">News</a></nav>
+<div class="header-actions"><a class="github-link" href="https://github.com/SUaDtL">{% include icon.html name="github" %}<span>GitHub</span></a>
+<button class="theme-toggle" type="button" aria-label="Dark appearance" aria-pressed="false" hidden><span class="theme-moon">{% include icon.html name="moon" %}</span><span class="theme-sun">{% include icon.html name="sun" %}</span></button></div></header>
+<main id="main" tabindex="-1">
+<section class="case-hero case-width" aria-labelledby="case-title"><div class="case-hero-copy">
+<p class="case-index"><a href="/projects/">The workbench</a> <span aria-hidden="true">/</span> {{ item.number | escape }} <span aria-hidden="true">/</span> {{ item.kind | escape }}</p>
+<p class="case-eyebrow">{{ item.eyebrow | escape }}</p>
+<h1 id="case-title">{{ item.title | escape }}</h1><p class="case-deck">{{ item.summary | escape }}</p>
+<div class="case-actions"><a class="case-button case-button--solid" href="{{ item.open | escape }}">{{ item.open_label | escape }} {% include icon.html name="arrow-up-right" %}</a>
+<a class="case-button" href="{{ item.source | escape }}">Source on GitHub {% include icon.html name="github" %}</a></div></div>
+<figure class="case-hero-media">{% if item.image != '' %}
+<img src="{{ item.image | escape }}" width="1200" height="675" alt="{{ item.image_alt | escape }}" decoding="async" fetchpriority="high">
+{% else %}<div class="sim-study" aria-hidden="true"><svg viewBox="0 0 700 430" fill="none" focusable="false"><rect width="700" height="430" rx="24" fill="#172522"/><rect x="30" y="42" width="280" height="341" rx="17" fill="#273931" stroke="#759b87"/><rect x="374" y="98" width="292" height="285" rx="17" fill="#283d40" stroke="#6f9eac"/><text x="55" y="82" fill="#d7ddbf" font-size="19">NETWORK A</text><text x="397" y="139" fill="#c5d9df" font-size="19">SHARED SERVICES</text><path d="M220 212C310 212 358 290 455 290" stroke="#e6bb75" stroke-width="4"/><path d="m446 283 12 7-13 7" stroke="#e6bb75" stroke-width="3"/><rect x="70" y="170" width="164" height="70" rx="12" fill="#3e594d"/><text x="86" y="213" fill="#f3f2dc" font-size="22">Applications</text><rect x="438" y="253" width="172" height="70" rx="12" fill="#48616b"/><text x="460" y="296" fill="#f1f0e3" font-size="24">Identity</text></svg></div>{% endif %}
+<figcaption>{{ item.image_note | escape }}</figcaption></figure></section>
+<section class="case-section case-width" aria-labelledby="case-problem-title"><div class="case-mark"><span>01</span> The starting point</div><div><h2 id="case-problem-title">{{ item.intro_title | escape }}</h2><p class="case-wide-copy">{{ item.intro | escape }}</p></div></section>
+<section class="case-section case-width" aria-labelledby="case-feature-title"><div class="case-mark"><span>02</span> What it does</div><div><h2 id="case-feature-title">The pieces that matter.</h2><div class="case-feature-grid">{% for f in item.features %}
+<article class="case-feature"><span class="case-feature-no">0{{ forloop.index }}</span><h3>{{ f.title | escape }}</h3><p>{{ f.text | escape }}</p></article>{% endfor %}</div></div></section>
+<section class="case-lab"><div class="case-width"><p class="case-eyebrow">03 / Try the idea</p><h2 id="case-demo-title">{{ item.demo_title | escape }}</h2><p class="case-lab-copy">{{ item.demo_description | escape }}</p>
+{% if page.project == 'codearbiter' %}
+<div class="demo-shell" data-gate-demo>
+<div class="demo-options" role="group" aria-label="Choose a type of change"><button data-gate="docs" aria-pressed="false">Documentation edit</button><button data-gate="feature" aria-pressed="true">Behavior change</button><button data-gate="security" aria-pressed="false">Security-sensitive change</button></div>
+<div class="gate-flow" aria-label="Illustrative workflow stages"><div><span>01</span><strong>Route</strong><small>Choose the lane</small></div><div><span>02</span><strong>Evidence</strong><small>Run the checks</small></div><div><span>03</span><strong>Review</strong><small>Challenge the diff</small></div><div><span>04</span><strong>Decision</strong><small>Human control</small></div></div>
+<div class="demo-result" aria-live="polite"><div><span class="demo-result-kicker">Selected workflow</span><h3 data-gate-title>Regression-test-first feature</h3><p data-gate-copy>Require the failing test, minimal fix, verification and review before an authorized commit.</p></div><span class="demo-tag" data-gate-verdict>Requires evidence</span></div></div>
+{% elsif page.project == 'sim' %}
+<div class="demo-shell" data-sim-demo data-focus="app">
+<div class="demo-options" role="group" aria-label="Inspect a fictional service"><button data-sim-focus="app" aria-pressed="true">App portal</button><button data-sim-focus="identity" aria-pressed="false">Identity</button><button data-sim-focus="monitor" aria-pressed="false">Monitoring</button></div>
+<div class="demo-sim-map"><svg viewBox="0 0 820 350" role="img" aria-label="Fictional network areas with three dependency connections, highlighted according to selection"><defs><marker id="map-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L9 5 1 9" fill="none" stroke="#e8bc74" stroke-width="2"/></marker></defs>
+<rect class="demo-network" x="16" y="34" rx="18" width="254" height="280"/><rect class="demo-network" x="318" y="34" rx="18" width="236" height="280"/><rect class="demo-network" x="602" y="34" rx="18" width="200" height="280"/>
+<text class="network-name" x="35" y="65">NETWORK A</text><text class="network-name" x="337" y="65">NETWORK B</text><text class="network-name" x="621" y="65">EXTERNAL</text>
+<path class="demo-route route-app" d="M212 146C260 146 294 146 354 146" marker-end="url(#map-arrow)"/><path class="demo-route route-monitor" d="M212 146C300 315 450 276 640 252" marker-end="url(#map-arrow)"/><path class="demo-route route-identity" d="M490 151C542 151 572 145 640 143" marker-end="url(#map-arrow)"/>
+<rect class="demo-node node-app" x="46" y="114" rx="11" width="168" height="64"/><text class="node-label" x="65" y="151">App portal</text>
+<rect class="demo-node node-identity" x="354" y="114" rx="11" width="139" height="64"/><text class="node-label" x="374" y="151">Identity</text>
+<rect class="demo-node node-monitor" x="640" y="220" rx="11" width="141" height="64"/><text class="node-label" x="655" y="257">Monitoring</text>
+<rect class="demo-node" x="640" y="112" rx="11" width="141" height="64"/><text class="node-label" x="655" y="149">SSO provider</text>
+<text class="network-name" x="35" y="294">Consumer → provider</text></svg></div>
+<div class="demo-result" aria-live="polite"><div><span class="demo-result-kicker">Selected service</span><h3 data-sim-title>App portal</h3><p data-sim-copy>Consumes Identity and Monitoring across network boundaries.</p></div><span class="demo-tag">Fictional example</span></div></div>
+{% else %}
+<div class="demo-shell" data-trajectory-demo>
+<div class="demo-sliders"><label>Elevation <output data-angle-output>48°</output><input type="range" min="15" max="80" value="48" data-angle></label><label>Power <output data-power-output>64%</output><input type="range" min="25" max="100" value="64" data-power></label><label>Wind <output data-wind-output>+2</output><input type="range" min="-7" max="7" value="2" data-wind></label></div>
+<div class="demo-trajectory"><svg viewBox="0 0 800 350" role="img" aria-label="Illustrative shot trajectory over rolling terrain"><path d="M0 286Q100 247 212 272T415 267T625 283T800 264V350H0Z" fill="#51634a" stroke="#a1ba86" stroke-width="2"/><circle cx="106" cy="262" r="18" fill="#a9b18a"/><path d="M88 260h36v11H88zM103 261l28 -28" stroke="#b7c4a0" stroke-width="9" stroke-linecap="round"/><path data-shot-path d="M122 242Q330 20 600 260" stroke="#f3d18f" stroke-width="3" stroke-dasharray="7 6" fill="none"/><circle data-impact cx="600" cy="260" r="9" fill="#e8b874"/><circle cx="668" cy="259" r="15" fill="none" stroke="#eabdb0" stroke-width="3"/></svg></div>
+<div class="demo-result" aria-live="polite"><div><span class="demo-result-kicker">Approximate range</span><h3 data-range-title>Adjust the controls</h3><p>The real game also simulates terrain, walls, weapons and collisions.</p></div><span class="demo-tag">Teaching illustration</span></div></div>
+{% endif %}
+<div class="case-lab-foot"><p>{{ item.note | escape }}</p><a href="{{ item.proof | escape }}">{{ item.proof_label | escape }} {% include icon.html name="arrow-up-right" %}</a></div></div></section>
+<section class="case-section case-width" aria-labelledby="case-decisions-title"><div class="case-mark"><span>04</span> Behind the decisions</div><div><h2 id="case-decisions-title">What made this interesting to build.</h2><div class="case-decisions">{% for d in item.decisions %}<article><p class="case-eyebrow">{{ d.label | escape }}</p><h3>{{ d.title | escape }}</h3><p>{{ d.text | escape }}</p></article>{% endfor %}</div></div></section>
+<section class="case-next case-width"><p>Explore the real thing, or keep looking.</p><div><a class="case-button case-button--solid" href="{{ item.open | escape }}">{{ item.open_label | escape }} {% include icon.html name="arrow-up-right" %}</a><a class="case-button" href="{{ item.guide | escape }}">{{ item.guide_label | escape }}</a><a class="case-button" href="/projects/">Other projects {% include icon.html name="arrow-right" %}</a></div></section>
+</main><footer class="site-footer wrap"><div><a class="wordmark" href="/">suadtl<span aria-hidden="true">.</span></a><p>Personal projects. Always something to tinker with.</p></div><nav aria-label="Footer navigation"><a href="/projects/">Projects</a><a href="/lab/">Playground</a><a href="/news/">News</a></nav><div class="footer-meta"><span>arbiterforge.com</span>{% include motion-control.html %}<span>© {{ site.time | date: '%Y' }} suadtl</span></div></footer>
+</body></html>

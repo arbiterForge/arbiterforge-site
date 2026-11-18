@@ -25,6 +25,7 @@
   <link rel="preload" as="image" type="image/avif" href="/assets/atelier-machine.avif">
   {% include theme-head.html %}
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/project-showcases.css">
   <link rel="stylesheet" href="/assets/generative-studio.css">
   <script defer src="/assets/generative-studio.js"></script>
   <script type="application/ld+json">
@@ -54,7 +55,7 @@
         <div class="project-grid">
           {% for project in site.data.projects %}{% include project-card.html project=project number=forloop.index %}{% endfor %}
         </div>
-        <p class="project-footnote">More experiments tend to start on <a href="https://github.com/SUaDtL">GitHub {% include icon.html name="arrow-up-right" %}</a>.</p>
+        <p class="project-footnote">More experiments tend to start on <a href="https://github.com/SUaDtL">GitHub {% include icon.html name="arrow-up-right" %}</a>. <a class="case-all-link" href="/projects/">Explore the project stories {% include icon.html name="arrow-right" %}</a></p>
       </section>
       <section class="reading section" data-reveal aria-labelledby="reading-title">
         <div class="reading-top"><p class="eyebrow">02 / The reading habit</p><span class="reading-brand">ARBITER NEWS<span aria-hidden="true"> /</span></span></div>
