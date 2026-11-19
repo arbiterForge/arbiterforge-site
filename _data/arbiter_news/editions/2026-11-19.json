@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-19",
+  "title": "Arbiter News",
+  "intro": "Twelve verified original-source developments across agent memory, developer automation, IPv6 and GPU infrastructure, security posture, defense demonstrations, and U.S. policy and capital flows.",
+  "overview": "New persistent agent context, Copilot model choices and event-driven PR signals lead AI. Cloud covers managed GPU functions, IPv6-only Kubernetes and hybrid-node pricing. Security spans automated repository assessments, streaming origin authentication and Army unmanned testing. Money covers September international investment flows and two Treasury regulatory developments.",
+  "history_note": "The public coverage.json endpoint could not be inspected with the web reader. Deduplication used the complete accessible repository backing data: 319 legacy records across 10 history_parts files plus 312 stories from all 26 dated editions, October 23-November 18, excluding the absent October 25 edition. In all, 631 records were checked for matching underlying events, normalized keys and canonical original-source URLs, encompassing over 30 days. Known historical record gaps: September 23, October 6 and October 25; some legacy records lack canonical URLs. Previous coverage is not independent proof of historical accuracy. No Opus 5.5 launch story was repeated.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "aws:opensearch-memory:serverless-persistent-agent-memory-ga:2026-11-18",
+      "status": "new",
+      "topic": "Persistent agent memory",
+      "title": "Amazon OpenSearch Memory becomes generally available for persistent agent context",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced general availability of Amazon OpenSearch Memory, a serverless managed memory service for AI agents. It stores interaction events and builds retrievable long-term context using asynchronous memory extraction, consolidation and indexing rather than requiring developers to manage a dedicated search cluster. AWS describes access controls for actors and sessions, retention settings and search across previous interactions. The service is initially offered in selected AWS Regions including Northern Virginia, Ohio, Oregon, Frankfurt and Tokyo; regional eligibility matters when considering regulated workloads.",
+      "implications": "Analysis: Durable memory can help production agents retain decisions and handoffs across sessions, but it also creates a larger governance surface. Teams should define identity boundaries, deletion and retention policies, source attribution and evaluation for stale or incorrect memories. This is a separate OpenSearch offering from the previously covered Bedrock AgentCore Memory retention expansion.",
+      "takeaway": "Takeaway: Prototype a bounded agent memory use case, verify regional availability and measure retrieval correctness before relying on remembered facts.",
+      "development_summary": "AWS launched general availability of a managed serverless agent memory service combining event storage with long-term context retrieval.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-memory-generally-available/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:cli-event-stream:wait-pr-reviews-checks-state-preview:2026-11-18",
+      "status": "new",
+      "topic": "Developer agent orchestration",
+      "title": "GitHub CLI adds pull-request event listening for automation workflows",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18",
+      "freshness": "New • 1 day",
+      "highlights": "GitHub announced a preview of pull-request event listening in GitHub CLI v2.105.0. The new `gh event listen` flow can wait for relevant changes including review activity, checks, branch-head updates and pull-request state transitions. By default it exits after the first matching event, while options support continued listening, event counts, timeout, JSON filtering and templates. Participation depends on access to the GitHub Event Streams preview; this is not a generally available push-notification service for all CLI installations.",
+      "implications": "Analysis: Event-driven waits can replace wasteful polling in coding agents and merge-queue orchestration, especially while waiting for reviewers or CI. Consumers still need timeout handling, reconnect logic and checks against the canonical PR state after a notification. Preview availability and API behavior should be treated as constraints in production planning.",
+      "takeaway": "Takeaway: Test event listening with noncritical PR automation and retain authoritative GitHub state checks before merging.",
+      "development_summary": "GitHub previewed CLI event listening for pull-request status, reviews and checks to support event-driven automation.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-18-wait-for-pull-request-events-with-github-cli/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot:gemini-4-neon-availability-rollout:2026-11-18",
+      "status": "new",
+      "topic": "Developer AI models",
+      "title": "GitHub adds Gemini 4 Neon to Copilot's model selection",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18",
+      "freshness": "New • 1 day",
+      "highlights": "GitHub announced Gemini 4 Neon support in GitHub Copilot for eligible paid plans, including Pro+, Business and Enterprise, with availability through supported development interfaces such as editors, the Copilot CLI and coding-agent workflows. The announcement describes a staged rollout and organizational controls: administrators may need to enable the model through Copilot model policies. This is a distinct model and integration announcement from earlier Gemini 4 Hydrogen coverage. Any advertised speed, quality or cost advantages are provider assertions, not independently established results.",
+      "implications": "Analysis: A wider model menu gives teams a practical route to compare agent reliability on their own repositories, particularly for multi-file changes, test creation and tool use. Enterprise administrators should review provider policies, usage accounting and data handling before broad enablement, rather than assuming an automatic migration from an older model.",
+      "takeaway": "Takeaway: Benchmark Neon against existing Copilot models on representative tasks and check administrative model availability before rollout.",
+      "development_summary": "GitHub announced a staged Gemini 4 Neon rollout within Copilot for eligible subscriptions and surfaces.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:lambda-managed-instances:gpu-g-series-support:2026-11-18",
+      "status": "new",
+      "topic": "Serverless GPU inference",
+      "title": "AWS Lambda Managed Instances adds GPU-backed execution",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced GPU support for Lambda Managed Instances using supported Amazon EC2 G-series capacity. Developers can run GPU-backed Lambda workloads without operating the underlying hosts and can use compatible machine-learning frameworks and AWS-supplied inference images. The offering targets event-driven AI inference while preserving Lambda-style invocation and instance management. Availability depends on supported instance families and Regions; the announcement also describes an EC2-based cost structure plus a Managed Instances fee, rather than an ordinary per-millisecond serverless GPU price.",
+      "implications": "Analysis: This can simplify bursty inference attached to existing Lambda pipelines, but GPU utilization, instance warm-up, model loading and concurrent capacity will determine practical economics. It is not automatically cheaper than a continuously occupied inference endpoint. Teams should measure model latency, occupancy and scaling behavior in real workloads.",
+      "takeaway": "Takeaway: Compare total cost and cold-start behavior with ECS, EKS or managed inference endpoints before migrating GPU services.",
+      "development_summary": "AWS added G-series GPU compute to Lambda Managed Instances for event-triggered machine-learning and inference workloads.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-gpu-managed-instances/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "google:gke:ipv6-only-single-stack-clusters-ai-ml-preview:2026-11-18",
+      "status": "new",
+      "topic": "Kubernetes IPv6 networking",
+      "title": "Google previews single-stack IPv6 GKE clusters for AI and machine learning",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18",
+      "freshness": "New • 1 day",
+      "highlights": "Google Cloud introduced a preview for single-stack IPv6 Google Kubernetes Engine clusters intended to reduce dependence on increasingly scarce private IPv4 addresses. Both nodes and workloads can use IPv6 addresses, while DNS64 and NAT64 provide paths to IPv4-only destinations when configured. Google describes support for selected CPU infrastructure and Cloud TPU v6e use cases, making the preview especially relevant for scaled AI and machine-learning clusters. This is a preview announcement, not a claim that every existing GKE deployment can switch seamlessly.",
+      "implications": "Analysis: IPv6-first addressing can remove a real scaling constraint in large pod fleets, yet application libraries, network appliances, observability tools and downstream systems must all handle IPv6 correctly. Dual-protocol interoperability, firewall policy and private connectivity need explicit testing before expansion.",
+      "takeaway": "Takeaway: Pilot IPv6-only clusters with dependency tracing and NAT64 tests; do not assume production readiness from preview support.",
+      "development_summary": "Google announced preview support for single-stack IPv6 GKE clusters with AI/ML-oriented infrastructure options.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://cloud.google.com/blog/products/networking/run-aiml-workloads-on-ipv6-only-gke-clusters"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:eks-hybrid-nodes:billable-vcpu-cap-32-pricing:2026-11-18",
+      "status": "new",
+      "topic": "Hybrid Kubernetes economics",
+      "title": "Amazon EKS Hybrid Nodes caps billed vCPUs at 32 per node",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced a change in Amazon EKS Hybrid Nodes pricing: for large hybrid nodes, charges are capped at 32 billable vCPUs per node rather than growing with every processor core. AWS illustrates the effect with lower fees for 64-vCPU and 256-vCPU nodes relative to the former model, while the actual comparison depends on configuration and tier. Newly attached nodes receive the new rate; AWS says existing attached hybrid nodes must be deleted from the EKS cluster and reattached to activate it, requiring operational planning.",
+      "implications": "Analysis: The revised economics could make dense on-premises or edge Kubernetes workers more attractive, particularly for virtualization-rich environments with large nodes. The update affects EKS Hybrid Nodes management fees, not hardware, power, networking, support or other cloud costs. Reattachment should be tested to avoid disrupting active workloads.",
+      "takeaway": "Takeaway: Recalculate fleet-level EKS Hybrid costs and schedule safe node reattachment if existing workers need the new rate.",
+      "development_summary": "AWS revised EKS Hybrid Nodes charges by capping billable CPU count at 32 vCPUs per node.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-hybrid-nodes-pricing-change/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "github:team-security-risk-assessments:automatic-runs-2026-11-18",
+      "status": "material-update",
+      "topic": "Repository security posture",
+      "title": "GitHub Team organizations gain automatic security risk assessments",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18",
+      "freshness": "New • 1 day",
+      "highlights": "GitHub announced automatic security risk assessments for organizations on the GitHub Team plan, extending routine visibility into repository security exposure without requiring a manually launched assessment. Authorized administrators and security managers can inspect identified risk signals and use results to prioritize follow-up. Earlier November coverage described a separate enhancement that exposed repository protection status inside assessments; this new announcement changes how assessments are initiated and which organizations receive regular runs. It should not be confused with a guarantee that every vulnerability is found or remediated.",
+      "implications": "Analysis: Automatic assessments can reduce the chance that newly created or newly exposed repositories fall outside scheduled security reviews. Teams still need deterministic code and dependency scanners, permissions reviews and owners for corrective actions. Changes in findings may reflect assessment coverage rather than a sudden increase in actual exposure.",
+      "takeaway": "Takeaway: Review automatic assessment coverage and align high-risk findings with existing repository security ownership and remediation processes.",
+      "development_summary": "GitHub extended automatic security risk assessments to Team-plan organizations, beyond earlier repository protection visibility.",
+      "updates_event_key": "github:security-risk-assessment:protected-repository-status-visibility:2026-11-02",
+      "change_summary": "November 2 coverage addressed protection-status visibility in security assessments; on November 18 GitHub announced that Team-plan organizations would receive automatically run assessments, a change in access and triggering rather than only assessment display.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-18-security-risk-assessments-run-automatically-on-github-team/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "aws:cloudfront:origin-mtls-websocket-grpc-support:2026-11-18",
+      "status": "new",
+      "topic": "Edge-to-origin authentication",
+      "title": "CloudFront extends origin mutual TLS to WebSockets and gRPC",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18",
+      "freshness": "New • 1 day",
+      "highlights": "Amazon CloudFront announced support for origin mutual TLS on WebSocket and gRPC traffic. Origin mTLS authenticates CloudFront when it connects to an application origin using client certificates, including for persistent or streaming connections; AWS says this works with origins hosted on AWS or elsewhere. This extends an existing origin security mechanism beyond conventional requests. The feature does not by itself authenticate end users or ensure the business logic and authorization of the upstream application are correct.",
+      "implications": "Analysis: Security teams can use cryptographic origin identity instead of relying only on shared header secrets or broad IP allowlists for these protocols. Certificate issuance, revocation, renewal and trust-store configuration become operational dependencies, especially for mixed cloud and on-premises environments. Test long-lived streams across rotation and failure scenarios.",
+      "takeaway": "Takeaway: Review WebSocket and gRPC origin designs for mTLS adoption while keeping end-user authorization and certificate lifecycle controls separate.",
+      "development_summary": "CloudFront expanded origin mutual TLS support to persistent WebSocket and gRPC connections.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudfront-origin-mtls-websockets-grpc/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "us-army:devcom-grafenwoehr:unmanned-live-fire-demonstration-nov12:2026-11-16",
+      "status": "new",
+      "topic": "Defense unmanned systems",
+      "title": "U.S. Army evaluates unmanned platforms in Germany live-fire demonstration",
+      "publisher": "U.S. Army DEVCOM",
+      "publication_date": "2026-11-16",
+      "event_date": "2026-11-12",
+      "freshness": "New • 3 days",
+      "highlights": "The U.S. Army's DEVCOM Armaments Center described a November 12 live-fire evaluation at Grafenwoehr, Germany, reported publicly on November 16. The demonstration combined various uncrewed air and ground platforms with infantry and weapons concepts, including remotely delivered obscuration and drone-enabled effects. Participants included Army training and operational organizations in Europe. The report describes an evaluation and technology demonstration; it is not proof that every featured capability is fielded, approved for operational use or ready for deployment.",
+      "implications": "Analysis: The effort illustrates how armies are evaluating lower-cost autonomous and remotely operated systems as components of combined-arms tactics rather than isolated gadgets. Reliability, electromagnetic interference, human control, targeting policy and logistics remain major constraints. Engineering teams should distinguish a successful one-day demo from sustained operational effectiveness and supportability.",
+      "takeaway": "Takeaway: Track follow-on evaluations and acquisition decisions before treating demonstrated configurations as a mature deployed capability.",
+      "development_summary": "The Army publicly documented a November 12 live-fire evaluation of multiple unmanned air and ground systems in Germany.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://ac.devcom.army.mil/news/us-army-evaluates-unmanned-capabilities-during-live-fire-demonstration-in-germany/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-treasury:tic:september2026-net-inflows-261b-release-2026-11-18",
+      "status": "new",
+      "topic": "International investment flows",
+      "title": "Treasury reports $261 billion in net September capital inflows",
+      "publisher": "U.S. Department of the Treasury",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-09",
+      "freshness": "New • 1 day",
+      "highlights": "The Treasury Department released September 2026 Treasury International Capital data on November 18, reporting an overall net TIC inflow of approximately $261.0 billion. The release attributes about $267.0 billion in net private inflows and about $6.0 billion in net official outflows. Foreign residents also made net purchases of U.S. long-term securities, but the long-term total differs from the overall TIC flow because the measures and adjustments differ. These are September transactions published in November, not flows occurring during the announcement week.",
+      "implications": "Analysis: TIC flows help contextualize international demand for dollar assets and U.S. financing but are volatile and can be revised. Custodial reporting can obscure ultimate ownership by country, so geographic tables should not be overinterpreted. A single month's inflow does not establish a lasting currency or interest-rate trend.",
+      "takeaway": "Takeaway: Read the September flows alongside Treasury yields and subsequent revisions rather than interpreting the release as a forward forecast.",
+      "development_summary": "Treasury released September TIC data showing approximately $261 billion in net inflows, primarily private.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://home.treasury.gov/news/press-releases/sb0693"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "treasury-irs:secure2:automatic-enrollment-final-regulations-effective-plan-years-2028:2026-11-17",
+      "status": "new",
+      "topic": "Retirement plan policy",
+      "title": "Treasury issues final SECURE 2.0 automatic-enrollment regulations",
+      "publisher": "U.S. Department of the Treasury",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 2 days",
+      "highlights": "The Treasury Department and IRS announced final regulations implementing SECURE 2.0 automatic-enrollment requirements for eligible newly established 401(k) and 403(b) plans. Covered plans generally start participants at a default contribution rate of at least 3%, then increase the rate annually by at least one percentage point toward at least 10%, subject to the statutory maximum and employee choice. The requirements include exceptions for certain employers and plan types. Treasury says the relevant regulations apply for plan years beginning after December 31, 2027, rather than requiring an immediate enrollment change for every current worker.",
+      "implications": "Analysis: Automatic enrollment can increase participation while leaving workers able to opt out or select a different savings rate. Employers and payroll vendors should verify whether their specific plan is covered, how exceptions apply and when operational changes are required. A Treasury estimate of higher savings is a projection, not observed outcomes.",
+      "takeaway": "Takeaway: Plan sponsors should validate their applicability and implementation timetable; employees should still review default rates and investment selections.",
+      "development_summary": "Treasury and IRS issued final implementing regulations for SECURE 2.0 automatic enrollment in eligible retirement plans.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://home.treasury.gov/news/press-releases/sb0690"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "fincen:beneficial-ownership-cdd:proposed-rule-account-opening-2026-11-17",
+      "status": "new",
+      "topic": "Financial regulatory proposals",
+      "title": "FinCEN proposes changes to beneficial-owner customer due diligence",
+      "publisher": "U.S. Department of the Treasury / FinCEN",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 2 days",
+      "highlights": "Treasury's Financial Crimes Enforcement Network announced a proposed rule affecting customer due-diligence collection of beneficial-owner information at covered financial institutions. Among the proposed changes, institutions would not generally need to re-identify and reverify beneficial owners each time an existing legal-entity customer opens an additional account, while retaining risk-based obligations when information is called into question. FinCEN described provisions allowing institutions to gather additional beneficial-ownership information when appropriate. This is a proposal subject to comments, not an enacted new operating requirement.",
+      "implications": "Analysis: If finalized, the proposal could reduce repetitive onboarding paperwork while preserving financial-crime compliance expectations. Banks will still need reliable triggers for ownership changes and suspicious activity, plus controls for identity and record quality. Businesses should avoid changing their compliance processes solely in response to an announced proposal.",
+      "takeaway": "Takeaway: Monitor the Federal Register comment period and eventual final language; distinguish proposed relief from current duties.",
+      "development_summary": "FinCEN proposed tailoring beneficial-owner verification at repeated account openings while maintaining risk-based due-diligence controls.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://home.treasury.gov/news/press-releases/sb0691"
+        }
+      ]
+    }
+  ]
+}
