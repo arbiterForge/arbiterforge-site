@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-20",
+  "title": "Arbiter News",
+  "intro": "Twelve fresh original-source developments across model-serving operations, agent integrations, cloud execution and observability, identity security, defense networks, and the economy.",
+  "overview": "AI covers SageMaker inference diagnostics and two distinct GitHub Copilot tool-governance announcements. Cloud tracks longer Lambda runtimes, EC2 performance metrics and RHEL production runners. Security spans credentialless enterprise audit logging, CISA transportation-controller vulnerabilities and NATO communications resilience. Money features Anthropic's finalized IPO terms, a new Philadelphia Fed survey and Freddie Mac mortgage rates.",
+  "history_note": "The public coverage.json endpoint was inaccessible to the web reader; deduplication used the complete accessible repository backing index: 319 legacy records across all 10 history_parts files and 324 stories across 27 dated edition files (October 23–November 19, excluding October 25), totaling 643 prior records spanning more than 30 days. Selected underlying events, event keys and canonical primary-source URLs were compared against these records with no duplicate selected; the legacy index has 40 records without canonical source URLs. Known gaps: September 23, October 6 and October 25. Historical coverage is not independent verification of earlier claims. Routine Opus 5.5 launch coverage was excluded.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "aws:sagemaker-ai:default-inference-diagnostics-recommendation-notifications:2026-11-19",
+      "status": "new",
+      "topic": "AI inference operations",
+      "title": "SageMaker AI flags idle GPUs and worsening inference response times",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced default monitoring of response times, GPU use and configuration gaps for SageMaker AI generative-inference endpoints. The service warns through AWS Health when performance has deteriorated over a week or it spots optimizations such as speculative decoding or serving-container updates. AWS says monitoring does not inspect customer requests or responses. A link to GenAI Inference Recommendations can compare alternatives on latency, throughput and cost per million tokens without changing the live endpoint. Monitoring itself carries no extra fee; recommendation experiments consume billable compute.",
+      "implications": "Analysis: Model-serving efficiency is now an ongoing operations concern, not a one-off deployment benchmark. Automated diagnosis could expose expensive idle accelerators, but teams should distinguish the provider's recommendations from validated production outcomes. Regional support is initially limited to specified US, European and Asia-Pacific Regions, and optimization tests still need controlled traffic and representative load.",
+      "takeaway": "Takeaway: Check whether inference monitoring is active, evaluate recommendations in a test workload, and measure actual cost and latency before approving changes.",
+      "development_summary": "AWS added default performance-change and optimization notifications for SageMaker AI generative-inference endpoints.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-monitors-endpoints/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot:verified-mcp-connectors-eight-supabase-box-calendly-preview:2026-11-18",
+      "status": "new",
+      "topic": "Agent tool connectivity",
+      "title": "GitHub previews eight new verified MCP connectors in Copilot",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18",
+      "freshness": "New • 2 days",
+      "highlights": "GitHub added public-preview Copilot connectors for Box, Buildkite, Calendly, ClickUp, Mixpanel, Supabase, Webflow and Wix. The verified MCP integrations extend an existing catalog of more than 25 services and connect through the Copilot app, CLI, VS Code or GitHub.com. They let developers reference files, pipelines, databases, scheduling and analytics within supported agent workflows. GitHub says all Copilot plans can access the preview, but Business and Enterprise administrators must enable editor preview features; enterprise MCP allowlists and service-side permissions also apply.",
+      "implications": "Analysis: These connectors make tool-using agents more practical for cross-system engineering work, especially when relating a failing build to source changes or inspecting a database schema before migration. Authentication and tool authorization remain critical: an available integration does not imply permission to access every resource. Preview status also argues for testing permission scopes and failure handling.",
+      "takeaway": "Takeaway: Pilot one narrowly scoped workflow, verify organizational allowlists and inspect exactly what the connector can read or change.",
+      "development_summary": "GitHub introduced eight additional verified MCP service connectors in public preview for Copilot.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot:organization-team-plugin-default-customizations-ga:2026-11-18",
+      "status": "new",
+      "topic": "Agent customization governance",
+      "title": "GitHub makes team-level Copilot plugin defaults generally available",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18",
+      "freshness": "New • 2 days",
+      "highlights": "GitHub made team customizations generally available for Copilot Business and Copilot Enterprise. Organization owners and team maintainers can select approved agent plugins from supported marketplaces to serve as defaults for their teams. Direct team members see those plugins enabled in VS Code, the Copilot app and Copilot CLI. Child teams do not automatically inherit the selections, and users can turn a team plugin off where policy permits. Organization and enterprise policies still control which plugins and marketplaces are allowed, blocked or required.",
+      "implications": "Analysis: A standardized team baseline can reduce inconsistent agent instructions and missing tooling across repositories without imposing the same setup on every organization member. The lack of child-team inheritance matters in large structures; administrators will need an inventory of who actually receives the defaults. This is a governance and configuration change, distinct from GitHub's separate connector preview.",
+      "takeaway": "Takeaway: Define a small approved plugin baseline per team, test the resulting experience in all supported clients and retain central policy enforcement.",
+      "development_summary": "GitHub released generally available team-level Copilot plugin defaults for direct team members.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-18-customize-github-copilot-for-your-team/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:lambda:event-functions-30-minute-ondemand-timeout:2026-11-19",
+      "status": "new",
+      "topic": "Serverless execution limits",
+      "title": "AWS doubles Lambda on-demand Event Function timeouts to 30 minutes",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 1 day",
+      "highlights": "AWS expanded the maximum execution time of on-demand Lambda Event Functions from 15 to 30 minutes for synchronous, asynchronous and event-source-mapping invocations. The longer limit also applies when these functions participate in Step Functions Standard workflows or Lambda durable functions. Lambda Managed Instances now support 30-minute synchronous execution, while their asynchronous and event-source-mapping invocations retain the existing 90-minute limit. AWS says the on-demand extension is available across commercial AWS Regions under ordinary Lambda pricing, configurable through its usual deployment tools.",
+      "implications": "Analysis: This removes a significant architectural limit for lengthy inference, transformation and event-driven workloads. A longer permitted function is not necessarily a better design: downstream request timeouts, queue visibility, retry behavior, concurrency saturation and partial failures still need explicit handling. Steady-state work may also have different economics on managed instances or containers.",
+      "takeaway": "Takeaway: Review functions that previously split around the 15-minute ceiling, but load-test end-to-end timeouts and retry safety before consolidating jobs.",
+      "development_summary": "AWS increased on-demand Lambda Event Functions' maximum runtime from 15 to 30 minutes.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-30-minute-ondemand-event-functions/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:ec2:detailed-monitoring-pergpu-10sec-cpu-hardware-performance-status:2026-11-19",
+      "status": "new",
+      "topic": "Compute observability",
+      "title": "EC2 adds GPU performance checks and higher-resolution monitoring metrics",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 1 day",
+      "highlights": "AWS introduced EC2 performance status checks for nonterminal hardware conditions affecting accelerated workloads. These checks can recommend corrective actions such as rebooting to finish GPU memory row remapping. The announcement also expands opt-in EC2 Detailed Monitoring with one-minute GPU signals, ten-second CPU utilization metrics and OpenTelemetry-compatible telemetry. Customers can select metric categories per fleet, supplementing in-guest monitoring without adding instance instrumentation. Performance status checks are free; Detailed Monitoring uses standard CloudWatch charges. AWS lists commercial and GovCloud Regions as supported.",
+      "implications": "Analysis: Operational teams gain another signal when poor GPU output stems from hardware condition rather than application changes, and tighter CPU sampling can support scaling decisions. However, host-level indicators cannot replace application performance traces or explain all stalled workloads. An increased metrics frequency raises observability costs and should be mapped to actionable alerts.",
+      "takeaway": "Takeaway: Trial the new checks on a representative accelerator fleet and enable paid high-resolution metrics only where they improve decisions.",
+      "development_summary": "AWS released EC2 accelerated-instance performance checks and optional finer-grained GPU and CPU monitoring.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-performance-status-checks/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "github:actions:rhel9-rhel10-larger-runner-images-ga:2026-11-19",
+      "status": "new",
+      "topic": "CI execution environments",
+      "title": "GitHub Actions adds production-supported RHEL 9 and 10 runner images",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 1 day",
+      "highlights": "GitHub announced general availability of Red Hat Enterprise Linux 9 and 10 images for GitHub-hosted larger runners. The partner images first entered public preview in June 2026 and are now supported for production GitHub Actions workflows. Organizations can select a RHEL base image when creating a Linux x64 larger runner or use RHEL as a foundation for their own preconfigured runner image. GitHub says existing preview-based configurations require no migration action. Availability is limited to GitHub Team and GitHub Enterprise Cloud plans with access to larger runners.",
+      "implications": "Analysis: OS alignment between continuous integration and production can catch package, library and tooling differences earlier, particularly for enterprise environments standardized on RHEL. Larger runners have their own provisioning and billing considerations, so this is not a drop-in replacement for every shared hosted runner or self-hosted deployment. Organizations should also track base-image lifecycle and image update frequency.",
+      "takeaway": "Takeaway: Move one representative RHEL production build to the supported runner image and compare compatibility, runtime and cost against current CI.",
+      "development_summary": "GitHub promoted RHEL 9 and RHEL 10 larger-runner images from preview to general availability.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-19-red-hat-enterprise-linux-runner-images-now-generally-available/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "github:enterprise-cloud-data-residency:oidc-s3-audit-streaming-ghecom:2026-11-19",
+      "status": "new",
+      "topic": "Audit log identity",
+      "title": "GitHub brings OIDC-authenticated S3 audit streaming to GHE.com",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 1 day",
+      "highlights": "GitHub expanded enterprise audit log streaming to Amazon S3 using OpenID Connect for GitHub Enterprise Cloud customers with data residency on GHE.com. The same capability already existed for enterprises hosted on github.com. Instead of storing long-lived AWS access keys in GitHub, the integration uses federated OIDC authentication to obtain scoped cloud access. The November 19 change specifically extends that credential model to a separate enterprise hosting environment; it does not announce a new audit-event schema or a universal replacement for retention planning.",
+      "implications": "Analysis: Removing a standing cross-system credential shrinks one operational secret and improves the potential for tightly scoped cloud access, but the trust policy, session permissions and destination bucket still need careful configuration. Data-residency customers should also validate region placement, downstream SIEM ingestion and failure alerts. Audit log delivery is only useful when events remain searchable and complete.",
+      "takeaway": "Takeaway: Audit GHE.com S3 streaming configurations and replace persistent keys with narrow OIDC trust where the feature applies.",
+      "development_summary": "GitHub enabled OIDC-authenticated S3 audit-log streaming for Enterprise Cloud deployments with data residency.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-19-s3-audit-log-streaming-with-openid-connect-expands-to-ghe-com/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "cisa:icsa-26-323-02:elecbrakes-ble-brake-control-cves-patches:2026-11-19",
+      "status": "new",
+      "topic": "Industrial control safety",
+      "title": "CISA discloses critical Bluetooth weaknesses in trailer-brake controllers",
+      "publisher": "CISA",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 1 day",
+      "highlights": "CISA published advisory ICSA-26-323-02 for Elecbrakes EB2, VM1 and ELBC2000 controllers used in transportation. Three identified flaws, CVE-2026-124281, CVE-2026-125273 and CVE-2026-96805, involve firmware updating, replay protections and authenticated commands. CISA says successful exploitation could alter trailer braking behavior, disable brake lights or change firmware. The affected ranges include EB2 through 3.0.4.2.0, VM1 earlier than 1.3.4.2.1 and all ELBC2000 versions. Firmware fixes exist for EB2 (3.0.4.4.3) and VM1 (1.3.4.2.1), but not the discontinued ELBC2000.",
+      "implications": "Analysis: The issue illustrates how nearby Bluetooth control paths can create a physical safety exposure even when equipment is not internet-facing. CISA reported no known public exploitation targeting these flaws as of publication. Fleet and maintenance owners need model-level inventory, safety-approved firmware procedures and a risk decision for devices without a fix.",
+      "takeaway": "Takeaway: Inventory affected trailer controllers, update supported models safely, and escalate unpatched legacy equipment for a documented operational decision.",
+      "development_summary": "CISA disclosed three controller weaknesses with potential physical braking impacts and identified fixed and unfixed models.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/OT/white/2026/icsa-26-323-02.json"
+        },
+        {
+          "label": "CISA advisory page",
+          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-323-02"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "nato:next-generation-communications-networks-strategy:public-summary:2026-11-18",
+      "status": "new",
+      "topic": "Defense communications resilience",
+      "title": "NATO releases public summary of its next-generation communications strategy",
+      "publisher": "NATO",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18",
+      "freshness": "New • 2 days",
+      "highlights": "NATO released a public summary on November 18 of its first Alliance-wide Next Generation Communication Networks strategy, which defense ministers endorsed in June 2026. It covers 5G, 6G and satellite communications as foundations for interoperable, resilient military operations, including sensor fusion and counter-drone coordination. The strategy highlights cyber and hybrid threats, the trustworthiness of communications suppliers, and the need for security and independence across strategic and tactical networks. Finland and Sweden co-lead an innovation range for operational testing; NATO says an implementation roadmap remains under development.",
+      "implications": "Analysis: A common strategic direction may influence future interoperability tests and procurement expectations across member nations, but this public summary is not evidence of deployed systems or completed certification. Vendor trust, degraded-network operation and coalition information exchange remain practical challenges. The publication is distinct from NATO's previously reported responsive-satellite-launch initiative.",
+      "takeaway": "Takeaway: Track the forthcoming roadmap for concrete interoperability profiles, test opportunities and resilient communications requirements.",
+      "development_summary": "NATO released the public summary of a defense-minister-endorsed 5G/6G/SATCOM interoperability and resilience strategy.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.nato.int/en/news-and-events/articles/news/2026/11/18/nato-releases-first-ever-alliance-wide-next-generation-communication-networks-strategy"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "anthropic:ipo:final-83-price-980m-share-offering:2026-11-18",
+      "status": "material-update",
+      "topic": "AI capital markets",
+      "title": "Anthropic prices its IPO at $83 per share, above the earlier proposed range",
+      "publisher": "Anthropic",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18",
+      "freshness": "Material update • 2 days",
+      "highlights": "Anthropic announced final initial-public-offering terms of $83 per Class A share for 980 million shares, comprising about 956.35 million newly sold by the company and 23.65 million offered by selling shareholders. It expected trading under ANT on Nasdaq to begin November 19 and closing November 20, subject to customary conditions. Underwriters also received an option for up to 147 million additional shares. The new definitive terms follow the earlier November 10 preliminary roadshow report about an indicative $70–$78 range and 825 million shares; an announced price is not proof of subsequent trading performance.",
+      "implications": "Analysis: Pricing above the prior range signals a changed offering structure and anticipated demand, but the large share count makes the issuer-versus-selling-holder allocation and potential dilution worth distinguishing. The final prospectus, not headlines, governs the transaction. This is a material update to earlier coverage, not a second report of the original filing.",
+      "takeaway": "Takeaway: Compare final prospectus terms with the roadshow figures and separate company proceeds from secondary shareholder sales.",
+      "development_summary": "Anthropic finalized IPO terms at $83 per share and 980 million shares, superseding the earlier proposed range and share count.",
+      "updates_event_key": "anthropic:proposed-ipo-roadshow-825m-shares-range70-78-nasdaq-ant:2026-11-10",
+      "change_summary": "The November 10 roadshow coverage described a preliminary $70–$78 range and 825 million shares; on November 18 Anthropic announced a definitive $83 offering price and 980 million shares (956,351,354 company shares and 23,648,646 secondary shares), with expected November 19 trading and conditional November 20 closing.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "philadelphia-fed:regional-manufacturing-outlook:nov-2026-activity6p3-prices58p2:2026-11-19",
+      "status": "new",
+      "topic": "Regional manufacturing and inflation",
+      "title": "Philadelphia Fed survey shows slower factory activity and higher price pressure",
+      "publisher": "Federal Reserve Bank of Philadelphia",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 1 day",
+      "highlights": "The Philadelphia Fed's November Manufacturing Business Outlook Survey, with responses collected November 9–16, recorded a current general activity index of 6.3, down from 20.9 in October. Readings above zero mean more respondents reported improvement than deterioration, not a measured output-growth rate. New orders slipped to -0.4, while shipments rose to 25.7 and employment to 11.6. The prices-paid index increased from 43.2 to 58.2, and prices received climbed to 47.0. The survey covers manufacturers in the bank's regional district, not a representative national sample.",
+      "implications": "Analysis: The combination of softer order breadth and elevated price indicators suggests regional manufacturers face uneven demand and continued cost pressure. A diffusion index should not be interpreted as a percentage change or substituted for national production data. The survey's prospective indicators also report expectations, not an economic forecast guaranteed to occur.",
+      "takeaway": "Takeaway: Watch subsequent national manufacturing releases alongside these regional signals rather than extrapolating a single district's results to the whole economy.",
+      "development_summary": "The Philadelphia Fed reported weaker regional manufacturing breadth alongside elevated input and selling-price diffusion indexes.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-11"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "freddie-mac:pmms:nov19-2026-30yr7p28-15yr6p66:2026-11-19",
+      "status": "new",
+      "topic": "Mortgage costs",
+      "title": "Freddie Mac's weekly 30-year mortgage average rises to 7.28%",
+      "publisher": "Freddie Mac",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 1 day",
+      "highlights": "Freddie Mac's November 19 Primary Mortgage Market Survey reported a 7.28% average rate for 30-year fixed mortgages, up from 7.11% the prior week. Its 15-year fixed-rate average rose to 6.66% from 6.45%. The 30-year survey average was 6.26% at the same time in 2025, and the 15-year average was 5.54%. This is a new weekly data release, not a correction or reprise of last week's report. Freddie Mac's survey focuses on conventional, conforming home-purchase loans with 20% down and borrowers with excellent credit.",
+      "implications": "Analysis: Higher benchmark rates raise prospective monthly principal-and-interest costs when loan size and term are held constant, but the published averages are not guaranteed borrower offers. Credit profile, points, fees, loan type and property circumstances can produce a different quoted annual percentage rate. Weekly changes should be considered with local prices and a full closing-cost comparison.",
+      "takeaway": "Takeaway: Compare multiple same-day lender quotes on rate, points and APR before using this survey average in household affordability calculations.",
+      "development_summary": "Freddie Mac reported the November 19 mortgage survey, with 30-year and 15-year averages rising to 7.28% and 6.66%.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://freddiemac.gcs-web.com/news-releases/news-release-details/mortgage-rates-average-728-0"
+        }
+      ]
+    }
+  ]
+}
