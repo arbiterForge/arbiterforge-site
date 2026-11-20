@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { AxeBuilder } = require('@axe-core/playwright');
 const { stablePage, noOverflow } = require('./helpers.cjs');
 
-const routes = ['/', '/projects/', '/projects/codearbiter/', '/projects/sim/', '/projects/singedterra/', '/lab/', '/news/', '/news/archive/', '/why-hard-gates.html'];
+const routes = ['/', '/projects/', '/projects/codearbiter/', '/projects/sim/', '/projects/singedterra/', '/projects/meridian/', '/lab/', '/news/', '/news/archive/', '/why-hard-gates.html'];
 for (const width of [320, 768, 1440]) {
   test(`site routes remain usable at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
@@ -100,6 +100,24 @@ test('project examples respond to keyboard input and retain real app links', asy
   await page.keyboard.press('ArrowRight');
   await expect(page.locator('[data-angle-output]')).toHaveText('49°');
   await expect(page.locator('main a[href="https://suadtl.github.io/singedTerra/"]').first()).toBeVisible();
+});
+
+test('the Meridian homepage entry leads to its project story and live studio', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await stablePage(page, '/');
+  const card = page.locator('#project-meridian');
+  await expect(card.getByRole('link', { name: 'Meridian', exact: true })).toHaveAttribute('href', '/projects/meridian/');
+  await expect(card.getByRole('link', { name: 'Open Meridian' })).toHaveAttribute('href', '/Meridian/');
+  await expect(card.getByRole('link', { name: 'Meridian source on GitHub' })).toHaveAttribute('href', 'https://github.com/SUaDtL/Meridian');
+  await card.getByRole('link', { name: 'Inside the build' }).click();
+  await expect(page).toHaveURL(/\/projects\/meridian\/$/);
+  await expect(page.getByRole('img', { name: /Edge to cloud/ })).toBeVisible();
+  await page.locator('.meridian-source-example summary').focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.meridian-source-example code')).toContainText('flowchart LR');
+  await noOverflow(page);
+  await page.getByRole('link', { name: 'Try the example in Meridian' }).click();
+  await expect(page.getByRole('button', { name: 'Browse examples', exact: true })).toBeVisible();
 });
 
 test('news category keyboard navigation and hash links select the same panel', async ({ page }) => {

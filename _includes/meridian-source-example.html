@@ -1,0 +1,19 @@
+<details class="demo-shell meridian-source-example">
+  <summary>View the Mermaid source</summary>
+  <pre><code>flowchart LR
+    endpoint([Field endpoint]) --&gt; gateway[Edge gateway]
+
+    subgraph core["CORE SERVICES"]
+        policy[Policy engine]
+        stream[[Event stream]]
+        store[(Data store)]
+        observe[Observability]
+    end
+
+    gateway --&gt;|Authorize| policy
+    gateway --&gt;|Publish| stream
+    gateway --&gt;|Persist| store
+    gateway -.-&gt;|Telemetry| observe
+
+    classDef default font-size:18px</code></pre>
+</details>

@@ -26,9 +26,15 @@ def verify(site_commit, source_commit, expected_digest):
         if response.status != 200 or response.geturl() != origin:
             raise ValueError('/Meridian does not resolve to the actual /Meridian/ app')
     for alias in ('meridian', 'MERIDIAN', 'mErIdIaN'):
-        for suffix in ('', '/'):
-            if fetch(SITE + '/' + alias + suffix + query, 4_000) != ALIAS_HTML:
-                raise ValueError(f'Meridian alias differs from the generated entry page: /{alias}{suffix}')
+        path = SITE + '/' + alias
+        if fetch(path + '/' + query, 4_000) != ALIAS_HTML:
+            raise ValueError(f'Meridian alias differs from the generated entry page: /{alias}/')
+        request = Request(path + query, headers={'User-Agent': 'ArbiterForge-Meridian-Receiving/1.0'})
+        with urlopen(request, timeout=30) as response:
+            if response.status != 200 or response.geturl() != path + '/' + query:
+                raise ValueError(f'Meridian alias does not resolve to /{alias}/ with its query')
+            if response.read(len(ALIAS_HTML) + 1) != ALIAS_HTML:
+                raise ValueError(f'Meridian alias differs from the generated entry page: /{alias}')
     print(f'LIVE VERIFIED: {origin} source={source_commit} verified_files={len(assets) - 1}')
 
 
