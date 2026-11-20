@@ -4,9 +4,11 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
+from urllib.parse import parse_qs, urlsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+import check_meridian_live as receiving
 import stage_meridian as meridian
 from stage_meridian_aliases import ALIAS_HTML, stage_aliases
 
@@ -88,6 +90,42 @@ class MeridianPublicationTest(unittest.TestCase):
                      HTML.replace(b"connect-src 'none'", b"connect-src https:")):
             with self.assertRaises(ValueError):
                 meridian.validate_html(html, indexed)
+
+    def test_live_receiving_retries_check_fresh_bytes_for_the_same_receipt(self):
+        raw = json.dumps(manifest()).encode()
+        sha = meridian.digest(raw)
+        receipt = json.dumps({'site_commit': SITE, 'source_commit': SOURCE, 'manifest_sha256': sha}).encode()
+        observed = []
+
+        def fetch(url, _size):
+            query = parse_qs(urlsplit(url).query)
+            observed.append(query)
+            if urlsplit(url).path.endswith('publication.json'):
+                return receipt
+            if urlsplit(url).path.endswith('build.json'):
+                return raw
+            return ALIAS_HTML
+
+        def visit(request, **_options):
+            location, separator, query = request.full_url.partition('?')
+            response = MagicMock()
+            response.status = 200
+            response.geturl.return_value = location + '/' + separator + query
+            response.read.return_value = ALIAS_HTML
+            return MagicMock(__enter__=lambda _self: response)
+
+        with (patch.object(receiving, 'fetch', side_effect=fetch), patch.object(receiving, 'urlopen', side_effect=visit),
+              patch.object(receiving, 'receive_assets', return_value=FILES) as receive,
+              patch.object(receiving.time, 'time_ns', side_effect=[10, 11])):
+            receiving.verify(SITE, SOURCE, sha)
+            receiving.verify(SITE, SOURCE, sha)
+
+        requests_per_check = len(observed) // 2
+        self.assertEqual(observed, [
+            {'publication': [SITE], 'source': [SOURCE], 'check': [str(value)]}
+            for value in range(10, 12) for _ in range(requests_per_check)
+        ])
+        self.assertEqual([entry.args[2].split('&check=')[1] for entry in receive.call_args_list], ['10', '11'])
 
     def test_unchanged_poll_skips_copy_unless_sim_needs_the_combined_site(self):
         raw = json.dumps(manifest()).encode()
