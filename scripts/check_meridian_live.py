@@ -12,7 +12,8 @@ from stage_meridian_aliases import ALIAS_HTML
 
 def verify(site_commit, source_commit, expected_digest):
     origin = SITE + '/Meridian/'
-    query = '?publication=' + site_commit
+    # The site commit can stay fixed across many Meridian publications.
+    query = f'?publication={site_commit}&source={source_commit}&check={time.time_ns()}'
     receipt = json.loads(fetch(origin + 'publication.json' + query, 20_000))
     if (receipt['site_commit'] != site_commit or receipt['source_commit'] != source_commit
             or receipt['manifest_sha256'] != expected_digest):
