@@ -7,6 +7,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from stage_meridian import MAX_MANIFEST, SITE, digest, fetch, manifest_entries, receive_assets
+from stage_meridian_aliases import ALIAS_HTML
 
 
 def verify(site_commit, source_commit, expected_digest):
@@ -24,6 +25,10 @@ def verify(site_commit, source_commit, expected_digest):
     with urlopen(request, timeout=30) as response:
         if response.status != 200 or response.geturl() != origin:
             raise ValueError('/Meridian does not resolve to the actual /Meridian/ app')
+    for alias in ('meridian', 'MERIDIAN', 'mErIdIaN'):
+        for suffix in ('', '/'):
+            if fetch(SITE + '/' + alias + suffix + query, 4_000) != ALIAS_HTML:
+                raise ValueError(f'Meridian alias differs from the generated entry page: /{alias}{suffix}')
     print(f'LIVE VERIFIED: {origin} source={source_commit} verified_files={len(assets) - 1}')
 
 

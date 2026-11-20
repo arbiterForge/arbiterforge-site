@@ -193,7 +193,9 @@ SIM. It also keeps its [independent Pages preview](https://suadtl.github.io/Meri
 Meridian's successful main Pages run includes its source, browser, visual and
 artifact checks. The site matches that run to the public `build.json` receipt and
 verifies the SHA-256 and byte count of every listed file. GitHub Pages supplies the
-`/Meridian` to `/Meridian/` directory redirect.
+`/Meridian` to `/Meridian/` directory redirect. Other capitalizations of the
+Meridian entry route, including `/meridian`, open `/Meridian/` and preserve
+the query string and fragment in browsers with JavaScript enabled.
 
 The site copies the verified split build into `_site/Meridian/` after Jekyll.
 The app keeps its relative asset URLs and local-only content policy.
