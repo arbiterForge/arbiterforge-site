@@ -29,15 +29,15 @@ def fetch(url, limit=MAX_HTML):
     return data
 
 
-def api(path):
+def api(path, *, repository=REPOSITORY):
     return json.loads(subprocess.check_output(
-        ['gh', 'api', f'repos/{REPOSITORY}/{path}'], timeout=60))
+        ['gh', 'api', f'repos/{repository}/{path}'], timeout=60))
 
 
-def require_run(run, workflow):
+def require_run(run, workflow, *, repository=REPOSITORY):
     if (run.get('conclusion') != 'success' or run.get('status') != 'completed'
             or run.get('head_branch') != 'main'
-            or run.get('head_repository', {}).get('full_name') != REPOSITORY
+            or run.get('head_repository', {}).get('full_name') != repository
             or run.get('path') != f'.github/workflows/{workflow}.yml'
             or not re.fullmatch('[a-f0-9]{40}', run.get('head_sha', ''))
             or type(run.get('id')) is not int):

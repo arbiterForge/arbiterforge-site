@@ -191,3 +191,20 @@ test('missing pages return a real 404 and a route home', async ({ page }) => {
   await home.click();
   await expect(page).toHaveURL('/');
 });
+
+test('Meridian loads local assets and renders an example under /Meridian/', async ({ page, baseURL }) => {
+  const failures = [];
+  const requests = [];
+  page.on('pageerror', error => failures.push(error.message));
+  page.on('response', response => {
+    if (response.status() >= 400) failures.push(response.url());
+  });
+  page.on('request', request => requests.push(request.url()));
+  const response = await page.goto('/Meridian/');
+  expect(response.status()).toBe(200);
+  await page.getByRole('button', { name: 'Browse examples', exact: true }).click();
+  await page.locator('.example-card').filter({ hasText: 'Edge to cloud' }).click();
+  await expect(page.locator('[data-testid="rendered-diagram"] svg')).toBeVisible();
+  expect(failures).toEqual([]);
+  expect(requests.every(url => url.startsWith(new URL('/Meridian/', baseURL).href))).toBe(true);
+});
