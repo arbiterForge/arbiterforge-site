@@ -145,5 +145,54 @@
     "note": "The game runs in your browser. Casual local play needs no sign-in; online rooms use Supabase.",
     "proof": "https://github.com/SUaDtL/singedTerra/blob/main/docs/ARCHITECTURE.md",
     "proof_label": "Read how the deterministic engine works"
+  },
+  "meridian": {
+    "name": "Meridian",
+    "kind": "Diagram studio",
+    "number": "04",
+    "eyebrow": "A browser studio for Mermaid diagrams",
+    "title": "Make a diagram worth presenting.",
+    "summary": "Write Mermaid with a live preview, style the diagram on the canvas, and use scenes to walk an audience through it. Export a static image, a project file, or a self-contained HTML presentation.",
+    "image": "/assets/meridian-project.webp",
+    "image_alt": "The Meridian editor showing the Edge to cloud diagram with Mermaid source beside the canvas",
+    "image_note": "The Edge to cloud example in Meridian.",
+    "source": "https://github.com/SUaDtL/Meridian",
+    "open": "/Meridian/",
+    "open_label": "Open Meridian",
+    "guide": "https://github.com/SUaDtL/Meridian/blob/main/docs/STORYBOARD.md",
+    "guide_label": "Read the storyboard guide",
+    "intro_title": "A working diagram often needs a second pass.",
+    "intro": "Mermaid makes it easy to keep a diagram beside the system it describes. When it comes time to explain that system, Meridian gives the same diagram a canvas for adjusting how it looks and deciding what to show first.",
+    "features": [
+      {
+        "title": "Edit the source live",
+        "text": "Update Mermaid beside the canvas. The last good diagram stays visible when the text is temporarily incomplete."
+      },
+      {
+        "title": "Work through it in scenes",
+        "text": "Use visibility, highlights and connector motion to focus each step of a presentation."
+      },
+      {
+        "title": "Take the project with you",
+        "text": "Download editable project JSON, SVG or PNG images, or a standalone HTML presentation."
+      }
+    ],
+    "decisions": [
+      {
+        "label": "Tradeoff 01",
+        "title": "Keep the Mermaid text readable",
+        "text": "Canvas styling and storyboard scenes are stored separately from the source, so the Mermaid text stays ready to reuse elsewhere."
+      },
+      {
+        "label": "Tradeoff 02",
+        "title": "Keep authoring local",
+        "text": "The studio runs in the browser without an account. The workspace stays in browser storage, and a downloaded project file is a portable backup."
+      }
+    ],
+    "demo_title": "Read the source behind the diagram",
+    "demo_description": "The example connects a field endpoint through an edge gateway to four core services. Open its Mermaid source below, then load Edge to cloud from Browse examples to edit it yourself.",
+    "note": "The example is built into the studio.",
+    "proof": "/Meridian/",
+    "proof_label": "Try the example in Meridian"
   }
 }

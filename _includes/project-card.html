@@ -9,6 +9,8 @@
       <img class="project-preview" src="/assets/project-thumb-codearbiter.svg" width="1200" height="800" alt="" loading="lazy" decoding="async">
     {% when 'sim' %}
       <img class="project-preview" src="/assets/project-thumb-sim.svg" width="1200" height="800" alt="" loading="lazy" decoding="async">
+    {% when 'meridian' %}
+      <img class="project-preview" src="/assets/meridian-project.webp" width="1200" height="675" alt="" loading="lazy" decoding="async">
     {% else %}
       <span class="project-preview-fallback">{{ project.kind | escape }}</span>
     {% endcase %}

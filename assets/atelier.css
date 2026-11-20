@@ -78,7 +78,7 @@ html body .projects.section { background:none; border:0; border-radius:0; paddin
 html body .section-heading { margin-bottom:2rem; }
 html body .section-heading h2 { font-size:clamp(2.6rem,4vw,3.5rem); }
 html body .section-heading > p { max-width:340px; text-align:left; }
-html body .project-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.5rem; }
+html body .project-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.5rem; }
 html body .project-card, html body .project-card[data-project='codearbiter'] { display:flex; flex-direction:column; grid-column:auto; border-radius:12px; min-height:0; border-color:var(--line); background:var(--surface); }
 html body .project-card .project-visual, html body .project-card[data-project='codearbiter'] .project-visual { aspect-ratio:1.48; min-height:0; border:0; position:relative; isolation:isolate; }
 html body .project-card .project-copy, html body .project-card[data-project='codearbiter'] .project-copy { padding:1.6rem; }
@@ -87,6 +87,7 @@ html body .project-card .project-copy > p { font-size:.85rem; line-height:1.8; }
 html body .project-actions { margin-top:auto; padding-top:1.5rem; }
 /* These previews illustrate each project's actual workflow or fictional demo, not machine concept art. */
 .project-preview { display:block; width:100%; height:100%; object-fit:cover; object-position:center; background:#12211f; }
+[data-project='meridian'] .project-preview { object-fit:contain; background:#121a1e; }
 .project-preview-fallback { display:grid; place-items:center; width:100%; height:100%; background:#20312a; color:#e9ebdd; font:700 1rem var(--mono); text-align:center; padding:1rem; }
 html body .game-label { background:#1e1c17df; color:#f0e5c9; border-color:#9c865e66; font-size:.55rem; }
 html body .project-visual .game-art { filter:saturate(.75); }
@@ -172,9 +173,6 @@ html body .essay-contents a[aria-current='location'] { color:var(--accent); }
   .machine-image { width:73%; object-position:center 38%; }
 }
 @media (max-width:1080px) {
-  html body .project-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  html body .project-card[data-project='codearbiter'] { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; }
-  html body .project-card[data-project='codearbiter'] .project-visual { aspect-ratio:auto; min-height:270px; }
   html body .kinetic-hero { min-height:700px; padding-top:176px; }
   html body .hero-content h1 { max-width:680px; font-size:clamp(3.2rem,6.5vw,4.4rem); }
   .machine-image { width:85%; right:-16%; }

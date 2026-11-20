@@ -11,6 +11,8 @@
     {%- assign project_meta_alt = 'Service Integration Map. A fictional diagram of App portal consuming Identity and Monitoring across network boundaries.' -%}
   {%- when 'singedterra' -%}
     {%- assign project_meta_alt = 'singedTerra: A little aim. A lot of impact. An original illustration of artillery, a shot trajectory, and rolling terrain, not a gameplay screenshot.' -%}
+  {%- when 'meridian' -%}
+    {%- assign project_meta_alt = item.image_alt -%}
   {%- else -%}
     {%- capture project_meta_alt -%}{{ item.name }}. A project by suadtl.{%- endcapture -%}
 {%- endcase -%}
@@ -59,6 +61,8 @@
 <rect class="demo-node" x="640" y="112" rx="11" width="141" height="64"/><text class="node-label" x="655" y="149">SSO provider</text>
 <text class="network-name" x="35" y="294">Consumer → provider</text></svg></div>
 <div class="demo-result" aria-live="polite"><div><span class="demo-result-kicker">Selected service</span><h3 data-sim-title>App portal</h3><p data-sim-copy>Consumes Identity and Monitoring across network boundaries.</p></div><span class="demo-tag">Fictional example</span></div></div>
+{% elsif page.project == 'meridian' %}
+{% include meridian-source-example.html %}
 {% else %}
 <div class="demo-shell" data-trajectory-demo>
 <div class="demo-sliders"><label>Elevation <output data-angle-output>48°</output><input type="range" min="15" max="80" value="48" data-angle></label><label>Power <output data-power-output>64%</output><input type="range" min="25" max="100" value="64" data-power></label><label>Wind <output data-wind-output>+2</output><input type="range" min="-7" max="7" value="2" data-wind></label></div>

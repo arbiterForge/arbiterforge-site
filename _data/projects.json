@@ -31,5 +31,16 @@
     "source": "https://github.com/SUaDtL/singedTerra",
     "accent": "clay",
     "visual": "singedterra"
+  },
+  {
+    "id": "meridian",
+    "name": "Meridian",
+    "kind": "Diagram studio",
+    "description": "Turn Mermaid source into diagrams you can present. Style the canvas, build a storyboard, and export your work from the browser.",
+    "href": "/Meridian/",
+    "action": "Open Meridian",
+    "source": "https://github.com/SUaDtL/Meridian",
+    "accent": "blue",
+    "visual": "meridian"
   }
 ]
