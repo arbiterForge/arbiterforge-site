@@ -185,3 +185,19 @@ archive dates, feed addresses, and coverage history independent of homepage
 design changes. The old `why-hard-gates.html` essay and proof captures retain
 their URLs for existing readers; current codeArbiter details belong on
 [codearbiter.dev](https://codearbiter.dev/).
+
+## Meridian publication
+
+[Meridian](https://arbiterforge.com/Meridian/) follows the same receiving workflow as
+SIM. It also keeps its [independent Pages preview](https://suadtl.github.io/Meridian/).
+Meridian's successful main Pages run includes its source, browser, visual and
+artifact checks. The site matches that run to the public `build.json` receipt and
+verifies the SHA-256 and byte count of every listed file. GitHub Pages supplies the
+`/Meridian` to `/Meridian/` directory redirect.
+
+The site copies the verified split build into `_site/Meridian/` after Jekyll.
+The app keeps its relative asset URLs and local-only content policy.
+`/Meridian/publication.json` records the source and site commits, manifest digest
+and upstream workflow run. The shared 20-minute schedule publishes when either
+app changes. The composed preview must pass browser checks before deployment,
+and the receiving job checks the actual public paths and hashes.

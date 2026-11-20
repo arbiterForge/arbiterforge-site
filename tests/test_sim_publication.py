@@ -59,7 +59,7 @@ def deployment_boundary(workflow):
     assert 'actions/checkout@' not in deploy
     upload = re.search(r'(?ms)^      - name: Upload the Pages artifact\n(.*?)(?=^      -|\Z)', build)
     assert upload, 'Missing Pages upload owner'
-    assert "        if: steps.sim.outputs.changed == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'\n" in upload[1]
+    assert "        if: steps.publications.outputs.changed == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'\n" in upload[1]
 
 
 class SimPublicationTest(unittest.TestCase):
@@ -175,7 +175,7 @@ class SimPublicationTest(unittest.TestCase):
                      workflow.replace('  browser:\n', '  browser:\n    permissions:\n      contents: write\n'),
                      workflow.replace('  build:\n', '  build:\n    permissions:\n      contents: write\n'),
                      workflow.replace('      pages: write\n', '      contents: write\n      pages: write\n'),
-                     workflow.replace("        if: steps.sim.outputs.changed == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'\n", '')]
+                     workflow.replace("        if: steps.publications.outputs.changed == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'\n", '')]
         for mutated in mutations:
             self.assertNotEqual(mutated, workflow)
             with self.assertRaises(AssertionError):
