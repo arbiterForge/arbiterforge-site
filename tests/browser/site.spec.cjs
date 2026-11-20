@@ -192,6 +192,14 @@ test('missing pages return a real 404 and a route home', async ({ page }) => {
   await expect(page).toHaveURL('/');
 });
 
+test('Meridian routes case variants to the canonical app and preserves URL details', async ({ page }) => {
+  for (const route of ['/meridian', '/meridian/', '/MERIDIAN/', '/mErIdIaN/']) {
+    const response = await page.goto(route + '?view=test#route');
+    expect(response.status()).toBe(200);
+    await expect(page).toHaveURL(/\/Meridian\/\?view=test#route$/);
+  }
+});
+
 test('Meridian loads local assets and renders an example under /Meridian/', async ({ page, baseURL }) => {
   const failures = [];
   const requests = [];

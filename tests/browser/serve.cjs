@@ -26,12 +26,13 @@ async function sendFile(request, response, path, status = 200) {
 }
 createServer(async (request, response) => {
   try {
-    const pathname = decodeURIComponent(new URL(request.url, 'http://127.0.0.1').pathname);
+    const url = new URL(request.url, 'http://127.0.0.1');
+    const pathname = decodeURIComponent(url.pathname);
     let path = resolve(root, '.' + pathname);
     if (path !== root && !path.startsWith(root + sep)) throw new Error('Path outside output');
     const info = await stat(path);
     if (info.isDirectory()) {
-      if (!pathname.endsWith('/')) { response.writeHead(301, { Location: pathname + '/' }); response.end(); return; }
+      if (!pathname.endsWith('/')) { response.writeHead(301, { Location: url.pathname + '/' + url.search }); response.end(); return; }
       path = resolve(path, 'index.html');
     }
     await sendFile(request, response, path);

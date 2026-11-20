@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import stage_meridian as meridian
+from stage_meridian_aliases import ALIAS_HTML, stage_aliases
 
 SOURCE = 'a' * 40
 SITE = 'b' * 40
@@ -37,6 +38,22 @@ def workflow_run(**overrides):
 
 
 class MeridianPublicationTest(unittest.TestCase):
+    def test_all_case_variants_alias_the_single_canonical_app(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            destination = Path(temporary)
+            canonical = destination / 'Meridian'
+            canonical.mkdir()
+            (canonical / 'index.html').write_bytes(HTML)
+            stage_aliases(destination)
+            routes = list(destination.iterdir())
+            self.assertEqual(len(routes), 256)
+            self.assertTrue(all(route.name.lower() == 'meridian' for route in routes))
+            self.assertEqual((canonical / 'index.html').read_bytes(), HTML)
+            for alias in routes:
+                if alias != canonical:
+                    self.assertEqual(list(alias.iterdir()), [alias / 'index.html'])
+                    self.assertEqual((alias / 'index.html').read_bytes(), ALIAS_HTML)
+
     def test_matches_clean_manifest_to_successful_main_workflow(self):
         raw = json.dumps(manifest()).encode()
         with patch.object(meridian, 'api', return_value={'workflow_runs': [workflow_run()]}), patch.object(meridian, 'fetch', return_value=raw):
