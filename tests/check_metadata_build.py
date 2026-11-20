@@ -1,7 +1,7 @@
 """Validate metadata and discovery documents in the actual Jekyll output.
 
-SIM is composed from its own separately verified publication, so its HTML is
-intentionally outside this site's metadata contract.
+SIM and Meridian arrive as separately verified app builds. Their unchanged
+entry pages keep their own metadata.
 """
 from collections import defaultdict
 from html.parser import HTMLParser
@@ -144,7 +144,7 @@ def verify(output):
     count = 0
     for path in sorted(root.rglob("*.html")):
         relative = path.relative_to(root).as_posix()
-        if relative.startswith("SIM/"):
+        if relative in {"SIM/index.html", "Meridian/index.html"}:
             continue
         route = "/" + relative.removesuffix("index.html") if path.name == "index.html" else "/" + relative
         noindex = relative == "404.html"
