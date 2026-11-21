@@ -87,18 +87,23 @@ def validate_html(data, inventory):
 
 
 def receive_assets(origin, indexed, query):
+    size, sha = indexed['index.html']
+    entry = fetch(origin + query, size)
+    if len(entry) != size or digest(entry) != sha:
+        raise ValueError('Meridian asset differs from the verified receipt: index.html')
+    validate_html(entry, indexed)
+
     def receive(item):
         name, (size, sha) = item
         # GitHub Pages omits the empty .nojekyll build marker from public URLs.
-        data = b'' if name == '.nojekyll' else fetch(origin + ('' if name == 'index.html' else name) + query, size)
+        data = b'' if name == '.nojekyll' else fetch(origin + name + query, size)
         if len(data) != size or digest(data) != sha:
             raise ValueError(f'Meridian asset differs from the verified receipt: {name}')
         return name, data
 
     with ThreadPoolExecutor(max_workers=8) as executor:
-        assets = dict(executor.map(receive, indexed.items()))
-    validate_html(assets['index.html'], indexed)
-    return assets
+        remaining = filter(lambda item: item[0] != 'index.html', indexed.items())
+        return {'index.html': entry, **dict(executor.map(receive, remaining))}
 
 
 def select_source():

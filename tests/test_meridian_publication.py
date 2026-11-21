@@ -86,6 +86,9 @@ class MeridianPublicationTest(unittest.TestCase):
             self.assertEqual(meridian.receive_assets(meridian.UPSTREAM, indexed, '?checked'), FILES)
         with patch.object(meridian, 'fetch', side_effect=lambda url, size: b'changed' if 'ui.js' in url else fetch(url, size)), self.assertRaisesRegex(ValueError, 'assets/ui.js'):
             meridian.receive_assets(meridian.UPSTREAM, indexed, '?checked')
+        with patch.object(meridian, 'fetch', return_value=b'old entry') as stale, self.assertRaisesRegex(ValueError, 'index.html'):
+            meridian.receive_assets(meridian.UPSTREAM, indexed, '?checked')
+        stale.assert_called_once_with(meridian.UPSTREAM + '?checked', len(HTML))
         for html in (HTML.replace(b'./assets/ui.js', b'/assets/ui.js'), HTML + b'<script>inline()</script>',
                      HTML.replace(b"connect-src 'none'", b"connect-src https:")):
             with self.assertRaises(ValueError):
@@ -126,6 +129,23 @@ class MeridianPublicationTest(unittest.TestCase):
             for value in range(10, 12) for _ in range(requests_per_check)
         ])
         self.assertEqual([entry.args[2].split('&check=')[1] for entry in receive.call_args_list], ['10', '11'])
+
+    def test_waits_across_the_pages_cache_age_and_stops_at_the_deadline(self):
+        error = ValueError('stale manifest')
+        with (patch.object(receiving, 'verify', side_effect=[error, None]) as verify,
+              patch.object(receiving.time, 'monotonic', side_effect=[0, 601]),
+              patch.object(receiving.time, 'sleep') as sleep):
+            receiving.await_publication(SITE, SOURCE, 'c' * 64)
+        self.assertEqual(verify.call_count, 2)
+        sleep.assert_called_once_with(receiving.RETRY_INTERVAL_SECONDS)
+
+        with (patch.object(receiving, 'verify', side_effect=error) as verify,
+              patch.object(receiving.time, 'monotonic', side_effect=[0, receiving.RECEIVE_WINDOW_SECONDS]),
+              patch.object(receiving.time, 'sleep') as sleep,
+              self.assertRaisesRegex(ValueError, 'stale manifest')):
+            receiving.await_publication(SITE, SOURCE, 'c' * 64)
+        verify.assert_called_once()
+        sleep.assert_not_called()
 
     def test_unchanged_poll_skips_copy_unless_sim_needs_the_combined_site(self):
         raw = json.dumps(manifest()).encode()

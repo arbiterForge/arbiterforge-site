@@ -1,5 +1,6 @@
 """Verify the deployed domain path and every publicly served stage asset."""
 import json
+from itertools import count
 import re
 import sys
 import time
@@ -8,6 +9,10 @@ from urllib.request import Request, urlopen
 
 from stage_meridian import MAX_MANIFEST, SITE, digest, fetch, manifest_entries, receive_assets
 from stage_meridian_aliases import ALIAS_HTML
+
+# GitHub Pages serves a ten-minute max-age for the public entry and manifest.
+RECEIVE_WINDOW_SECONDS = 12 * 60
+RETRY_INTERVAL_SECONDS = 15
 
 
 def verify(site_commit, source_commit, expected_digest):
@@ -39,16 +44,22 @@ def verify(site_commit, source_commit, expected_digest):
     print(f'LIVE VERIFIED: {origin} source={source_commit} verified_files={len(assets) - 1}')
 
 
+def await_publication(site, source, sha):
+    deadline = time.monotonic() + RECEIVE_WINDOW_SECONDS
+    for attempt in count(1):
+        try:
+            verify(site, source, sha)
+            return
+        except (HTTPError, URLError, ValueError, KeyError, OSError) as error:
+            remaining = deadline - time.monotonic()
+            print(f'Public receiving attempt {attempt}: {error}', flush=True)
+            if remaining <= 0:
+                raise
+            time.sleep(min(RETRY_INTERVAL_SECONDS, remaining))
+
+
 if __name__ == '__main__':
     site, source, sha = sys.argv[1:4]
     if not re.fullmatch('[a-f0-9]{40}', site) or not re.fullmatch('[a-f0-9]{40}', source) or not re.fullmatch('[a-f0-9]{64}', sha):
         raise SystemExit('Expected exact site/source commits and manifest SHA-256')
-    for attempt in range(8):
-        try:
-            verify(site, source, sha)
-            break
-        except (HTTPError, URLError, ValueError, KeyError, OSError) as error:
-            print(f'Public receiving attempt {attempt + 1}/8: {error}', flush=True)
-            if attempt == 7:
-                raise
-            time.sleep(10)
+    await_publication(site, source, sha)
