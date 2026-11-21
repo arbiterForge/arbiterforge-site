@@ -1,14 +1,15 @@
 /* suadtl / Living forms.
    Three continuous parametric surfaces, drawn as projected contour threads.
    Geometry is cached; a frame projects at most 104 × 145 points. Canvas drawing
-   is capped at 30 fps, DPR 1.65 (1.4 compact), and 1.15 million backing pixels.
-   Slow animated frames sample fewer points; paused artwork keeps full detail.
+   is capped at 30 fps (20 compact), DPR 1.65 (1.4 compact), and 1.15 million backing pixels.
+   Compact and slow animated frames sample fewer points; paused artwork keeps full detail.
    Pointer attraction and expanding waves deform the projected silk, while a
    small camera tilt makes depth tangible. No dependencies, requests, or storage. */
 (() => {
   'use strict';
   const TAU = Math.PI * 2;
   const FRAME_MS = 1000 / 30;
+  const COMPACT_FRAME_MS = 1000 / 20;
   const PIXEL_BUDGET = 1150000;
   const NAMES = { weave: 'Weave', orbit: 'Orbit', bloom: 'Bloom' };
   const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
@@ -35,6 +36,7 @@
     const stateLabel = host.querySelector('[data-hero-state]');
     const status = host.querySelector('[data-hero-status]');
     let width = 0, height = 0, dpr = 1, scale = 1, bounds;
+    let compact = false;
     let lines = 0, segments = 0, stride = 0;
     let shapes = {}, source, target, projected, lineOrder = [], colors = [];
     let waveA, waveB, lineCos, lineSin, glow;
@@ -162,7 +164,7 @@
       const box = readBounds();
       const nextWidth = Math.max(0, Math.round(box.width));
       const nextHeight = Math.max(0, Math.round(box.height));
-      const compact = nextWidth < 480 || coarse.matches;
+      compact = nextWidth < 480 || coarse.matches;
       const nextDpr = nextWidth && nextHeight ? Math.min(window.devicePixelRatio || 1, compact ? 1.4 : 1.65, Math.sqrt(PIXEL_BUDGET / (nextWidth * nextHeight))) : 1;
       if (nextWidth !== width || nextHeight !== height || nextDpr !== dpr || !target || lines !== (compact ? 76 : 104)) {
         width = nextWidth; height = nextHeight; dpr = nextDpr;
@@ -299,7 +301,9 @@
     function paint() {
       if (!permitted() || !target || failed) return;
       const started = performance.now();
-      const liveDetail = animate() ? detail : 0;
+      // Use the light sampling tier from the first compact animated frame.
+      // A slow touch device otherwise pays for several dense frames before adapting.
+      const liveDetail = animate() ? (compact ? 2 : detail) : 0;
       const sampleStep = liveDetail ? 2 : 1, contourStep = liveDetail > 1 ? 2 : 1;
       const brightness = contourStep === 1 ? 1 : 1.6;
       try {
@@ -354,9 +358,10 @@
       frame = 0;
       if (!animate()) { sync(); return; }
       measureFrame(performance.now());
-      if (!lastPaint) lastPaint = timestamp - FRAME_MS;
+      const interval = compact ? COMPACT_FRAME_MS : FRAME_MS;
+      if (!lastPaint) lastPaint = timestamp - interval;
       const elapsed = timestamp - lastPaint;
-      if (elapsed >= FRAME_MS - .01 && timestamp >= Math.max(nextPaintAt, feedbackUntil)) {
+      if (elapsed >= interval - .01 && timestamp >= Math.max(nextPaintAt, feedbackUntil)) {
         const delta = Math.min(elapsed / 1000, .08);
         playTime += delta;
         morph = Math.min(1, morph + delta / 1.25);
@@ -447,6 +452,10 @@
       dirty = true; resize();
     });
     window.addEventListener('resize', resize, { passive: true });
+    window.addEventListener('scroll', () => {
+      // Yield the compact canvas while a scroll brings its controls into view.
+      if (compact) yieldForFeedback();
+    }, { passive: true });
     reduced.addEventListener('change', sync);
     coarse.addEventListener('change', resize);
     connection?.addEventListener?.('change', sync);
