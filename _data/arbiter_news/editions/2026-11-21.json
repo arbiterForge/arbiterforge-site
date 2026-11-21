@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-21",
+  "title": "Arbiter News",
+  "intro": "Twelve source-led developments, from open-weight AI and agent workflows to managed Kubernetes and Spark, software vulnerabilities, a defense propulsion contracting ceiling, and the economy.",
+  "overview": "AI tracks ChatGPT Space collaboration, Thinking Machines' local Inkling 2 Mini release and Gemini's free Task-mode rollout. Cloud covers GKE ambient networking, Google Managed Spark 4.0 and a GitHub Enterprise Server release candidate. Security examines granular vulnerability-report access, a critical PHP runtime issue and Air Force propulsion contracting. Money reports October state jobs, a proposed U.S. market-surveillance restructuring and a major alleged investment fraud.",
+  "history_note": "The public https://arbiterforge.com/news/coverage.json endpoint was inaccessible to the web reader. Deduplication therefore used the complete accessible repository backing index: 319 legacy entries from all 10 history_parts files and 336 story records across all 28 dated edition files from October 23 through November 20 (excluding missing October 25), totaling 655 prior records and extending beyond 30 days. Underlying events, prior event keys and canonical original-source URLs were compared, not just headlines. The legacy index has 40 records with no canonical URLs. Known gaps: September 23, October 6 and October 25. Past coverage is not independent evidence of accuracy. Routine Opus 5.5 launch coverage was excluded. The Air Force source is an official release whose direct web retrieval was forbidden; secondary source summaries disagreed about vendor count, so the count was omitted.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "openai:chatgpt-space:plus-rollout-collaborative-app-updated-artifacts:2026-11-20",
+      "status": "new",
+      "topic": "Collaborative AI workspaces",
+      "title": "ChatGPT Space rolls out to Plus with collaborative, connected-app pages",
+      "publisher": "OpenAI",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 1 day",
+      "highlights": "OpenAI says ChatGPT Space began rolling out worldwide on November 20 to Plus subscribers aged 18 or older. Users can develop interactive pages and presentations, invite permitted collaborators to edit, and configure pages or slides to refresh from connected applications and tools. Comments can direct ChatGPT to revise an artifact, and a dot can participate where available. Space becomes the home for pages, slides, images and uploaded files in place of Library. Creation and editing are supported on web, desktop and mobile.",
+      "implications": "Analysis: The collaboration is permissioned rather than a public publishing feature: recipients need access and a signed-in Plus, Pro, Business or Enterprise account with Space, and public sharing links are not available. Automatically refreshed workspaces might reduce stale project reporting, but teams should audit connected-data permissions, refresh behavior and artifact ownership before treating a page as authoritative.",
+      "takeaway": "Takeaway: Test one shared project page with scoped connectors; verify who can access it and which underlying records can update it.",
+      "development_summary": "OpenAI extended its collaborative Space workspace to eligible Plus subscribers with connected-app refresh and permissioned sharing.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "thinking-machines:inkling-2-mini:apache-open-weights-looped-multimodal:2026-11-20",
+      "status": "new",
+      "topic": "Local and open-weight models",
+      "title": "Thinking Machines releases open-weight Inkling 2 Mini for local agent workflows",
+      "publisher": "Thinking Machines Lab",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 1 day",
+      "highlights": "Thinking Machines Lab published Inkling 2 Mini on November 20 under Apache 2.0, providing a multimodal text-and-image model geared to application builders, coding and tool-use workflows. Its model card specifies 26.4 billion total parameters, 3.4 billion active base parameters and looped layers that increase effective computation per token. The checkpoint is roughly 20 GB using mixed NVFP4 and MXFP8 weights and supports a context window up to one million tokens. The company lists DGX Spark or Apple silicon with at least 32 GB as supported local inference options.",
+      "implications": "Analysis: This is a distinct model release from the earlier hosted Inkling 2 Small announcement, not renewed coverage of that launch. Published benchmark tables are largely provider-reported and harness-dependent; neither memory footprint nor long context guarantees useful throughput on a workstation. Local deployment can improve control of data paths, but evaluation, licensing terms, safety and GPU memory headroom still matter.",
+      "takeaway": "Takeaway: Benchmark the exact coding and tool-call workloads on target hardware, recording tokens per second, memory use and failures before adoption.",
+      "development_summary": "Thinking Machines released a new smaller multimodal looped model with downloadable Apache-licensed weights and documented local deployment options.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "google:gemini-app:task-mode-free-rollout-multiapp-handoffs:2026-11-17",
+      "status": "new",
+      "topic": "Autonomous consumer tasks",
+      "title": "Google begins free Gemini Task-mode rollout for multi-step personal work",
+      "publisher": "Google",
+      "publication_date": "2026-11-17",
+      "event_date": "2026-11-17",
+      "freshness": "New • 4 days",
+      "highlights": "Google announced on November 17 that Gemini's Task mode was beginning a free rollout in the United States, Japan, Korea, Canada, Australia and India, using Gemini 4 Hydrogen. The company describes delegated tasks such as making arrangements, comparing bills and handling purchases through connected apps and websites. Users can switch the Gemini app from Chat to Task; in the US, additional interaction channels include email forwarding and mobile texting where eligible. Some workflows hand the browser back to a person to complete a final step rather than authorizing an unattended submission.",
+      "implications": "Analysis: This is a broader action-taking product rollout than the previously reported model availability in GitHub Copilot. It represents a shift from chat responses toward operational tasks, with potentially significant third-party website, payment and account-permission implications. Google's claims about isolated execution and convenience warrant independent testing; availability varies by region and feature, and site policies still apply.",
+      "takeaway": "Takeaway: Try a reversible scheduling task first, examine approval checkpoints and avoid broad payment or inbox authorization until permission boundaries are clear.",
+      "development_summary": "Google introduced free Task mode in six countries, enabling delegated multi-step consumer workflows with supported handoffs and approval steps.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "google-cloud:gke-ambient-networking:sidecarless-service-mesh-ga:2026-11-20",
+      "status": "new",
+      "topic": "Kubernetes service networking",
+      "title": "GKE ambient networking reaches GA without per-pod mesh sidecars",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 1 day",
+      "highlights": "Google Cloud announced general availability of ambient networking for Google Kubernetes Engine on November 20. Rather than placing a traditional sidecar proxy next to every application container, the architecture moves network interception and proxy functions into shared node components under a managed control plane. Traffic Director distributes policy and routing configuration, Certificate Authority Service issues workload identity certificates for mutual TLS, and GKE-managed components handle redirection for opted-in pods. Google positions the change as reducing per-workload proxy resource use and mesh operations overhead.",
+      "implications": "Analysis: Moving a mesh function from per-pod to shared-node infrastructure changes its failure domains, troubleshooting path and policy rollout process. The GA label means the feature is intended for production but does not prove a workload-specific savings percentage. Security teams still need to verify default enrollment, identity certificates, traffic telemetry, mixed-mode compatibility and how workloads fail when node components are unavailable.",
+      "takeaway": "Takeaway: Trial a bounded namespace and compare end-to-end latency, identity enforcement, resource cost and operational recovery against the existing mesh.",
+      "development_summary": "Google made its shared-node, sidecarless GKE service-mesh architecture generally available.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://cloud.google.com/blog/products/networking/ambient-networking-for-gke-sidecarless-service-mesh"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "google-cloud:managed-spark-4p0:spark4p2-agentic-troubleshooting-ga:2026-11-21",
+      "status": "new",
+      "topic": "Cloud data processing",
+      "title": "Google releases Managed Service for Apache Spark 4.0 with agentic troubleshooting",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-21",
+      "event_date": "2026-11-21",
+      "freshness": "New • today",
+      "highlights": "Google announced general availability of Managed Service for Apache Spark 4.0 on November 21, covering serverless and managed-cluster deployments. The runtime packages Spark 4.2, Java 25, Scala 2.13, Python 3.13 with Pixi, and Apache Iceberg 1.12. Its redesigned console adds a unified jobs view, Cloud Shell authoring and an assistant for diagnosing failed jobs. A Data Agent Kit exposes MCP tools and skills so developers can work from third-party IDEs. Google also says its Lightning Engine offers up to 3.25 times the price-performance of a high-speed Spark alternative.",
+      "implications": "Analysis: The claimed performance figure is vendor-reported and requires workload-specific reproduction. A major runtime upgrade also affects dependency compatibility, table formats, SQL behavior and deployment governance. Agent-based diagnostics can shorten investigation time if its recommendations remain observable and reproducible, but should not be allowed to change pipelines without approval and regression tests.",
+      "takeaway": "Takeaway: Re-run a representative ETL workload against the new runtime, verify Iceberg and Python libraries, and measure cost before migrating production pipelines.",
+      "development_summary": "Google released Spark 4.0 runtime infrastructure with newer language libraries, integrated troubleshooting and MCP development tools.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://cloud.google.com/blog/products/data-analytics/whats-new-in-managed-service-for-apache-spark-4-0"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "github:ghes-3p23:release-candidate-multiecosystem-malware-detection:2026-11-20",
+      "status": "new",
+      "topic": "Enterprise DevOps platforms",
+      "title": "GitHub Enterprise Server 3.23 preview expands package defenses and air-gapped scanning",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 1 day",
+      "highlights": "GitHub made the GitHub Enterprise Server 3.23 release candidate available November 20. Its release highlights include advisory-database coverage for malicious packages in PyPI, Maven, RubyGems, NuGet, Go, Rust and Composer beyond npm, drawing on OpenSSF malware advisory data. GitHub also describes a public-preview AI secret detector capable of running fully on the GHES appliance CPU, without outbound network access or a hosted model, for installations with Secret Protection. Dependabot version updates default to a three-day new-version cooldown, while Projects gains richer logical filtering.",
+      "implications": "Analysis: This is an early release candidate rather than a generally available production upgrade. Broader malware intelligence and offline secret detection could help restricted enterprise networks, but administrators must check licensing, feature-preview behavior, air-gapped update mechanisms and false-positive rates. The dependency cooldown trades time-to-update for more time to discover harmful releases, and should not delay emergency security fixes.",
+      "takeaway": "Takeaway: Use a nonproduction GHES instance to evaluate malware alerts, secret detection and dependency-update timing before scheduling any upgrade.",
+      "development_summary": "GitHub introduced a GHES 3.23 release candidate with expanded malicious-package intelligence and offline secret-detection preview.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-20-github-enterprise-server-3-23-release-candidate/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "github:security-advisories:repository-custom-role-permissions-ga:2026-11-20",
+      "status": "new",
+      "topic": "Vulnerability disclosure governance",
+      "title": "GitHub makes repository-scoped security-advisory permissions generally available",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 1 day",
+      "highlights": "GitHub introduced four generally available custom-role permissions on November 20 so organization owners can assign responsibility for repository security advisories and private vulnerability reports without giving users repository administrator or organization-wide security manager privileges. The roles separate viewing, managing and editing advisories, accepting or reopening private reports, and publishing advisories or requesting CVE identifiers. Assignment can be restricted to individual repositories and teams. Certain privileged operations remain reserved for administrators, including merging temporary private-fork changes; confidential comments also retain write-access requirements.",
+      "implications": "Analysis: This is a meaningful least-privilege change for coordinated vulnerability disclosure in large organizations. It can reduce unnecessary administrator access, but new granular permissions do not replace a documented triage process, SLA or audit trail. The team should test exactly which private reports, comments and forks each role sees, especially when contract or responsible-disclosure boundaries vary across repositories.",
+      "takeaway": "Takeaway: Pilot separate triager and publisher roles on one repository and confirm escalation and approval paths before organization-wide deployment.",
+      "development_summary": "GitHub enabled granular custom-role permissions for security advisories and private vulnerability reports.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-20-security-advisory-permissions-are-now-generally-available/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "google-cloud:gcp-2026-090:php-session-handler-rce-mitigations:2026-11-20",
+      "status": "new",
+      "topic": "Critical runtime vulnerability",
+      "title": "Google warns cloud-hosted PHP applications about a critical session-file RCE path",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 1 day",
+      "highlights": "Google Cloud published security bulletin GCP-2026-090 on November 20 about CVE-2026-126714 in PHP's file-based session handler, affecting specified releases of PHP 8.2 through 8.5 and unsupported PHP 8.1 and 7.2. Under crafted conditions, an interrupted session-file write can leave corrupted serialized data that later execution through session_start() may turn into remote code execution. Google lists App Engine, Cloud Run and Cloud Run functions among potentially affected deployment patterns. It recommends patched upstream PHP releases for self-managed containers and disabling session upload progress or moving sessions away from local files as mitigations.",
+      "implications": "Analysis: Google says some managed runtime image patches are still being prepared, so automatic updates cannot be assumed to have landed by the bulletin date. Pinned runtime versions and custom images require different operator action from services with automatic base-image updates. This issue is separate from earlier PHP request-cleanup vulnerabilities in the coverage history; its file-writing mechanism needs its own mitigation.",
+      "takeaway": "Takeaway: Inventory PHP versions and session handlers now, apply configuration mitigations, and redeploy patched images as available while verifying affected services.",
+      "development_summary": "Google disclosed a separate critical PHP session-file weakness and product-specific mitigations for App Engine and Cloud Run deployments.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://docs.cloud.google.com/support/bulletins"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "usaf:advanced-propulsion-enterprise:16p1b-multi-award-idiq-ceiling:2026-11-20",
+      "status": "new",
+      "topic": "Defense propulsion procurement",
+      "title": "Air Force establishes a shared $16.1 billion advanced-propulsion contract ceiling",
+      "publisher": "U.S. Department of War",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 1 day",
+      "highlights": "The U.S. Department of War's November 20 contract announcement records an Air Force multi-award indefinite-delivery/indefinite-quantity vehicle for advanced propulsion enterprise work with a combined ceiling of $16.1 billion, spanning multiple aerospace, engine and research suppliers. The reported performance window extends to November 2041 and covers propulsion technology work across stages and applications. The dollar amount is a shared maximum available through future orders, not an amount paid immediately or a guaranteed award to every selected contractor. The federal release also listed separate engine-sustainment and military research awards.",
+      "implications": "Analysis: This creates a long-term contracting channel rather than proving deployment of a new engine or specific future spending. It is potentially relevant to engine modernization, high-speed flight and defense industrial-base competition, but program requirements, individual task orders, award allocations and actual obligations remain to be tracked. Secondary summaries disagree on the exact number of participating vendors, so that figure is deliberately omitted here pending authoritative reconciliation.",
+      "takeaway": "Takeaway: Track funded task orders and deliverables by contract identifier; do not convert the $16.1 billion ordering ceiling into booked program expenditure.",
+      "development_summary": "The Air Force announced a multiple-award propulsion contracting vehicle capped at $16.1 billion in total future orders.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.war.gov/News/Contracts/Contract/Article/4657624/contracts-for-nov-20-2026/"
+        },
+        {
+          "label": "Supporting original record",
+          "url": "https://awardtape.com/contracts/2026-11-20/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "bls:state-employment-oct2026:published-nov20-unemployment-states:2026-11-20",
+      "status": "new",
+      "topic": "U.S. regional labor markets",
+      "title": "BLS October state report finds limited jobless-rate changes and uneven hiring",
+      "publisher": "U.S. Bureau of Labor Statistics",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 1 day",
+      "highlights": "The Bureau of Labor Statistics reported November 20 that October unemployment rates fell significantly in three states and the District of Columbia, rose in Colorado and were statistically unchanged in 46 states. The national jobless rate held near 4.1%. Nonfarm payrolls grew significantly in California, Indiana, Kansas and Iowa, while changes elsewhere were not statistically distinguishable from zero. Florida's jobless rate slipped 0.1 percentage point. South Dakota had the lowest reported state unemployment rate, 2.0%, and the District of Columbia the highest, 5.4%.",
+      "implications": "Analysis: The report describes regional variation, not a fresh national payroll release; state unemployment and payroll figures are derived from different surveys. The October 2025 household survey was not collected because of an appropriations lapse, limiting normal year-over-year unemployment comparisons. Seemingly large changes in individual states may also fail statistical-significance tests. Household job-market decisions should consider local industries and wages rather than a single national headline.",
+      "takeaway": "Takeaway: Use current state and metro data when evaluating hiring trends; avoid inferring nationwide acceleration from the four states with significant gains.",
+      "development_summary": "BLS published October state-level labor estimates with limited monthly unemployment changes and significant payroll gains in four states.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.bls.gov/news.release/laus.nr0.htm"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "sec:cat:restructure-proposal-rescind-rule613-direct-reporting:2026-11-20",
+      "status": "new",
+      "topic": "Securities-market oversight",
+      "title": "SEC proposes moving Consolidated Audit Trail oversight under direct agency control",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 1 day",
+      "highlights": "The SEC proposed on November 20 to restructure the Consolidated Audit Trail, the system supporting regulatory analysis of U.S. securities orders and trades. Its plan would replace Rule 613 of Regulation NMS with a new Exchange Act Rule 17a-26, maintaining substantially similar order-reporting obligations for exchanges, associations and broker-dealers while directing submissions to the SEC or a designee instead of the separately governed CAT system. The SEC says earlier relief and amendments cut projected annual operating costs by more than $100 million and eliminated reporting of personally identifying information. Public comments would be accepted for 60 days following Federal Register publication.",
+      "implications": "Analysis: This is a proposal, not a final change to brokerage reporting or investor protections. Centralized governance could clarify accountability and budgeting, yet institutions will want to evaluate cybersecurity, operational continuity, implementation cost and independent oversight. Investor orders remain traceable for regulatory purposes under the proposed framework; the debate concerns who operates and funds the system.",
+      "takeaway": "Takeaway: Monitor the Federal Register notice and formal comment docket before treating the proposed reporting and governance model as mandatory.",
+      "development_summary": "The SEC proposed retiring the CAT national-market-system governance rule while retaining core reporting under direct SEC oversight.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-117-sec-issues-proposal-restructure-consolidated-audit-trail"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "sec:backward-hat-capital:560m-alleged-forex-ponzi-asset-freeze:2026-11-20",
+      "status": "new",
+      "topic": "Investor fraud enforcement",
+      "title": "SEC alleges $560 million FX-investment fraud and secures emergency asset freeze",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 1 day",
+      "highlights": "The SEC announced on November 20 that a federal court had granted temporary restraining and asset-freeze relief against Backward Hat Capital, its co-founders and associated parties amid an alleged investment fraud. According to its complaint, defendants raised approximately $560 million from more than 2,000 investors in arrangements pitched as AI-driven foreign-exchange arbitrage. The SEC alleges over $220 million was diverted for personal uses and more than $250 million was used for Ponzi-style payments to prior investors. Promoters allegedly claimed a proprietary algorithm could consistently return at least 6% a month.",
+      "implications": "Analysis: These are civil enforcement allegations, not judicial findings of liability, and emergency relief is not proof that losses will be recovered. The case illustrates a familiar warning sign: extraordinary predictable monthly returns paired with an opaque investment strategy and restricted visibility into custody. Parallel criminal and commodities actions were also announced, but each proceeding has its own standards and evidentiary record.",
+      "takeaway": "Takeaway: Verify advisory registrations, custody arrangements and independent audited records; treat guaranteed high returns from black-box AI trading as an urgent warning.",
+      "development_summary": "The SEC filed a major alleged AI-FX investment-fraud case and obtained emergency court measures to preserve assets.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-116-sec-charges-indianapolis-based-backward-hat-capital-its-co-founders-560-million-dollar-offering"
+        }
+      ]
+    }
+  ]
+}
