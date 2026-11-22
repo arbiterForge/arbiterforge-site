@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-22",
+  "title": "Arbiter News",
+  "intro": "Twelve verified developments spanning agent identity and durable workflows, cloud operations safeguards, security and tactical drone assessments, and major financial disclosures.",
+  "overview": "AI covers AWS Quick's cross-device agent workspace, verified-domain agent discovery, and Cloudflare's pause-and-resume tooling. Cloud covers DNS change safeguards, EventBridge's new direct targets, and Python serverless runtimes. Security and defense examine vulnerability triage plus two distinct Army small-UAS experiments. Money separates Anthropic's completed IPO from its earlier pricing, reports new BEA multinational statistics, and examines Treasury oil-network sanctions.",
+  "history_note": "The public https://arbiterforge.com/news/coverage.json endpoint was inaccessible to the web reader. Deduplication used the complete accessible repository backing index: 319 legacy records from all 10 history_parts files and 348 story records in all 29 dated edition files from October 23 through November 21 (October 25 missing), totaling 667 prior records. Candidate event descriptions, normalized keys and canonical source URLs were compared across more than 30 days; no selected event was previously covered except Anthropic's IPO pricing, explicitly handled as a material closing update with its prior key. The legacy index contains records without canonical URLs. Known gaps include September 23, October 6 and October 25. Historical records are coverage evidence, not independent evidence of factual accuracy; routine Opus 5.5 launch coverage was excluded. Some defense experiments occurred weeks before publication and are dated accordingly.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "aws:quick:web-agents-scheduled-browser-extension-m365-sync:2026-11-21",
+      "status": "new",
+      "topic": "Agent workspaces and cross-device execution",
+      "title": "AWS Quick brings persistent scheduled agents to a synchronized browser workspace",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-21",
+      "event_date": "2026-11-21",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced on November 21 that Quick now offers its desktop-style workspace in a web application, with access to the same agents, skills, and connectors. Work started on the web can move between desktop and mobile; conversations, files, topics, dashboards, and spaces synchronize. Web-started or scheduled agents continue running after the browser closes, and Mission Control shows completed work and outstanding requests for human input. AWS also updated Quick's browser extension and Microsoft 365 add-ins.",
+      "implications": "Analysis: Long-running, cross-device agents are more practical than browser-tethered chat sessions, but this release is an AWS product availability announcement, not evidence of autonomous reliability. Teams should test how scheduled actions handle permission changes, stale connector data, and interrupted approval workflows. Regional availability is limited to the listed launch regions, so deployment planning must verify local support.",
+      "takeaway": "Takeaway: Pilot one scheduled, low-risk workflow and verify its status, approval gates, and synchronized artifacts from more than one device.",
+      "development_summary": "AWS Quick added a web workspace, cross-device synchronization, and agent runs that persist when a browser closes.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-launches-new-web-experience-updated-browser-extension-microsoft-365-add-ins/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "aws:agent-registry:verified-domains-public-agent-discovery:2026-11-20",
+      "status": "new",
+      "topic": "Agent identity and discovery",
+      "title": "AWS Agent Registry adds verified-domain names and public agent discovery",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 2 days",
+      "highlights": "On November 20, AWS introduced naming and discovery features for Agent Registry. Developers and administrators can prove control of a domain and associate that verified name with an agent or AI tool record. Published records become searchable outside the publishing account or registry to AWS-authenticated users through both semantic and lexical search. AWS says the feature is currently offered at no additional charge in supported Agent Registry regions.",
+      "implications": "Analysis: A verifiable name gives agent directories a stronger basis for provenance than unverified labels, reducing some manual discovery work in multi-agent systems. Domain ownership does not, by itself, establish a tool's safety, permitted scopes, or trustworthiness; authentication, authorization and execution policies remain separate controls. Public discovery also broadens the visibility of intentionally published records.",
+      "takeaway": "Takeaway: Treat domain verification as a discovery signal, not an authorization decision; pair it with scope checks and tool-level audit records.",
+      "development_summary": "AWS introduced verified-domain agent naming and AWS-authenticated public discovery for Agent Registry.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/agent-registry-naming-public-discovery/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "cloudflare:agents-sdk:pi1p6-parked-tools-signals-subagent-approval:2026-11-20",
+      "status": "new",
+      "topic": "Durable agents and human approvals",
+      "title": "Cloudflare Agents SDK can park Pi tools until people or subagents respond",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 2 days",
+      "highlights": "Cloudflare's November 20 Agents SDK v0.34.0 update upgrades PiHarness to Pi 1.6. Tools may suspend while awaiting a human response, another session, a signal, or a deadline without holding an active invocation; Durable Objects can hibernate and resume on the relevant signal. A beforeTool hook can act as an approval gate, sessions can start with supplied history, and queued input can survive some aborts. Cloudflare also documents MCP re-authorization failures and an explicit reconnection route.",
+      "implications": "Analysis: Parking rather than polling reduces idle work and makes human-in-the-loop agent actions more tractable. The Pi 1.6 transcript and execution changes are not backward-compatible with Pi 1.5, so production upgrades need replay tests and a roll-forward recovery plan. An approval hook only helps if the application independently enforces the approver's permissions.",
+      "takeaway": "Takeaway: Prototype a parked, approval-gated tool call and test duplicate signals, recovery, and upgrade compatibility before broad deployment.",
+      "development_summary": "Cloudflare shipped parked agent-tool execution, signal-driven resumption, and approval hooks with Pi 1.6.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-20-pi-harness-pi-1-6/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:route53:advanced-hosted-zones-dns-change-guardrails-history-fallback:2026-11-20",
+      "status": "new",
+      "topic": "DNS resilience and change control",
+      "title": "Route 53 Advanced Hosted Zones blocks risky live DNS deletions",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 2 days",
+      "highlights": "AWS introduced an Advanced Hosted Zones tier for Route 53 on November 20. Optional Change Guardrails reject an entire change request when it would delete a record receiving queries, remove an alias target still in use, or remove an active delegation. Guardrails apply to API and infrastructure-as-code changes as well as console edits. The tier also includes record-level change history retained for 365 days and a public-DNS fallback capability for private hosted zones. AWS says customers can create a new advanced zone or upgrade an existing one.",
+      "implications": "Analysis: Live-dependency checks are useful protections against DNS outages, especially where deployment automation otherwise moves fast. They do not prove a proposed change is semantically correct, and an intentionally retired record may require an operator process to clear legitimate dependencies. This is a separately priced tier, so the incremental resilience needs a cost review.",
+      "takeaway": "Takeaway: Evaluate the guardrails on a noncritical zone and verify their behavior against automated deletions and rollback playbooks.",
+      "development_summary": "AWS added a higher-tier Route 53 zone with deletion guardrails, change history, and private-zone fallback.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/route-53-offers-advanced-hosted-zones/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:eventbridge-scheduler:589-api-actions-custom-event-bus-targets:2026-11-20",
+      "status": "new",
+      "topic": "Event-driven infrastructure automation",
+      "title": "EventBridge Scheduler adds 589 SDK actions and direct custom-bus delivery",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 2 days",
+      "highlights": "On November 20, Amazon EventBridge Scheduler expanded its SDK integration catalog by 589 API actions across 81 AWS services. It also added templated targets for the enhanced EventBridge Custom event bus, including PutEvents and PutRawEvents. Operators can schedule a direct call to a supported service or place an event on a bus without introducing a Lambda shim solely to make that call. AWS positions Scheduler as serverless infrastructure for very large fleets of scheduled events.",
+      "implications": "Analysis: Removing intermediary functions can simplify permissions, error paths, and deployment maintenance for routine scheduled work. It also moves more power into Scheduler target roles, making least-privilege IAM and event payload validation essential. Service and regional availability still constrain any individual target, and teams should validate retry and idempotency behavior rather than assuming exactly-once effects.",
+      "takeaway": "Takeaway: Replace one simple scheduling shim in a test environment; inspect policy scope, failure handling, and duplicate-event effects.",
+      "development_summary": "AWS expanded direct EventBridge scheduling targets and added enhanced event-bus delivery.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/eventbridge-scheduler-new-api-actions/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:lambda:python315-event-ga-web-preview-first-python-web-runtime:2026-11-20",
+      "status": "new",
+      "topic": "Serverless runtimes and APIs",
+      "title": "AWS Lambda adds Python 3.15 and previews Python Web Functions",
+      "publisher": "Amazon Web Services",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 2 days",
+      "highlights": "AWS announced Python 3.15 support in Lambda on November 20. The runtime is generally available for Event Functions and in public preview for Web Functions, which previously supported Node.js only. Event Functions can use Python 3.15 as a managed runtime or base container image; AWS will maintain supported runtime and image updates. The release cites Python's explicit lazy imports, frozendict and sentinel built-ins, and JIT improvements as features developers can evaluate. Existing deployment paths such as SAM, CDK, CloudFormation and the CLI remain supported.",
+      "implications": "Analysis: Python Web Functions reduce a language limitation for teams building HTTP-facing serverless services, but preview availability is not a production guarantee. Runtime compatibility, dependency wheels, cold starts and deployment behavior warrant measurement before upgrading an existing application. A new language version may improve developer ergonomics without improving workload performance automatically.",
+      "takeaway": "Takeaway: Test a representative API handler under Python 3.15, with dependency scans and latency benchmarks, before planning a migration.",
+      "development_summary": "Lambda added Python 3.15 general availability for events and a public preview for Python web handlers.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-python-315/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "cloudflare:radar-zero-wire:per-cve-pages-kev-epss-cwe-remediation:2026-11-20",
+      "status": "new",
+      "topic": "Vulnerability prioritization",
+      "title": "Cloudflare Radar Zero Wire adds dedicated CVE investigation pages",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 2 days",
+      "highlights": "Cloudflare announced dedicated CVE pages in its Zero Wire experience on November 20. Its published CVE index supports search and filters by severity and year, while individual records combine vulnerability descriptions, published severity scores, CISA Known Exploited Vulnerabilities status, FIRST EPSS probabilities, available fixes, affected products, and linked references. The pages also surface weakness classifications and attack patterns and link between Zero Wire briefings and the relevant vulnerability records.",
+      "implications": "Analysis: Consolidated context can shorten the initial triage process, especially for teams switching among vendor advisories, KEV records and exploitation estimates. Aggregation does not replace confirming the affected software version or assessing exposure in a specific environment. EPSS describes estimated exploitation likelihood, not proof that a particular asset has been attacked, and third-party record freshness must be checked.",
+      "takeaway": "Takeaway: Use the pages to prepare a short list, then validate severity, fixes, exposure and exploit claims against vendor and government advisories.",
+      "development_summary": "Cloudflare launched per-vulnerability Radar pages combining exploitation, severity, product and remediation signals.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://developers.cloudflare.com/changelog/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "us-army:101st-dark-blade:dark-release-kit-blade-kinetic-uas-livefire:2026-11-20",
+      "status": "new",
+      "topic": "Tactical unmanned systems",
+      "title": "101st Airborne tests modular drone-delivered effects with DARK and BLADE",
+      "publisher": "U.S. Army",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-02 to 2026-11-08",
+      "freshness": "New • 2 days",
+      "highlights": "The Army reported on November 20 that 101st Airborne soldiers integrated drone-delivered munitions into live-fire training at Fort Campbell during November 2–8. The unit paired the Drone Agnostic Release Kit (DARK), a modular payload-release mechanism intended to work across aircraft types, with an experimental munition called Broad Lethality Air Deployed Effects (BLADE). The Army's report describes a path from soldier-developed, low-cost adaptations to evaluating more standardized payload options, including a demonstration on an Anduril Ghost-X aircraft.",
+      "implications": "Analysis: The work illustrates the Army's emphasis on modifying unmanned systems at unit level rather than waiting for a single fixed aircraft-and-payload package. However, this is a reported training demonstration, not an independently validated combat performance result or general fielding announcement. Safety certification, supply chains, interoperability and rules of engagement remain critical before broader adoption.",
+      "takeaway": "Takeaway: Watch whether DARK and BLADE progress from local experimentation to documented qualification and repeatable procurement.",
+      "development_summary": "The 101st Airborne reported live-fire evaluation of modular drone release kits and experimental payload effects.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.army.mil/article/296987/101st_airborne_division_continues_to_design_field_their_own_kinetic_uas_next_up_the_dark_blade"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "us-army:maneuver-battle-lab:shotgun-vs-small-uas-livefire-assessment-disclosed:2026-11-20",
+      "status": "new",
+      "topic": "Counter-drone survivability",
+      "title": "Army Maneuver Battle Lab evaluates shotgun rounds against small drones",
+      "publisher": "U.S. Army",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-09-21 to 2026-09-22",
+      "freshness": "New • 2 days",
+      "highlights": "In a November 20 article, the Army described a September 21–22 live-fire assessment at Fort Benning comparing four shotgun ammunition types against small uncrewed aircraft: a standard government-issued target round and three commercial options. Personnel tracked time to hit, rounds fired and engagement distances, rotating shooters across tests. The work followed August rifle-ammunition baseline exercises. The Maneuver Battle Lab said it intends to compile and submit findings to Army lethality and small-caliber ammunition officials before the end of 2026.",
+      "implications": "Analysis: The trial addresses a practical last-ditch problem for infantry facing close drone threats, but the Army has not released comparative performance results in this article. A shotgun-based tactic cannot be assumed effective against every drone geometry or engagement distance. Procurement decisions should weigh training, ammunition logistics and layered counter-UAS coverage alongside any forthcoming metrics.",
+      "takeaway": "Takeaway: Treat the demonstration as evaluation work; watch for quantified test findings and an actual fielding decision.",
+      "development_summary": "The Army reported shotgun-versus-small-UAS tests, with performance data still pending formal review.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.army.mil/article-amp/296967/maneuver_battle_lab_assesses_drone_defeating_shotgun_rounds"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "anthropic:ipo:closing-shares-1127m-935b-260b-placement:2026-11-20",
+      "status": "material-update",
+      "topic": "AI capital markets",
+      "title": "Anthropic closes its IPO and concurrent placement, confirming larger proceeds",
+      "publisher": "Anthropic",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 2 days",
+      "highlights": "Anthropic announced on November 20 that its IPO closed at $83 per Class A share, including the full exercise of the underwriters' additional-share option. The final IPO covered 1.127 billion shares and approximately $93.5 billion in gross offering proceeds, with about $91.6 billion going to Anthropic and the rest attributable to selling shareholders. It separately closed a $26.0 billion private placement of Class N shares to seven named strategic technology partners, bringing aggregate gross proceeds across the transactions to about $119.5 billion. Shares began trading November 19 as ANT.",
+      "implications": "Analysis: This is a material closing update, not a re-report of November 18 pricing. The additional 147 million option shares and completed placement change the actual capital raised and ownership picture. Gross proceeds are not net cash after fees, and the company does not receive proceeds from secondary sellers. Investors still face substantial valuation and infrastructure-execution risks.",
+      "takeaway": "Takeaway: Update IPO transaction models using the completed share counts and distinguish company proceeds from total securities sold.",
+      "development_summary": "Anthropic confirmed the IPO's closing, full option exercise and concurrent placement with larger aggregate proceeds.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.anthropic.com/news/ipo-close"
+        }
+      ],
+      "updates_event_key": "anthropic:ipo:final-83-price-980m-share-offering:2026-11-18",
+      "change_summary": "November 18 coverage reported $83 pricing of 980 million IPO shares with an expected close. On November 20 Anthropic confirmed the transaction closed, exercised the 147 million-share underwriting option in full, raised roughly $93.5 billion gross from 1.127 billion IPO shares and closed a separate $26.0 billion private placement."
+    },
+    {
+      "category": "money",
+      "event_key": "bea:us-multinational-enterprises:2024-employment-valueadded-rd-release:2026-11-20",
+      "status": "new",
+      "topic": "U.S. multinational investment and employment",
+      "title": "BEA finds 44.2 million jobs at U.S. multinationals in 2024",
+      "publisher": "U.S. Bureau of Economic Analysis",
+      "publication_date": "2026-11-20",
+      "event_date": "2024 (statistics released 2026-11-20)",
+      "freshness": "New • 2 days",
+      "highlights": "BEA's November 20 preliminary release on U.S. multinational enterprises reports worldwide employment of 44.2 million in 2024, up 0.9% from a revised 2023 base. U.S. parent operations employed 29.9 million people, increasing 0.1%, while majority-owned foreign affiliates employed 14.3 million, increasing 2.7%. Global value added rose 8.0% to $7.4 trillion in current dollars. BEA also reported $1.2 trillion in worldwide property, plant and equipment expenditure and $622.7 billion in research and development spending, up 10.1%.",
+      "implications": "Analysis: These are historical 2024 activity measures released in 2026, not indicators of current-quarter hiring or a forecast. The differing domestic and overseas employment growth rates show how multinational expansion can vary by location, but do not establish that foreign hiring displaced any particular U.S. job. The figures can help benchmark the scale and geography of investment.",
+      "takeaway": "Takeaway: Use BEA's preliminary multinational statistics for structural analysis, and keep the 2024 reference year explicit.",
+      "development_summary": "BEA released preliminary 2024 employment, investment and R&D statistics for U.S. multinationals.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.bea.gov/news/2026/activities-us-multinational-enterprises-2024"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-treasury:ofac-iran-oil-trustees:operation-economic-outcast-designations:2026-11-20",
+      "status": "new",
+      "topic": "Sanctions and international financial compliance",
+      "title": "Treasury sanctions additional Iran oil-revenue intermediaries",
+      "publisher": "U.S. Department of the Treasury",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 2 days",
+      "highlights": "On November 20 the U.S. Treasury announced sanctions targeting individuals it describes as intermediaries in Iranian oil sales and recovery of oil revenue held abroad. The department identified Mohammad Javad Bavand and Majid Taj under Executive Order 13902 and also described support to designated aviation-related entities under a separate counterterrorism authority. Treasury said the action is part of Operation Economic Outcast, its broader campaign against Iranian oil-financing channels. The announcement describes blocking of applicable U.S.-linked property and reporting obligations for covered persons.",
+      "implications": "Analysis: Treasury's characterization of the network and its allegations are official enforcement claims, not court findings. Banks, trade intermediaries and firms with cross-border payment exposure should assess sanctions-screening obligations, relevant ownership rules and correspondent-account risk. The announcement does not by itself quantify an immediate oil-price effect or establish market direction.",
+      "takeaway": "Takeaway: Compliance teams should check the current OFAC designations and applicable licenses before processing potentially affected counterparties.",
+      "development_summary": "Treasury announced new Iran oil-network designations and financial blocking requirements.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://home.treasury.gov/news/press-releases/sb0697/"
+        }
+      ]
+    }
+  ]
+}
