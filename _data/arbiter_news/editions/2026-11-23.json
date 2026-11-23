@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-23",
+  "title": "Arbiter News",
+  "intro": "Twelve source-verified developments in agent tooling and interactive models, cloud networking and automation, application and espionage security, and household and banking financial signals.",
+  "overview": "AI follows Google's tool-schema retrieval and Genie 4 developer APIs, plus Tencent's newly downloadable Hy4 weights. Cloud examines GKE in-place network migration, enriched object metadata, and Browser Run script execution. Security covers NGINX patch versions, disclosed QUIC-based espionage malware, and new application firewall detections. Money looks at final household sentiment after the midterms, an SEC fake-crypto fraud complaint, and the Federal Reserve's bank liquidity survey. Two developments explicitly extend earlier reporting.",
+  "history_note": "The public coverage.json endpoint was inaccessible to the web reader. Deduplication used the complete repository backing index: 319 legacy records from all ten history_parts and 360 story records from all 30 available dated editions October 23 through November 22, 2026, totaling 679 prior records. Underlying development keys, summaries and canonical source URLs were compared for the accessible 30-plus-day period. Material updates to Tencent Hy4's earlier hosted release and Michigan's preliminary sentiment reading identify prior event keys and factual changes. Known missing archive dates are September 23, October 6 and October 25; some earlier legacy records lack URLs. Historical coverage is not itself proof of source accuracy. Routine Opus 5.5 launch coverage was excluded. Older underlying events in security and financial enforcement stories are distinguished from their publication dates. Weekend publishing provided fewer fresh primary releases, so some verified uncovered stories date back up to seven days.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "google:gemini-interactions-api:tool-retrieval-deferred-schema-preview:2026-11-19",
+      "status": "new",
+      "topic": "Agent tool discovery and context efficiency",
+      "title": "Gemini API previews on-demand retrieval of tool parameter schemas",
+      "publisher": "Google",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 4 days",
+      "highlights": "Google introduced Tool Retrieval in preview for the Gemini Interactions API on November 19. Developers include a tool_search tool and mark function definitions with defer_loading: true. The model retains each deferred tool's name and description, but loads its full argument schema only when it decides to call that tool, during the same request. Google positions this as a way to reduce prompt tokens and latency for agents connected to dozens or hundreds of functions. The announcement says it works with Gemini 3.6 and later models.",
+      "implications": "Analysis: This removes one scaling penalty of large tool catalogs without removing the need for accurate descriptions, reliable retrieval or application-side authorization. Google's anticipated token and accuracy benefits are product claims; a production harness should measure them against real tool distributions and workload traces.",
+      "takeaway": "Takeaway: Run an A/B test with large realistic tool inventories, comparing schema tokens, tool-selection errors, runtime and permission enforcement.",
+      "development_summary": "Google previewed Tool Retrieval for the Gemini Interactions API, using deferred tool schemas and on-demand search.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "google:genie4:gemini-api-developer-access-world-interaction:2026-11-19",
+      "status": "new",
+      "topic": "Interactive world models for developers",
+      "title": "Google opens Genie 4 world generation through Gemini API and AI Studio",
+      "publisher": "Google",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 4 days",
+      "highlights": "Following its November 18 Genie 4 product launch, Google said on November 19 that developers can access the model through the Gemini Interactions API and Google AI Studio. From text, a reference image or both, Genie 4 produces steerable continuous worlds at 720p and 24 frames per second, with synchronized audio that can include sound, effects and character dialogue. Google describes real-time keyboard control and live prompts to change the weather, lighting, objects or events. Outputs receive SynthID watermarking, according to the company.",
+      "implications": "Analysis: API access is a meaningful step beyond a consumer demonstration because teams can prototype spatial interfaces, training simulations and agent environments. The published 720p and 24fps specifications are vendor-reported capabilities, not evidence that complex simulations remain physically accurate or repeatable; latency and pricing should be tested before operational use.",
+      "takeaway": "Takeaway: Try a constrained, repeatable scene in AI Studio and assess steering latency, consistency, audio and watermark handling before building atop the API.",
+      "development_summary": "Google made Genie 4 available to developers via the Gemini Interactions API and AI Studio after its consumer launch.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/genie-4-in-gemini-api/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "tencent:hy4:final-downloadable-model-weights-custom-license:2026-11-20",
+      "status": "material-update",
+      "topic": "Large multimodal model self-hosting",
+      "title": "Tencent publishes downloadable Hy4 weights following hosted model launch",
+      "publisher": "Tencent Hy Team",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20 (public repository availability)",
+      "freshness": "Material update • 3 days",
+      "highlights": "Tencent's official Hy4 Hugging Face repository now distributes downloadable instruction-tuned weights, alongside separate Hy4-FP8 and base checkpoints, with vLLM and SGLang serving instructions. The Hy team describes a mixture-of-experts language backbone with 770 billion total parameters and 49 billion active per token, plus image and video understanding and computer-use scenarios. The repository identifies a custom Tencent Hy License rather than an Apache 2.0 license. Availability of the final weights was observed around November 20, after the earlier hosted Hy4 announcement.",
+      "implications": "Analysis: Shipping files for self-hosting is materially different from an API launch: operators can evaluate their own deployment, data controls and latency. That does not make the model inexpensive to run, and the custom license must be reviewed for applicable commercial conditions. The architecture and benchmark claims are Tencent's; no independent validation is implied.",
+      "takeaway": "Takeaway: Verify the exact checkpoint and license, storage and accelerator budget, and tool safety before attempting self-hosted trials.",
+      "development_summary": "Tencent made final Hy4 model weights downloadable after an earlier hosted API rollout.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://huggingface.co/tencent/Hy4"
+        }
+      ],
+      "updates_event_key": "tencent:hy4:multimodal-computer-use-release-planned-weights:2026-11-04",
+      "change_summary": "The November 5 edition covered Tencent's November 4 hosted Hy4 launch with downloadable final weights still planned. Around November 20 Tencent made final Hy4 instruction, FP8 and base checkpoints available on its official model repository under a custom license, enabling self-hosted evaluation."
+    },
+    {
+      "category": "cloud",
+      "event_key": "google-gke:dataplane-v1-to-v2:in-place-migration-preview:2026-11-19",
+      "status": "new",
+      "topic": "Kubernetes network migration",
+      "title": "GKE previews in-place migration to its eBPF Dataplane V2",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 4 days",
+      "highlights": "Google Cloud introduced a preview of in-place migration from GKE Dataplane V1 to the eBPF/Cilium-based Dataplane V2 on November 19. Eligible VPC-native clusters running GKE 1.35 or newer can undergo preflight checks, initiate a migration with a cluster update command, then roll their node pools forward while respecting upgrade strategies and maintenance windows. Operators can roll back before migration finalization. The procedure excludes routes-based clusters and those using Calico and requires sufficient Pod IP capacity for node recreation.",
+      "implications": "Analysis: Preserving the cluster while changing its packet-processing layer can avoid the complexity of parallel-cluster cutovers. It is still a network change with meaningful risks to existing policies, CNI behavior and application connectivity. Google's own guidance recommends nonproduction trials while the feature is in preview, not a blanket production migration.",
+      "takeaway": "Takeaway: Inventory cluster eligibility, NetworkPolicy behavior and incompatible custom eBPF code, then rehearse migration and rollback in a representative test cluster.",
+      "development_summary": "Google previewed an in-place method for eligible GKE clusters to transition from Dataplane V1 to V2.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://cloud.google.com/blog/products/networking/gke-dataplane-v2-in-place-migration"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "google-cloud-storage:object-enrichments-context-image-pdf-preview:2026-11-19",
+      "status": "new",
+      "topic": "Data preparation for retrieval and agents",
+      "title": "Cloud Storage previews automatic object enrichments for AI-ready metadata",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 4 days",
+      "highlights": "Google Cloud announced object enrichments in preview on November 19. The service runs AI extraction against data in Cloud Storage and writes associated object context metadata in-place so retrieval applications and agents need not repeatedly inspect raw files. Google describes image annotation and labeling plus PDF classification capabilities aimed at collections of otherwise unstructured objects. Google claims its image annotation offering can cost 75% less than comparable services from other cloud providers; that comparative figure is vendor-provided, not an independently established savings rate.",
+      "implications": "Analysis: Up-front enrichment can improve discovery and reduce repetitive model work, especially for large visual repositories. However, extracted labels are probabilistic and can become stale when content changes. Operators must test permissions, metadata lineage, error rates, processing costs and data-governance boundaries before using enriched context as evidence in decisions.",
+      "takeaway": "Takeaway: Start with a labeled sample of image and PDF objects, measure classification accuracy and full-pipeline cost, and keep access controls aligned with source objects.",
+      "development_summary": "Google Cloud previewed managed enrichment of Cloud Storage objects with AI-derived contextual metadata.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://cloud.google.com/blog/products/storage-data-transfer/cost-effective-ai-context-extraction-from-unstructured-gcs-data"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "cloudflare:browser-run:custom-script-api-playwright-cdp:2026-11-20",
+      "status": "new",
+      "topic": "Browser automation infrastructure",
+      "title": "Cloudflare Browser Run adds direct custom-script execution APIs",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 3 days",
+      "highlights": "Cloudflare's November 20 Browser Run update introduced /script endpoints for submitting a JavaScript function in one request. The service executes code using Playwright, Puppeteer or Chrome DevTools Protocol inside an isolated Worker attached to a browser session, without the caller deploying a Worker. A follow-up endpoint accepts an existing session ID, and users can run the same facility through a Workers browser binding or dashboard Script Studio. Cloudflare explicitly notes that script execution does not automatically close the browser session; callers must close it or let its idle timeout expire.",
+      "implications": "Analysis: This can simplify ephemeral browser-assisted testing and agent browsing, while centralizing execution and session management. It does not remove authentication, website terms, automation-detection constraints or the risk of executing untrusted content. Operators should restrict API credentials, cap runtime, manage session teardown and handle failed partial tasks.",
+      "takeaway": "Takeaway: Prototype one limited workflow with Playwright, then verify token scope, session cleanup, audit logging and cost before offering it as an agent tool.",
+      "development_summary": "Cloudflare added a direct script execution interface for Browser Run, supporting several browser automation libraries.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-20-script-endpoint/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "nginx:security-fixes:1p31p9-1p30p7-http2-memory-corruption:2026-11-18",
+      "status": "new",
+      "topic": "Internet-facing web server patching",
+      "title": "NGINX issues security fixes for HTTP/2 corruption and other flaws",
+      "publisher": "NGINX Project",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-18 (patched builds available)",
+      "freshness": "New • 5 days",
+      "highlights": "NGINX's published security advisory list identifies multiple defects fixed in the 1.31.9 mainline and 1.30.7 stable releases, including CVE-2026-123007, a major-severity memory-corruption issue in HTTP/2 flow control affecting versions 1.9.5 through 1.31.8. Other advisories in the same release span HTTP/3, TLS request processing, mail proxying, stream certificate validation and other modules. The project lists corrected version ranges per CVE; not all affected functionality is enabled in every deployment.",
+      "implications": "Analysis: HTTP/2 is widely exposed on reverse proxies, making the corrected version boundary more actionable than generalized exploit headlines. The advisory's severity ratings do not establish active exploitation or a universal remote-code-execution path. Teams using vendor repackages or NGINX Plus need the corresponding vendor-supported fixed builds, not a blind upstream version assumption.",
+      "takeaway": "Takeaway: Inventory externally reachable NGINX deployments, check which modules are enabled, apply the appropriate fixed build and watch for unexpected behavior during restart.",
+      "development_summary": "NGINX listed multiple security fixes in versions 1.31.9 and 1.30.7, including major HTTP/2 memory corruption.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://nginx.org/en/security_advisories.html"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "palo-alto-unit42:tgr-sta-0049:kukurat-perfectpioneer-http3-c2:2026-11-16",
+      "status": "new",
+      "topic": "Covert network command and control",
+      "title": "Unit 42 documents HTTP/3-enabled espionage RATs targeting governments",
+      "publisher": "Palo Alto Networks Unit 42",
+      "publication_date": "2026-11-16",
+      "event_date": "July 2025–March 2026 observed activity; disclosed 2026-11-16",
+      "freshness": "New • 7 days",
+      "highlights": "Unit 42's November 16 analysis describes a cyberespionage cluster it tracks as TGR-STA-0049, associated with targeting Southeast Asian government organizations since at least July 2025. Researchers observed two previously undocumented remote-access tools: PerfectPioneer, first spotted in July 2025, and modular KUKURAT, seen in March 2026. The campaign uses HTTP/3 over QUIC for covert command-and-control traffic. Unit 42 reports that PerfectPioneer incorporates an operator safety control to avoid conspicuous commands, while KUKURAT generates apparently benign host and network actions to mask activity.",
+      "implications": "Analysis: UDP-based encrypted traffic and fabricated background noise can weaken detections built only around conventional TCP inspection or isolated endpoint anomalies. This is retrospective investigative disclosure, not proof of a new November intrusion or attribution by a court. Defenders should use the published indicators and hunt for correlated process, DNS and network behaviors.",
+      "takeaway": "Takeaway: Add HTTP/3 and QUIC traffic visibility to threat hunting and compare suspicious connections with host execution traces rather than relying on ports alone.",
+      "development_summary": "Unit 42 disclosed two custom espionage RATs and QUIC-based command-and-control techniques observed in earlier campaigns.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://unit42.paloaltonetworks.com/custom-rats-target-southeast-asia-governments/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "cloudflare:waf:nov19-emergency-php-ruby-rules-log-mode:2026-11-19",
+      "status": "new",
+      "topic": "Emergency application firewall defenses",
+      "title": "Cloudflare adds PHP and Ruby threat signatures in emergency WAF release",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19; CVE identifier corrected 2026-11-20",
+      "freshness": "New • 4 days",
+      "highlights": "Cloudflare's November 19 emergency WAF release updated a PHP remote-code-execution detection and introduced new PHP, Ruby and generic attack rules. Its changelog distinguishes rules configured to block from three new PHP-FPM and PHP SOAP signatures enabled in log-only mode by default because of false-positive risk. The new Ruby detections cover a heap overflow and an integer-overflow advisory. On November 20 Cloudflare corrected a typographical error in the Ruby CVE identifier to CVE-2026-132825, without describing that as a separate vulnerability discovery.",
+      "implications": "Analysis: New managed protections provide a compensating detection layer for some application attack patterns, but log-only rules should not be mistaken for active blocking. WAF detections are not substitutes for application and runtime patches, and manually changing action modes may interfere with legitimate requests. The release represents new defensive coverage, not a second report of the previously known PHP flaws.",
+      "takeaway": "Takeaway: Review matching traffic and rule IDs, tune false positives, then deliberately decide which log-only protections can safely enforce blocking.",
+      "development_summary": "Cloudflare released new WAF protections for existing PHP and Ruby issues with varied default actions and a later CVE correction.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-19-emergency-waf-release/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "umich:consumer-sentiment:nov2026-final-51p5-postelection-divergence:2026-11-20",
+      "status": "material-update",
+      "topic": "Household sentiment and inflation expectations",
+      "title": "Michigan's final November survey adds post-election consumer detail",
+      "publisher": "University of Michigan Institute for Social Research",
+      "publication_date": "2026-11-20",
+      "event_date": "Interviews 2026-10-20 through 2026-11-16; final release 2026-11-20",
+      "freshness": "Material update • 3 days",
+      "highlights": "The University of Michigan's November 20 final consumer survey put its sentiment index at 51.5, compared with 48.0 in October. The interviewing window ran from October 20 through November 16, encompassing the U.S. midterm elections. Researchers report improved expectations of near-term business conditions, with roughly half of that rise following election day. They also identified divergent changes by political affiliation, consumers reporting relief from lower gasoline prices, and more spontaneous mentions of a possible AI market bubble. The survey says the minimum statistically significant monthly change in the headline index is 4.8 points.",
+      "implications": "Analysis: The 3.5-point October-to-November gain does not meet the survey's own significance threshold, and partisan differences should not be presented as a settled forecast. The final sample adds post-election views to the earlier preliminary reading, rather than establishing a new macroeconomic trend.",
+      "takeaway": "Takeaway: Read the components and survey timing alongside the headline level; avoid inferring household spending or inflation outcomes from one survey.",
+      "development_summary": "The Michigan November final survey provided expanded post-election responses and a 51.5 sentiment reading.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://isr.umich.edu/news-events/news-releases/sentiment-ticks-up-as-election-expected-to-usher-in-changes-to-economic-policy/"
+        }
+      ],
+      "updates_event_key": "umich:consumer-sentiment-preliminary-november-2026-51:2026-11-06",
+      "change_summary": "The November 7 edition covered Michigan's November 6 preliminary November sentiment reading near 51. On November 20 the institute published the final 51.5 reading with interviews through November 16 and newly described post-election changes by household and political group, plus a significance threshold for the monthly comparison."
+    },
+    {
+      "category": "money",
+      "event_key": "sec:fake-crypto-platforms:eight-entities-37m-fraud-allegations:2026-11-19",
+      "status": "new",
+      "topic": "Investor protection and impersonation fraud",
+      "title": "SEC charges eight entities over alleged $37 million fake-crypto scheme",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "publication_date": "2026-11-19",
+      "event_date": "Alleged operation August 2024–May 2026; enforcement announcement 2026-11-19",
+      "freshness": "New • 4 days",
+      "highlights": "The SEC announced a federal civil complaint on November 19 against eight Colorado-based entities it alleges were operated by people likely located overseas. The regulator says investors were led from social media advertising into group and private chats, where people posing as investment advisers first discussed ordinary stocks and later directed funds to fabricated crypto trading platforms. The SEC alleges the scheme took more than $37 million from U.S. investors between August 2024 and May 2026, operating in successive adviser-platform pairs. The complaint seeks injunctions, repayment and civil penalties; these are allegations, not judicial findings.",
+      "implications": "Analysis: The case illustrates how sophisticated-looking registration documents, filings and platform dashboards can be exploited to create a false sense of legitimacy. It does not establish that legitimate registered advisers or crypto platforms generally operate this way. Verification should be independent of links and certificates supplied by solicitors.",
+      "takeaway": "Takeaway: Check advisers and registrations directly through Investor.gov and regulators' official records before transferring money, particularly after unsolicited group-chat approaches.",
+      "development_summary": "The SEC filed a complaint alleging eight entities used counterfeit investment and crypto platforms to take over $37 million.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-115-sec-eight-entities-used-fake-crypto-asset-trading-platforms-steal-more-37-million-us-investors"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "federal-reserve:sfos-september2026:reserves-liquidity-weekend-banking-release:2026-11-20",
+      "status": "new",
+      "topic": "Bank liquidity and extended payment hours",
+      "title": "Fed survey finds reserve caution as banks weigh expanded payment schedules",
+      "publisher": "Board of Governors of the Federal Reserve System",
+      "publication_date": "2026-11-20",
+      "event_date": "Survey 2026-09-18 through 2026-09-28; released 2026-11-20",
+      "freshness": "New • 3 days",
+      "highlights": "The Federal Reserve released its September Senior Financial Officer Survey on November 20, based on 91 responding institutions holding roughly three-fourths of U.S. banking-system reserve balances. More than half of respondents overlapping with its March survey reported no change in their lowest comfortable level of reserves, and about three-fourths of respondents prefer a cushion above that level. Roughly 57% said they had taken steps to maintain reserve holdings. When asked about longer operating hours, about one-third reported already offering or planning additional weekend or holiday client payment and liquidity tools.",
+      "implications": "Analysis: The survey describes bank strategies and expectations as of September, not a November change in policy rates or proof of a funding crisis. The preference for reserve buffers and uncertainty over weekend needs matter as payment-system hours expand, but results come from a specific respondent set rather than every U.S. bank.",
+      "takeaway": "Takeaway: Track bank operational readiness and liquidity planning as weekend settlement expands; do not conflate reported expectations with realized market stress.",
+      "development_summary": "The Federal Reserve published a survey of bank reserve strategies and views on weekend and holiday payment operations.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20261120a.htm"
+        }
+      ]
+    }
+  ]
+}
