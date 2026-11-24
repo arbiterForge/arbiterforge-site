@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import re
 import sys
+import time
 from urllib.error import HTTPError
 
 from stage_sim import AppDocument, SITE, api, fetch, require_run
@@ -107,18 +108,24 @@ def receive_assets(origin, indexed, query):
 
 
 def select_source():
-    runs = api('actions/workflows/pages.yml/runs?branch=main&status=success&per_page=1',
-               repository=REPOSITORY)['workflow_runs']
-    if not runs:
-        raise ValueError('No successful Meridian main publication')
-    run = runs[0]
-    require_run(run, 'pages', repository=REPOSITORY)
-    if run.get('event') not in ('push', 'workflow_dispatch'):
-        raise ValueError('Unexpected Meridian publication trigger')
-    commit = run['head_sha']
-    query = '?source=' + commit
-    raw = fetch(UPSTREAM + 'build.json' + query, MAX_MANIFEST)
+    # Start with the release people can actually load. A manual redeploy or a
+    # PR check can finish after a different main release went live.
+    raw = fetch(UPSTREAM + 'build.json?check=' + str(time.time_ns()), MAX_MANIFEST)
     manifest = json.loads(raw)
+    commit = manifest.get('commit')
+    if not isinstance(commit, str) or not re.fullmatch('[a-f0-9]{40}', commit):
+        raise ValueError('Invalid public Meridian source commit')
+    endpoint = f'actions/workflows/pages.yml/runs?branch=main&head_sha={commit}&status=success'
+    for event in ('push', 'workflow_dispatch'):
+        runs = api(f'{endpoint}&event={event}&per_page=1', repository=REPOSITORY)['workflow_runs']
+        if runs:
+            run = runs[0]
+            require_run(run, 'pages', repository=REPOSITORY)
+            if run['head_sha'] != commit or run.get('event') != event:
+                raise ValueError('Meridian publication does not match the public source')
+            break
+    else:
+        raise ValueError('No successful main publication for the live Meridian source')
     indexed = manifest_entries(manifest, commit)
     return raw, indexed, {'format': 'arbiterforge.meridian-publication/v1', 'upstream': UPSTREAM,
                          'source_repository': REPOSITORY, 'source_commit': commit,
@@ -134,7 +141,7 @@ def stage(destination, site_commit, *, poll=False, force_stage=False):
     changed = True
     if poll:
         try:
-            previous = json.loads(fetch(SITE + '/Meridian/publication.json', 20_000))
+            previous = json.loads(fetch(SITE + '/Meridian/publication.json?check=' + str(time.time_ns()), 20_000))
         except HTTPError as error:
             if error.code != 404:
                 raise

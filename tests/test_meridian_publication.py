@@ -63,9 +63,23 @@ class MeridianPublicationTest(unittest.TestCase):
         self.assertEqual(saved, raw)
         self.assertEqual(set(indexed), set(FILES))
         self.assertEqual(receipt['manifest_sha256'], meridian.digest(raw))
-        for alteration in ({'conclusion': 'failure'}, {'event': 'pull_request'}, {'head_repository': {'full_name': 'other/Meridian'}}):
-            with self.subTest(alteration=alteration), patch.object(meridian, 'api', return_value={'workflow_runs': [workflow_run(**alteration)]}), self.assertRaises(ValueError):
+        for alteration in ({'conclusion': 'failure'}, {'head_sha': 'c' * 40}, {'event': 'pull_request'}, {'head_repository': {'full_name': 'other/Meridian'}}):
+            with self.subTest(alteration=alteration), patch.object(meridian, 'fetch', return_value=raw), patch.object(meridian, 'api', return_value={'workflow_runs': [workflow_run(**alteration)]}), self.assertRaises(ValueError):
                 meridian.select_source()
+
+    def test_finds_manual_deployment_for_the_live_sha_and_refuses_unverified_publication(self):
+        raw = json.dumps(manifest()).encode()
+        missing = {'workflow_runs': []}
+        manual = {'workflow_runs': [workflow_run(event='workflow_dispatch')]}
+        with patch.object(meridian, 'fetch', return_value=raw), patch.object(meridian, 'api', side_effect=[missing, manual]) as api:
+            _, _, receipt = meridian.select_source()
+        self.assertEqual(receipt['source_commit'], SOURCE)
+        for call, event in zip(api.call_args_list, ('push', 'workflow_dispatch'), strict=True):
+            fields = parse_qs(urlsplit(call.args[0]).query)
+            self.assertEqual(fields['head_sha'], [SOURCE])
+            self.assertEqual(fields['event'], [event])
+        with patch.object(meridian, 'fetch', return_value=raw), patch.object(meridian, 'api', return_value=missing), self.assertRaisesRegex(ValueError, 'No successful'):
+            meridian.select_source()
 
     def test_refuses_modified_or_unexpected_build_inventory(self):
         for changes in ({'commit': 'c' * 40}, {'workingTreeDirty': True}, {'totalBytes': 3}):
