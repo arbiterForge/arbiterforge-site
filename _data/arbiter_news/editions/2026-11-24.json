@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-24",
+  "title": "Arbiter News",
+  "intro": "Twelve original-source developments across developer workflows, inference governance, infrastructure operations, security and economic conditions.",
+  "overview": "AI examines GitHub issue tracking, Bedrock access governance and browser-local inference. Cloud covers Azure telemetry in CloudWatch, managed Slurm extensions and replica-first Oracle patching. Security follows live Linux protections, API inventory and Army research collaborations. Money tracks preliminary US and eurozone business surveys and 2027 multifamily financing limits.",
+  "history_note": "The public coverage.json endpoint was inaccessible to the web reader. Deduplication used its repository backing data: all ten legacy history parts (319 records) and all 31 dated editions from October 23 through November 23 (372 stories), totaling 691 prior records. Candidate developments and source URL slugs were checked across the complete backing records, including the accessible 30-plus-day period. Known missing archive dates are September 23, October 6 and October 25; some legacy records lack source URLs. Historical records are not independent factual verification. Routine Opus 5.5 launch coverage was excluded. The Army report concerns ongoing research including an older experiment, and survey reference periods are distinguished from release dates. Some uncovered primary announcements are older than 48 hours but within seven days.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "github:issues:status-repository-board-public-preview:2026-11-23",
+      "status": "new",
+      "topic": "Issue tracking and agent coordination",
+      "title": "GitHub previews native issue statuses and repository boards",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-23",
+      "event_date": "2026-11-23",
+      "freshness": "New • 1 day",
+      "highlights": "GitHub introduced a public preview of issue-level statuses and repository boards. The statuses distinguish backlog, active work, review, completion and other outcomes. Assigning an agent moves an issue to active work, while linking a draft pull request or marking it ready for review triggers related transitions. Saved repository views can display issues as boards with configurable columns and swimlanes. GitHub says status is also exposed through REST, GraphQL and MCP, and status changes can trigger Copilot automations.",
+      "implications": "Analysis: A repository can now expose more useful workflow state directly to humans and automation without relying entirely on an external project board. Teams should still define ownership, transition rules and reconciliation with any existing project status field. Preview functionality may change.",
+      "takeaway": "Takeaway: Pilot the status transitions on a noncritical repository, including agent assignments and linked pull requests, before relying on them for reporting.",
+      "development_summary": "GitHub opened a public preview of native issue statuses and repository board views with agent and API integration.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-23-issue-statuses-and-repository-boards-are-in-public-preview/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "aws-bedrock:trusted-access-api-ga-efs-edc-preview:2026-11-23",
+      "status": "new",
+      "topic": "Enterprise inference governance",
+      "title": "Bedrock launches trusted access API and previews enterprise safeguards",
+      "publisher": "AWS",
+      "publication_date": "2026-11-23",
+      "event_date": "2026-11-23",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced general availability of its trusted access program API, which exposes eligibility and enrollment for model-provider programs. Anthropic Enterprise Frontier Safeguards and Enterprise Data Controls are the first programs in public preview. The former can retain encrypted inference records in a customer's own S3 bucket with a customer-managed key and at least 30 days of retention. The latter uses AWS-managed storage and keys. AWS describes automated safety review for both; case delivery for the managed-storage option is not available during preview. Enrollment requires eligibility and acceptance of provider terms.",
+      "implications": "Analysis: The API separates procurement or access approval from runtime policy. Retaining content creates new data-management obligations, even when human review remains with the customer. This is not equivalent to zero retention.",
+      "takeaway": "Takeaway: Review preview eligibility, region-specific storage settings, retention, IAM enrollment permissions and case-handling procedures before opting in.",
+      "development_summary": "Bedrock introduced the trusted access program API and two preview enterprise governance offerings for eligible model users.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/blogs/machine-learning/introducing-the-amazon-bedrock-trusted-access-api-with-anthropics-enterprise-frontier-safeguards-and-enterprise-data-controls/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "microsoft-edge:aion-instruct-ga-prompt-api-origin-trial:2026-11-19",
+      "status": "new",
+      "topic": "Browser-local inference",
+      "title": "Edge releases Aion Instruct and opens Prompt API origin trial",
+      "publisher": "Microsoft",
+      "publication_date": "2026-11-19",
+      "event_date": "2026-11-19",
+      "freshness": "New • 5 days",
+      "highlights": "Microsoft announced general availability of Aion Instruct as downloadable weights and as the built-in small language model in Edge, replacing Phi-4-mini in the browser. The 2.3 billion parameter model is downloaded when needed on eligible devices, and users can disable on-device AI. The Prompt API has moved from a developer-only preview to an origin trial that supports testing on live websites. An experimental Decisions API remains a developer preview in Edge Canary and Dev. Microsoft describes a hybrid design in which developers can choose local inference or a configured cloud service.",
+      "implications": "Analysis: Local inference may reduce network dependency and avoid sending certain inputs off-device, but hardware coverage and output quality will vary. Hybrid fallback changes the privacy and cost characteristics of the application and should be explicit.",
+      "takeaway": "Takeaway: Test device eligibility, download behavior, latency, quality and consent for cloud fallback before rolling out a browser-based assistant.",
+      "development_summary": "Microsoft released Aion Instruct for Edge and opened a Prompt API origin trial with a separate experimental Decisions API.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://blogs.windows.com/msedgedev/2026/11/19/hybrid-intelligence-on-the-web-introducing-aion-instruct-and-prompt-api-in-microsoft-edge/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:cloudwatch-omni:azure-telemetry-collection:2026-11-21",
+      "status": "new",
+      "topic": "Multicloud observability",
+      "title": "CloudWatch Omni adds Azure telemetry collection",
+      "publisher": "AWS",
+      "publication_date": "2026-11-21",
+      "event_date": "2026-11-21",
+      "freshness": "New • 3 days",
+      "highlights": "AWS announced that CloudWatch Omni can collect Azure resource logs, platform metrics, virtual network flow logs and Application Insights traces. Operators connect a Microsoft Entra ID tenant to an AWS account and region, then choose which Azure subscriptions, locations, telemetry categories, resource types and tags to collect. AWS says the resulting data is stored in CloudWatch and can be viewed alongside AWS infrastructure and application telemetry in Omni spaces. Collection is supported from Azure public regions, with ingestion into regions that support the Omni service.",
+      "implications": "Analysis: A shared view could simplify incident investigation when applications span both providers, but centralization introduces cross-cloud data movement, permission and retention considerations. It does not eliminate the need to validate trace correlation or account for data ingestion charges.",
+      "takeaway": "Takeaway: Start with one application dependency chain and measure telemetry completeness, access isolation, ingestion cost and incident investigation time.",
+      "development_summary": "CloudWatch Omni added Azure resource logs, metrics, flow logs and application trace collection.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-omni-microsoft-azure/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:sagemaker-hyperpod:slurm-managed-observability-user-management-extensions:2026-11-23",
+      "status": "new",
+      "topic": "Accelerator cluster operations",
+      "title": "HyperPod adds managed Slurm observability and identity extensions",
+      "publisher": "AWS",
+      "publication_date": "2026-11-23",
+      "event_date": "2026-11-23",
+      "freshness": "New • 1 day",
+      "highlights": "SageMaker HyperPod now offers managed extensions for Slurm-orchestrated clusters. Administrators declare extension configurations through the console or API; HyperPod validates and distributes them to existing and newly added nodes. The initial observability extension collects GPU, node, EFA and Slurm metrics and can export to CloudWatch or Amazon Managed Service for Prometheus. The identity extension aligns user and group identifiers across nodes and controls SSH and sudo access by node type using local identities, Active Directory or both. AWS does not charge separately for the extensions, but underlying services remain billable.",
+      "implications": "Analysis: Moving routine cluster management out of custom lifecycle scripts may reduce configuration drift and maintenance burden. Administrators should evaluate how managed settings interact with existing node images, identity policies and operational access controls.",
+      "takeaway": "Takeaway: Validate user identifiers, permissions, extension health reporting and metric cardinality on a test Slurm cluster before removing custom scripts.",
+      "development_summary": "HyperPod introduced declaratively managed observability and user-management extensions for Slurm clusters.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-hyperpod-extensions/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:rds-oracle:replica-first-minor-version-patching:2026-11-20",
+      "status": "new",
+      "topic": "Database maintenance",
+      "title": "RDS for Oracle supports replica-first patching",
+      "publisher": "AWS",
+      "publication_date": "2026-11-20",
+      "event_date": "2026-11-20",
+      "freshness": "New • 4 days",
+      "highlights": "AWS announced a replica-first workflow for minor version upgrades on eligible RDS for Oracle Enterprise Edition instances. Rather than begin with the serving database, the service upgrades an in-region replica while the primary remains available. An operator can choose when to switch within a defined window. A read-only replica can be used to validate the new version before switchover; if the window expires, AWS rolls the replica back to its original version. After switchover, the service upgrades the remaining replicas, including the former primary. AWS recommends using the Primary Endpoint for applications.",
+      "implications": "Analysis: This workflow shifts some upgrade risk into a pre-cutover validation period, but does not promise a completely interruption-free switch. Application connection handling, replication lag and feature-specific limitations remain relevant.",
+      "takeaway": "Takeaway: Rehearse the switchover with representative workloads and document application recovery behavior before the next minor version upgrade.",
+      "development_summary": "RDS for Oracle introduced replica-first patching for eligible Enterprise Edition deployments.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-oracle-replica-first-patching/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "openai-cisco:shirudo:open-source-linux-runtime-shields:2026-11-23",
+      "status": "new",
+      "topic": "Live Linux mitigation",
+      "title": "OpenAI and Cisco open-source Shirudo for live Linux safeguards",
+      "publisher": "OpenAI and Cisco",
+      "publication_date": "2026-11-23",
+      "event_date": "2026-11-23",
+      "freshness": "New • 1 day",
+      "highlights": "OpenAI and Cisco introduced Shirudo, an open-source runtime designed to apply temporary Linux protections while operators prepare permanent patches. It uses eBPF to observe and constrain selected system behavior. The design includes monitoring before enforcement, operator approval, signed protection programs and TPM-backed records of changes. The companies report a controlled demonstration in which a Codex-generated protection blocked an exploit attempt against a running Elasticsearch service without restarting it. They released the runtime under BSD 2-Clause, with dual BSD and GPL licensing for its BPF programs.",
+      "implications": "Analysis: Temporary, targeted protections could shorten the time during which a vulnerable service is exposed. A laboratory demonstration is not proof of reliable coverage across production workloads. Privileged instrumentation and signing infrastructure require independent security and operational review.",
+      "takeaway": "Takeaway: Evaluate in a disposable lab; measure legitimate traffic impact, rollback and attestation before considering production deployment. Continue permanent patching.",
+      "development_summary": "OpenAI and Cisco released the Shirudo runtime and reported a controlled live mitigation demonstration.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://openai.com/index/introducing-shirudo/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "aws:waf:api-portal-discovery-managed-api-security-rules-ga:2026-11-23",
+      "status": "new",
+      "topic": "API inventory and protection",
+      "title": "AWS releases automated API discovery and WAF security rules",
+      "publisher": "AWS",
+      "publication_date": "2026-11-23",
+      "event_date": "2026-11-23",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced general availability of automated API discovery and protection for endpoints behind API Gateway, Application Load Balancers and CloudFront. The new API Gateway API Portal builds an inventory from traffic and configuration information and reports findings about unprotected, undocumented or unused endpoints. A new WAF managed rule group addresses common API attack patterns including unauthorized object access, authentication abuse and endpoint enumeration. WAF findings feed back into the portal. AWS lists the portal in 32 regions and excludes GovCloud, China and the European Sovereign Cloud from the new API Security rules at launch.",
+      "implications": "Analysis: Inventory and edge inspection may help teams identify overlooked interfaces and reduce exposure. A managed WAF cannot independently prove that every application authorization decision is correct; application-side access checks and testing are still essential.",
+      "takeaway": "Takeaway: Compare portal discovery against the service catalog, remediate missing protections, and test authorization independently before enforcing new rules broadly.",
+      "development_summary": "AWS released API Portal automated discovery and a new API Security WAF managed rule group.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/api-security-with-waf/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "us-army:isw-ctis-gtri-mit:academic-technology-collaborations-disclosed:2026-11-23",
+      "status": "new",
+      "topic": "Defense research and digital engineering",
+      "title": "Army details academic collaborations for reconnaissance and data processing",
+      "publisher": "U.S. Army",
+      "publication_date": "2026-11-23",
+      "event_date": "2026-09 (LiDAR experiment; partnerships ongoing)",
+      "freshness": "New • 1 day",
+      "highlights": "The Army's Intelligence and Spectrum Warfare portfolio described ongoing collaborations with the Georgia Tech Research Institute and MIT Lincoln Laboratory. The November 23 report details research with GTRI into adapting LiDAR for combat engineer reconnaissance and includes a photograph from a September Marine Corps technical experiment. A separate collaboration explores software that helps personnel process substantial data volumes with less manual sorting. The Army also describes academic contributions to model-based systems engineering and technical research. The report describes development and experimentation rather than a newly fielded capability or a new procurement award.",
+      "implications": "Analysis: Academic partnerships can bring specialized research and reusable technical knowledge into acquisition programs earlier. Operational suitability, data quality, usability and integration will still require evidence from evaluation; the article provides no quantified performance result.",
+      "takeaway": "Takeaway: Track published evaluation criteria and transition milestones rather than assuming a research partnership has delivered an operational system.",
+      "development_summary": "The Army disclosed ongoing academic collaborations for reconnaissance technology and reducing manual information-processing burden.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.army.mil/article-amp/296827/army_organization_leverages_academic_expertise"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "spglobal:us-flash-pmi:november-2026-composite54p6:2026-11-23",
+      "status": "new",
+      "topic": "US business conditions",
+      "title": "US flash composite PMI falls to 54.6 as price pressures ease",
+      "publisher": "S&P Global",
+      "publication_date": "2026-11-23",
+      "event_date": "2026-11 (preliminary survey)",
+      "freshness": "New • 1 day",
+      "highlights": "S&P Global's November 23 preliminary US survey put its composite output index at 54.6, down from 55.9 in October. A reading above 50 indicates expansion compared with the prior month. The survey describes continuing growth in output and hiring, although the expansion in activity slowed to its weakest pace since July. Respondents reported capacity constraints and supply disruptions, especially for some industrial inputs. Input and selling price inflation moderated but remained elevated. These findings are preliminary survey measures, not official GDP or inflation statistics.",
+      "implications": "Analysis: The combination of continued expansion and persistent price pressure complicates the outlook for interest rates. Slower price increases do not mean the overall price level has fallen. The survey may be revised and other economic measures can tell a different story.",
+      "takeaway": "Takeaway: Compare the final PMI with official inflation and employment releases before drawing conclusions about borrowing costs or the economic outlook.",
+      "development_summary": "S&P Global released the November flash US composite PMI at 54.6 versus October's 55.9.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/11/us-flash-pmi-indicates-still-elevated-but-cooling-business-activity-growth-and-price-pressures"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "fhfa:2027-multifamily-loan-purchase-caps-176b:2026-11-23",
+      "status": "new",
+      "topic": "Rental housing finance",
+      "title": "FHFA sets 2027 multifamily purchase limits at $176 billion",
+      "publisher": "Federal Housing Finance Agency",
+      "publication_date": "2026-11-23",
+      "event_date": "2026-11-23 (announcement; 2027 limits)",
+      "freshness": "New • 1 day",
+      "highlights": "FHFA announced that Fannie Mae and Freddie Mac will each have an $88 billion multifamily loan purchase cap in 2027, unchanged from 2026. The combined limit is $176 billion. At least half of each enterprise's multifamily business must continue to serve the mission-driven affordable housing category. Loans funding workforce housing remain outside the caps, while other mission-driven loans count toward them. FHFA says it will consider raising limits if market conditions require additional liquidity, but will not lower them if the market turns out smaller than anticipated.",
+      "implications": "Analysis: Stable limits provide some continuity for apartment financing and housing investors. They do not establish consumer mortgage rates, guarantee lower rents, or determine the number of new housing units; financing demand and local housing supply still matter.",
+      "takeaway": "Takeaway: Follow enterprise loan volumes and actual multifamily construction and vacancy figures to assess the potential impact on rental markets.",
+      "development_summary": "FHFA announced unchanged 2027 multifamily purchase limits and continued affordability requirements for both enterprises.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.fhfa.gov/news/news-release/u.s.-federal-housing-announces-2027-multifamily-loan-purchase-caps-for-fannie-mae-and-freddie-mac"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "spglobal:eurozone-flash-pmi:november-2026-composite51p7:2026-11-23",
+      "status": "new",
+      "topic": "European economic conditions",
+      "title": "Eurozone flash PMI holds at 51.7 as national growth diverges",
+      "publisher": "S&P Global",
+      "publication_date": "2026-11-23",
+      "event_date": "2026-11 (preliminary survey)",
+      "freshness": "New • 1 day",
+      "highlights": "S&P Global's November 23 preliminary eurozone survey showed its composite PMI unchanged at 51.7. Its commentary identifies a divergence between strengthening manufacturing-led activity in Germany, a deepening downturn in France and slower growth elsewhere in the region. The survey also reported continuing price pressures despite lower oil costs. The publisher estimates that the headline measure is consistent with quarterly GDP growth near 0.3%, but that figure is an inference from the survey rather than an official national-accounts estimate. The report discusses higher borrowing costs as a constraint on demand.",
+      "implications": "Analysis: Aggregate regional data can conceal substantial differences in the health of individual economies. Persistent price pressure alongside uneven growth complicates monetary policy and investment decisions; the publisher's interpretation of future central bank action is not a confirmed decision.",
+      "takeaway": "Takeaway: Monitor final country-level PMI readings, official inflation and the next ECB decision instead of treating the preliminary headline as a uniform European growth signal.",
+      "development_summary": "S&P Global published the November flash eurozone composite reading of 51.7 with diverging country-level conditions.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/11/steady-eurozone-flash-pmi-masks-widening-growth-disparities"
+        }
+      ]
+    }
+  ]
+}
