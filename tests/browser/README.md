@@ -18,7 +18,7 @@ Use Node 22.12+ and `npm ci --ignore-scripts` in this directory. Run with Playwr
 
 `npm test` serves the composed repository `_site/` on a loopback port. Set `SITE_ROOT` to a different built output directory when needed. Set `SITE_BASE_URL` to an already running preview URL to reuse it without starting a server. In a managed Sites workspace, start its supported `sites-preview` and use the exact returned URL through `SITE_BASE_URL`.
 
-The Pages workflow runs browser checks whenever the composed output changes, including changes discovered by the existing twenty-minute SIM polling schedule. Publishing on main always requires their success. Unchanged scheduled polls skip the Jekyll build, browser checks and deployment. A scheduled run cannot bypass a failed check on a main-branch change. Browser checks never write back to the repository or update their own expected results.
+The Pages workflow runs browser checks whenever the composed output changes, including changes discovered by the ten-minute publication polling schedule. Publishing on main always requires their success. Unchanged scheduled polls skip the Jekyll build, browser checks and deployment. A scheduled run cannot bypass a failed check on a main-branch change. Browser checks never write back to the repository or update their own expected results.
 
 ## Reviewing intentional visual changes
 

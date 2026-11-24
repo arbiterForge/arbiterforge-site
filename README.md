@@ -149,7 +149,7 @@ physical-phone run or field Core Web Vitals collected from real visitors.
 ## SIM publication
 
 Main pushes publish the complete site. A scheduled Actions run checks SIM every
-20 minutes; GitHub schedules can be delayed. Manual dispatch is also available.
+10 minutes; GitHub schedules can be delayed. Manual dispatch is also available.
 An unchanged site commit and SIM source/digest skip the build and deployment.
 `scripts/stage_sim.py` selects the latest successful `SUaDtL/SIM` main Pages run,
 requires passing push CI for that exact source, and checks the public HTML's clean
@@ -200,6 +200,10 @@ the query string and fragment in browsers with JavaScript enabled.
 The site copies the verified split build into `_site/Meridian/` after Jekyll.
 The app keeps its relative asset URLs and local-only content policy.
 `/Meridian/publication.json` records the source and site commits, manifest digest
-and upstream workflow run. The shared 20-minute schedule publishes when either
+and upstream workflow run. Meridian has one source of releases: push to
+`SUaDtL/Meridian` on `main`. The consumer reads the live upstream build stamp
+and requires a successful Pages publication for that exact commit before copying
+the release. Users can stay on `arbiterforge.com/Meridian/` across releases,
+including when reopening projects stored in their browser. The shared 10-minute schedule publishes when either
 app changes. The composed preview must pass browser checks before deployment,
 and the receiving job checks the actual public paths and hashes.

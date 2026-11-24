@@ -158,7 +158,7 @@ class SimPublicationTest(unittest.TestCase):
         self.assertEqual(next(p for p in projects if p['id'] == 'sim')['href'], '/SIM/')
         self.assertIn('href="/news/"', home)
         workflow = (ROOT / '.github/workflows/pages.yml').read_text()
-        self.assertIn("cron: '7,27,47 * * * *'", workflow)
+        self.assertIn("cron: '7,17,27,37,47,57 * * * *'", workflow)
         deployment_boundary(workflow)
         self.assertIn('python tests/check_news_build.py _site', workflow)
         self.assertIn('python scripts/check_sim_live.py', workflow)
