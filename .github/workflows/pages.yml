@@ -19,7 +19,12 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    env:
+      PREVIEW_ARTIFACT: site-preview-${{ github.sha }}-${{ github.run_attempt }}
+      PAGES_ARTIFACT: github-pages-${{ github.run_attempt }}
     outputs:
+      preview_artifact: ${{ env.PREVIEW_ARTIFACT }}
+      pages_artifact: ${{ env.PAGES_ARTIFACT }}
       changed: ${{ steps.publications.outputs.changed }}
       html_sha256: ${{ steps.sim.outputs.html_sha256 }}
       source_commit: ${{ steps.sim.outputs.source_commit }}
@@ -76,7 +81,7 @@ jobs:
         if: steps.publications.outputs.changed == 'true'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: site-preview-${{ github.sha }}
+          name: ${{ env.PREVIEW_ARTIFACT }}
           path: _site/
           retention-days: 7
           if-no-files-found: error
@@ -85,6 +90,7 @@ jobs:
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
         with:
           path: _site
+          name: ${{ env.PAGES_ARTIFACT }}
 
   browser:
     needs: build
@@ -104,7 +110,7 @@ jobs:
       - name: Receive the exact composed site
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
-          name: site-preview-${{ github.sha }}
+          name: ${{ needs.build.outputs.preview_artifact }}
           path: _site
       - name: Install pinned browser checks
         run: npm ci --ignore-scripts --no-audit --no-fund
@@ -114,7 +120,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: browser-quality-${{ github.sha }}
+          name: browser-quality-${{ github.sha }}-${{ github.run_attempt }}
           path: |
             tests/browser/playwright-report/
             tests/browser/test-results/
@@ -135,6 +141,8 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346
+        with:
+          artifact_name: ${{ needs.build.outputs.pages_artifact }}
 
   receive:
     needs: [build, deploy]
