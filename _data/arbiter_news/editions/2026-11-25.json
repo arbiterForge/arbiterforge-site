@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-25",
+  "title": "Arbiter News",
+  "intro": "Twelve primary-source developments across AI-enabled workflows, infrastructure, cybersecurity, defense software and household economic conditions.",
+  "overview": "AI examines scientific research workflows, GitHub notification behavior and local model integration. Cloud covers infrastructure as code, SQL Server consolidation and multicloud automation. Security follows a Drupal vulnerability, a threat intelligence disclosure and the Army's developer platform. Money tracks consumer confidence, 2027 conforming mortgage limits and regional manufacturing.",
+  "history_note": "The public coverage.json endpoint was unavailable to the web reader. Its complete accessible repository backing records were retrieved and checked: ten legacy history parts (319 records) and 32 dated editions from October 23 through November 24 (384 stories), totaling 703 records. The event keys and candidate source URL slugs were compared across that history; archive gaps remain September 23, October 6 and October 25, and some legacy records lack source URLs. Historical coverage is not independent evidence of factual accuracy. Routine Opus 5.5 launch coverage is excluded. The two November 18 security reports are previously uncovered, within seven days. The Army article reports milestones from throughout 2026. One multicloud story identifies a material update to prior coverage.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "openai:astra-codex:amateur-exoplanet-search-case-study:2026-11-24",
+      "status": "new",
+      "topic": "AI-assisted scientific workflows",
+      "title": "Codex and Astra help amateur astronomers identify candidate planetary signals",
+      "publisher": "OpenAI",
+      "publication_date": "2026-11-24",
+      "event_date": null,
+      "freshness": "New • 1 day",
+      "highlights": "OpenAI published a case study of two amateur astronomers who used its tools to investigate public telescope observations. One participant used Codex to develop and test a search program, then used agents to screen and recheck promising signals. That search of Kepler data flagged more than 200 signals, including ten from known planets. A SETI Institute astronomer independently located two of the same signals. A separate search of TESS observations produced candidates for further examination. None of the newly flagged signals is presented as a confirmed exoplanet.",
+      "implications": "Analysis: The report illustrates how coding assistants can lower barriers to investigating large scientific datasets, particularly when users can test pipelines against known results. Independent review of the underlying observations remains essential, and a matching signal does not establish its physical cause.",
+      "takeaway": "Takeaway: Use reproducible data-processing pipelines and independent validation when applying agents to scientific discovery.",
+      "development_summary": "OpenAI reported two amateur AI-assisted exoplanet searches with candidate signals submitted for independent analysis.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://openai.com/index/searching-for-distant-planets-with-astra/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:notifications:subscription-reason-priority-migration-announced:2026-11-24",
+      "status": "new",
+      "topic": "Developer collaboration",
+      "title": "GitHub announces a December overhaul of notification subscriptions",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-24",
+      "event_date": "2026-12-01 (planned rollout)",
+      "freshness": "New • 1 day",
+      "highlights": "GitHub announced a gradual notification migration beginning December 1 on GitHub.com, rather than GitHub Enterprise Server. Routine actions such as reviewing or commenting will no longer automatically undo a manual unsubscribe, although direct mentions, assignments and review requests still can. Notifications caused by team mentions will better reflect current membership and whether the mention still exists. GitHub will choose the displayed notification reason using a fixed priority and include every applicable reason in email headers. Its subscriptions page will focus on manually subscribed threads.",
+      "implications": "Analysis: This is a meaningful behavior change for teams that route review requests and issues through email-based filters or automation. During migration, different users may see different behavior. The change does not mean that all repository activity will disappear from inboxes.",
+      "takeaway": "Takeaway: Test rules that parse notification reasons and verify that review and assignment requests reach the appropriate people during rollout.",
+      "development_summary": "GitHub announced revised subscription and notification-reason semantics with a phased rollout scheduled from December 1.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-24-more-predictable-notifications-on-github-com/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "google-alloydb-omni:locally-hosted-llm-integration:2026-11-23",
+      "status": "new",
+      "topic": "Private inference and data integration",
+      "title": "AlloyDB Omni adds integration with locally hosted language models",
+      "publisher": "Google Cloud",
+      "publication_date": "2026-11-23",
+      "event_date": "2026-11-23",
+      "freshness": "New • 2 days",
+      "highlights": "Google describes a new way to connect its downloadable AlloyDB Omni database to language models running on infrastructure controlled by the customer. The database can call a local inference server from SQL, rather than requiring a hosted model endpoint. The announcement demonstrates a Kubernetes deployment using the AlloyDB operator and a locally served Gemma 4 model, and notes that other models can be substituted. It also describes combining the database's vector indexing and semantic search features with model calls. The walkthrough uses GKE, but Google describes the approach as applicable to on-premises Kubernetes as well.",
+      "implications": "Analysis: Local inference can reduce external data transfers, but it moves responsibility for model hosting, authentication, resource allocation and auditing to the operator. Database-side model calls also create workload isolation and latency questions.",
+      "takeaway": "Takeaway: Pilot with non-sensitive data and measure query latency, resource contention, inference reliability and network egress before using private records.",
+      "development_summary": "Google announced AlloyDB Omni integration with locally hosted language models and published a Kubernetes demonstration.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://cloud.google.com/blog/products/databases/alloydb-omni-integration-with-local-models"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:cloudformation:206-resource-types-cloud-control-224-readonly:2026-11-24",
+      "status": "new",
+      "topic": "Infrastructure as code",
+      "title": "CloudFormation adds 206 resource types across 88 AWS services",
+      "publisher": "AWS",
+      "publication_date": "2026-11-24",
+      "event_date": "2026-11-24",
+      "freshness": "New • 1 day",
+      "highlights": "AWS expanded CloudFormation coverage by 206 resource types spanning 88 services. Examples include SageMaker Hub, Bedrock AgentCore PolicyEngine and EC2 Snapshot. The Cloud Control API also supports the new CloudFormation resource types and separately adds 224 read-only types across 99 services. AWS attributes the expansion to a new internal AI-assisted onboarding framework. The new CloudFormation coverage applies in regions where the relevant underlying services operate, rather than implying universal availability of every service.",
+      "implications": "Analysis: Broader native resource support can reduce the need for bespoke provisioning scripts and custom resources. Read-only Cloud Control types are useful for inspection but should not be mistaken for writable infrastructure definitions. Existing deployment tooling still needs to validate schema coverage, lifecycle behavior and permissions.",
+      "takeaway": "Takeaway: Review custom resources and manual provisioning steps for candidates to replace; test update, deletion and rollback behavior before migrating production stacks.",
+      "development_summary": "CloudFormation added 206 resource types while Cloud Control API added those types and 224 read-only types.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/cloudformation-coverage-expansion/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:rds-sqlserver:500-databases-per-instance:2026-11-24",
+      "status": "new",
+      "topic": "Database consolidation",
+      "title": "RDS for SQL Server raises the database limit to 500 per eligible instance",
+      "publisher": "AWS",
+      "publication_date": "2026-11-24",
+      "event_date": "2026-11-24",
+      "freshness": "New • 1 day",
+      "highlights": "AWS increased the supported database count on eligible RDS for SQL Server instances from 100 to 500. The new limit applies to non-burstable instances with four or more virtual CPUs, and AWS says it spans supported SQL Server versions. The change targets applications that operate numerous individual databases, including software-as-a-service providers with separate tenant databases. AWS expects consolidation to reduce the number of instances that customers have to operate, patch and monitor and potentially lower infrastructure and licensing costs.",
+      "implications": "Analysis: Higher database density changes the economics of tenant isolation but does not increase the physical resources of an existing instance. More databases sharing one host can create contention for memory, storage throughput and maintenance windows, and can increase the number of tenants affected by a single failure.",
+      "takeaway": "Takeaway: Benchmark peak concurrency, backup and recovery times and resource isolation before consolidating production databases.",
+      "development_summary": "RDS for SQL Server increased the per-instance database limit from 100 to 500 on eligible instances.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-sqlserver-supports-500-databases-per-instance/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:ssm-automation:azure-gcp-native-resource-runbook-actions:2026-11-23",
+      "status": "material-update",
+      "topic": "Multicloud operations",
+      "title": "Systems Manager adds runbook automation for Azure and Google Cloud resources",
+      "publisher": "AWS",
+      "publication_date": "2026-11-23",
+      "event_date": "2026-11-23",
+      "freshness": "Material update • 2 days",
+      "highlights": "AWS Systems Manager Automation now supports workflows that operate on Azure and Google Cloud resources, as well as AWS resources. Six new actions handle cloud API requests, resource-state checks and waiting for operations. The targeting options include Azure subscriptions, resource groups and tags, and Google Cloud projects, zones and labels. AWS says the script execution action can use the other providers' Python SDKs and obtains temporary credentials through Cloud Connector. The service retains controlled batches, approval pauses and error thresholds, and is available where the connector can be created.",
+      "implications": "Analysis: This extends centralized operations beyond onboarding guest operating systems. Cross-cloud changes can simplify maintenance but also concentrate administrative authority; explicit resource scoping and an independent approval boundary are important.",
+      "takeaway": "Takeaway: Test dry-run or limited-scope workflows, least-privilege cross-cloud roles, audit trails and failure handling before automating production remediation.",
+      "development_summary": "AWS added native Azure and Google Cloud resource actions to Systems Manager Automation.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/systems-manager-multicloud-automation/"
+        }
+      ],
+      "updates_event_key": "aws:ssm-cloud-connector:google-cloud-vm-automatic-agent-onboarding:2026-11-13",
+      "change_summary": "The November 13 coverage concerned automated onboarding of Google Cloud VMs into Systems Manager. On November 23, AWS added six runbook actions and SDK support for operating on Azure and Google Cloud resources directly, using short-lived connector credentials."
+    },
+    {
+      "category": "security",
+      "event_key": "drupal:core:cve-2026-132165:patch-and-live-exploitation-report:2026-11-18",
+      "status": "new",
+      "topic": "Web application security",
+      "title": "Drupal warns of live exploitation of a highly critical core vulnerability",
+      "publisher": "Drupal Security Team",
+      "publication_date": "2026-11-18",
+      "event_date": "2026-11-19 (earliest reported exploitation)",
+      "freshness": "New • 7 days",
+      "highlights": "Drupal's security team published advisory SA-CORE-2026-017 for CVE-2026-132165, a highly critical issue that can result in site takeover or remote code execution under certain conditions. An update to the advisory reports exploitation of live sites as early as November 19. The team directs operators using supported branches to update to Drupal 10.6.22, 11.3.22 or 11.4.13 as appropriate. It also recommends securing the installer, particularly if immediate updating is not possible. Older branches outside security support need migration rather than an assumption of safety.",
+      "implications": "Analysis: Reported real-world exploitation increases the urgency of triaging internet-facing installations. Mitigations that block some attack paths do not substitute for a supported security release, and patching cannot establish that an earlier compromise did not occur.",
+      "takeaway": "Takeaway: Inventory affected sites, upgrade promptly and investigate potential compromise using your incident-response procedures and the vendor's defensive guidance.",
+      "development_summary": "Drupal published a highly critical core advisory and subsequently reported live exploitation.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.drupal.org/sa-core-2026-017"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "cisco-talos:uat-12643:targeted-infostealing-campaign-disclosure:2026-11-18",
+      "status": "new",
+      "topic": "Threat intelligence",
+      "title": "Cisco Talos reports a financially motivated credential-theft campaign",
+      "publisher": "Cisco Talos",
+      "publication_date": "2026-11-18",
+      "event_date": null,
+      "freshness": "New • 7 days",
+      "highlights": "Cisco Talos published findings about a financially motivated cluster it tracks as UAT-12643. Researchers identified infrastructure associated with multiple malicious programs, including remote-access malware, credential theft and cryptocurrency-related theft. The report describes potential targeting of cryptocurrency users, gaming accounts, and organizations using VoIP applications based on the themes of the files examined. Talos did not observe how the initial malicious files reached victims. Its assessment of possible North Korean alignment is explicitly low confidence, and is based on similarities to other campaigns rather than definitive attribution.",
+      "implications": "Analysis: The range of apparent targets reinforces the risk of treating consumer software, business communications tools and financial accounts as unrelated security domains. Indicators inferred from samples do not establish a confirmed victim population or the effectiveness of the campaign.",
+      "takeaway": "Takeaway: Review trusted software distribution, endpoint detection coverage, unusual authentication events and financial-account recovery procedures. Avoid treating tentative attribution as established fact.",
+      "development_summary": "Talos disclosed malicious infrastructure associated with UAT-12643 and described potential victim groups with qualified attribution.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://blog.talosintelligence.com/uat-12643-suspected-north-korea-aligned-actor-blends-blockchain-resilience-with-targeted-infostealing/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "us-army:cecom-asic:catalyst-forge-expanded-beta-2026-progress-disclosure:2026-11-24",
+      "status": "new",
+      "topic": "Defense software delivery",
+      "title": "Army reports expanded Catalyst Forge beta following joint-service alpha",
+      "publisher": "U.S. Army",
+      "publication_date": "2026-11-24",
+      "event_date": "2026 (milestones; November 24 report)",
+      "freshness": "New • 1 day",
+      "highlights": "The Army's Communications-Electronics Command Software and Innovation Center published a year-end account of its software engineering work. The center says that alpha testing of the Catalyst Forge virtual developer workstation platform involved 120 participants from four military services and enabled a beta phase expanding to 5,000 users. The report also describes an earlier API marketplace and DevSecOps platform effort, and work to support enterprise data integration. The center reorganized into capability-based teams in April. These are reported milestones across the year, not claims that all the activities occurred on November 24 or that the beta has reached general availability.",
+      "implications": "Analysis: A shared developer environment can reduce setup variation and improve cross-service collaboration, but scale, identity integration and accreditation remain important considerations. The reported beta expansion is a useful adoption milestone, not evidence of production readiness.",
+      "takeaway": "Takeaway: Track subsequent evidence on onboarding time, reproducibility, security controls and user outcomes as the beta expands.",
+      "development_summary": "The Army disclosed joint alpha testing and expanded Catalyst Forge beta scope in its November 24 software-readiness report.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.army.mil/article-amp/297040/army_software_innovation_center_advances_software_readiness_in_2026"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "conference-board:consumer-confidence:november-2026-103p3:2026-11-24",
+      "status": "new",
+      "topic": "Household economic sentiment",
+      "title": "Conference Board consumer confidence rises to 103.3 in November",
+      "publisher": "The Conference Board",
+      "publication_date": "2026-11-24",
+      "event_date": "2026-11-01 to 2026-11-17 (survey period)",
+      "freshness": "New • 1 day",
+      "highlights": "The Conference Board's preliminary November survey recorded a consumer confidence index of 103.3, up from the revised October reading of 91.9. The current-conditions component rose to 132.8, while expectations increased to 83.6. Respondents reported better perceptions of the labor market and business conditions. Average expected inflation over the coming twelve months eased but remained at 5.7 percent. The release identifies November 1 through 17 as its survey period and notes some increase in planned discretionary spending. These are survey measures rather than observed retail transactions or an official inflation reading.",
+      "implications": "Analysis: Improved sentiment could support household demand, but the result does not guarantee stronger consumption. The survey's change differs from other consumer sentiment measures in methodology and timing, so it should not be read as a contradiction without examining those differences.",
+      "takeaway": "Takeaway: Watch subsequent spending, employment and inflation releases before changing assumptions about household finances or interest rates.",
+      "development_summary": "The Conference Board released preliminary November consumer confidence of 103.3, versus a revised 91.9 in October.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.prnewswire.com/news-releases/us-consumer-confidence-surged-in-november-302949447.html"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "fhfa:2027-conforming-loan-limit:855400-announcement:2026-11-24",
+      "status": "new",
+      "topic": "Mortgage financing",
+      "title": "FHFA raises the 2027 baseline conforming mortgage limit to $855,400",
+      "publisher": "Federal Housing Finance Agency",
+      "publication_date": "2026-11-24",
+      "event_date": "2026-11-24 (announcement for 2027)",
+      "freshness": "New • 1 day",
+      "highlights": "FHFA announced that the standard one-unit conforming mortgage limit for 2027 will be $855,400 in most of the United States, $22,650 above the 2026 limit. The annual adjustment follows a 2.72 percent rise in the agency's nominal seasonally adjusted expanded-data house-price measure over the four quarters ending in the third quarter of 2026. High-cost areas can have higher limits under statutory rules, with special provisions for certain states and territories. FHFA expects increases in all but 24 counties or equivalents. The announcement concerns single-family conforming loan limits, rather than the multifamily purchase caps reported in the prior edition.",
+      "implications": "Analysis: A higher limit may allow some borrowers to qualify for conforming rather than jumbo financing. It does not guarantee mortgage approval, a lower interest rate, or improved affordability given other underwriting and market conditions.",
+      "takeaway": "Takeaway: Compare county-specific limits and actual lender offers when evaluating a purchase or refinance in 2027.",
+      "development_summary": "FHFA announced a $855,400 baseline one-unit conforming mortgage limit for 2027.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-for-2027"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "richmond-fed:fifth-district-manufacturing:november-2026-composite3:2026-11-24",
+      "status": "new",
+      "topic": "Regional manufacturing conditions",
+      "title": "Richmond Fed manufacturing index returns to positive territory",
+      "publisher": "Federal Reserve Bank of Richmond",
+      "publication_date": "2026-11-24",
+      "event_date": "2026-11 (survey reference month)",
+      "freshness": "New • 1 day",
+      "highlights": "The Richmond Fed's November survey reported a composite manufacturing index of 3, compared with minus 2 in October. The new-orders measure rose from minus 8 to 2, the shipments measure from zero to 2, and employment from 3 to 6. The index of local business conditions also turned positive, reaching 4 after a reading of minus 8. Manufacturers reported faster growth in input prices, while growth in selling prices was unchanged. Respondents anticipated slower price growth in the coming twelve months. The figures describe surveyed firms in the Fifth Federal Reserve District and are not national manufacturing output data.",
+      "implications": "Analysis: The survey suggests modest regional improvement despite cost pressure. Diffusion indexes indicate the balance of firms reporting rising versus falling activity, not the percentage growth of industrial output. One month of positive readings does not establish a sustained recovery.",
+      "takeaway": "Takeaway: Compare this release with national orders, production and employment data to assess whether regional improvement is broadening.",
+      "development_summary": "Richmond Fed reported a November manufacturing composite index of 3 versus minus 2 in October.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.richmondfed.org/-/media/RichmondFedOrg/region_communities/regional_data_analysis/regional_economy/surveys_of_business_conditions/manufacturing/2026/pdf/mfg_11_24_26.pdf"
+        }
+      ]
+    }
+  ]
+}
