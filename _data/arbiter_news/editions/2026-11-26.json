@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-26",
+  "title": "Arbiter News",
+  "intro": "Thanksgiving edition: twelve original-source developments across AI development, cloud operations, cybersecurity and the household economy.",
+  "overview": "AI covers clinical API configurations, Copilot review billing and durable agent execution. Cloud follows Envoy load balancing, incident routing and fleet quota visibility. Security examines identity propagation, network-appliance patches and IoT endpoint restrictions. Money tracks unemployment claims, new-home sales and mortgage borrowing costs. Recent defense announcements were screened, but no distinct substantive defense technology event was selected for this edition.",
+  "history_note": "The public coverage.json endpoint was inaccessible to the web reader. Its repository backing was retrieved: ten legacy parts containing 319 records and all 33 dated editions from October 23 through November 25 containing 396 stories, for 715 accessible records. Candidate developments and source URL terms were compared with those records. Known gaps remain September 23, October 6 and October 25; some legacy records lack URLs. Historical coverage is not independent fact verification. Routine Opus 5.5 launch coverage is excluded. Two stories document material updates to earlier platform coverage; the latest weekly economic measurements are distinct reporting periods.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "openai:healthcare-configurations:responses-api-dedicated-clinical-search:2026-11-24",
+      "status": "new",
+      "topic": "Clinical AI development",
+      "title": "OpenAI adds healthcare configurations to its Responses API",
+      "publisher": "OpenAI",
+      "publication_date": "2026-11-24",
+      "event_date": "2026-11-24",
+      "freshness": "New • 2 days",
+      "highlights": "OpenAI's November 24 model release notes announce healthcare-specific configurations for API organizations. They combine tailored instructions with the option of searching a dedicated healthcare evidence index when web search is enabled. Developers can request a supported healthcare model identifier through the Responses API, including a healthcare configuration of Astra. A separate ChatGPT healthcare workspace is not required. OpenAI's documentation distinguishes access to the model from authorization to process protected health information: organizations still need an applicable business associate agreement and eligible account and tool settings.",
+      "implications": "Analysis: Specialized retrieval may make clinical research applications easier to develop, but evidence quality, citation fidelity, clinical validation and privacy controls remain separate responsibilities. Access to a model is not a compliance determination.",
+      "takeaway": "Takeaway: Evaluate with de-identified or synthetic records, verify citations against the underlying research and obtain appropriate privacy and clinical approvals before deployment.",
+      "development_summary": "OpenAI made healthcare-specific API configurations with optional dedicated clinical search available to API organizations.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://help.openai.com/en/articles/20001656-healthcare-model-configurations-in-the-openai-api"
+        },
+        {
+          "label": "Dated model release notes",
+          "url": "https://help.openai.com/en/articles/9624314-model-release-notes"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "github:copilot-code-review:organization-default-billing-announcement:2026-11-25",
+      "status": "new",
+      "topic": "AI development cost governance",
+      "title": "GitHub will change the default payer for Copilot code reviews",
+      "publisher": "GitHub",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-12-30 (planned change)",
+      "freshness": "New • 1 day",
+      "highlights": "GitHub announced a December 30 billing-policy change for Copilot Business and Enterprise organizations. Where administrators have not saved a billing preference, reviews by licensed members will be charged to the repository-owning organization instead of consuming the individual member's entitlement. Explicitly saved Member or Organization settings remain in place. Organizations without paid AI Credits enabled, with a billing lock, or without a billable customer are exceptions and will retain member billing. The separate rule for contributors without Copilot licenses is unaffected. Administrators can explicitly select Member before the transition.",
+      "implications": "Analysis: Centralizing review costs may improve cost attribution for shared repositories, but it can also move previously individual consumption into organization budgets. The announcement is a future billing default, not a change in review quality or a universal new charge.",
+      "takeaway": "Takeaway: Inspect inherited policies and spending controls, choose the intended payer explicitly, and document the decision before December 30.",
+      "development_summary": "GitHub announced a change to unset Copilot code review billing policies from member to organization on December 30.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.blog/changelog/2026-11-25-copilot-code-review-billing-will-default-to-the-organization/"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "aws-lambda-microvms:durable-functions-orchestration-preview:2026-11-25",
+      "status": "material-update",
+      "topic": "Agent execution infrastructure",
+      "title": "AWS previews durable orchestration for Lambda MicroVMs",
+      "publisher": "AWS",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "Material update • 1 day",
+      "highlights": "AWS introduced a developer preview that connects Lambda durable functions to Lambda MicroVMs. The extension provides operations to execute tasks inside MicroVMs and manage their lifecycle. It supports both individual tasks and sessions where successive tasks can share files and memory. AWS describes its durable functions as supporting checkpointing and retries for multistep workflows lasting as long as one year. The company identifies software build pipelines, scanners and agent-generated code as possible workloads for this execution model. The extension is a preview, rather than a generally available production service.",
+      "implications": "Analysis: Separating orchestration from isolated execution can help developers reason about recovery after interruptions. Shared session state introduces its own lifecycle and data-retention concerns, and VM isolation does not remove the need to control credentials, network access or permissions.",
+      "takeaway": "Takeaway: Prototype with disposable workloads; test retry idempotency, state cleanup, execution limits and isolation before adopting the preview.",
+      "development_summary": "AWS announced a durable-functions extension to orchestrate individual MicroVM tasks and stateful sessions.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-microvm/"
+        }
+      ],
+      "updates_event_key": "aws-lambda-microvms:x86-image-architecture-support:2026-11-11",
+      "change_summary": "November 11 coverage addressed support for x86 images. On November 25 AWS announced a new developer-preview integration with durable functions for orchestrating MicroVM tasks and shared-state sessions."
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:elb-envoy:general-availability:2026-11-25",
+      "status": "new",
+      "topic": "Managed networking",
+      "title": "AWS launches managed Elastic Load Balancing for Envoy",
+      "publisher": "AWS",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced general availability of a new Elastic Load Balancing type that operates open-source Envoy proxies. The service handles proxy capacity, upgrades and security maintenance across availability zones. AWS says each load balancer uses dedicated EC2 instances with Nitro hardware isolation, and that it monitors vulnerabilities and applies patches to the proxy and operating system. Customers can retain their Envoy configuration, extensions and control plane, and integrate AWS certificate management and WAF. AWS also describes a remote infrastructure provider for Kubernetes users of Envoy Gateway that preserves their Gateway API resources.",
+      "implications": "Analysis: Managed proxy infrastructure could reduce operational overhead for teams already committed to Envoy. Configuration compatibility, latency, cost, observability and the division of responsibility during incidents remain important migration questions; vendor isolation claims should be evaluated against the organization's threat model.",
+      "takeaway": "Takeaway: Run a representative gateway configuration in a test environment and compare performance, rollout behavior, failover and operating costs against self-managed Envoy.",
+      "development_summary": "AWS made its managed Envoy-based ELB type generally available.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/elastic-load-balancing-for-envoy-generally-available/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:cloudwatch-omni:pagerduty-incident-integration:2026-11-25",
+      "status": "material-update",
+      "topic": "Incident management",
+      "title": "CloudWatch Omni can now open PagerDuty incidents",
+      "publisher": "AWS",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "Material update • 1 day",
+      "highlights": "AWS announced an integration that allows an alert in CloudWatch Omni to create an incident in PagerDuty. The integration routes the resulting incident into existing PagerDuty escalation policies and on-call schedules. Alert information includes a severity indicator, the affected service and a link to related observability data in Omni. The service is intended to support operations across infrastructure, applications and AI workloads. AWS expects the direct handoff to reduce manual notification work and incident resolution time; the announcement does not provide an independent measurement of that benefit.",
+      "implications": "Analysis: Connecting monitoring to an established response system may shorten the path from detection to ownership, but poor alert quality can still create duplicate incidents and fatigue. Incident lifecycle behavior and routing are important parts of operational acceptance testing.",
+      "takeaway": "Takeaway: Test severity mapping, responder routing, incident deduplication, escalation and recovery using controlled alerts before enabling critical production notifications.",
+      "development_summary": "AWS added automatic PagerDuty incident creation from CloudWatch Omni alerts.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-omni-pagerduty/"
+        }
+      ],
+      "updates_event_key": "aws:cloudwatch-omni:azure-telemetry-collection:2026-11-21",
+      "change_summary": "The November 21 development expanded Omni's telemetry collection to Azure; the November 25 announcement adds an outbound incident-management integration with PagerDuty, not another telemetry source."
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:iot-core:service-quotas-console-usage-monitoring:2026-11-25",
+      "status": "new",
+      "topic": "Capacity planning",
+      "title": "AWS IoT Core exposes quota utilization in Service Quotas",
+      "publisher": "AWS",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "New • 1 day",
+      "highlights": "AWS IoT Core now surfaces commonly used quota limits and current consumption in the Service Quotas console. The announcement covers both device messaging and resource-management APIs, including operations associated with connecting devices and publishing or subscribing to messages. Previously, customers could need AWS Support to determine utilization before hitting throttling limits. AWS says customers can also use CloudWatch usage metrics to alert on approaching limits and request increases ahead of expected fleet growth. The capability is offered without an additional charge, according to the announcement.",
+      "implications": "Analysis: Visibility into quota consumption helps fleet operators plan for growth and bursts, particularly when many devices reconnect simultaneously. Quota visibility is not the same as an automatic increase, and alarms will only be useful if thresholds account for demand variability and the time needed to obtain a higher quota.",
+      "takeaway": "Takeaway: Inventory critical API limits, create utilization alarms with appropriate headroom, and test reconnect bursts and throttling behavior.",
+      "development_summary": "AWS added IoT Core quota and utilization visibility for control-plane and data-plane APIs.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-quota-usage-monitoring/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "aws:iam:trusted-identity-propagation-federation-roles-anywhere:2026-11-25",
+      "status": "new",
+      "topic": "Identity and authorization",
+      "title": "AWS expands trusted identity propagation beyond Identity Center",
+      "publisher": "AWS",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "New • 1 day",
+      "highlights": "AWS expanded trusted identity propagation to IAM federation and IAM Roles Anywhere, alongside changes intended to simplify its use through IAM Identity Center. The feature allows supported AWS services to receive originating human or workload identity information, which can inform policy conditions and CloudTrail attribution. AWS also announced that outbound identity federation can request an AWS-signed JSON Web Token containing identity information from trusted identity propagation sessions. External services can use the token to recognize the identity associated with a request. Support is service-dependent rather than a promise that every AWS API carries identity automatically.",
+      "implications": "Analysis: Preserving identity across intermediaries can improve accountability and support more granular access decisions. Token consumers must still validate the signature, audience and claims, and service owners need to examine trust relationships and permissions carefully.",
+      "takeaway": "Takeaway: Pilot with a limited workload and verify authorization decisions, identity attribution in audit logs, token handling and failure behavior.",
+      "development_summary": "AWS extended trusted identity propagation to federation and Roles Anywhere and added related outbound JWT support.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iam/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "palo-alto:pan-os:pan-sa-2026-0015-fragnesia-fixes-exploitation:2026-11-25",
+      "status": "new",
+      "topic": "Network security maintenance",
+      "title": "Palo Alto Networks publishes PAN-OS kernel vulnerability fixes",
+      "publisher": "Palo Alto Networks",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-24 (advisory timeline)",
+      "freshness": "New • 1 day",
+      "highlights": "Palo Alto Networks published bulletin PAN-SA-2026-0015, identifying fixed PAN-OS versions for Linux kernel privilege-escalation vulnerability CVE-2026-46300. The vendor reports observed exploitation targeting devices with internet-facing management interfaces. Its FAQ says the observed exploitation depends on a separate PHP vulnerability and that restricting management access to trusted internal addresses reduces risk. The advisory lists fixed builds across multiple PAN-OS release branches. Its header gives November 25 as the publication date while the timeline records November 24 as initial publication. The bulletin is classified as informational, but includes explicit remediation guidance for exposed devices.",
+      "implications": "Analysis: Management-plane exposure is a consequential risk for security appliances, even where exploitation requires another vulnerability. The bulletin is product-specific evidence, not a statement that every Linux deployment is affected in the same way.",
+      "takeaway": "Takeaway: Check supported versions against the advisory, restrict management access to trusted networks, prioritize exposed systems for immediate upgrading and investigate possible compromise.",
+      "development_summary": "Palo Alto published PAN-OS fixed-version guidance for CVE-2026-46300 and reported observed exploitation.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://security.paloaltonetworks.com/PAN-SA-2026-0015"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "aws:iot-core:http-rule-action-dedicated-ipv6-source-ranges:2026-11-25",
+      "status": "new",
+      "topic": "Network access controls",
+      "title": "AWS IoT Core adds dedicated IPv6 ranges for HTTPS delivery",
+      "publisher": "AWS",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced that the IoT Core HTTP rule action can use published, dedicated IPv6 source address ranges when forwarding device data to HTTPS endpoints. The rule action can deliver messages to application servers, partner services or on-premises destinations. Operators can use the published ranges when defining supported firewall rules, security groups and API Gateway resource policies. This provides an additional network-layer mechanism to narrow which sources may reach an endpoint accepting IoT traffic. The feature concerns traffic from IoT Core to receiving applications, not the initial device authentication process.",
+      "implications": "Analysis: A narrower network allowlist can reduce unintended exposure but cannot distinguish individual authorized devices or tenants by itself. Operators still need application authentication, TLS validation and message-level authorization. IPv6 rules also need to be tested alongside existing IPv4 controls.",
+      "takeaway": "Takeaway: Review endpoint exposure and dual-stack policies; validate delivery and rejection behavior before applying restrictive rules in production.",
+      "development_summary": "AWS added dedicated published IPv6 source ranges for IoT Core HTTPS rule-action traffic.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-dedicated-ipv6-ranges/"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-dol:initial-claims-week-ended-2026-11-21:release-2026-11-25",
+      "status": "new",
+      "topic": "Labor market",
+      "title": "Weekly unemployment claims fall to 189,000",
+      "publisher": "U.S. Department of Labor",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-21 (week ending)",
+      "freshness": "New • 1 day",
+      "highlights": "The Labor Department's November 25 report estimates 189,000 seasonally adjusted initial unemployment insurance claims for the week ending November 21. That is 13,000 fewer than the preceding week's revised 202,000. The four-week average fell to 196,000. In a separate reference week ending November 14, the report estimates 1.697 million people receiving insured unemployment benefits on a seasonally adjusted basis, down 95,000, and an insured unemployment rate of 1.1 percent. These are advance administrative estimates subject to revision, and the claims and continuing-benefit measures refer to different weeks.",
+      "implications": "Analysis: Lower claims suggest fewer new applications for unemployment insurance in the reported week. Claims do not measure all unemployment, and holiday scheduling and week-to-week variation make a single release insufficient to establish a labor-market trend.",
+      "takeaway": "Takeaway: Compare the four-week trend with subsequent claims, payrolls and hiring data before drawing conclusions about job security or broader economic conditions.",
+      "development_summary": "The Department of Labor released initial claims of 189,000 for the week ending November 21.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://oui.doleta.gov/press/2026/112526.pdf"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "us-census-hud:october-2026-new-home-sales:701000-release:2026-11-25",
+      "status": "new",
+      "topic": "Housing market",
+      "title": "October new-home sales estimated at a 701,000 annual rate",
+      "publisher": "U.S. Census Bureau and HUD",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-10 (reference month)",
+      "freshness": "New • 1 day",
+      "highlights": "The joint November 25 report puts October new single-family home sales at a seasonally adjusted annualized rate of 701,000, against a revised September estimate of 614,000. The estimated monthly increase of 14.2 percent has a 90 percent confidence interval of plus or minus 22.6 percentage points, which includes zero. The estimated 7.5 percent year-over-year increase is also not statistically significant. Inventory was estimated at 470,000 homes, equivalent to eight months of sales at the estimated rate. The reported median sale price was $391,300. These preliminary figures may be revised.",
+      "implications": "Analysis: The higher sales point estimate is potentially encouraging, but the survey cannot establish that sales actually rose. Median prices also reflect the mix of houses sold rather than a constant-quality measure of property values.",
+      "takeaway": "Takeaway: Use local inventory, actual comparable sales and financing offers rather than assuming this single national report establishes a housing recovery.",
+      "development_summary": "Census and HUD reported preliminary October new-home sales of 701,000 annualized, with statistically uncertain sales changes.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.census.gov/construction/nrs/pdf/newressales_202610.pdf"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "freddie-mac:pmms:nov25-2026-30yr7p21-15yr6p54:2026-11-25",
+      "status": "new",
+      "topic": "Mortgage borrowing costs",
+      "title": "Freddie Mac reports 30-year mortgage average of 7.21%",
+      "publisher": "Freddie Mac",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25 (survey release)",
+      "freshness": "New • 1 day",
+      "highlights": "Freddie Mac published its pre-Thanksgiving weekly mortgage survey on November 25. The average thirty-year fixed rate was 7.21 percent, compared with 7.28 percent on November 19 and 6.23 percent a year earlier. The fifteen-year fixed average was 6.54 percent, versus 6.66 percent the previous week and 5.51 percent a year earlier. The survey focuses on conventional, conforming, fully amortizing purchase loans for borrowers with excellent credit and a 20 percent down payment. It is a new weekly observation, not a forecast of the next rate move or a lender quote available to every borrower.",
+      "implications": "Analysis: The modest weekly decline eases borrowing costs at the margin, but rates remain substantially above their year-earlier levels. Actual financing costs depend on the lender, loan characteristics, fees and borrower qualifications.",
+      "takeaway": "Takeaway: Compare written loan estimates including closing costs and points rather than making a purchase or refinance decision based solely on the national average.",
+      "development_summary": "Freddie Mac released a new weekly survey recording 7.21% for thirty-year mortgages and 6.54% for fifteen-year mortgages.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://freddiemac.gcs-web.com/news-releases/news-release-details/mortgage-rates-dip-721"
+        }
+      ]
+    }
+  ]
+}
