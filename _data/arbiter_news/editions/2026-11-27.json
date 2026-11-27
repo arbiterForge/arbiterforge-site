@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-27",
+  "title": "Arbiter News",
+  "intro": "Post-Thanksgiving briefing: recent developments in agent development, infrastructure operations, cybersecurity and international household and business economics.",
+  "overview": "AI covers skill delivery, instruction trust and speech recognition. Cloud examines mobile testing, database index guidance and PostgreSQL maintenance. Security covers Drupal, GitLab and geospatial-service patching. Money follows housing affordability, European trade and corporate sector accounts. Recent defense announcements were considered; the most relevant recent NATO communications reporting overlapped earlier coverage, and today's security selection prioritizes distinct actionable advisories.",
+  "history_note": "Public coverage.json was inaccessible to the web reader. Reconstructed its complete accessible repository backing at the observed main commit: ten legacy parts (319 records) and 34 editions from October 23 through November 26 (408 stories), totaling 727 records. Compared event and source terms against accessible records. Known gaps: September 23, October 6 and October 25; some legacy records lack source URLs. Historical coverage is not independent factual verification. Routine Opus 5.5 launch coverage is excluded. The Drupal follow-up identifies the earlier event and new remediation.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "anthropic:claude-code:v2.1.332-mcp-skills-shell-hook:2026-11-25",
+      "status": "new",
+      "topic": "Agent extensibility",
+      "title": "Claude Code adds MCP-delivered skills and a shell-command approval hook",
+      "publisher": "Anthropic",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "New • 2 days",
+      "highlights": "Claude Code 2.1.332 introduces beta support for skills supplied by MCP servers. These skills appear with a server-qualified name in the command menu. A new PreSkillShellCommand hook lets administrators decline inline shell commands before a skill or command loads. The release also adds an OpenTelemetry response event for supported cross-session messaging when response logging is enabled, and fixes several hangs involving hooks, local MCP servers and interrupted event streams. The release notes warn that older versions react differently to the new hook setting.",
+      "implications": "Analysis: Remote skills expand the extension surface while making the provenance of instructions and permissions more important. The new hook is one enforcement point, not a substitute for isolating untrusted tools or reviewing server configuration.",
+      "takeaway": "Takeaway: Test MCP skills in an isolated workspace, validate hook decisions and verify compatibility across installed client versions before distributing a shared configuration.",
+      "development_summary": "Claude Code 2.1.332 added beta MCP skills and PreSkillShellCommand enforcement.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.332"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "pydantic-ai:v2.75.0:workspace-instruction-authority-fallback-errors:2026-11-25",
+      "status": "new",
+      "topic": "Agent instruction trust",
+      "title": "Pydantic AI changes how lower-trust workspace instructions reach agents",
+      "publisher": "Pydantic AI",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "New • 2 days",
+      "highlights": "Pydantic AI 2.75.0 changes the handling of workspace files assigned less than operator authority. RepoContext, Skills and Memory no longer automatically promote such files into trusted instructions; they are surfaced through framed data or appropriate reading and loading tools. The release also distinguishes empty and invalid model responses through dedicated exceptions that participate in default model fallback. Durable executions record additional workspace path-resolution operations, so the maintainers advise completing existing runs or using the applicable worker-versioning mechanism before upgrading.",
+      "implications": "Analysis: Separating workspace data from operator instructions helps reduce inadvertent privilege escalation through repository content. The changes also alter fallback and replay behavior, which may affect existing applications even when their normal prompts appear unchanged.",
+      "takeaway": "Takeaway: Exercise lower-trust skills, malicious test fixtures, fallback errors and durable-run migration in staging; verify custom exception handlers before upgrading.",
+      "development_summary": "Pydantic AI 2.75.0 revised workspace instruction authority and default fallback handling.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.75.0"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "aws:transcribe-turbo:public-preview-semantic-turn-taking-runtime-hints:2026-11-25",
+      "status": "new",
+      "topic": "Voice agent infrastructure",
+      "title": "AWS previews Transcribe Turbo with context-aware voice turn detection",
+      "publisher": "AWS",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "New • 2 days",
+      "highlights": "AWS announced a public preview of its next-generation speech recognition model for streaming and batch use, with streaming preview in US East (Ohio). Its streaming voice-agent features include semantic turn detection using speech content and prosody, plus per-turn recognition hints. These features initially support English, with broader language support planned by the end of December. AWS reports improved word error rates and menu-routing accuracy on its own evaluations; its stated turn-detection measurements are about 615 milliseconds and a five percent interruption rate. English batch Turbo is already generally available in most regions, unlike the new streaming preview.",
+      "implications": "Analysis: More responsive recognition could make conversational applications less dependent on fixed silence thresholds. Vendor evaluation results may not generalize to noisy environments, unusual accents or a particular application's vocabulary.",
+      "takeaway": "Takeaway: Benchmark interruptions, short answers, multilingual recognition, latency and privacy controls on representative audio before adopting the preview.",
+      "development_summary": "AWS announced a Transcribe Turbo preview with semantic turn detection and per-turn hints.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:device-farm:android-emulators-ios-simulators:2026-11-25",
+      "status": "new",
+      "topic": "Mobile CI/CD",
+      "title": "AWS Device Farm adds virtual Android and iOS test devices",
+      "publisher": "AWS",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "New • 2 days",
+      "highlights": "Device Farm now offers Android emulators and iOS simulators alongside physical devices for manual and automated application tests. AWS says teams can select virtual devices through the existing service interfaces and use the same test frameworks and private endpoint access. Virtual devices typically initialize within seconds or roughly a minute, depending on the device and operating system. They use existing metered pricing, and Android unmetered slots can be used for either physical or virtual devices. AWS describes virtual devices as suitable for early pipeline testing while physical devices remain useful for release validation.",
+      "implications": "Analysis: A shared orchestration interface could reduce separate simulator infrastructure and make testing earlier in development more practical. Virtual-device success does not establish behavior on physical radios, sensors, hardware or vendor-specific implementations.",
+      "takeaway": "Takeaway: Create separate fast-feedback and physical-device test stages, measure startup and queue times, and retain hardware-based regression coverage for critical features.",
+      "development_summary": "AWS Device Farm added Android emulators and iOS simulators to its testing service.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/device-farm-virtual-devices/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "cloudflare:d1-insights:index-recommendations:2026-11-25",
+      "status": "new",
+      "topic": "Database operations",
+      "title": "Cloudflare D1 Insights recommends database indexes",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "New • 2 days",
+      "highlights": "Cloudflare added index recommendations to D1 Insights. Recommendations include a proposed SQL index statement, the queries that may benefit from the index and associated usage metrics. Operators can enable or disable recommendations through the dashboard, CLI or API, and can view them on a database's metrics screen. The announcement describes recommendations rather than automatic application of database changes. This gives operators another way to examine frequently executed queries without relying exclusively on manual inspection of query plans or application traces.",
+      "implications": "Analysis: Index recommendations may help identify avoidable scans, but extra indexes add storage and write overhead. Their suitability depends on the actual workload, query distribution and schema constraints; a recommendation is not a guaranteed performance improvement.",
+      "takeaway": "Takeaway: Review the affected queries, compare execution plans and measured read/write costs, then apply reviewed migrations and monitor performance after rollout.",
+      "development_summary": "D1 Insights introduced query-usage-based index recommendations.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-25-d1-index-recommendations/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:rds-postgresql:minor-18p7-17p12-16p16-15p20-14p25:2026-11-26",
+      "status": "new",
+      "topic": "Managed database maintenance",
+      "title": "AWS RDS expands supported PostgreSQL minor releases",
+      "publisher": "AWS",
+      "publication_date": "2026-11-26",
+      "event_date": "2026-11-26",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced support for PostgreSQL minor versions 18.7, 17.12, 16.16, 15.20 and 14.25 on Amazon RDS. The provider recommends upgrading to the latest minor versions to incorporate upstream vulnerability fixes, bug corrections and other improvements. The announcement concerns updates within existing PostgreSQL major-version families rather than a migration to a new database engine. Availability of the versions is not a claim that every customer instance has already been upgraded. Database owners should distinguish the provider's release announcement from the maintenance settings and actual version of each deployed instance.",
+      "implications": "Analysis: Managed database patch availability reduces one part of the maintenance burden, but applications still need compatibility testing and an appropriate maintenance plan. A current version inventory is essential to establish which workloads need attention.",
+      "takeaway": "Takeaway: Check actual instance versions, review relevant release notes, validate backups and test the minor upgrade on representative nonproduction databases before scheduling production maintenance.",
+      "development_summary": "AWS announced availability of five newer PostgreSQL minor versions on RDS.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-postgresql-18-7-17-12-16-16-15-20-14-25/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "drupal:core:cve-2026-136716:installer-followup-active-exploitation:2026-11-25",
+      "status": "material-update",
+      "topic": "Web application security",
+      "title": "Drupal issues follow-up fix for exploited installer access bypass",
+      "publisher": "Drupal Security Team",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "Material update • 2 days",
+      "highlights": "Drupal published SA-CORE-2026-019 for CVE-2026-136716, a highly critical access bypass. The security team says certain sites in incomplete or unusual installation states remain at risk following an earlier installer advisory and reports exploitation in the wild. The vendor identifies corrected releases 10.6.23, 11.3.23 and 11.4.14. It also instructs administrators to run the database update operation, secure access to the installer and check logs for unexpected privileged-account activity. The security team cautions that compromised sites might not visibly remain in the vulnerable state.",
+      "implications": "Analysis: A patch alone may not establish that a previously exposed site is trustworthy. Organizations must address the installation state and assess whether unauthorized changes occurred before remediation. Prior installer patching does not automatically resolve this newly disclosed issue.",
+      "takeaway": "Takeaway: Upgrade supported Drupal branches promptly, follow the vendor's post-update instructions, restrict installer access and investigate indicators of unauthorized activity.",
+      "development_summary": "Drupal disclosed active exploitation of a follow-up installer access bypass and published new fixes.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.drupal.org/sa-core-2026-019"
+        },
+        {
+          "label": "Supporting source",
+          "url": "https://www.cyber.gc.ca/en/alerts-advisories/drupal-security-advisory-av26-1209"
+        }
+      ],
+      "updates_event_key": "drupal:core:cve-2026-132165:patch-and-live-exploitation-report:2026-11-18",
+      "change_summary": "The November 18 coverage concerned the earlier Drupal core flaw. On November 25 the security team disclosed CVE-2026-136716, a follow-up installer vulnerability affecting certain sites even after earlier remediation, with new fixed builds and an additional update requirement."
+    },
+    {
+      "category": "security",
+      "event_key": "gitlab:ce-ee:nov25-security-patch-release-19p6p2:2026-11-25",
+      "status": "new",
+      "topic": "Software supply chain security",
+      "title": "GitLab publishes security updates across supported and older release lines",
+      "publisher": "GitLab",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "New • 2 days",
+      "highlights": "GitLab published security and bug fixes on November 25, including releases 19.6.2, 19.5.9 and 19.4.11. Its advisory describes additional dependency fixes across older release lines, including updates to GPGME and other bundled software. The security fixes cover authorization, information exposure and request validation issues, including merge-request approval behavior and MCP OAuth request validation. GitLab recommends immediate upgrades for affected self-managed installations; GitLab.com was already patched at announcement time and GitLab Dedicated customers were told no action was necessary. The Canadian Centre for Cyber Security also published version-specific guidance.",
+      "implications": "Analysis: A source-control platform is a high-value trust boundary for repositories, CI credentials and approvals. Vulnerability severity should be considered alongside the installation's exposure and enabled features. Dependency backports are not a promise of indefinite support for older releases.",
+      "takeaway": "Takeaway: Inventory self-managed deployments, consult the version-specific advisory, test and apply updates, and review critical approval and authentication workflows afterward.",
+      "development_summary": "GitLab released a security patch bundle covering authorization, request validation and dependency issues.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-6-2-released/"
+        },
+        {
+          "label": "Supporting source",
+          "url": "https://www.cyber.gc.ca/en/alerts-advisories/gitlab-security-advisory-av26-1210"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "geoserver:nov2026:cve-2026-120705-129243-fixes-exploitation:2026-11-25",
+      "status": "new",
+      "topic": "Geospatial service security",
+      "title": "Canadian Cyber Centre warns of exploited GeoServer vulnerabilities",
+      "publisher": "Canadian Centre for Cyber Security",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-23",
+      "freshness": "New • 2 days",
+      "highlights": "The Canadian Centre for Cyber Security issued advisory AV26-1207 on November 25, following the GeoServer project's November 23 security update. It identifies affected versions before 2.27.7, 2.28.6 and 3.0.2 and cites public reporting that CVE-2026-120705 and CVE-2026-129243 are being exploited. The agency urges administrators to apply relevant updates. GeoServer is commonly used to expose and distribute geospatial information; operators should assess both public-facing deployments and internal services integrated with other mapping systems. The agency attributes the exploitation information to open-source reporting rather than claiming its own incident observation.",
+      "implications": "Analysis: Geospatial services can sit at the boundary between public data distribution and sensitive operational datasets. Existing network restrictions and authentication should be checked rather than assumed effective against every software vulnerability.",
+      "takeaway": "Takeaway: Identify exposed GeoServer instances, consult the project's update guidance, patch affected versions and review logs and data-access controls for unusual activity.",
+      "development_summary": "The Canadian Cyber Centre warned of reported exploitation of two GeoServer vulnerabilities and cited fixed version thresholds.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.cyber.gc.ca/en/alerts-advisories/geoserver-security-advisory-av26-1207"
+        },
+        {
+          "label": "Supporting source",
+          "url": "https://geoserver.org/vulnerability/2026/11/23/cve-update.html"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "eurostat:housing-in-europe-2026:2025-housing-costs-ownership:2026-11-26",
+      "status": "new",
+      "topic": "Household affordability",
+      "title": "Eurostat reports housing absorbed 19% of EU household disposable income",
+      "publisher": "Eurostat",
+      "publication_date": "2026-11-26",
+      "event_date": "2025 (reference year)",
+      "freshness": "New • 1 day",
+      "highlights": "Eurostat released its 2026 Housing in Europe publication on November 26, reporting that households in the EU allocated an average of 19 percent of disposable income to housing in 2025. The reported national shares varied considerably, from 11 percent in Cyprus to 35 percent in Greece. Eurostat also reported that 68 percent of Europeans owned their homes, with the homeownership measure ranging from 47 percent in Germany to 94 percent in Slovakia. The accompanying publication includes information on housing conditions, prices, construction and affordability. These figures describe the prior year, not a measurement of November 2026 housing costs.",
+      "implications": "Analysis: National averages can hide substantial differences among renters, owners and households at different income levels. International comparisons also reflect varying housing markets and institutional arrangements, and should not be applied directly to a household elsewhere.",
+      "takeaway": "Takeaway: Use the detailed country and household measures for comparisons; assess personal affordability using actual income, recurring housing expenses and local market conditions.",
+      "development_summary": "Eurostat released its 2026 housing publication with 2025 household housing costs and ownership figures.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://ec.europa.eu/eurostat/web/products-eurostat-news/w/wdn-20261126-1"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "eurostat:extra-eu-trade:q3-2026-china-deficit-partner-breakdown:2026-11-26",
+      "status": "new",
+      "topic": "International trade",
+      "title": "EU goods deficit grows as imports from China outpace exports",
+      "publisher": "Eurostat",
+      "publication_date": "2026-11-26",
+      "event_date": "2026-Q3",
+      "freshness": "New • 1 day",
+      "highlights": "Eurostat's November 26 trade release reports that EU goods imports from non-EU countries reached 730 billion euros in the third quarter of 2026, while exports totaled 694 billion euros. Compared with the same quarter a year earlier, imports grew 15.7 percent and exports 7 percent. China accounted for 163 billion euros of imports and 49.1 billion euros of exports. The United States was the EU's largest export destination, receiving 137 billion euros in goods. Eurostat attributes part of the shift from a surplus a year earlier to a deficit to growing trade imbalances with China and Norway.",
+      "implications": "Analysis: The merchandise balance reveals changing trade flows but does not alone measure economic welfare, total external balances or corporate profitability. Energy costs, product composition, exchange rates and demand may influence the reported nominal values.",
+      "takeaway": "Takeaway: Monitor subsequent trade releases alongside services balances, volume measures and sector-level data before drawing conclusions about supply chains or investment exposure.",
+      "development_summary": "Eurostat released third-quarter 2026 goods trade by partner, showing a widening deficit with China.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/ddn-20261126-1"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "eurostat:nonfinancial-corporations:2025-profit-share-39p8:2026-11-24",
+      "status": "new",
+      "topic": "Corporate sector accounts",
+      "title": "EU nonfinancial corporate profit share falls for fourth consecutive year",
+      "publisher": "Eurostat",
+      "publication_date": "2026-11-24",
+      "event_date": "2025 (reference year)",
+      "freshness": "New • 3 days",
+      "highlights": "Eurostat published new annual corporate-sector figures on November 24 showing a 39.8 percent profit share for EU nonfinancial corporations in 2025. The release describes a fourth successive annual decline after a 42 percent share in 2021. The indicator measures gross operating surplus relative to gross value added, rather than a company's net income or listed-equity returns. Eurostat reports considerable national variation, including 74.9 percent in Ireland and 32.2 percent in France. It attributes the unusually high Irish share in part to the presence of capital-intensive multinational companies. These are annual institutional-sector statistics, not current quarterly earnings reports.",
+      "implications": "Analysis: The series may illuminate shifts between labor compensation and capital income, but differences in economic structure complicate cross-country comparisons. A falling aggregate profit share does not necessarily imply that every company is less profitable or that share prices must decline.",
+      "takeaway": "Takeaway: Compare the annual sector accounts with business investment, productivity and company-specific earnings before using the trend in an investment or economic assessment.",
+      "development_summary": "Eurostat reported the 2025 EU nonfinancial corporate profit share at 39.8 percent, its fourth consecutive annual decline.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/ddn-20261124-3"
+        }
+      ]
+    }
+  ]
+}
