@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-28",
+  "title": "Arbiter News",
+  "intro": "Saturday briefing on agent runtimes, cloud operations, security remediation, defense experimentation and household and international economics.",
+  "overview": "AI follows OpenCode, Pydantic AI and agent-oriented search. Cloud covers telemetry enrichment, private storage authentication and edge traffic rules. Security covers communications-system fixes, formal exploited-vulnerability listing and Army experimentation plans. Money examines Canadian international payments, Japanese central-bank commentary and EU household investment. The US holiday period prompted widening the research window to include substantive uncovered items from November 23–25.",
+  "history_note": "Public coverage.json could not be opened by the web reader. Its repository template and accessible backing data were retrieved at main commit 0b1de609: ten legacy parts (319 records) and 35 editions from October 23 to November 27 (420 stories), 739 records total. Compared candidate event keys, subject terms and source URLs against the accessible history, including the immediately preceding five editions. Known gaps: September 23, October 6 and October 25; some legacy records lack URLs. Historical coverage is not independent factual verification. Opus 5.5 launch coverage excluded. Pydantic AI and GeoServer are explicitly identified as material updates.",
+  "stories": [
+    {
+      "category": "ai",
+      "event_key": "opencode:v2.4.2:site-scoped-fetch-and-automation-reliability:2026-11-26",
+      "status": "new",
+      "topic": "Coding agents",
+      "title": "OpenCode narrows web-fetch approvals and changes automation failure handling",
+      "publisher": "OpenCode",
+      "publication_date": "2026-11-26",
+      "event_date": "2026-11-26",
+      "freshness": "New • 2 days",
+      "highlights": "OpenCode 2.4.2 changes newly granted persistent web-fetch permission to apply to the approved site rather than every URL. Existing approvals are not migrated. Scheduled automations now record individual failures and continue on the next scheduled run, subject to validity of their session and working directory. Commands exceeding their timeout are stopped rather than left running in the background. The release also introduces a system prompt tailored to GPT-6.2 and corrects an issue with MCP server login URLs containing query parameters.",
+      "implications": "Analysis: The changes affect both least-privilege configuration and unattended reliability. Older saved approvals may remain broader than operators expect, and continuing after failures makes independent health monitoring important.",
+      "takeaway": "Takeaway: Audit existing web permissions, test timeout and retry behavior, and verify scheduled work actually produces its intended outputs.",
+      "development_summary": "OpenCode 2.4.2 introduced site-scoped new approvals and changed scheduled failure handling.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.2"
+        }
+      ]
+    },
+    {
+      "category": "ai",
+      "event_key": "pydantic-ai:v2.77.0:compaction-and-subagent-authority:2026-11-27",
+      "status": "material-update",
+      "topic": "Agent harnesses",
+      "title": "Pydantic AI adds explicit context compaction and tighter subagent authority",
+      "publisher": "Pydantic AI",
+      "publication_date": "2026-11-27",
+      "event_date": "2026-11-27",
+      "freshness": "Update • 1 day",
+      "highlights": "Pydantic AI 2.77.0 introduces a compaction capability hook, a way for an agent run to request compaction, and start and end events for observing that process. It also changes the handling of subagent definitions on disk: definitions below operator authority are skipped, and delegated working directories cannot acquire greater authority than the parent permits. Existing durable runs using agent folders require care because the release records additional path-resolution operations. The framework also introduces database-backed conversation storage options and changes how incomplete streaming responses are reported.",
+      "implications": "Analysis: These are distinct changes to runtime observability and delegated trust boundaries. Applications that assume a fixed event union or implicitly trust neighboring repositories may behave differently after upgrading.",
+      "takeaway": "Takeaway: Test compaction failures, delegated workspaces and durable replay before deploying; explicitly authorize only the directories required by a subagent.",
+      "development_summary": "Version 2.77 adds compaction lifecycle controls and extends workspace authority to subagent definitions.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.77.0"
+        }
+      ],
+      "updates_event_key": "pydantic-ai:v2.75.0:workspace-instruction-authority-fallback-errors:2026-11-25",
+      "change_summary": "On November 27, version 2.77 added subagent-specific authority checks and delegated path restrictions beyond the version 2.75 instruction handling covered November 27."
+    },
+    {
+      "category": "ai",
+      "event_key": "cloudflare:ai-search:search-for-agents-beta:2026-11-25",
+      "status": "new",
+      "topic": "Agent discovery",
+      "title": "Cloudflare previews a website search endpoint designed for agents",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-25",
+      "event_date": "2026-11-25",
+      "freshness": "New • 3 days",
+      "highlights": "Cloudflare introduced Search for Agents, a beta feature that provisions an AI Search instance for a website and begins indexing content when enabled. It adds discovery information to HTML and eligible Markdown responses so software agents can locate the search interface. The endpoint accepts keyword or natural-language requests using GET or QUERY and returns relevant Markdown passages rather than producing an answer with a language model. Cloudflare says the feature is offered across plans, with existing AI Search usage limits and pricing applying.",
+      "implications": "Analysis: This could make a publisher's own search interface easier for agents to discover and reduce custom integration work. The completeness and freshness of indexing, retrieval quality and cost remain important operational questions.",
+      "takeaway": "Takeaway: Test a representative set of queries, check which content is exposed, and review indexing and usage settings before enabling it for a production domain.",
+      "development_summary": "Cloudflare introduced discoverable website retrieval endpoints returning Markdown.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-25-search-for-agents/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "aws:cloudwatch:basic-otel-enrichment:2026-11-27",
+      "status": "new",
+      "topic": "Observability",
+      "title": "CloudWatch introduces no-extra-charge basic OpenTelemetry enrichment",
+      "publisher": "AWS",
+      "publication_date": "2026-11-27",
+      "event_date": "2026-11-27",
+      "freshness": "New • 1 day",
+      "highlights": "AWS announced a basic enrichment option that converts eligible AWS service metrics into OpenTelemetry data points for PromQL queries. Resource-identifying metrics receive attributes for the resource ARN, provider, region and account, as well as the source service's instrumentation scope. Existing metric dimensions become data-point attributes. The provider says the basic enrichment itself incurs no extra charge; the separate resource-tag enrichment option remains billable. Existing CloudWatch APIs continue to provide the original service metrics. The basic option is enabled by default when configuring CloudWatch Omni.",
+      "implications": "Analysis: Normalized metrics may make cross-service queries easier, but the feature does not make all observability storage, queries or other enrichment free. Dashboards may need different label handling.",
+      "takeaway": "Takeaway: Compare a small set of PromQL queries with existing dashboards, check regional support, and estimate costs before enabling paid tag enrichment.",
+      "development_summary": "AWS introduced basic OTel enrichment for resource-identifying service metrics.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-opentelemetry-enrichment/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "cloudflare:rules:storage-request-signing:2026-11-27",
+      "status": "new",
+      "topic": "Storage integration",
+      "title": "Cloudflare Rules can sign requests to private object storage",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-27",
+      "event_date": "2026-11-27",
+      "freshness": "New • 1 day",
+      "highlights": "Cloudflare expanded its Rules expression language with keyed digest functions, signature-version-four signing support and UTC date formatting. The additions allow request-header transformations to authenticate reads against private Amazon S3 and Google Cloud Storage origins. The operator must still assemble the canonical request and signing input correctly. Signing functions are available on Pro, Business and Enterprise plans; date formatting has broader plan availability. The announcement describes primitives that can be used in rules, rather than a fully managed identity federation service.",
+      "implications": "Analysis: Edge-side signing can reduce the need for a separate request-signing application for some origin patterns. Credential management, canonicalization errors and accidental exposure of private content remain design considerations.",
+      "takeaway": "Takeaway: Use tightly scoped storage credentials, validate authorization failures and cache behavior, and plan rotation before deploying a private-bucket integration.",
+      "development_summary": "Cloudflare added HMAC, SigV4 and timestamp expression functions for origin authentication.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-27-sigv4-hmac-date-functions/"
+        }
+      ]
+    },
+    {
+      "category": "cloud",
+      "event_key": "cloudflare:rules:ip-asn-response-filters:2026-11-27",
+      "status": "new",
+      "topic": "Edge traffic management",
+      "title": "Cloudflare extends reusable network lists to response-side rules",
+      "publisher": "Cloudflare",
+      "publication_date": "2026-11-27",
+      "event_date": "2026-11-27",
+      "freshness": "New • 1 day",
+      "highlights": "Cloudflare now supports custom IP address and autonomous system number lists in response-side rule filters, including response header transformations and rate-limit response-counting expressions. The provider also documents their use across customer-managed CDN filters such as redirect, cache and request-header transformation rules. This expands where a shared list can be referenced rather than introducing a different network grouping system. The release does not change list quotas, plan eligibility or support for dynamic action values. Autonomous system lists remain restricted to Enterprise customers.",
+      "implications": "Analysis: Shared lists can reduce inconsistent policy definitions across traffic-processing phases. Because one list may influence multiple rules, an erroneous list change may have wider consequences than a single-rule edit.",
+      "takeaway": "Takeaway: Inventory consumers of shared lists, review changes as policy changes, and test response and request phases separately before production rollout.",
+      "development_summary": "Cloudflare expanded custom IP and ASN list references to response-side rule filters.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://developers.cloudflare.com/changelog/post/2026-11-27-ip-asn-lists-cdn-phases/"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "canada-cyber-centre:mitel:av26-1212:2026-11-27",
+      "status": "new",
+      "topic": "Communications security",
+      "title": "Canadian Cyber Centre flags critical Mitel communications-platform vulnerabilities",
+      "publisher": "Canadian Centre for Cyber Security",
+      "publication_date": "2026-11-27",
+      "event_date": "2026-11-27",
+      "freshness": "New • 1 day",
+      "highlights": "Canada's Cyber Centre issued AV26-1212 on November 27, directing administrators to update OpenScape 4000 and its manager to V11 R2.14 or later. Mitel's underlying November 18 advisory describes three critical issues involving authentication and command handling, with two carrying a vendor-assigned CVSS 3.1 score of 10.0. Mitel documents alternative patches for certain supported earlier versions and a restricted-access workaround when updating promptly is not possible. The cited notices do not establish active exploitation. The newly issued government advisory is the dated development.",
+      "implications": "Analysis: Communications infrastructure can support essential business functions, making both exposure reduction and continuity planning important. Older installations may require vendor assistance and a more complex upgrade path.",
+      "takeaway": "Takeaway: Inventory affected systems, confirm exact versions and applicable fixes with the vendor, and schedule remediation with a tested communications fallback.",
+      "development_summary": "Canada issued a new advisory on affected Mitel communications products.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.cyber.gc.ca/en/alerts-advisories/mitel-security-advisory-av26-1212"
+        },
+        {
+          "label": "Supporting original source",
+          "url": "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0013"
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "event_key": "cisa:geoserver:kev-addition-2026-120705-129243:2026-11-27",
+      "status": "material-update",
+      "topic": "Vulnerability prioritization",
+      "title": "GeoServer flaws receive formal CISA exploited-vulnerability listing",
+      "publisher": "Canadian Centre for Cyber Security",
+      "publication_date": "2026-11-27",
+      "event_date": "2026-11-27",
+      "freshness": "Update • 1 day",
+      "highlights": "Canada's Cyber Centre updated its GeoServer advisory on November 27 to report that CISA added CVE-2026-120705 and CVE-2026-129243 to the Known Exploited Vulnerabilities catalog on that date. The original November 25 notice had already cited reports of real-world exploitation. It continues to identify affected releases before 2.27.7, 2.28.6 and 3.0.2 in their respective branches and encourages installing available fixes. The catalog addition is the new development, not a new vulnerability disclosure or a new patch release.",
+      "implications": "Analysis: Formal catalog inclusion gives organizations that use KEV as a prioritization input additional grounds to escalate remediation. It does not establish that any particular deployment has been compromised.",
+      "takeaway": "Takeaway: Recheck affected geospatial-service inventories, verify patched versions, and review relevant incident evidence and remediation obligations under organizational policy.",
+      "development_summary": "The November 27 advisory update records CISA KEV additions for two previously covered GeoServer flaws.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.cyber.gc.ca/en/alerts-advisories/geoserver-security-advisory-av26-1207"
+        }
+      ],
+      "updates_event_key": "geoserver:nov2026:cve-2026-120705-129243-fixes-exploitation:2026-11-25",
+      "change_summary": "On November 27, CISA formally added both CVEs to KEV; the November 25 advisory covered exploitation reports and fixes but not that listing."
+    },
+    {
+      "category": "security",
+      "event_key": "us-army:setaf-af:connected-campaign-2027-experimentation:2026-11-23",
+      "status": "new",
+      "topic": "Defense modernization",
+      "title": "Army outlines year-round experimentation plans for African partner exercises",
+      "publisher": "U.S. Army",
+      "publication_date": "2026-11-23",
+      "event_date": "2026-11-23",
+      "freshness": "New • 5 days",
+      "highlights": "The Army's Southern European Task Force, Africa described plans to connect its exercise program with ongoing capability experimentation and partner readiness. The published account identifies logistics, resilient power, autonomous-system integration and protection of forces as areas of interest for future exercises. It presents the upcoming 2027 African Lion exercise and related experimentation as opportunities to evaluate technologies and incorporate feedback rather than as evidence that new systems are already operational. The command describes combining structured assessment with ideas generated by service members and working with partner forces.",
+      "implications": "Analysis: Connecting experimentation with recurring exercises may improve the relevance of technology evaluation and reveal interoperability or sustainment problems earlier. Future plans should not be mistaken for completed evaluations or procurement commitments.",
+      "takeaway": "Takeaway: Watch for published evaluation results and acquisition announcements, especially evidence of logistics resilience, interoperability and maintainability.",
+      "development_summary": "Army described its connected 2027 partner exercise and experimentation approach.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.army.mil/article/296991/setaf_af_will_build_readiness_test_capabilities_for_how_the_army_fights_through_connected_campaign_in_africa"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "statcan:balance-of-payments:q3-2026:2026-11-27",
+      "status": "new",
+      "topic": "International economics",
+      "title": "Canada's current-account surplus narrows to C$4.5 billion",
+      "publisher": "Statistics Canada",
+      "publication_date": "2026-11-27",
+      "event_date": "2026-11-27",
+      "freshness": "New • 1 day",
+      "highlights": "Statistics Canada reported that the seasonally adjusted current-account surplus fell from C$6.1 billion in the second quarter of 2026 to C$4.5 billion in the third quarter. The goods surplus remained near C$10.7 billion, while the deficits on services and investment income grew. Imports of electrical and electronic equipment have increased by more than C$5 billion since the start of the year, which the agency attributes largely to data-center demand. The release also describes net inflows through direct and portfolio investment in the financial account.",
+      "implications": "Analysis: A smaller current-account surplus can coexist with substantial capital inflows and investment in technology infrastructure. The aggregate figures do not by themselves predict exchange rates, stock performance or future trade policy.",
+      "takeaway": "Takeaway: Monitor subsequent trade and income releases alongside investment flows rather than treating one quarterly balance as a standalone market signal.",
+      "development_summary": "Statistics Canada published third-quarter 2026 international payments balances.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/261127/dq261127a-eng.htm"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "boj:kamiyama:digital-money-payments-keynote:2026-11-27",
+      "status": "new",
+      "topic": "Financial infrastructure",
+      "title": "Bank of Japan executive calls for trust and safeguards in tokenized finance",
+      "publisher": "Bank of Japan",
+      "publication_date": "2026-11-27",
+      "event_date": "2026-11-27",
+      "freshness": "New • 1 day",
+      "highlights": "In a November 27 keynote at an IMF seminar, Bank of Japan executive director Kazushige Kamiyama discussed how stablecoins, tokenized bank deposits and programmable financial transactions may coexist. He argued that central bank money should continue anchoring trust, while pointing to potential improvements in cross-border settlement and reconciliation. He also identified financial stability and liquidity fragmentation as challenges and discussed the possibility that AI agents could increasingly act on behalf of households and firms. The speech is a policy perspective, not an announcement of a new binding regulation or interest-rate decision.",
+      "implications": "Analysis: Automated financial settlement could create convenience and new operational dependencies at the same time. Differences in redemption rights, settlement mechanisms and legal protections may matter more than the technology's branding.",
+      "takeaway": "Takeaway: For digital payment products, examine redemption terms, regulatory status and safeguards rather than assuming that every tokenized balance is equivalent to a bank deposit.",
+      "development_summary": "A BOJ keynote set out opportunities and risks of tokenized finance and AI.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://www.boj.or.jp/en/about/press/koen_2026/ko261127a.htm"
+        },
+        {
+          "label": "Supporting original source",
+          "url": "https://www.boj.or.jp/en/about/press/koen_2026/data/ko261127a.pdf"
+        }
+      ]
+    },
+    {
+      "category": "money",
+      "event_key": "eurostat:household-investment-rate:2025-release:2026-11-24",
+      "status": "new",
+      "topic": "Household economics",
+      "title": "EU household investment rate falls to 8.1% of disposable income",
+      "publisher": "Eurostat",
+      "publication_date": "2026-11-24",
+      "event_date": "2026-11-24",
+      "freshness": "New • 4 days",
+      "highlights": "Eurostat reported that the EU household investment rate was 8.1% of gross disposable income in 2025, down from 8.2% in 2024 and the lowest since 2015. The published breakdown shows substantial variation across countries: Cyprus recorded 15.3%, while Sweden recorded 4.7%. In this national-accounts measure, investment mainly represents acquisition or renovation of dwellings and can include investment by unincorporated businesses. Financial investments, household bills and purchases of consumer durables are not included. The figures refer to 2025, not current-month household activity.",
+      "implications": "Analysis: The release provides a measure of housing-related capital formation rather than a gauge of stock-market participation or total household savings. Differences between national housing markets and institutional arrangements complicate comparisons.",
+      "takeaway": "Takeaway: Keep housing investment, housing operating costs and financial savings separate when interpreting household economic data or planning a budget.",
+      "development_summary": "Eurostat released the 2025 household investment rate and national breakdown.",
+      "sources": [
+        {
+          "label": "Original source",
+          "url": "https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20261124-1"
+        }
+      ]
+    }
+  ]
+}
